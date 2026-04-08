@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html class="light" lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy"
+  content="default-src 'self';
+         script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net;
+         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net;
+         font-src 'self' https://fonts.gstatic.com;
+         img-src 'self' https://lh3.googleusercontent.com data:;
+         connect-src 'self';
+         frame-src https://www.google.com https://www.openstreetmap.org;
+         frame-ancestors 'none';">
+<title>The Pinnacle | Landmark Realty</title>
+<meta name="description" content="The Pinnacle — cel mai înalt turn din Landmark Central. Apartamente de lux cu 1 și 2 dormitoare cu vederi panoramice.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="en" href="/projects">
+<link rel="alternate" hreflang="ro" href="/ro/projects">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#004225",
+          "on-primary": "#ffffff",
+          "primary-container": "#005a33",
+          "secondary": "#5f5e5e",
+          "background": "#ffffff",
+          "surface": "#ffffff",
+          "outline": "#7f7668",
+          "outline-variant": "#d1c5b5",
+          "on-background": "#1b1c1c",
+          "on-surface": "#1b1c1c",
+          "landmark-green": "#004225",
+          "landmark-gold": "#b59458",
+          "bronze": "#745b28"
+        },
+        fontFamily: {
+          "headline": ["Roboto", "sans-serif"],
+          "serif": ["Roboto", "sans-serif"],
+          "body": ["Roboto", "sans-serif"],
+          "label": ["Roboto", "sans-serif"]
+        },
+        borderRadius: {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+  }
+  .text-serif { font-family: 'Lato', sans-serif; }
+  .font-serif { font-family: 'Lato', sans-serif; }
+  .thin-border { border-width: 0.5px; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -4px;
+    left: 0;
+    background-color: #ffffff;
+    transition: width 0.3s ease;
+  }
+  .nav-link:hover::after { width: 100%; }
+  .skip-link {
+    position: absolute; top: 0; left: 0;
+    padding: 0.75rem 1.5rem;
+    background: #004225; color: white;
+    font-weight: 600; z-index: 9999;
+    transform: translateY(-100%);
+    transition: transform 0.2s ease;
+  }
+  .skip-link:focus { transform: translateY(0); }
+  body, body * {
+    font-synthesis: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  :focus-visible {
+    outline: 2px solid #b59458;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+</style>
+</head>
+<body class="bg-white text-on-background font-body selection:bg-primary/10 overflow-x-hidden">
+
+<a class="skip-link" href="#main-content">Sari la conținutul principal</a>
+
+<!-- Header — same as homepage -->
+<header>
+<nav class="absolute top-0 w-full z-50 bg-black/10 backdrop-blur-[2px] text-white border-b border-white/5" aria-label="Principal">
+<div class="flex justify-between items-center px-4 lg:px-12 h-[75px] w-full max-w-[1920px] mx-auto">
+<div class="hidden lg:flex gap-8 items-center font-medium tracking-[0.12em] text-[13px] uppercase">
+<a class="nav-link" href="/ro/about">Despre</a>
+<a class="nav-link" href="/ro/projects">Comunități</a>
+<a class="nav-link" href="/ro/projects">Proprietăți</a>
+</div>
+<a href="/ro/" class="absolute left-1/2 -translate-x-1/2 flex items-center no-underline">
+<img src="/logo/landmarklogo-white.svg" alt="Landmark Realty" style="width: 80px; height: auto;">
+</a>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex gap-6 items-center font-medium tracking-[0.12em] text-[13px] uppercase">
+<a class="nav-link" href="#">Centru Media</a>
+<a class="nav-link" href="#">Cariere</a>
+<a class="nav-link" href="/ro/contact">Contactați-ne</a>
+</div>
+<div class="flex items-center gap-4 border-l border-white/20 pl-6">
+<button class="material-symbols-outlined text-[18px]" aria-label="Favorite">favorite</button>
+<button class="material-symbols-outlined text-[18px]" aria-label="Căutare">search</button>
+<div class="lang-switcher relative flex items-center gap-1 text-[9px] font-bold tracking-widest bg-white/10 px-2 py-1 rounded cursor-pointer" data-lang-switcher>
+<span class="material-symbols-outlined text-sm" aria-hidden="true">language</span>
+<a href="/projects" class="text-white/60 no-underline hover:text-white">EN</a>
+<span class="opacity-50">|</span>
+<a href="/ro/projects" class="text-white no-underline">RO</a>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<button class="fixed top-4 right-4 z-[60] lg:hidden bg-black/20 backdrop-blur-sm text-white p-2 rounded" data-menu-toggle aria-label="Comutare meniu" aria-expanded="false">
+<span class="material-symbols-outlined text-[24px]">menu</span>
+</button>
+</header>
+
+<main id="main-content">
+
+<!-- 1. HERO BANNER — exact Sobha structure: position-relative, img-100 drives height -->
+<section class="hero relative w-full">
+<!-- Desktop banner: width 100%, height auto — image's natural 1440x618 aspect drives section height -->
+<img alt="Vedere aeriană a turnului The Pinnacle" class="w-full h-auto block" loading="eager" src="/raw/hero-pinnacle.webp">
+<!-- Overlay positioned over image -->
+<div class="absolute inset-0 flex items-end" style="padding-bottom: 50px;">
+<div class="max-w-[1185px] mx-auto w-full px-5 lg:px-0 text-center">
+</div>
+</div>
+</section>
+
+<!-- 2. PROJECT IDENTITY — logo, rating, wishlist/share -->
+<section class="bg-white border-b border-stone-100">
+<div class="max-w-[1185px] mx-auto px-5 lg:px-0" style="padding-top: 40px;">
+<div class="grid lg:grid-cols-2 gap-8 items-center pb-8">
+<!-- Left: logo + name + rating -->
+<div class="flex items-center gap-6">
+<img alt="Logo proiect The Pinnacle" class="w-auto" style="height: 141px; max-width: 278px;" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz_0PJlAThdi2UJOw1rKLROcGXlGN9P9wnDM9cwEXpjF3X9DcqmJ0pQaiQMyBrhUa4MbaS67gDwBAdaRj2vF-IDtASTqVZHeLKcQ09KLlZ5j6yti9oGdMhEAOYLw2YVDyFQzZ9-W2YZZJxITQsv76kl420ndJNYUbhiB_oyyFylur9F5DBzaT9xrFB2YsfsrjDHTM2hLwVZpHMKf25rkedpcpu1kpQau45y49PtUsmhHU87uJlzpyFlVJrTyJwNsUAHstv-PRsLlXX">
+<div>
+<h5 class="font-headline text-[25px] leading-[30px] font-light text-black">The Pinnacle</h5>
+<p class="text-[14px] text-[#4f5459] font-light mt-1">Landmark Central</p>
+<div class="flex items-center gap-2 mt-3">
+<span class="text-[16px] font-medium text-[#4f5459]">4.7</span>
+<div class="flex text-[#c7a386] gap-px">
+<span class="material-symbols-outlined !text-[14px]" style="font-variation-settings:'FILL' 1" aria-hidden="true">star</span>
+<span class="material-symbols-outlined !text-[14px]" style="font-variation-settings:'FILL' 1" aria-hidden="true">star</span>
+<span class="material-symbols-outlined !text-[14px]" style="font-variation-settings:'FILL' 1" aria-hidden="true">star</span>
+<span class="material-symbols-outlined !text-[14px]" style="font-variation-settings:'FILL' 1" aria-hidden="true">star</span>
+<span class="material-symbols-outlined !text-[14px]" style="font-variation-settings:'FILL' 1" aria-hidden="true">star</span>
+</div>
+<span class="text-[12px] text-[#4f5459] uppercase tracking-[1.2px]">Recenzii Google</span>
+</div>
+</div>
+</div>
+<!-- Right: wishlist + share -->
+<div class="flex items-center justify-end gap-5">
+<button class="flex items-center gap-2 text-[#4f5459] hover:text-[#c7a386] transition-colors" aria-label="Salvează în lista de dorințe">
+<svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 17.77L8.55 16.47C3.4 11.83 0 8.77 0 5.05C0 2 2.42 0 5 0C6.74 0 8.41 0.81 9.5 2.09C10 1.51 10.59 1.02 11.24 0.64C11.89 0.26 12.61 0.03 13.35 0C14.09-0.03 14.83 0.1 15.51 0.38C16.19 0.66 16.8 1.08 17.3 1.61C17.79 2.14 18.16 2.77 18.38 3.46C18.59 4.15 18.64 4.88 18.52 5.59C18.4 6.3 18.12 6.97 17.7 7.55C17.28 8.14 16.74 8.63 16.11 8.98L10 17.77Z" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
+</button>
+<button class="flex items-center gap-2 text-[#4f5459] hover:text-[#c7a386] transition-colors" aria-label="Distribuie acest proiect">
+<svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="14" cy="3" r="2.5" stroke="currentColor" stroke-width="1.2"/><circle cx="4" cy="10" r="2.5" stroke="currentColor" stroke-width="1.2"/><circle cx="14" cy="17" r="2.5" stroke="currentColor" stroke-width="1.2"/><line x1="6.3" y1="8.8" x2="11.7" y2="4.2" stroke="currentColor" stroke-width="1.2"/><line x1="6.3" y1="11.2" x2="11.7" y2="15.8" stroke="currentColor" stroke-width="1.2"/></svg>
+</button>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 3. NARRATIVE — 5/12 text + 7/12 image -->
+<section style="padding-top: 50px; padding-bottom: 50px;">
+<div class="max-w-[1185px] mx-auto px-5 lg:px-0">
+<div class="grid lg:grid-cols-12 gap-12 items-center">
+<!-- Left column: 5/12 -->
+<div class="lg:col-span-5">
+<h1 class="font-headline uppercase text-black" style="font-size: 34px; line-height: 41px; font-weight: 400; margin-bottom: 30px;">Unde Înălțimea Definește Traiul</h1>
+<div class="text-black" style="font-size: 16px; line-height: 26px; font-weight: 400;">
+<p style="margin-bottom: 35px;">Ridicându-se ca ultimul și cel mai înalt turn din Landmark Central, The Pinnacle reprezintă culminarea viziunii arhitecturale a masterplanului, o reședință unde înălțimea devine expresie și rafinamentul se simte în fiecare detaliu.</p>
+<p style="margin-bottom: 35px;">Fiecare apartament cu 1 și 2 dormitoare este conceput cu atenție pentru a maximiza priveliștile și lumina naturală, oferind o experiență de viață definită de echilibru și sobrietate. Geamuri generoase, planuri rafinate și interioare atent concepute creează o legătură armonioasă între casă și orizont.</p>
+<p style="margin-bottom: 35px;">Situat în inima Landmark Central, The Pinnacle plasează rezidenții în centrul conectivității, rămânând în același timp deasupra cotidianului.</p>
+</div>
+<div class="mt-10">
+<a href="#" class="inline-block text-center border border-black text-black rounded-full uppercase transition-all duration-500 hover:border-[#c7a386] hover:text-black relative overflow-hidden" style="font-size: 14px; height: 49px; border-radius: 25px; min-width: 265px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 500; padding-top: 12px;">Descarcă Broșura</a>
+</div>
+</div>
+<!-- Right column: 7/12 -->
+<div class="lg:col-span-7">
+<img alt="Stil de viață de lux la reședințele The Pinnacle" class="w-full h-auto object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-ufi2XU7ojNNqRyoS-ycSZWQ7y1XQqkKDgNbZ4szdMjd6KRDtunwMpxUQuCaDyFIWEboTKxfZtLZWJORUYkxF-wBmo2Lpi4pHF_plWUaG40pQWlcBAvYx8rGecgBJR0xT4Xe_n4IIX5cfnFJJK8pHNOl5ZX8lUscJ4S89Hl3ENNu5CPqBCFRMGL1jI28rrCyVyfWOqzmGEvB4Nd2aQ2zEuTBd41oYHAS8KB6QbFl9Ts0rq7WxlKQPovXb9uOYkBvQycLmiPIgOzbp">
+</div>
+</div>
+</div>
+</section>
+
+<!-- 4. GALLERY — exact Sobha visual-symphony structure with Swiper -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<style>
+.visual-symphony-wrapper { text-align: center; }
+.visual-symphony-wrapper h2 { margin-bottom: 42px; }
+.visual-symphony-wrapper .visual-symphony-slider { margin: 0; padding: 0 30px; }
+@media (max-width: 1000px) { .visual-symphony-wrapper .visual-symphony-slider { padding: 0 20px; } }
+.visual-symphony-wrapper .visual-symphony-slider img { width: 100%; border-radius: 7px; transition: .5s ease; }
+@media (min-width: 1000px) {
+  .visual-symphony-wrapper .visual-symphony-slider .swiper-slide-prev img,
+  .visual-symphony-wrapper .visual-symphony-slider .swiper-slide-next img { transform: scale(.7) !important; transition: all .4s linear !important; }
+}
+.visual-symphony-wrapper .visual-symphony-slider .swiper-slide-active { transform: scale(1) !important; transition: all .4s linear !important; }
+.visual-symphony-wrapper .visual-symphony-slider .swiper.swiper-initialized { padding: 0; }
+.visual-symphony-wrapper .visual-symphony-slider .common-arrow { margin-top: 48px; justify-content: center; position: relative; display: flex; }
+.visual-symphony-wrapper .visual-symphony-slider .common-arrow .swiper-button-next,
+.visual-symphony-wrapper .visual-symphony-slider .common-arrow .swiper-button-prev {
+  position: relative; left: auto; top: auto; right: auto; margin: 0 16px; transition: .5s ease; width: 20px; height: 38px; outline: none; border: none; box-shadow: none;
+}
+.visual-symphony-wrapper .visual-symphony-slider .common-arrow .swiper-button-next::after,
+.visual-symphony-wrapper .visual-symphony-slider .common-arrow .swiper-button-prev::after { display: none; }
+.visual-symphony-wrapper .visual-symphony-slider .common-arrow .swiper-button-next img,
+.visual-symphony-wrapper .visual-symphony-slider .common-arrow .swiper-button-prev img { width: 100%; }
+</style>
+
+<section class="visual-symphony-wrapper" style="padding-top: 50px; padding-bottom: 50px;">
+<h2 class="font-headline text-black" style="font-size: 52px; line-height: 62px; font-weight: 400;">Creat pentru o Viață în Mișcare</h2>
+<div class="visual-symphony-slider">
+<div class="swiper" id="gallery-swiper">
+<div class="swiper-wrapper">
+<div class="swiper-slide">
+<img alt="Reședințe de lux la The Pinnacle" src="/raw/gallery-87.webp">
+</div>
+<div class="swiper-slide">
+<img alt="Arhitectură modernă și linia orizontului" src="/raw/gallery-86.webp">
+</div>
+<div class="swiper-slide">
+<img alt="Alei prin grădină și spații verzi" src="/raw/gallery-85.webp">
+</div>
+<div class="swiper-slide">
+<img alt="Piscină comunitară și agrement" src="/raw/gallery-84.webp">
+</div>
+<div class="swiper-slide">
+<img alt="Spații interioare de lifestyle" src="/raw/gallery-91.webp">
+</div>
+<div class="swiper-slide">
+<img alt="Vederi panoramice" src="/raw/gallery-82.webp">
+</div>
+</div>
+<div class="common-arrow">
+<div class="swiper-button-prev" tabindex="0" role="button" aria-label="Slide-ul anterior">
+<img src="/arrow_prev.svg" alt="Anterior">
+</div>
+<div class="swiper-button-next" tabindex="0" role="button" aria-label="Slide-ul următor">
+<img src="/arrow_next.svg" alt="Următor">
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+new Swiper('#gallery-swiper', {
+  slidesPerView: 1.5,
+  spaceBetween: 15,
+  loop: true,
+  speed: 800,
+  autoplay: { delay: 5000, disableOnInteraction: false },
+  navigation: {
+    nextEl: '.visual-symphony-slider .swiper-button-next',
+    prevEl: '.visual-symphony-slider .swiper-button-prev',
+  },
+  breakpoints: {
+    320: { slidesPerView: 1, spaceBetween: 15 },
+    768: { slidesPerView: 1.8, spaceBetween: 15, centeredSlides: true, roundLengths: true },
+    1024: { slidesPerView: 1.8, spaceBetween: 15, centeredSlides: true, roundLengths: true },
+    1200: { slidesPerView: 1.43, spaceBetween: -134, centeredSlides: true, roundLengths: true }
+  }
+});
+</script>
+
+<!-- 5. FLOOR PLAN — exact Sobha: virtual-floor-plan-wrapper -->
+<style>
+.virtual-floor-plan-wrapper { margin: 0; overflow: hidden; }
+.virtual-floor-plan-wrapper h2 { text-align: center; margin-bottom: 65px; }
+.virtual-floor-plan-wrapper .tab-content { margin: 0; padding: 80px 0 0; }
+.virtual-floor-plan-wrapper .tab-content .row { display: flex; flex-wrap: wrap; align-items: center; }
+.virtual-floor-plan-wrapper .tab-content h4 { color: #c7a386; }
+.virtual-floor-plan-wrapper .tab-content ul { list-style: none; padding: 0; margin: 0; }
+.virtual-floor-plan-wrapper .tab-content ul li { font-size: 14px; color: #000; letter-spacing: 2px; font-weight: 400; padding: 8px 0; border-bottom: 1px solid #eee; }
+.virtual-floor-plan-wrapper .tab-content ul li span { font-size: 16px; letter-spacing: 2.5px; font-weight: 500; text-transform: uppercase; }
+.virtual-floor-plan-wrapper .virtual-tour-wrapper { position: relative; text-align: center; }
+.virtual-floor-plan-wrapper .virtual-tour-wrapper img { display: block; width: 100%; position: relative; z-index: 2; }
+.category-button { text-align: center; font-size: 16px; font-weight: 500; letter-spacing: 2.88px; display: inline-block; cursor: pointer; color: #a7a7a7; border: none; border-bottom: 1px solid transparent; padding: 13px 22px; background: none; text-transform: uppercase; }
+.category-button.active { color: #000; border-bottom: 1px solid #000; }
+@media (max-width: 767px) {
+  .virtual-floor-plan-wrapper .tab-content { padding: 20px 0 0; }
+  .virtual-floor-plan-wrapper .tab-content .row { flex-direction: column-reverse; text-align: center; }
+}
+</style>
+<section class="virtual-floor-plan-wrapper" style="padding-bottom: 50px;">
+<div class="max-w-[1185px] mx-auto px-5 lg:px-0">
+<h2 class="font-headline text-black" style="font-size: 52px; line-height: 62px; font-weight: 400;">Plan de Etaj</h2>
+<!-- Tabs -->
+<div class="flex justify-center" id="floorplan-tabs">
+<button class="category-button active" data-tab="fp-1br">1 Dormitor</button>
+<button class="category-button" data-tab="fp-2br">2 Dormitoare</button>
+</div>
+<!-- Tab content -->
+<div class="tab-content">
+<!-- 1 BR Panel -->
+<div class="floor-main-plan" id="fp-1br">
+<div class="flex flex-col lg:flex-row items-center gap-12">
+<div class="w-full lg:w-1/2">
+<h4 class="font-headline" style="font-size: 34px; line-height: 41px; font-weight: 400; margin-bottom: 30px;">Apartament cu 1 Dormitor (Tip A)</h4>
+<ul>
+<li><span>UNITATE :</span> 1 DORMITOR + 1 BALCON</li>
+<li><span>SUITĂ :</span> 504.83 SQ.FT.</li>
+<li><span>BALCON :</span> 59.95 SQ.FT.</li>
+<li><span>TOTAL :</span> 564.78 SQ.FT.</li>
+</ul>
+<ul style="margin-top: 30px;">
+<li style="border: none;">
+<div style="display: flex; justify-content: flex-start;">
+<a href="#" class="inline-block text-center border border-black text-black rounded-full uppercase transition-all duration-500 hover:border-[#c8a487]" style="font-size: 14px; height: 49px; border-radius: 25px; min-width: 265px; letter-spacing: 2.5px; font-weight: 500; padding-top: 12px; text-decoration: none;">Descarcă Planul de Etaj</a>
+</div>
+</li>
+</ul>
+</div>
+<div class="w-full lg:w-1/2">
+<div class="virtual-tour-wrapper">
+<img alt="Plan apartament cu 1 dormitor" src="/raw/floorplan-1a.webp">
+</div>
+</div>
+</div>
+</div>
+<!-- 2 BR Panel -->
+<div class="floor-main-plan" id="fp-2br" style="display: none;">
+<div class="flex flex-col lg:flex-row items-center gap-12">
+<div class="w-full lg:w-1/2">
+<h4 class="font-headline" style="font-size: 34px; line-height: 41px; font-weight: 400; margin-bottom: 30px;">Apartament cu 2 Dormitoare (Tip A)</h4>
+<ul>
+<li><span>UNITATE :</span> 2 DORMITOARE + 1 BALCON</li>
+<li><span>SUITĂ :</span> 982.50 SQ.FT.</li>
+<li><span>BALCON :</span> 107.64 SQ.FT.</li>
+<li><span>TOTAL :</span> 1,090.14 SQ.FT.</li>
+</ul>
+<ul style="margin-top: 30px;">
+<li style="border: none;">
+<div style="display: flex; justify-content: flex-start;">
+<a href="#" class="inline-block text-center border border-black text-black rounded-full uppercase transition-all duration-500 hover:border-[#c8a487]" style="font-size: 14px; height: 49px; border-radius: 25px; min-width: 265px; letter-spacing: 2.5px; font-weight: 500; padding-top: 12px; text-decoration: none;">Descarcă Planul de Etaj</a>
+</div>
+</li>
+</ul>
+</div>
+<div class="w-full lg:w-1/2">
+<div class="virtual-tour-wrapper">
+<img alt="Plan apartament cu 2 dormitoare" src="/raw/floorplan-2a.webp">
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Floor plan tab switching -->
+<script>
+document.querySelectorAll('#floorplan-tabs .category-button').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    // Update active tab
+    document.querySelectorAll('#floorplan-tabs .category-button').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    // Show/hide panels
+    document.querySelectorAll('.floor-main-plan').forEach(function(p) { p.style.display = 'none'; });
+    document.getElementById(btn.dataset.tab).style.display = 'block';
+  });
+});
+</script>
+</div>
+</section>
+
+<!-- 6. AMENITIES — exact Sobha: elite-living-amenities-wrapper -->
+<style>
+.elite-living-amenities-wrapper { margin: 0; }
+.elite-living-amenities-wrapper h2 { text-align: center; margin-bottom: 45px; }
+.elite-living-amenities-wrapper .amenity-row > div { margin-bottom: 30px; display: flex; }
+.elite-living-amenities-wrapper .grey-div { padding: 30px 15px; background: #f5f5f5; border-radius: 7px; text-align: center; height: 100%; width: 100%; }
+.elite-living-amenities-wrapper .grey-div i { margin-bottom: 15px; display: flex; width: 65px; height: 65px; margin: 0 auto; align-items: flex-end; justify-content: center; margin-bottom: 15px; }
+.elite-living-amenities-wrapper .grey-div i img { max-height: 100%; }
+.elite-living-amenities-wrapper .grey-div p { margin: 0; font-size: 14px; line-height: 19px; text-transform: uppercase; min-height: 60px; display: flex; align-items: center; justify-content: center; }
+</style>
+<section class="elite-living-amenities-wrapper" style="padding-bottom: 50px;">
+<div class="max-w-[1185px] mx-auto px-5 lg:px-0">
+<h2 class="font-headline text-black" style="font-size: 52px; line-height: 62px; font-weight: 400;">Creat pentru Fiecare Pasiune</h2>
+<div class="amenity-row grid grid-cols-2 lg:grid-cols-6 gap-4">
+<div><div class="grey-div"><i><img src="/amenities/pool.svg" alt="Piscină de Agrement"></i><p>Piscină de Agrement</p></div></div>
+<div><div class="grey-div"><i><img src="/amenities/bbq.svg" alt="Zonă de Grătar"></i><p>Zonă de Grătar &amp; Întâlniri</p></div></div>
+<div><div class="grey-div"><i><img src="/amenities/gym.svg" alt="Sală de Calistenica"></i><p>Sală de Calistenica</p></div></div>
+<div><div class="grey-div"><i><img src="/amenities/picnic.svg" alt="Zonă de Picnic"></i><p>Zonă de Picnic</p></div></div>
+<div><div class="grey-div"><i><img src="/amenities/dogpark.svg" alt="Parc pentru Câini"></i><p>Parc pentru Câini</p></div></div>
+<div><div class="grey-div"><i><img src="/amenities/jacuzzi.svg" alt="Jacuzzi"></i><p>Jacuzzi</p></div></div>
+</div>
+<div class="amenity-row grid grid-cols-2 lg:grid-cols-6 gap-4">
+<div><div class="grey-div"><i><img src="/amenities/amphitheatre.svg" alt="Amfiteatru Deschis"></i><p>Amfiteatru Deschis</p></div></div>
+<div><div class="grey-div"><i><img src="/amenities/sauna.svg" alt="Saună și Baie de Abur"></i><p>Saună și Baie de Abur</p></div></div>
+<div><div class="grey-div"><i><img src="/amenities/kids.svg" alt="Zonă de Joacă"></i><p>Zonă de Joacă</p></div></div>
+<div><div class="grey-div"><i><img src="/amenities/fitness.svg" alt="Centru de Fitness"></i><p>Centru de Fitness Modern</p></div></div>
+<div><div class="grey-div"><i><img src="/amenities/library.svg" alt="Bibliotecă"></i><p>Bibliotecă</p></div></div>
+<div><div class="grey-div"><i><img src="/amenities/theatre.svg" alt="Teatru Interior"></i><p>Teatru Interior</p></div></div>
+</div>
+<div class="flex justify-center" style="margin-top: 10px;">
+<a href="#" class="inline-block text-center border border-black text-black rounded-full uppercase transition-all duration-500 hover:border-[#c8a487]" style="font-size: 14px; height: 49px; border-radius: 25px; min-width: 265px; letter-spacing: 2.5px; font-weight: 500; padding-top: 12px; text-decoration: none;">Vezi Tot</a>
+</div>
+</div>
+</section>
+
+<!-- 7. LOCATION — exact Sobha: map-section + vibrant-living-wrapper -->
+<style>
+.vibrant-living-wrapper { text-align: center; }
+.vibrant-living-wrapper .white-box-section { background: #fff; padding: 40px; border-radius: 7px; }
+.vibrant-living-wrapper .white-box-section .row { display: flex; flex-wrap: wrap; justify-content: center; }
+.vibrant-living-wrapper .white-box-div { margin: 0; padding: 30px 0; text-align: center; }
+.vibrant-living-wrapper .white-box-div i { margin-bottom: 25px; display: flex; max-height: 30px; align-items: flex-end; justify-content: center; }
+.vibrant-living-wrapper .white-box-div i img { max-height: 30px; }
+.vibrant-living-wrapper .white-box-div p { margin: 0 0 20px; font-size: 14px; line-height: 19px; min-height: 38px; text-transform: uppercase; }
+.vibrant-living-wrapper .white-box-div span { font-size: 14px; color: #a7a7a7; letter-spacing: 2px; text-transform: uppercase; }
+</style>
+<!-- Map section — tabs in container, map full-width (Mapbox canvas overflows container) -->
+<section class="bg-white" style="padding-top: 50px;">
+<div class="max-w-[1185px] mx-auto px-5 lg:px-0">
+<!-- Category tabs -->
+<div class="flex flex-wrap justify-center gap-0 mb-8" id="map-tabs">
+<button class="category-button active" data-key="Schools">Școli</button>
+<button class="category-button" data-key="Shop">Magazine</button>
+<button class="category-button" data-key="Dine">Restaurante</button>
+<button class="category-button" data-key="Grocery">Alimentare</button>
+<button class="category-button" data-key="Attractions">Atracții</button>
+</div>
+</div>
+<!-- Map: full viewport width, 500px tall -->
+<div class="relative w-screen overflow-hidden" id="map_canvas" style="height: 500px; margin-left: calc(-50vw + 50%); width: 100vw;">
+<iframe
+  src="https://www.openstreetmap.org/export/embed.html?bbox=55.15%2C25.08%2C55.45%2C25.28&layer=mapnik&marker=25.1855%2C55.3003"
+  width="100%" height="100%" style="border:0;" loading="lazy"
+  title="Locația The Pinnacle pe hartă"></iframe>
+</div>
+</section>
+<!-- Map tab switching -->
+<script>
+document.querySelectorAll('#map-tabs .category-button').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('#map-tabs .category-button').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+  });
+});
+</script>
+<!-- Best of the City -->
+<section class="vibrant-living-wrapper" style="background: #f8f8f8; padding-top: 50px; padding-bottom: 50px;">
+<div class="max-w-[1185px] mx-auto px-5 lg:px-0">
+<h2 class="font-headline text-black" style="font-size: 52px; line-height: 62px; font-weight: 400; margin-bottom: 34px;">Cele Mai Bune din Oraș, Toate la Câteva Minute</h2>
+<div class="white-box-section" style="background: #fff; padding: 40px; border-radius: 7px;">
+<div class="flex flex-wrap justify-center">
+<div class="w-1/2 md:w-1/3 lg:w-1/5">
+<div class="white-box-div">
+<i><img src="/locations/metro.svg" alt="Stație de Metrou"></i>
+<p>Stația de Metrou Jebel Ali</p>
+<span>2 Minute</span>
+</div>
+</div>
+<div class="w-1/2 md:w-1/3 lg:w-1/5">
+<div class="white-box-div">
+<i><img src="/locations/airport.svg" alt="Aeroport"></i>
+<p>Aeroportul Internațional DXB</p>
+<span>29 Minute</span>
+</div>
+</div>
+<div class="w-1/2 md:w-1/3 lg:w-1/5">
+<div class="white-box-div">
+<i><img src="/locations/marina.svg" alt="Dubai Marina"></i>
+<p>Dubai Marina</p>
+<span>13 Minute</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 8. CONTACT / FORM — 5/12 info + 7/12 form -->
+<section style="padding-top: 50px; padding-bottom: 50px;" class="bg-white">
+<div class="max-w-[1185px] mx-auto px-5 lg:px-0">
+<div class="grid lg:grid-cols-12 gap-12">
+<!-- Left column: 5/12 -->
+<div class="lg:col-span-5 flex flex-col justify-center">
+<p class="uppercase tracking-[2.5px] text-[#a7a7a7] mb-2" style="font-size: 14px; font-weight: 500; letter-spacing: 2.5px;">Ne-ar Plăcea Să</p>
+<h2 class="font-headline text-black" style="font-size: 52px; line-height: 62px; font-weight: 400; margin-bottom: 34px;">Auzim de la Dumneavoastră</h2>
+<div class="mb-8">
+<p class="text-[14px] uppercase tracking-[2px] text-[#4f5459] font-light mb-2">Prețuri de Pornire de la</p>
+<p class="text-primary font-medium text-[28px]">AED 1.78 M* / USD 487 K*</p>
+</div>
+<p class="text-[13px] text-[#4f5459] font-light leading-relaxed max-w-sm">*Sub rezerva disponibilității stocului. Prețurile globale variază în funcție de cursul de schimb.</p>
+<div class="mt-10">
+<h3 class="font-headline text-black" style="font-size: 25px; line-height: 30px; font-weight: 400; margin-bottom: 16px;">Contactați-ne</h3>
+<div class="flex items-center gap-3 mb-3">
+<span class="material-symbols-outlined text-[18px] text-[#c7a386]" aria-hidden="true">phone</span>
+<a href="tel:+97148001234" class="text-[14px] text-black font-light hover:text-primary transition-colors">+971 4 800 1234</a>
+</div>
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-[18px] text-[#c7a386]" aria-hidden="true">mail</span>
+<a href="mailto:info@landmarkrealty.ae" class="text-[14px] text-black font-light hover:text-primary transition-colors">info@landmarkrealty.ae</a>
+</div>
+</div>
+</div>
+<!-- Right column: 7/12 -->
+<div class="lg:col-span-7">
+<div class="bg-white p-10 lg:p-12 border border-stone-100">
+<!-- Form tabs -->
+<div class="flex gap-8 border-b border-stone-100 mb-10">
+<button class="text-black border-b-2 border-black pb-4" style="font-size: 14px; text-transform: uppercase; letter-spacing: 2.5px; font-weight: 500;">Cumpără Proprietate</button>
+<button class="pb-4 hover:text-black transition-colors" style="font-size: 14px; text-transform: uppercase; letter-spacing: 2.5px; font-weight: 500; color: #a7a7a7;">Caută un Job</button>
+<button class="pb-4 hover:text-black transition-colors" style="font-size: 14px; text-transform: uppercase; letter-spacing: 2.5px; font-weight: 500; color: #a7a7a7;">Partener de Canal</button>
+</div>
+<form class="space-y-5" aria-label="Formular de contact">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+<div>
+<label for="first-name" class="sr-only">Prenume</label>
+<input id="first-name" class="w-full border border-stone-200 bg-stone-50/30 text-[13px] py-4 px-5 focus:ring-primary focus:border-primary placeholder:text-stone-400" placeholder="Prenume *" type="text" required aria-required="true">
+</div>
+<div>
+<label for="last-name" class="sr-only">Nume</label>
+<input id="last-name" class="w-full border border-stone-200 bg-stone-50/30 text-[13px] py-4 px-5 focus:ring-primary focus:border-primary placeholder:text-stone-400" placeholder="Nume *" type="text" required aria-required="true">
+</div>
+</div>
+<div>
+<label for="email" class="sr-only">Adresă de Email</label>
+<input id="email" class="w-full border border-stone-200 bg-stone-50/30 text-[13px] py-4 px-5 focus:ring-primary focus:border-primary placeholder:text-stone-400" placeholder="Adresă de Email *" type="email" required aria-required="true">
+</div>
+<div class="flex gap-3">
+<div>
+<label for="country-code" class="sr-only">Prefix țară</label>
+<select id="country-code" class="w-28 border border-stone-200 bg-stone-50/30 text-[13px] py-4 px-4 focus:ring-primary focus:border-primary">
+<option>+971</option>
+<option>+1</option>
+<option>+44</option>
+<option>+91</option>
+</select>
+</div>
+<div class="flex-1">
+<label for="phone" class="sr-only">Număr de Telefon</label>
+<input id="phone" class="w-full border border-stone-200 bg-stone-50/30 text-[13px] py-4 px-5 focus:ring-primary focus:border-primary placeholder:text-stone-400" placeholder="Număr de Telefon *" type="tel" required aria-required="true">
+</div>
+</div>
+<div>
+<label for="property-select" class="sr-only">Selectează Proprietatea</label>
+<select id="property-select" class="w-full border border-stone-200 bg-stone-50/30 text-[13px] py-4 px-5 focus:ring-primary focus:border-primary text-stone-400">
+<option>Selectează Proprietatea: The Pinnacle</option>
+<option>Tranquil Beach Residences</option>
+<option>Crest Park Avenue</option>
+</select>
+</div>
+<div>
+<label for="message" class="sr-only">Mesaj</label>
+<textarea id="message" class="w-full border border-stone-200 bg-stone-50/30 text-[13px] py-4 px-5 focus:ring-primary focus:border-primary placeholder:text-stone-400" placeholder="Mesajul Dumneavoastră (Opțional)" rows="3"></textarea>
+</div>
+<div class="flex items-start gap-4 pt-2">
+<input class="mt-1 w-4 h-4 rounded-none text-primary border-stone-300 focus:ring-0" id="privacy" type="checkbox" required aria-required="true">
+<label class="text-[12px] text-[#4f5459] leading-relaxed" for="privacy">Am citit și sunt de acord cu <a class="underline text-black hover:text-primary transition-colors" href="#">politica de confidențialitate</a></label>
+</div>
+<button type="submit" class="w-full bg-primary text-white py-4 mt-4 uppercase tracking-[2.5px] font-medium hover:bg-black transition-all" style="font-size: 14px; height: 49px; border-radius: 25px; letter-spacing: 2.5px;">Trimite Cererea</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+
+<!-- Footer — same as homepage -->
+<footer class="footer__sitemap-wrap bg-white pt-32 pb-12 px-6 lg:px-12 border-t border-gray-100">
+<div class="max-w-[1920px] mx-auto">
+<div class="flex flex-col items-center mb-24">
+<a href="/ro/">
+<img src="/logo/landmarklogo-green.svg" alt="Landmark Realty" style="width: 80px; height: auto;">
+</a>
+</div>
+<nav class="footer__sitemap grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-16 mb-24 border-b border-gray-100 pb-24" aria-label="Subsol">
+<div class="col-span-2">
+<h5 class="text-[11px] uppercase tracking-[0.25em] font-[800] mb-10 text-on-background">Apartamente</h5>
+<div class="grid grid-cols-2 gap-x-6 gap-y-3">
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Tranquil Beach Residences</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Crest Park Avenue</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">The Pinnacle Residences</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Crest Grande</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Skyline Atria</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Creek Vistas Reserve</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Skyline Solitaire</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Creek Vistas Grande</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Aquamarine Beach Residences</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Landmark Hartland Greens</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Coraline Beach Residences</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Waves Grande</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Delphine Beach Residences</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Creek Vistas Heights</a>
+</div>
+</div>
+<div>
+<h5 class="text-[11px] uppercase tracking-[0.25em] font-[800] mb-10 text-on-background">Vile</h5>
+<div class="flex flex-col gap-3 mb-10">
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">The Willows</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">The Greens</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">The Brooks</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">The Grove</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Palm Grove Villas</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Coral Beach Villas</a>
+</div>
+<h5 class="text-[11px] uppercase tracking-[0.25em] font-[800] mb-6 text-on-background">Villamente</h5>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Golf Ridges at One</a>
+</div>
+<div>
+<h5 class="text-[11px] uppercase tracking-[0.25em] font-[800] mb-10 text-on-background">Comunități</h5>
+<div class="flex flex-col gap-3">
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Landmark Sanctuary</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Landmark Central</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Downtown HQ</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Landmark Bella</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Skyline Orbis</a>
+</div>
+</div>
+<div>
+<h5 class="text-[11px] uppercase tracking-[0.25em] font-[800] mb-10 text-on-background">Media &amp; Despre</h5>
+<div class="flex flex-col gap-3 mb-10">
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Comunicate de Presă</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Echipa de Conducere</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Măiestrie</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Calitate Distinctivă</a>
+</div>
+<h5 class="text-[11px] uppercase tracking-[0.25em] font-[800] mb-6 text-on-background">Cariere</h5>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Alătură-te Echipei</a>
+</div>
+<div>
+<h5 class="text-[11px] uppercase tracking-[0.25em] font-[800] mb-10 text-on-background">Experiență</h5>
+<div class="flex flex-col gap-6 mb-10">
+<div class="flex gap-2">
+<div class="bg-black text-white h-9 px-3 flex items-center gap-2 rounded-[4px] cursor-pointer hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-[16px]" aria-hidden="true">apple</span>
+<div class="flex flex-col">
+<span class="text-[5px] uppercase opacity-60">Descarcă de pe</span>
+<span class="text-[10px] font-bold leading-none">App Store</span>
+</div>
+</div>
+<div class="bg-black text-white h-9 px-3 flex items-center gap-2 rounded-[4px] cursor-pointer hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-[16px]" aria-hidden="true">play_arrow</span>
+<div class="flex flex-col">
+<span class="text-[5px] uppercase opacity-60">Disponibil pe</span>
+<span class="text-[10px] font-bold leading-none">Google Play</span>
+</div>
+</div>
+</div>
+<div class="border border-gray-100 p-4 text-center rounded-[2px] bg-[#f9f8f6]">
+<p class="text-[9px] font-bold mb-1 tracking-widest uppercase">Recenzii Google</p>
+<div class="flex justify-center text-landmark-gold text-[10px] gap-0.5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<p class="text-[12px] font-bold mt-1 text-[#1a1a1a]">4.7 / 5.0</p>
+</div>
+</div>
+</div>
+</nav>
+<div class="footer__socials flex flex-col md:flex-row justify-between items-center gap-10">
+<div class="text-[9px] uppercase tracking-[0.2em] font-bold text-secondary order-3 md:order-1">&copy; 2026 LANDMARK REALTY. TOATE DREPTURILE REZERVATE.</div>
+<div class="flex gap-8 items-center order-1 md:order-2">
+<a class="text-secondary hover:text-landmark-green transition-colors" href="#" aria-label="Website"><span class="material-symbols-outlined text-[20px]">public</span></a>
+<a class="text-secondary hover:text-landmark-green transition-colors" href="#" aria-label="Email"><span class="material-symbols-outlined text-[20px]">alternate_email</span></a>
+<a class="text-secondary hover:text-landmark-green transition-colors" href="#" aria-label="Rețele sociale"><span class="material-symbols-outlined text-[20px]">share</span></a>
+<a class="text-secondary hover:text-landmark-green transition-colors" href="#" aria-label="Video"><span class="material-symbols-outlined text-[20px]">play_circle</span></a>
+</div>
+<div class="flex gap-8 items-center text-[9px] uppercase tracking-[0.2em] font-bold text-secondary order-2 md:order-3">
+<a class="hover:text-landmark-green transition-colors" href="#">Politica de Confidențialitate</a>
+<span class="opacity-10 w-[1px] h-3 bg-black"></span>
+<a class="hover:text-landmark-green transition-colors" href="#">Hartă Site</a>
+</div>
+</div>
+</div>
+</footer>
+
+<div class="fixed bottom-8 right-8 z-[100]">
+<button class="bg-landmark-green text-white w-14 h-14 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center" aria-label="Chat">
+<span class="material-symbols-outlined text-[24px]">chat_bubble</span>
+</button>
+</div>
+
+<script type="module" src="/src/js/main.js"></script>
+</body>
+</html>
