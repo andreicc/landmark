@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self';
+           script-src 'self';
+           style-src 'self' https://fonts.googleapis.com;
+           font-src 'self' https://fonts.gstatic.com;
+           img-src 'self' data:;
+           connect-src 'self';
+           frame-ancestors 'none';">
+  <title>Landmark — Luxury Real Estate</title>
+  <meta name="description" content="Landmark delivers exceptional luxury real estate developments. Discover our exclusive projects and premium properties.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/src/css/variables.css">
+  <link rel="stylesheet" href="/src/css/reset.css">
+  <link rel="stylesheet" href="/src/css/typography.css">
+  <link rel="stylesheet" href="/src/css/layout.css">
+  <link rel="stylesheet" href="/src/css/components/header.css">
+  <link rel="stylesheet" href="/src/css/components/footer.css">
+  <link rel="stylesheet" href="/src/css/pages/home.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="header__logo">Landmark</a>
+      <nav class="header__nav" aria-label="Main">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <button class="header__menu-toggle" data-menu-toggle aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero section" aria-labelledby="hero-heading">
+      <div class="container">
+        <h1 id="hero-heading">The Art of Living</h1>
+        <p>Exceptional developments crafted with precision and elegance.</p>
+        <a href="projects.html" class="btn btn--primary">Explore Projects</a>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features section" aria-labelledby="features-heading">
+      <div class="container">
+        <h2 id="features-heading">Why Landmark</h2>
+        <div class="grid grid--3">
+          <div class="feature-card">
+            <h3>Visionary Design</h3>
+            <p>Architecture that redefines luxury living with meticulous attention to detail.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Premium Locations</h3>
+            <p>Strategically positioned developments in the most sought-after destinations.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Timeless Quality</h3>
+            <p>Built with the finest materials and craftsmanship that stands the test of time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Projects Section -->
+    <section class="featured section" aria-labelledby="featured-heading">
+      <div class="container">
+        <h2 id="featured-heading">Featured Projects</h2>
+        <div class="grid grid--2">
+          <div class="project-card" data-animate>
+            <h3>Project One</h3>
+            <p>A landmark development redefining modern urban living.</p>
+          </div>
+          <div class="project-card" data-animate>
+            <h3>Project Two</h3>
+            <p>Exclusive waterfront residences with panoramic views.</p>
+          </div>
+        </div>
+        <a href="projects.html" class="btn btn--secondary">View All Projects</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <div>
+        <a href="index.html" class="footer__brand">Landmark</a>
+        <p class="footer__text">Crafting exceptional living spaces since 2010.</p>
+        <div class="footer__socials">
+          <a href="https://instagram.com/landmark" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
+          <a href="https://facebook.com/landmark" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a>
+          <a href="https://linkedin.com/company/landmark" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
+        </div>
+      </div>
+      <div>
+        <h3 class="footer__heading">Quick Links</h3>
+        <nav class="footer__links" aria-label="Footer">
+          <a href="about.html">About Us</a>
+          <a href="projects.html">Projects</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+      <div>
+        <h3 class="footer__heading">Contact</h3>
+        <address class="footer__text">
+          123 Landmark Tower, Business Bay<br>
+          Dubai, UAE<br>
+          <a href="tel:+97141234567">+971 4 123 4567</a><br>
+          <a href="mailto:info@landmark.ae">info@landmark.ae</a>
+        </address>
+      </div>
+    </div>
+    <div class="container footer__bottom">
+      &copy; 2026 Landmark. All rights reserved.
+    </div>
+  </footer>
+
+  <script type="module" src="/src/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+:root {
+  /* Colors — extracted from Sobha Realty reference */
+  --color-primary: #1a1f2e;
+  --color-accent: #b8976a;
+  --color-bg: #ffffff;
+  --color-surface: #f5f5f3;
+  --color-text: #1a1f2e;
+  --color-text-light: #6b7280;
+  --color-bg-muted: rgba(255, 255, 255, 0.7);
+  --color-bg-subtle: rgba(255, 255, 255, 0.5);
+  --color-bg-hairline: rgba(255, 255, 255, 0.1);
+
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* Type scale */
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 3rem;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 6rem;
+
+  /* Layout */
+  --container-max: 1280px;
+  --header-height: 80px;
+
+  /* Z-index scale */
+  --z-header: 100;
+  --z-modal: 200;
+  --z-toast: 300;
+  --z-overlay: 400;
+
+  /* Motion */
+  --transition: 0.3s ease;
+}
