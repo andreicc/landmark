@@ -14,7 +14,7 @@ function extractRootBlock(css) {
   return match ? match[1] : ''
 }
 
-describe('CSS Design Tokens (variables.css)', () => {
+describe('CSS Design Tokens (variables.css) — Stitch', () => {
   let root
 
   beforeAll(() => {
@@ -22,27 +22,38 @@ describe('CSS Design Tokens (variables.css)', () => {
     root = extractRootBlock(css)
   })
 
-  it('defines primary color (dark navy hex)', () => {
-    expect(root).toMatch(/--color-primary:\s*#[0-9a-fA-F]{3,8}/)
+  it('defines primary color as landmark green (#004225)', () => {
+    expect(root).toMatch(/--color-primary:\s*#004225/)
   })
 
-  it('defines accent color (gold/brass hex)', () => {
-    expect(root).toMatch(/--color-accent:\s*#[0-9a-fA-F]{3,8}/)
+  it('defines accent/gold color (#b59458)', () => {
+    expect(root).toMatch(/--color-accent:\s*#b59458/)
+  })
+
+  it('defines on-primary (white text on green)', () => {
+    expect(root).toMatch(/--color-on-primary:\s*#[0-9a-fA-F]{3,8}/)
   })
 
   it('defines background and surface colors', () => {
     expect(root).toMatch(/--color-bg:\s*#[0-9a-fA-F]{3,8}/)
-    expect(root).toMatch(/--color-surface:\s*#[0-9a-fA-F]{3,8}/)
+    expect(root).toMatch(/--color-surface:\s*#f9f8f6/)
   })
 
-  it('defines text colors', () => {
-    expect(root).toMatch(/--color-text:\s*#[0-9a-fA-F]{3,8}/)
-    expect(root).toMatch(/--color-text-light:\s*#[0-9a-fA-F]{3,8}/)
+  it('defines text colors (on-background, secondary)', () => {
+    expect(root).toMatch(/--color-text:\s*#1b1c1c/)
+    expect(root).toMatch(/--color-text-secondary:\s*#5f5e5e/)
   })
 
-  it('defines font families (serif heading, sans-serif body)', () => {
-    expect(root).toMatch(/--font-heading:/)
-    expect(root).toMatch(/--font-body:/)
+  it('defines outline colors', () => {
+    expect(root).toMatch(/--color-outline:\s*#[0-9a-fA-F]{3,8}/)
+  })
+
+  it('defines heading font as Lato', () => {
+    expect(root).toMatch(/--font-heading:.*Lato/)
+  })
+
+  it('defines body font as Roboto', () => {
+    expect(root).toMatch(/--font-body:.*Roboto/)
   })
 
   it('defines font size scale', () => {
@@ -52,6 +63,7 @@ describe('CSS Design Tokens (variables.css)', () => {
     expect(root).toMatch(/--text-xl:/)
     expect(root).toMatch(/--text-2xl:/)
     expect(root).toMatch(/--text-3xl:/)
+    expect(root).toMatch(/--text-4xl:/)
   })
 
   it('defines spacing scale', () => {
@@ -60,6 +72,7 @@ describe('CSS Design Tokens (variables.css)', () => {
     expect(root).toMatch(/--space-md:/)
     expect(root).toMatch(/--space-lg:/)
     expect(root).toMatch(/--space-xl:/)
+    expect(root).toMatch(/--space-2xl:/)
   })
 
   it('defines container max-width', () => {
@@ -74,7 +87,7 @@ describe('CSS Design Tokens (variables.css)', () => {
     expect(root).toMatch(/--z-header:/)
   })
 
-  it('defines transition shorthand with time value', () => {
+  it('defines transition shorthand', () => {
     expect(root).toMatch(/--transition:\s*\d/)
   })
 })

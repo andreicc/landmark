@@ -1,142 +1,459 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="light" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self';
-           script-src 'self';
-           style-src 'self' https://fonts.googleapis.com;
-           font-src 'self' https://fonts.gstatic.com;
-           img-src 'self' data:;
-           connect-src 'self';
-           frame-ancestors 'none';">
-  <title>Landmark — Luxury Real Estate</title>
-  <meta name="description" content="Landmark delivers exceptional luxury real estate developments. Discover our exclusive projects and premium properties.">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Styles -->
-  <link rel="stylesheet" href="/src/css/variables.css">
-  <link rel="stylesheet" href="/src/css/reset.css">
-  <link rel="stylesheet" href="/src/css/typography.css">
-  <link rel="stylesheet" href="/src/css/layout.css">
-  <link rel="stylesheet" href="/src/css/components/header.css">
-  <link rel="stylesheet" href="/src/css/components/footer.css">
-  <link rel="stylesheet" href="/src/css/pages/home.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy"
+  content="default-src 'self';
+         script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com;
+         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+         font-src 'self' https://fonts.gstatic.com;
+         img-src 'self' https://lh3.googleusercontent.com data:;
+         connect-src 'self';
+         frame-ancestors 'none';">
+<title>LANDMARK | Architectural Excellence</title>
+<meta name="description" content="Landmark Realty delivers exceptional luxury real estate developments. Discover our exclusive communities and premium properties.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="en" href="/">
+<link rel="alternate" hreflang="ro" href="/ro/">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "primary": "#004225",
+          "on-primary": "#ffffff",
+          "primary-container": "#005a33",
+          "secondary": "#5f5e5e",
+          "background": "#ffffff",
+          "surface": "#ffffff",
+          "outline": "#7f7668",
+          "outline-variant": "#d1c5b5",
+          "on-background": "#1b1c1c",
+          "on-surface": "#1b1c1c",
+          "landmark-green": "#004225",
+          "landmark-gold": "#b59458"
+        },
+        fontFamily: {
+          "headline": ["Lato", "sans-serif"],
+          "body": ["Roboto", "sans-serif"],
+          "label": ["Lato", "sans-serif"]
+        },
+        borderRadius: {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  }
+  .serif-italic { font-family: 'Lato', sans-serif; font-style: italic; }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .nav-link { position: relative; }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -4px;
+    left: 0;
+    background-color: #ffffff;
+    transition: width 0.3s ease;
+  }
+  .nav-link:hover::after { width: 100%; }
+  .pillar-image-container {
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .pillar-image-container:hover {
+    transform: translateY(-10px);
+  }
+  /* Skip link */
+  .skip-link {
+    position: absolute;
+    top: 0; left: 0;
+    padding: 0.75rem 1.5rem;
+    background: #004225;
+    color: white;
+    font-weight: 600;
+    z-index: 9999;
+    transform: translateY(-100%);
+    transition: transform 0.2s ease;
+  }
+  .skip-link:focus { transform: translateY(0); }
+  :focus-visible {
+    outline: 2px solid #b59458;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .nav-link::after,
+    .pillar-image-container { transition: none; }
+    .pillar-image-container:hover { transform: none; }
+  }
+</style>
 </head>
-<body>
+<body class="bg-[#fcfcfc] text-on-background font-body selection:bg-landmark-green/20">
 
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+<a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <!-- Header -->
-  <header class="header">
-    <div class="container header__inner">
-      <a href="index.html" class="header__logo">Landmark</a>
-      <nav class="header__nav" aria-label="Main">
-        <a href="index.html" aria-current="page">Home</a>
-        <a href="about.html">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <button class="header__menu-toggle" data-menu-toggle aria-label="Toggle menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
-  </header>
+<!-- Header / Navigation -->
+<header>
+<nav class="absolute top-0 w-full z-50 bg-black/10 backdrop-blur-[2px] text-white border-b border-white/5" aria-label="Main">
+<div class="flex justify-between items-center px-4 lg:px-12 h-[75px] w-full max-w-[1920px] mx-auto">
+<!-- Left Nav -->
+<div class="hidden lg:flex gap-8 items-center font-medium tracking-[0.12em] text-[13px] uppercase">
+<a class="nav-link" href="/about">About</a>
+<a class="nav-link" href="/projects">Communities</a>
+<a class="nav-link" href="/projects">Properties</a>
+</div>
+<!-- Center Logo -->
+<a href="/" class="absolute left-1/2 -translate-x-1/2 flex items-center no-underline">
+<img src="/logo/landmarklogo-white.svg" alt="Landmark Realty" style="width: 80px; height: auto;">
+</a>
+<!-- Right Nav -->
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex gap-6 items-center font-medium tracking-[0.12em] text-[13px] uppercase">
+<a class="nav-link" href="#">Media Center</a>
+<a class="nav-link" href="#">Careers</a>
+<a class="nav-link" href="/contact">Contact Us</a>
+</div>
+<div class="flex items-center gap-4 border-l border-white/20 pl-6">
+<button class="material-symbols-outlined text-[18px]" aria-label="Favorites">favorite</button>
+<button class="material-symbols-outlined text-[18px]" aria-label="Search">search</button>
+<div class="lang-switcher relative flex items-center gap-1 text-[9px] font-bold tracking-widest bg-white/10 px-2 py-1 rounded cursor-pointer" data-lang-switcher>
+<span class="material-symbols-outlined text-sm" aria-hidden="true">language</span>
+<a href="/" class="text-white no-underline">EN</a>
+<span class="opacity-50">|</span>
+<a href="/ro/" class="text-white/60 no-underline hover:text-white">RO</a>
+</div>
+</div>
+</div>
+</div>
+</nav>
+<!-- Mobile menu toggle (visible < lg) -->
+<button class="fixed top-4 right-4 z-[60] lg:hidden bg-black/20 backdrop-blur-sm text-white p-2 rounded" data-menu-toggle aria-label="Toggle menu" aria-expanded="false">
+<span class="material-symbols-outlined text-[24px]">menu</span>
+</button>
+</header>
 
-  <!-- Main Content -->
-  <main id="main-content">
-    <!-- Hero Section -->
-    <section class="hero section" aria-labelledby="hero-heading">
-      <div class="container">
-        <h1 id="hero-heading">The Art of Living</h1>
-        <p>Exceptional developments crafted with precision and elegance.</p>
-        <a href="projects.html" class="btn btn--primary">Explore Projects</a>
-      </div>
-    </section>
+<main id="main-content">
+<!-- Hero Section -->
+<section class="hero relative h-screen flex items-center justify-center text-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Aerial view of a master-planned luxury community" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4EDlr7vuMHh_y1lYUv3PuRCVHZZye5c5bSPDSWog6PvI0DLOpxvd4A1oWOtqw4mRSE6jCPQiZTjlNmGM0CoxgeghVbmJX3VFy5ZAtqNQk1jkRYO9SdqbFoCK8GwEAZNyYN2334Qs2YMkDlvXnbjJg9wFJzU1crhVuAaRuLoKll7fJJ8nC9aVpmZf-0h60r44WE2f37Fy7HayDsUkn5pnqrxE_VO4dWRKbqPPYfVsC9o6Yw58tiOQzG1jWk5-ZNP04oVm6xlJmKe26">
+<div class="absolute inset-0 bg-black/40"></div>
+</div>
+<div class="relative z-10 px-6 max-w-4xl mx-auto">
+<h1 class="font-headline text-4xl md:text-6xl lg:text-[72px] text-white mb-6 tracking-tight font-normal leading-tight">
+  Landmark Sanctuary
+</h1>
+<p class="text-white/80 text-[10px] md:text-[11px] uppercase tracking-[0.4em] font-medium mb-12">
+  Spaces Where Life Unfolds
+</p>
+<a href="/projects" class="btn inline-block bg-white/90 backdrop-blur-md text-landmark-green px-14 py-4 text-[10px] uppercase tracking-[0.25em] font-bold hover:bg-white transition-all duration-300 rounded-[2px]">
+  Discover
+</a>
+</div>
+</section>
 
-    <!-- Features Section -->
-    <section class="features section" aria-labelledby="features-heading">
-      <div class="container">
-        <h2 id="features-heading">Why Landmark</h2>
-        <div class="grid grid--3">
-          <div class="feature-card">
-            <h3>Visionary Design</h3>
-            <p>Architecture that redefines luxury living with meticulous attention to detail.</p>
-          </div>
-          <div class="feature-card">
-            <h3>Premium Locations</h3>
-            <p>Strategically positioned developments in the most sought-after destinations.</p>
-          </div>
-          <div class="feature-card">
-            <h3>Timeless Quality</h3>
-            <p>Built with the finest materials and craftsmanship that stands the test of time.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+<!-- Narrative Section: The Art of Detail -->
+<section class="art-of-detail bg-white overflow-hidden" style="padding-top: 50px; padding-bottom: 50px;">
+<div class="max-w-[1185px] mx-auto px-6 lg:px-0">
+<div class="flex flex-col lg:flex-row items-center gap-16 lg:gap-32">
+<div class="lg:w-1/2 order-2 lg:order-1">
+<h2 class="font-headline text-black" style="font-size: 52px; line-height: 62px; font-weight: 300; margin-bottom: 34px;">
+  THE ART <br> <span class="serif-italic lowercase italic text-landmark-gold inline-block">of</span> DETAIL
+</h2>
+<p class="text-black" style="font-size: 16px; line-height: 26px; font-weight: 300; margin-bottom: 35px; max-width: 32rem;">
+  At Landmark, we understand that true excellence lies in the meticulous attention to detail and the artistry of craftsmanship. Guided by a commitment to perfection, we believe in crafting not just homes but immersive experiences where every nuance is thoughtfully considered.
+</p>
+<a href="/about" class="inline-block text-center border border-black text-black rounded-full uppercase transition-all duration-500 hover:border-[#c8a487] no-underline" style="font-size: 14px; height: 49px; border-radius: 25px; min-width: 265px; letter-spacing: 2.5px; font-weight: 500; padding-top: 12px;">
+  Discover More
+</a>
+</div>
+<div class="lg:w-1/2 order-1 lg:order-2 flex justify-center lg:justify-end">
+<div class="relative w-full max-w-[540px]">
+<img alt="Architects focusing on detail" class="w-full aspect-square object-cover rounded-full shadow-2xl" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3-Ml5sHVnuBk0WDaOI4sacsJL_84gzsEh8ZBfCvXvIE8oTlR-v5mE3nv97RCvj2SYHhaE-l1ewYJuk4lTMN8ytd02gDHKGKRZAI-gd3aoLa98crKJtwxf1D6cMwYQAlYxnAE7AJqczgosjU-ptjVufm7Aih8YTQRuiKLouR8Fys3DiP877LirO4JLAgSun79epjKwskOvT3OcGvFORNFTTy_oLzTHOyN9dftViqhefST5bQmqI66kebOPX036tA7wgoWpqYvENOBp">
+<div class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[108%] h-[108%] border-[0.5px] border-landmark-gold/30 rounded-full"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-    <!-- Featured Projects Section -->
-    <section class="featured section" aria-labelledby="featured-heading">
-      <div class="container">
-        <h2 id="featured-heading">Featured Projects</h2>
-        <div class="grid grid--2">
-          <div class="project-card" data-animate>
-            <h3>Project One</h3>
-            <p>A landmark development redefining modern urban living.</p>
-          </div>
-          <div class="project-card" data-animate>
-            <h3>Project Two</h3>
-            <p>Exclusive waterfront residences with panoramic views.</p>
-          </div>
-        </div>
-        <a href="projects.html" class="btn btn--secondary">View All Projects</a>
-      </div>
-    </section>
-  </main>
+<!-- Pillars Section -->
+<section class="pillars bg-[#f9f8f6]" style="padding-top: 50px; padding-bottom: 50px;">
+<div class="max-w-[1185px] mx-auto px-6 lg:px-0 text-center" style="margin-bottom: 42px;">
+<p class="uppercase text-landmark-green/50 mb-4" style="font-size: 14px; letter-spacing: 2.5px; font-weight: 500;">From Concept to Completion</p>
+<h2 class="font-headline text-black" style="font-size: 52px; line-height: 62px; font-weight: 300;">Defining Our Pillars</h2>
+</div>
+<div class="max-w-[1185px] mx-auto px-6 lg:px-0">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16 items-start">
+<div class="pillar-card pillar-image-container flex flex-col">
+<img alt="Craftsmanship detail" class="w-full aspect-[3/4] object-cover mb-12 shadow-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQQWoo_9E-7PBgx5SBL33w2Y3LiOlnOZpo3YkT638mGaXoWBDwuJHAgbXLC6uLzVgt7Q1MVrxsMQoQhKSwECbOCuP4eKnQJ0CKHG-LQNz6aPgUeSXvleOmgKoicewbdYA4iluOBFF4W3ZshnVjnnbp4plnWBEF5qZPrOaeyERteqamfTrsqDiZ3H-zaT8xYoE1L8yROdlM8_Uz83Cemi1v7mDOWhgT7NPTINGSX5PmQcvhGpYTmsmr5xZQ6sDmNIi48D2A33wXtM_A">
+<div class="px-2">
+<h4 class="font-headline text-black" style="font-size: 34px; line-height: 41px; font-weight: 300; margin-bottom: 30px;">Craftsmanship</h4>
+<p class="text-black" style="font-size: 16px; line-height: 26px; font-weight: 300; margin-bottom: 35px;">
+When building a house, attention to detail is essential. Landmark recognises this, and we pay attention to every detail, whether it's the quality of the materials, textures and finishes, door hinges, doors, floor tiling, bathroom flooring, fittings or window size.
+</p>
+</div>
+</div>
+<div class="pillar-card pillar-image-container flex flex-col lg:mt-24">
+<img alt="Design process" class="w-full aspect-[3/4] object-cover mb-12 shadow-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3-Ml5sHVnuBk0WDaOI4sacsJL_84gzsEh8ZBfCvXvIE8oTlR-v5mE3nv97RCvj2SYHhaE-l1ewYJuk4lTMN8ytd02gDHKGKRZAI-gd3aoLa98crKJtwxf1D6cMwYQAlYxnAE7AJqczgosjU-ptjVufm7Aih8YTQRuiKLouR8Fys3DiP877LirO4JLAgSun79epjKwskOvT3OcGvFORNFTTy_oLzTHOyN9dftViqhefST5bQmqI66kebOPX036tA7wgoWpqYvENOBp">
+<div class="px-2">
+<h4 class="font-headline text-black" style="font-size: 34px; line-height: 41px; font-weight: 300; margin-bottom: 30px;">Thoughtful Design</h4>
+<p class="text-black" style="font-size: 16px; line-height: 26px; font-weight: 300; margin-bottom: 35px;">
+At Landmark, home design is not just a structure; it's a beautiful piece of art. Homes that are spacious with well-utilised spaces. The design is carefully considered and subjected to severe quality inspections.
+</p>
+</div>
+</div>
+<div class="pillar-card pillar-image-container flex flex-col">
+<img alt="Quality finish" class="w-full aspect-[3/4] object-cover mb-12 shadow-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuRKhGScD18ub5gvhSQVBQMqKNcaHnhVF8911nzJMbIrkU37QxvIWyGmRecPP03dUT3Y2zVvEZU_5kNDG1hp1mpKvsKSoeluw-OcuGSTo-DqJUBfmEXmoJy6xS31m_9BFdenHiV26UTx3T2XWtXriMr3KtG7jx5COek9vxLGXhUi6RiSztwX6oLMCuQlp4X2wJpHWGZRElzT0oXkE50U4S1AyAOUhQMILPxGmhonB8E2qhM76cwEdcaKnbYzIFtt6167EivYl8iKNE">
+<div class="px-2">
+<h4 class="font-headline text-black" style="font-size: 34px; line-height: 41px; font-weight: 300; margin-bottom: 30px;">Signature Quality</h4>
+<p class="text-black" style="font-size: 16px; line-height: 26px; font-weight: 300; margin-bottom: 35px;">
+At Landmark, we are involved in every stage of the process, from material sourcing to building homes. Every home built by us is subjected to a material quality inspection. All of the items used in construction are manufactured by us.
+</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div>
-        <a href="index.html" class="footer__brand">Landmark</a>
-        <p class="footer__text">Crafting exceptional living spaces since 2010.</p>
-        <div class="footer__socials">
-          <a href="https://instagram.com/landmark" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
-          <a href="https://facebook.com/landmark" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a>
-          <a href="https://linkedin.com/company/landmark" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
-        </div>
-      </div>
-      <div>
-        <h3 class="footer__heading">Quick Links</h3>
-        <nav class="footer__links" aria-label="Footer">
-          <a href="about.html">About Us</a>
-          <a href="projects.html">Projects</a>
-          <a href="contact.html">Contact</a>
-        </nav>
-      </div>
-      <div>
-        <h3 class="footer__heading">Contact</h3>
-        <address class="footer__text">
-          123 Landmark Tower, Business Bay<br>
-          Dubai, UAE<br>
-          <a href="tel:+97141234567">+971 4 123 4567</a><br>
-          <a href="mailto:info@landmark.ae">info@landmark.ae</a>
-        </address>
-      </div>
-    </div>
-    <div class="container footer__bottom">
-      &copy; 2026 Landmark. All rights reserved.
-    </div>
-  </footer>
+<!-- Property Showcase -->
+<section class="properties bg-white" style="padding-top: 50px; padding-bottom: 50px;">
+<div class="max-w-[1185px] mx-auto px-6 lg:px-0 text-center" style="margin-bottom: 34px;">
+<h2 class="font-headline text-black" style="font-size: 52px; line-height: 62px; font-weight: 300;">Explore Our Luxury Properties</h2>
+</div>
+<div class="max-w-[1920px] mx-auto relative mb-24 overflow-hidden">
+<img alt="Luxury residential complex" class="w-full h-[640px] object-cover scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqIuswrvfXm2XlRZZDhQHMLkPLoJ8vzk5-UTPNHvh1OoSI9CLAYp4pCjCAL9NgRwdMGGNjP44rRwdMGGNjP44rRWBVY565ad22slUeZyc5y7Njm6OrsJdIuImc1v-xMa-1hGKTtkJyBjcP-1PRv-FfvV1R9ShMXr3jO3w9RppErlXyecHy2MET-NBtZZJGHCA0kJLSP9vZxCiGpYfVbj9Qxxn3ZGYHZktgH2vL8uaZ75V4sMoj2DZIvNW8lqIrSWjZlOYR3s3xobArl3zBkxx1WYq0">
+<div class="absolute inset-0 bg-black/5"></div>
+</div>
+<div class="max-w-6xl mx-auto px-6 lg:px-12">
+<div class="grid grid-cols-2 md:grid-cols-5 gap-12 items-center justify-items-center mb-24">
+<div class="property-type flex flex-col items-center gap-5 cursor-pointer group">
+<div class="w-16 h-16 rounded-full bg-landmark-green/5 flex items-center justify-center group-hover:bg-landmark-green transition-colors duration-300">
+<span class="material-symbols-outlined text-2xl text-landmark-green group-hover:text-white" aria-hidden="true">landscape</span>
+</div>
+<span class="uppercase text-black" style="font-size: 14px; line-height: 19px; letter-spacing: 2px; font-weight: 300;">The Brooks</span>
+</div>
+<div class="property-type flex flex-col items-center gap-5 cursor-pointer group">
+<div class="w-16 h-16 rounded-full bg-landmark-green/5 flex items-center justify-center group-hover:bg-landmark-green transition-colors duration-300">
+<span class="material-symbols-outlined text-2xl text-landmark-green group-hover:text-white" aria-hidden="true">park</span>
+</div>
+<span class="uppercase text-black" style="font-size: 14px; line-height: 19px; letter-spacing: 2px; font-weight: 300; text-center">Nature Walk</span>
+</div>
+<div class="property-type flex flex-col items-center gap-5 cursor-pointer group">
+<div class="w-16 h-16 rounded-full bg-landmark-green/5 flex items-center justify-center group-hover:bg-landmark-green transition-colors duration-300">
+<span class="material-symbols-outlined text-2xl text-landmark-green group-hover:text-white" aria-hidden="true">apartment</span>
+</div>
+<span class="uppercase text-black" style="font-size: 14px; line-height: 19px; letter-spacing: 2px; font-weight: 300; text-center">Residences</span>
+</div>
+<div class="property-type flex flex-col items-center gap-5 cursor-pointer group">
+<div class="w-16 h-16 rounded-full bg-landmark-green/5 flex items-center justify-center group-hover:bg-landmark-green transition-colors duration-300">
+<span class="material-symbols-outlined text-2xl text-landmark-green group-hover:text-white" aria-hidden="true">spa</span>
+</div>
+<span class="uppercase text-black" style="font-size: 14px; line-height: 19px; letter-spacing: 2px; font-weight: 300; text-center">Wellness Hub</span>
+</div>
+<div class="property-type flex flex-col items-center gap-5 cursor-pointer group">
+<div class="w-16 h-16 rounded-full bg-landmark-green/5 flex items-center justify-center group-hover:bg-landmark-green transition-colors duration-300">
+<span class="material-symbols-outlined text-2xl text-landmark-green group-hover:text-white" aria-hidden="true">directions_run</span>
+</div>
+<span class="uppercase text-black" style="font-size: 14px; line-height: 19px; letter-spacing: 2px; font-weight: 300; text-center">Active Life</span>
+</div>
+</div>
+<div class="flex justify-center">
+<a href="/projects" class="inline-block text-center border border-black text-black rounded-full uppercase transition-all duration-500 hover:border-[#c8a487] no-underline" style="font-size: 14px; height: 49px; border-radius: 25px; min-width: 265px; letter-spacing: 2.5px; font-weight: 500; padding-top: 12px;">
+  Explore All
+</a>
+</div>
+</div>
+</section>
 
-  <script type="module" src="/src/js/main.js"></script>
+<!-- Press Releases -->
+<section class="press bg-[#f9f8f6]" style="padding-top: 50px; padding-bottom: 50px;">
+<div class="max-w-[1185px] mx-auto px-6 lg:px-0">
+<h2 class="text-center font-headline text-black" style="font-size: 52px; line-height: 62px; font-weight: 300; margin-bottom: 42px;">Press Releases</h2>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-20">
+<!-- Main News -->
+<article class="press-card lg:col-span-8 bg-white group cursor-pointer shadow-sm hover:shadow-xl transition-shadow duration-500">
+<div class="overflow-hidden aspect-[16/9]">
+<img alt="Modern skyline" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuRKhGScD18ub5gvhSQVBQMqKNcaHnhVF8911nzJMbIrkU37QxvIWyGmRecPP03dUT3Y2zVvEZU_5kNDG1hp1mpKvsKSoeluw-OcuGSTo-DqJUBfmEXmoJy6xS31m_9BFdenHiV26UTx3T2XWtXriMr3KtG7jx5COek9vxLGXhUi6RiSztwX6oLMCuQlp4X2wJpHWGZRElzT0oXkE50U4S1AyAOUhQMILPxGmhonB8E2qhM76cwEdcaKnbYzIFtt6167EivYl8iKNE">
+</div>
+<div class="p-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+<div class="max-w-lg">
+<h3 class="text-xl font-bold uppercase mb-4 tracking-wide leading-tight">Landmark Unveils 'The Obsidian' at Heritage Core</h3>
+<p style="font-size: 16px; line-height: 26px; font-weight: 300; color: #000;">A milestone release defining the future of residential structural integrity and architectural finesse.</p>
+</div>
+<div class="text-left md:text-right shrink-0">
+<p class="text-[9px] uppercase tracking-[0.2em] font-bold text-landmark-green/60 mb-1">Published on</p>
+<time class="press-date text-[12px] font-bold text-[#1a1a1a]" datetime="2024-11-12">12 NOV 2024</time>
+</div>
+</div>
+</article>
+<!-- Side News Column -->
+<div class="lg:col-span-4 flex flex-col gap-10">
+<article class="press-card bg-white group cursor-pointer flex-1 shadow-sm hover:shadow-xl transition-shadow duration-500">
+<div class="overflow-hidden h-44">
+<img alt="Interior view" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcb3svAGUzPWiPWCn0zoulC_MEXSvnm2k8LkOSBPm3YDqw3megQJKOczidv9edluvo8WoQ2NVvOQ9D4t1jggFO4JPXIqWWUO-RtVDnqSargfXvWDakHNISCe5ksNqNVqOBG3McpnmYfY9gC50Cgc-7a8IszofugvGeQv5lZm5YsWbIr0DLcfxyeK1BXf_j3oi-MpBGhWJpUNNs7C8HNu8gHjYsQLhd3U5HVxn-Fqr7xKTtxpnwrrAXIiWrXSnAf0w5jUX9iBHWt72D">
+</div>
+<div class="p-8">
+<h4 class="text-[13px] font-bold uppercase mb-4 leading-tight tracking-wide">Biophilic Systems: Harmonizing Built Environments</h4>
+<div class="flex justify-between items-center">
+<time class="press-date text-[9px] uppercase tracking-[0.2em] font-extrabold text-landmark-green" datetime="2024-11-10">10 NOV 2024</time>
+<span class="material-symbols-outlined text-sm text-landmark-green" aria-hidden="true">arrow_forward</span>
+</div>
+</div>
+</article>
+<article class="press-card bg-white group cursor-pointer flex-1 shadow-sm hover:shadow-xl transition-shadow duration-500">
+<div class="overflow-hidden h-44">
+<img alt="City landscape" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3-Ml5sHVnuBk0WDaOI4sacsJL_84gzsEh8ZBfCvXvIE8oTlR-v5mE3nv97RCvj2SYHhaE-l1ewYJuk4lTMN8ytd02gDHKGKRZAI-gd3aoLa98crKJtwxf1D6cMwYQAlYxnAE7AJqczgosjU-ptjVufm7Aih8YTQRuiKLouR8Fys3DiP877LirO4JLAgSun79epjKwskOvT3OcGvFORNFTTy_oLzTHOyN9dftViqhefST5bQmqI66kebOPX036tA7wgoWpqYvENOBp">
+</div>
+<div class="p-8">
+<h4 class="text-[13px] font-bold uppercase mb-4 leading-tight tracking-wide">Landmark Heritage: The London Residency Expansion</h4>
+<div class="flex justify-between items-center">
+<time class="press-date text-[9px] uppercase tracking-[0.2em] font-extrabold text-landmark-green" datetime="2024-11-08">08 NOV 2024</time>
+<span class="material-symbols-outlined text-sm text-landmark-green" aria-hidden="true">arrow_forward</span>
+</div>
+</div>
+</article>
+</div>
+</div>
+<div class="flex justify-center">
+<a href="#" class="inline-block text-center border border-black text-black rounded-full uppercase transition-all duration-500 hover:border-[#c8a487] no-underline" style="font-size: 14px; height: 49px; border-radius: 25px; min-width: 265px; letter-spacing: 2.5px; font-weight: 500; padding-top: 12px;">
+  View All
+</a>
+</div>
+</div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="footer__sitemap-wrap bg-white pt-32 pb-12 px-6 lg:px-12 border-t border-gray-100">
+<div class="max-w-[1920px] mx-auto">
+<!-- Footer Branding -->
+<div class="flex flex-col items-center mb-24">
+<a href="/">
+<img src="/logo/landmarklogo-green.svg" alt="Landmark Realty" style="width: 80px; height: auto;">
+</a>
+</div>
+<!-- Sitemap Grid -->
+<nav class="footer__sitemap grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-16 mb-24 border-b border-gray-100 pb-24" aria-label="Footer">
+<div class="col-span-2">
+<h5 class="text-[11px] uppercase tracking-[0.25em] font-[800] mb-10 text-on-background">Apartments</h5>
+<div class="grid grid-cols-2 gap-x-6 gap-y-3">
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Tranquil Beach Residences</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Crest Park Avenue</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">The Pinnacle Residences</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Crest Grande</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Skyline Atria</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Creek Vistas Reserve</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Skyline Solitaire</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Creek Vistas Grande</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Aquamarine Beach Residences</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Landmark Hartland Greens</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Coraline Beach Residences</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Waves Grande</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Delphine Beach Residences</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Creek Vistas Heights</a>
+</div>
+</div>
+<div>
+<h5 class="text-[11px] uppercase tracking-[0.25em] font-[800] mb-10 text-on-background">Villas</h5>
+<div class="flex flex-col gap-3 mb-10">
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">The Willows</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">The Greens</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">The Brooks</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">The Grove</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Palm Grove Villas</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Coral Beach Villas</a>
+</div>
+<h5 class="text-[11px] uppercase tracking-[0.25em] font-[800] mb-6 text-on-background">Villaments</h5>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Golf Ridges at One</a>
+</div>
+<div>
+<h5 class="text-[11px] uppercase tracking-[0.25em] font-[800] mb-10 text-on-background">Communities</h5>
+<div class="flex flex-col gap-3">
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Landmark Sanctuary</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Landmark Central</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Downtown HQ</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Landmark Bella</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Skyline Orbis</a>
+</div>
+</div>
+<div>
+<h5 class="text-[11px] uppercase tracking-[0.25em] font-[800] mb-10 text-on-background">Media &amp; About</h5>
+<div class="flex flex-col gap-3 mb-10">
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Press Releases</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Leadership Team</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Craftsmanship</a>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Signature Quality</a>
+</div>
+<h5 class="text-[11px] uppercase tracking-[0.25em] font-[800] mb-6 text-on-background">Careers</h5>
+<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Join Our Team</a>
+</div>
+<div>
+<h5 class="text-[11px] uppercase tracking-[0.25em] font-[800] mb-10 text-on-background">Experience</h5>
+<div class="flex flex-col gap-6 mb-10">
+<div class="flex gap-2">
+<div class="bg-black text-white h-9 px-3 flex items-center gap-2 rounded-[4px] cursor-pointer hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-[16px]" aria-hidden="true">apple</span>
+<div class="flex flex-col">
+<span class="text-[5px] uppercase opacity-60">Download on</span>
+<span class="text-[10px] font-bold leading-none">App Store</span>
+</div>
+</div>
+<div class="bg-black text-white h-9 px-3 flex items-center gap-2 rounded-[4px] cursor-pointer hover:bg-gray-800 transition-colors">
+<span class="material-symbols-outlined text-[16px]" aria-hidden="true">play_arrow</span>
+<div class="flex flex-col">
+<span class="text-[5px] uppercase opacity-60">Get it on</span>
+<span class="text-[10px] font-bold leading-none">Google Play</span>
+</div>
+</div>
+</div>
+<div class="border border-gray-100 p-4 text-center rounded-[2px] bg-[#f9f8f6]">
+<p class="text-[9px] font-bold mb-1 tracking-widest uppercase">Google Reviews</p>
+<div class="flex justify-center text-landmark-gold text-[10px] gap-0.5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+<p class="text-[12px] font-bold mt-1 text-[#1a1a1a]">4.7 / 5.0</p>
+</div>
+</div>
+</div>
+</nav>
+<!-- Footer Bottom -->
+<div class="footer__socials flex flex-col md:flex-row justify-between items-center gap-10">
+<div class="text-[9px] uppercase tracking-[0.2em] font-bold text-secondary order-3 md:order-1">&copy; 2026 LANDMARK REALTY. ALL RIGHTS RESERVED.</div>
+<div class="flex gap-8 items-center order-1 md:order-2">
+<a class="text-secondary hover:text-landmark-green transition-colors" href="#" aria-label="Website"><span class="material-symbols-outlined text-[20px]">public</span></a>
+<a class="text-secondary hover:text-landmark-green transition-colors" href="#" aria-label="Email"><span class="material-symbols-outlined text-[20px]">alternate_email</span></a>
+<a class="text-secondary hover:text-landmark-green transition-colors" href="#" aria-label="Social media"><span class="material-symbols-outlined text-[20px]">share</span></a>
+<a class="text-secondary hover:text-landmark-green transition-colors" href="#" aria-label="Video"><span class="material-symbols-outlined text-[20px]">play_circle</span></a>
+</div>
+<div class="flex gap-8 items-center text-[9px] uppercase tracking-[0.2em] font-bold text-secondary order-2 md:order-3">
+<a class="hover:text-landmark-green transition-colors" href="#">Privacy Policy</a>
+<span class="opacity-10 w-[1px] h-3 bg-black"></span>
+<a class="hover:text-landmark-green transition-colors" href="#">Sitemap</a>
+</div>
+</div>
+</div>
+</footer>
+
+<!-- Floating Action -->
+<div class="fixed bottom-8 right-8 z-[100]">
+<button class="bg-landmark-green text-white w-14 h-14 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center" aria-label="Chat">
+<span class="material-symbols-outlined text-[24px]">chat_bubble</span>
+</button>
+</div>
+
+<script type="module" src="/src/js/main.js"></script>
 </body>
 </html>

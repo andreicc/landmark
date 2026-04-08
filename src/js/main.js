@@ -1,25 +1,24 @@
 // Mobile navigation toggle
 const menuToggle = document.querySelector('[data-menu-toggle]')
-const nav = document.querySelector('.header__nav')
+const mobileNav = document.querySelector('.header__mobile-nav')
 
-if (menuToggle && nav) {
+if (menuToggle && mobileNav) {
   menuToggle.addEventListener('click', () => {
-    nav.classList.toggle('is-open')
-    const isOpen = nav.classList.contains('is-open')
+    mobileNav.classList.toggle('is-open')
+    const isOpen = mobileNav.classList.contains('is-open')
     menuToggle.setAttribute('aria-expanded', String(isOpen))
   })
 
   // Close nav on link click (mobile)
-  nav.querySelectorAll('a').forEach((link) => {
+  mobileNav.querySelectorAll('a').forEach((link) => {
     link.addEventListener('click', () => {
-      nav.classList.remove('is-open')
+      mobileNav.classList.remove('is-open')
       menuToggle.setAttribute('aria-expanded', 'false')
     })
   })
 }
 
 // Scroll-triggered animations via Intersection Observer
-// Only animate when user has no motion preference
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 
 if (!prefersReducedMotion) {

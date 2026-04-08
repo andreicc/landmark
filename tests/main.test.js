@@ -1,4 +1,4 @@
-import { describe, it, expect, beforeEach, vi } from 'vitest'
+import { describe, it, expect, beforeEach } from 'vitest'
 import { JSDOM } from 'jsdom'
 import { readFileSync } from 'fs'
 import { fileURLToPath } from 'url'
@@ -8,88 +8,54 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 
 function createDOM() {
   const html = readFileSync(resolve(__dirname, '..', 'index.html'), 'utf-8')
-  const dom = new JSDOM(html, { runScripts: 'outside-only' })
-  return dom
+  return new JSDOM(html).window.document
 }
 
 describe('Mobile navigation toggle', () => {
-  let dom, doc
-
-  beforeEach(() => {
-    dom = createDOM()
-    doc = dom.window.document
-  })
-
-  it('toggle button starts with aria-expanded="false"', () => {
-    const btn = doc.querySelector('[data-menu-toggle]')
-    expect(btn.getAttribute('aria-expanded')).toBe('false')
-  })
-
-  it('clicking toggle opens nav and sets aria-expanded="true"', () => {
-    const btn = doc.querySelector('[data-menu-toggle]')
-    const nav = doc.querySelector('.header__nav')
-
-    btn.click()
-    nav.classList.add('is-open')
-    btn.setAttribute('aria-expanded', 'true')
-
-    expect(nav.classList.contains('is-open')).toBe(true)
-    expect(btn.getAttribute('aria-expanded')).toBe('true')
-  })
-
-  it('clicking toggle again closes nav and sets aria-expanded="false"', () => {
-    const btn = doc.querySelector('[data-menu-toggle]')
-    const nav = doc.querySelector('.header__nav')
-
-    nav.classList.add('is-open')
-    btn.setAttribute('aria-expanded', 'true')
-
-    nav.classList.remove('is-open')
-    btn.setAttribute('aria-expanded', 'false')
-
-    expect(nav.classList.contains('is-open')).toBe(false)
-    expect(btn.getAttribute('aria-expanded')).toBe('false')
-  })
-
-  it('nav link click closes the mobile nav', () => {
-    const nav = doc.querySelector('.header__nav')
-    const btn = doc.querySelector('[data-menu-toggle]')
-
-    nav.classList.add('is-open')
-    btn.setAttribute('aria-expanded', 'true')
-
-    // Simulate what clicking a link does
-    nav.classList.remove('is-open')
-    btn.setAttribute('aria-expanded', 'false')
-
-    expect(nav.classList.contains('is-open')).toBe(false)
-    expect(btn.getAttribute('aria-expanded')).toBe('false')
-  })
-})
-
-describe('Scroll animation data attributes', () => {
   let doc
 
   beforeEach(() => {
-    const dom = createDOM()
-    doc = dom.window.document
+    doc = createDOM()
   })
 
-  it('data-animate elements exist on homepage', () => {
-    const animateEls = doc.querySelectorAll('[data-animate]')
-    expect(animateEls.length).toBeGreaterThanOrEqual(1)
+  it('toggle button exists with aria-expanded="false"', () => {
+    const btn = doc.querySelector('[data-menu-toggle]')
+    expect(btn).not.toBeNull()
+    expect(btn.getAttribute('aria-expanded')).toBe('false')
+    expect(btn.getAttribute('aria-label')).toBeTruthy()
   })
 
-  it('data-animate elements do not have is-visible class initially', () => {
-    const animateEls = doc.querySelectorAll('[data-animate]')
-    animateEls.forEach((el) => {
-      expect(el.classList.contains('is-visible')).toBe(false)
+  it('toggle button is inside header', () => {
+    const btn = doc.querySelector('header [data-menu-toggle]')
+    expect(btn).not.toBeNull()
+  })
+})
+
+describe('Interactive elements have accessible labels', () => {
+  let doc
+
+  beforeEach(() => {
+    doc = createDOM()
+  })
+
+  it('icon buttons have aria-labels', () => {
+    const iconButtons = doc.querySelectorAll('button')
+    iconButtons.forEach((btn) => {
+      const hasLabel = btn.getAttribute('aria-label')
+      const hasText = btn.textContent.trim().length > 0
+      expect(hasLabel || hasText).toBeTruthy()
     })
   })
 
-  it('adding is-visible class changes element state', () => {
-    const el = doc.querySelector('[data-animate]')
-    el.classList.add('is-visible')
-    expect(el.classList.contains('is-visible')).toBe(true)
+  it('pillar cards have hover animation containers', () => {
+    const pillars = doc.querySelectorAll('.pillar-image-container')
+    expect(pillars.length).toBe(3)
+  })
+
+  it('pillar images have alt text', () => {
+    const imgs = doc.querySelectorAll('.pillar-image-container img')
+    imgs.forEach((img) => {
+      expect(img.getAttribute('alt')).toBeTruthy()
+    })
   })
 })
