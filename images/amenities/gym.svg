@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="73.718" height="54.308" viewBox="0 0 73.718 54.308">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="path2438" d="M0-682.665H49.572v49.572H0Z" transform="translate(0 682.665)"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <path id="path2112" d="M0-682.665H54.308v54.308H0Z" transform="translate(0 682.665)" fill="#c7a386"/>
+    </clipPath>
+  </defs>
+  <g id="indoor_and_outdoor_gym" data-name="indoor and outdoor gym" transform="translate(-169.692 -9712.192)">
+    <g id="g2424" transform="translate(876.502 9764.133) rotate(-90)">
+      <g id="g2426" transform="translate(16.604 -655.394)">
+        <path id="path2428" d="M-199.156,0H-214.75" transform="translate(214.75)" fill="rgba(0,0,0,0)" stroke="#c7a386" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      </g>
+      <g id="g2430" transform="translate(16.604 -660.363)">
+        <path id="path2432" d="M0,0H15.594" fill="rgba(0,0,0,0)" stroke="#c7a386" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+      </g>
+      <g id="g2434" transform="translate(0 -682.665)">
+        <g id="g2436" transform="translate(0 0)" clip-path="url(#clip-path)">
+          <g id="g2442" transform="translate(44.138 22.302)">
+            <path id="path2444" d="M0,0H4.466V4.969H0" fill="rgba(0,0,0,0)" stroke="#c7a386" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+          </g>
+          <g id="g2446" transform="translate(0.968 22.302)">
+            <path id="path2448" d="M-46.258-63.455H-49.88v-4.969h3.622" transform="translate(49.88 68.424)" fill="rgba(0,0,0,0)" stroke="#c7a386" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+          </g>
+          <g id="g2450" transform="translate(4.708 14.502)">
+            <path id="path2452" d="M-46.462-262.688H-48.5a1.6,1.6,0,0,1-1.6-1.6V-281.66a1.6,1.6,0,0,1,1.6-1.6h2.042a1.6,1.6,0,0,1,1.6,1.6v17.376A1.6,1.6,0,0,1-46.462-262.688Z" transform="translate(50.1 283.257)" fill="rgba(0,0,0,0)" stroke="#c7a386" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+          </g>
+          <g id="g2454" transform="translate(9.943 12.887)">
+            <path id="path2456" d="M-61.694-303.943h-3.234a1.6,1.6,0,0,1-1.6-1.6v-20.606a1.6,1.6,0,0,1,1.6-1.6h3.234a1.6,1.6,0,0,1,1.6,1.6v20.606A1.6,1.6,0,0,1-61.694-303.943Z" transform="translate(66.525 327.742)" fill="rgba(0,0,0,0)" stroke="#c7a386" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+          </g>
+          <g id="g2458" transform="translate(38.798 14.502)">
+            <path id="path2460" d="M-20.389,0h2.042a1.6,1.6,0,0,1,1.6,1.6V18.973a1.6,1.6,0,0,1-1.6,1.6h-2.042a1.6,1.6,0,0,1-1.6-1.6V1.6A1.6,1.6,0,0,1-20.389,0Z" transform="translate(21.985)" fill="rgba(0,0,0,0)" stroke="#c7a386" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+          </g>
+          <g id="g2462" transform="translate(32.37 12.887)">
+            <path id="path2464" d="M-20.389,0h3.234a1.6,1.6,0,0,1,1.6,1.6V22.2a1.6,1.6,0,0,1-1.6,1.6h-3.234a1.6,1.6,0,0,1-1.6-1.6V1.6A1.6,1.6,0,0,1-20.389,0Z" transform="translate(21.985 0)" fill="rgba(0,0,0,0)" stroke="#c7a386" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5"/>
+          </g>
+        </g>
+      </g>
+    </g>
+    <g id="outdoor_gym" data-name="outdoor gym" transform="translate(169.692 10394.857)">
+      <g id="g2108" transform="translate(0 -682.665)">
+        <g id="g2110" clip-path="url(#clip-path-2)">
+          <g id="g2116" transform="translate(0.831 23.37)">
+            <path id="path2118" d="M-103.348-263.861a10.628,10.628,0,0,0,6.693,2.357,10.684,10.684,0,0,0,10.683-10.683,10.674,10.674,0,0,0-4.8-8.919v-5.559a15.627,15.627,0,0,1,9.742,14.478,15.624,15.624,0,0,1-15.624,15.624,15.624,15.624,0,0,1-15.625-15.624,15.629,15.629,0,0,1,9.742-14.478v5.559a10.673,10.673,0,0,0-4.8,8.919,10.647,10.647,0,0,0,2.828,7.24" transform="translate(112.28 286.666)" fill="none" stroke="#c7a386" stroke-miterlimit="10" stroke-width="1.5"/>
+          </g>
+          <path id="path2120" d="M186.1-656.274h-3.926v-16.5H186.1Z" transform="translate(-167.679 673.564)" fill="none" stroke="#c7a386" stroke-miterlimit="10" stroke-width="1.5"/>
+          <g id="g2122" transform="translate(10.573 17.289)">
+            <path id="path2124" d="M-116.721-41.674v-3.6h-8.412v3.6L-126.809-40v7.191l1.685,1.686h8.394l1.685-1.686V-40Z" transform="translate(126.809 45.276)" fill="none" stroke="#c7a386" stroke-miterlimit="10" stroke-width="1.5"/>
+          </g>
+          <g id="g2126" transform="translate(16.455 19.552)">
+            <path id="path2128" d="M0,0V9.476" transform="translate(0 0)" fill="none" stroke="#c7a386" stroke-miterlimit="10" stroke-width="1.5" stroke-dasharray="15 15 15 15 350"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
