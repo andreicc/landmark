@@ -4,16 +4,16 @@
       "slug": "press",
       "name": { "en": "Press", "ro": "Presă" },
       "description": {
-        "en": "Press releases and announcements.",
-        "ro": "Comunicate de presă și anunțuri."
+        "en": "Press releases, magazine features, and outside coverage.",
+        "ro": "Comunicate de presă, articole în reviste și acoperire externă."
       }
     },
     {
       "slug": "journal",
       "name": { "en": "Journal", "ro": "Jurnal" },
       "description": {
-        "en": "Notes from the building site and the studio.",
-        "ro": "Note de pe șantier și din studio."
+        "en": "A field journal from the building site — milestones, time-lapse, craft, people, progress.",
+        "ro": "Un jurnal de teren de pe șantier — repere, time-lapse, măiestrie, oameni, progres."
       }
     },
     {
@@ -47,195 +47,256 @@
   ],
   "posts": [
     {
-      "id": "post-001",
-      "slug": "landmark-4-floor-25-formwork",
+      "id": "post-01",
+      "slug": "topping-out-floor-24",
+      "tag": "milestone",
       "title": {
-        "en": "Floor 25 formwork begins",
-        "ro": "Cofrajul etajului 25 începe"
+        "en": "Topping-out. Floor 24.",
+        "ro": "Topping-out. Etajul 24."
       },
       "excerpt": {
-        "en": "The penthouse level slab pour starts Monday at 06:00. Three crews, one shift, full continuous concrete from a single batch plant.",
-        "ro": "Turnarea plăcii nivelului penthouse începe luni la 06:00. Trei echipe, o singură tură, beton continuu dintr-o singură stație."
-      },
-      "heroImage": {
-        "url": "/uploads/landmark4-floor25.jpg",
-        "alt": {
-          "en": "Workers preparing formwork on floor 25 at sunset.",
-          "ro": "Muncitori pregătind cofrajul la etajul 25 la apus."
-        }
+        "en": "At 06:18 this morning, the last cubic metre of concrete was placed on the twenty-fourth floor of Landmark 4 — the structural top of the tower.",
+        "ro": "La 06:18 azi-dimineață, ultimul metru cub de beton a fost turnat la etajul douăzeci și patru al Landmark 4 — vârful structural al turnului."
       },
       "body": {
-        "en": "<p>The penthouse level slab pour starts Monday. Three crews, one shift, full continuous concrete from a single batch plant.</p>",
-        "ro": "<p>Turnarea plăcii nivelului penthouse începe luni. Trei echipe, o singură tură, beton continuu dintr-o singură stație.</p>"
+        "en": "<p>At 06:18 this morning, the last cubic metre of concrete was placed on the twenty-fourth floor of Landmark 4 — the structural top of the tower. Forty-one weeks of pouring, 11,400 m³ of concrete, twenty-eight hundred tonnes of rebar, and not a single delay note in the log.</p><p>Topping-out is a quiet ceremony at our sites. The team stops work at 07:00, the foreman walks the perimeter once, and a small flag is raised — Romanian, of course — by the youngest tradesman on the crew. Today that was Cosmin Albu, twenty-three, second-generation steelfixer.</p><p>From here we move to envelope. Travertine begins arriving from Comarnic on 18 May; the first windows go in the week after. We expect a watertight building by mid-September, and we'll let you watch every stone of it.</p>",
+        "ro": "<p>La 06:18 azi-dimineață, ultimul metru cub de beton a fost turnat la etajul douăzeci și patru al Landmark 4 — vârful structural al turnului. Patruzeci și una de săptămâni de turnare, 11.400 m³ de beton, două mii opt sute de tone de armătură și niciun raport de întârziere în jurnal.</p><p>Topping-out-ul este o ceremonie discretă pe șantierele noastre. Echipa se oprește la 07:00, șeful de șantier face un tur al perimetrului, iar un steag mic — românesc, desigur — este ridicat de cel mai tânăr meseriaș din echipă. Astăzi a fost Cosmin Albu, douăzeci și trei de ani, fierar betonist de generația a doua.</p><p>De aici trecem la anvelopă. Travertinul începe să sosească de la Comarnic pe 18 mai; primele ferestre se montează săptămâna următoare. Ne așteptăm la o clădire etanșă până la mijlocul lui septembrie și vă vom lăsa să vedeți fiecare piatră.</p>"
       },
       "category": { "slug": "journal", "name": { "en": "Journal", "ro": "Jurnal" } },
       "author": { "slug": "site-team", "name": "Site Team" },
-      "publishedAt": "2026-04-22T06:00:00Z",
-      "status": "published",
-      "tag": "milestone"
+      "publishedAt": "2026-04-22T06:18:00Z",
+      "status": "published"
     },
     {
-      "id": "post-002",
-      "slug": "comarnic-quarry-stone-arrives",
+      "id": "post-02",
+      "slug": "six-mornings-north-elevation",
+      "tag": "timelapse",
       "title": {
-        "en": "The stone we chose, and the quarry we bought",
-        "ro": "Piatra pe care am ales-o și cariera pe care am cumpărat-o"
+        "en": "Six mornings on the north elevation.",
+        "ro": "Șase dimineți pe fațada de nord."
       },
       "excerpt": {
-        "en": "How a single travertine seam north of Comarnic became the defining material of Landmark 4.",
-        "ro": "Cum o singură venă de travertin la nord de Comarnic a devenit materialul definitoriu al Landmark 4."
-      },
-      "heroImage": {
-        "url": "/uploads/comarnic-quarry.jpg",
-        "alt": {
-          "en": "Travertine block being cut at the Comarnic quarry.",
-          "ro": "Bloc de travertin tăiat în cariera de la Comarnic."
-        }
+        "en": "The slow theatre of a building going up — Tuesday through Sunday, photographed at 06:30 from the same tripod position. Two floors of formwork rise across the week.",
+        "ro": "Teatrul lent al unei clădiri în construcție — de marți până duminică, fotografiată la 06:30 din aceeași poziție de trepied. Două etaje de cofraj se ridică în decursul săptămânii."
       },
       "body": {
-        "en": "<p>The travertine seam runs for nine kilometres. We bought twelve.</p>",
-        "ro": "<p>Vena de travertin se întinde pe nouă kilometri. Noi am cumpărat doisprezece.</p>"
+        "en": "<p>The slow theatre of a building going up — Tuesday through Sunday, photographed at 06:30 from the same tripod position on the access road. Two floors of formwork rise across the week.</p><p>Six frames, one per day. Δ Height: +6.4 m. Crew: 42. Hours: 2,840.</p>",
+        "ro": "<p>Teatrul lent al unei clădiri în construcție — de marți până duminică, fotografiată la 06:30 din aceeași poziție de trepied pe drumul de acces. Două etaje de cofraj se ridică în decursul săptămânii.</p><p>Șase cadre, unul pe zi. Δ Înălțime: +6,4 m. Echipa: 42. Ore: 2.840.</p>"
+      },
+      "category": { "slug": "journal", "name": { "en": "Journal", "ro": "Jurnal" } },
+      "author": { "slug": "site-team", "name": "Site Team" },
+      "publishedAt": "2026-04-18T06:30:00Z",
+      "status": "published"
+    },
+    {
+      "id": "post-03",
+      "slug": "first-travertine-arrives",
+      "tag": "craft",
+      "title": {
+        "en": "The first travertine arrives today.",
+        "ro": "Primul travertin sosește astăzi."
+      },
+      "excerpt": {
+        "en": "Three lorries left Comarnic at 04:30 carrying the lead block from the seam we reserved in 2023. Cut for the lobby threshold and four entrance reveals — the most-touched stone in the building.",
+        "ro": "Trei camioane au plecat de la Comarnic la 04:30 cu blocul principal din vena pe care am rezervat-o în 2023. Tăiat pentru pragul lobby-ului și patru rame de intrare — piatra cel mai des atinsă din clădire."
+      },
+      "body": {
+        "en": "<p>Three lorries left Comarnic at 04:30 carrying the lead block from the seam we reserved in 2023. We'll cut it for the lobby threshold and the four entrance reveals — the most-touched stone in the whole building.</p><ul><li>Origin: Comarnic, Prahova</li><li>Seam: North-04, vein 22</li><li>Reserved since: June 2023</li><li>First placement: Lobby threshold, June 2026</li></ul>",
+        "ro": "<p>Trei camioane au plecat de la Comarnic la 04:30 cu blocul principal din vena pe care am rezervat-o în 2023. Îl vom tăia pentru pragul lobby-ului și pentru cele patru rame de intrare — piatra cea mai des atinsă din clădire.</p><ul><li>Origine: Comarnic, Prahova</li><li>Vena: North-04, vena 22</li><li>Rezervat din: iunie 2023</li><li>Prima montare: prag lobby, iunie 2026</li></ul>"
       },
       "category": { "slug": "journal", "name": { "en": "Journal", "ro": "Jurnal" } },
       "author": { "slug": "andrei-constantinescu", "name": "Andrei Constantinescu" },
-      "publishedAt": "2026-04-15T09:00:00Z",
-      "status": "published",
-      "tag": "craft"
+      "publishedAt": "2026-04-15T04:30:00Z",
+      "status": "published"
     },
     {
-      "id": "post-003",
-      "slug": "obsidian-heritage-core-launch",
+      "id": "post-04",
+      "slug": "oak-treads-floor-18",
+      "tag": "people",
       "title": {
-        "en": "Landmark unveils 'The Obsidian' at Heritage Core",
-        "ro": "Landmark dezvăluie 'The Obsidian' la Heritage Core"
+        "en": "Oak treads went in this morning.",
+        "ro": "Treptele din stejar au fost montate azi-dimineață."
       },
       "excerpt": {
-        "en": "A milestone release defining the future of residential structural integrity and architectural finesse.",
-        "ro": "O lansare de referință care definește viitorul integrității structurale rezidențiale și al finețurilor arhitecturale."
-      },
-      "heroImage": {
-        "url": "/uploads/obsidian-launch.jpg",
-        "alt": {
-          "en": "The Obsidian tower at dusk.",
-          "ro": "Turnul Obsidian la apus."
-        }
+        "en": "Foreman Mihai Stoica: \"You can hear when a building is going well. The hammer falls find a rhythm. We've had that rhythm for three weeks now on the eighteenth floor.\"",
+        "ro": "Șef de șantier Mihai Stoica: „Auzi când o clădire merge bine. Loviturile de ciocan își găsesc un ritm. Avem acest ritm de trei săptămâni la etajul optsprezece.”"
       },
       "body": {
-        "en": "<p>The Obsidian opens its private register today.</p>",
-        "ro": "<p>The Obsidian deschide astăzi registrul privat.</p>"
+        "en": "<blockquote>You can hear when a building is going well. The hammer falls find a rhythm. We've had that rhythm for three weeks now on the eighteenth floor — and the oak treads went in this morning without a single shim.</blockquote><p>— Mihai Stoica, Site foreman · 22 yrs. From the daily log · 12 April · 17:42.</p>",
+        "ro": "<blockquote>Auzi când o clădire merge bine. Loviturile de ciocan își găsesc un ritm. Avem acest ritm de trei săptămâni la etajul optsprezece — iar treptele din stejar au fost montate azi-dimineață fără să fie nevoie de nicio peană.</blockquote><p>— Mihai Stoica, șef de șantier · 22 ani. Din jurnalul zilnic · 12 aprilie · 17:42.</p>"
+      },
+      "category": { "slug": "journal", "name": { "en": "Journal", "ro": "Jurnal" } },
+      "author": { "slug": "site-team", "name": "Site Team" },
+      "publishedAt": "2026-04-12T17:42:00Z",
+      "status": "published"
+    },
+    {
+      "id": "post-05",
+      "slug": "dewatering-pumps-off",
+      "tag": "progress",
+      "title": {
+        "en": "Dewatering pumps off. The slab pour stays dry.",
+        "ro": "Pompele de drenaj oprite. Turnarea plăcii rămâne uscată."
+      },
+      "excerpt": {
+        "en": "Wellpoint array confirmed at -7.40 m. Pumps cycled down on the south perimeter. Surveyor signs off levels — Floor 25 formwork begins Mon 14.",
+        "ro": "Sistemul de drenaj confirmat la -7,40 m. Pompele oprite pe perimetrul sudic. Topograful semnează cotele — cofrajul etajului 25 începe luni 14."
+      },
+      "body": {
+        "en": "<p>06:30 — Site opens. Frost at −1°C, dry.<br>07:14 — Wellpoint array confirmed — water table at −7.40 m.<br>09:48 — Pumps cycled down on the south perimeter.<br>11:22 — Inspection of B-2 raft slab joints, sector C-7.<br>13:05 — Lunch. 42 on site, 0 incidents this week.<br>15:40 — Surveyor signs off levels. Floor 25 formwork begins Mon 14.</p><p>Water pumped: 8,420 m³. Schedule: +1 day ahead. Weather window: hold to Sunday.</p>",
+        "ro": "<p>06:30 — Șantierul se deschide. Îngheț la −1°C, uscat.<br>07:14 — Sistemul de drenaj confirmat — pânza freatică la −7,40 m.<br>09:48 — Pompele oprite pe perimetrul sudic.<br>11:22 — Inspecția îmbinărilor plăcii B-2, sectorul C-7.<br>13:05 — Pauză de masă. 42 pe șantier, 0 incidente săptămâna asta.<br>15:40 — Topograful semnează cotele. Cofrajul etajului 25 începe luni 14.</p><p>Apă pompată: 8.420 m³. Program: +1 zi înainte. Fereastră meteo: ține până duminică.</p>"
+      },
+      "category": { "slug": "journal", "name": { "en": "Journal", "ro": "Jurnal" } },
+      "author": { "slug": "site-team", "name": "Site Team" },
+      "publishedAt": "2026-04-09T09:00:00Z",
+      "status": "published"
+    },
+    {
+      "id": "post-06",
+      "slug": "wallpaper-the-slow-build",
+      "tag": "press",
+      "title": {
+        "en": "Wallpaper*: \"A rare developer who behaves like an atelier.\"",
+        "ro": "Wallpaper*: „Un dezvoltator rar care se comportă ca un atelier.”"
+      },
+      "excerpt": {
+        "en": "Wallpaper* Issue 312, profile by E. Nakamura: \"Drawing its own plans, casting its own fittings, and refusing to hurry.\"",
+        "ro": "Wallpaper* Numărul 312, profil de E. Nakamura: „Își desenează propriile planuri, își toarnă propriile feronerii și refuză să se grăbească.”"
+      },
+      "body": {
+        "en": "<blockquote>A rare developer who behaves like an atelier — drawing its own plans, casting its own fittings, and refusing to hurry.</blockquote><p>— Wallpaper*, Feb 2026 · profile by E. Nakamura. Pages 84–92.</p>",
+        "ro": "<blockquote>Un dezvoltator rar care se comportă ca un atelier — își desenează propriile planuri, își toarnă propriile feronerii și refuză să se grăbească.</blockquote><p>— Wallpaper*, feb. 2026 · profil de E. Nakamura. Paginile 84–92.</p>"
       },
       "category": { "slug": "press", "name": { "en": "Press", "ro": "Presă" } },
       "author": { "slug": "andrei-constantinescu", "name": "Andrei Constantinescu" },
-      "publishedAt": "2026-04-04T12:00:00Z",
-      "status": "published",
-      "tag": "press"
+      "publishedAt": "2026-04-04T10:00:00Z",
+      "status": "published"
     },
     {
-      "id": "post-004",
-      "slug": "willows-typology-conversation",
+      "id": "post-07",
+      "slug": "eleven-minutes-per-handle",
+      "tag": "craft",
       "title": {
-        "en": "On the quiet rules behind the Willows typologies",
-        "ro": "Despre regulile discrete din spatele tipologiilor Willows"
+        "en": "Eleven minutes per handle.",
+        "ro": "Unsprezece minute per mâner."
       },
       "excerpt": {
-        "en": "Tomás Reyes on doorways that still surprise — and the typology decisions that took ten years to settle.",
-        "ro": "Tomás Reyes despre ușile care încă surprind — și deciziile de tipologie care au durat zece ani."
-      },
-      "heroImage": {
-        "url": "/uploads/willows-doorway.jpg",
-        "alt": {
-          "en": "Hand-finished bronze door handle on a Willows villa.",
-          "ro": "Mâner de ușă din bronz finisat manual la o vilă Willows."
-        }
+        "en": "We cast every interior door handle in the Landmark portfolio in a small bronze foundry an hour outside Bucharest. 248 of them go into Landmark 4.",
+        "ro": "Turnăm fiecare mâner de ușă interioară din portofoliul Landmark într-o turnătorie mică de bronz la o oră de București. 248 dintre ele intră în Landmark 4."
       },
       "body": {
-        "en": "<p>The doorway is the first decision a house makes about its guests.</p>",
-        "ro": "<p>Ușa este prima decizie pe care o ia o casă despre oaspeții săi.</p>"
+        "en": "<p>We cast every interior door handle in the Landmark portfolio in a small bronze foundry an hour outside Bucharest. It takes eleven minutes, on average, to file and polish each one to the tolerance our designer Ana insists upon — and 248 of them go into Landmark 4.</p><p>Today we finished number 142. The team broke for tea.</p><p>Bronze · CuSn8. Patina · oiled, hand-rubbed. By Atelier Pop, Ilfov.</p>",
+        "ro": "<p>Turnăm fiecare mâner de ușă interioară din portofoliul Landmark într-o turnătorie mică de bronz la o oră de București. Durează unsprezece minute, în medie, pentru a pili și a lustrui fiecare la toleranța pe care designerul nostru Ana o impune — iar 248 dintre ele intră în Landmark 4.</p><p>Astăzi am terminat numărul 142. Echipa a luat o pauză de ceai.</p><p>Bronz · CuSn8. Patină · uleiată, frecată manual. De la Atelier Pop, Ilfov.</p>"
       },
       "category": { "slug": "journal", "name": { "en": "Journal", "ro": "Jurnal" } },
       "author": { "slug": "andrei-constantinescu", "name": "Andrei Constantinescu" },
-      "publishedAt": "2026-03-30T10:00:00Z",
-      "status": "published",
-      "tag": "craft"
+      "publishedAt": "2026-03-30T14:08:00Z",
+      "status": "published"
     },
     {
-      "id": "post-005",
-      "slug": "wellpoint-array-confirmed",
+      "id": "post-08",
+      "slug": "sixty-two-oaks-forest-edge",
+      "tag": "progress",
       "title": {
-        "en": "Wellpoint array confirmed",
-        "ro": "Sistem de drenaj confirmat"
+        "en": "Sixty-two oaks go in along the forest edge.",
+        "ro": "Șaizeci și doi de stejari plantați la marginea pădurii."
       },
       "excerpt": {
-        "en": "Block N-04, batch 22. Six rotary wells, each at twenty-eight metres, all online and reading clean.",
-        "ro": "Bloc N-04, lot 22. Șase puțuri rotative, fiecare la douăzeci și opt de metri, toate online și citesc curat."
-      },
-      "heroImage": {
-        "url": "/uploads/wellpoint-array.jpg",
-        "alt": {
-          "en": "Wellpoint array on the building site.",
-          "ro": "Sistem de drenaj pe șantier."
-        }
+        "en": "The team beat the front by three hours. The northern boundary of the plot — where Landmark 4 meets the Băneasa forest — gained its hedge today.",
+        "ro": "Echipa a învins frontul de ploi cu trei ore. Marginea nordică a parcelei — unde Landmark 4 întâlnește pădurea Băneasa — și-a primit gardul viu astăzi."
       },
       "body": {
-        "en": "<p>Wellpoints reading at 0.8 m³/h, well within tolerance.</p>",
-        "ro": "<p>Puțurile indică 0,8 m³/h, în limita admisă.</p>"
+        "en": "<p>The team beat the front by three hours. The northern boundary of the plot — where Landmark 4 meets the Băneasa forest — gained its hedge today: a row of <em>Quercus robur</em> nursery-grown for two seasons in Argeș, set 1.40 m apart on a north–south axis to soften the tower's footprint.</p><p>62 trees · 5 plots · 3.5h before rain.</p>",
+        "ro": "<p>Echipa a învins frontul de ploi cu trei ore. Marginea nordică a parcelei — unde Landmark 4 întâlnește pădurea Băneasa — și-a primit gardul viu astăzi: un rând de <em>Quercus robur</em> crescut în pepinieră timp de două sezoane în Argeș, plasat la 1,40 m distanță pe axa nord-sud pentru a îndulci amprenta turnului.</p><p>62 de copaci · 5 parcele · 3,5h înainte de ploaie.</p>"
       },
       "category": { "slug": "journal", "name": { "en": "Journal", "ro": "Jurnal" } },
       "author": { "slug": "site-team", "name": "Site Team" },
-      "publishedAt": "2026-03-22T17:42:00Z",
-      "status": "published",
-      "tag": "progress"
+      "publishedAt": "2026-03-22T11:00:00Z",
+      "status": "published"
     },
     {
-      "id": "post-006",
-      "slug": "bucharest-luxury-residential-q1-2026",
+      "id": "post-09",
+      "slug": "show-floor-opens-1402",
+      "tag": "milestone",
       "title": {
-        "en": "Bucharest luxury residential — Q1 2026 read",
-        "ro": "Rezidențial de lux București — analiză T1 2026"
+        "en": "The show-floor opens. Apartment 1402 is dressed.",
+        "ro": "Show-floor-ul se deschide. Apartamentul 1402 este finisat."
       },
       "excerpt": {
-        "en": "Inventory tightened by 11% in the central districts. Average ticket price for new completions is up 7.2% year-over-year.",
-        "ro": "Stocul s-a strâns cu 11% în districtele centrale. Prețul mediu pentru livrările noi este în creștere cu 7,2% față de anul trecut."
-      },
-      "heroImage": {
-        "url": "/uploads/q1-2026-market.jpg",
-        "alt": {
-          "en": "Aerial view of central Bucharest.",
-          "ro": "Vedere aeriană a centrului Bucureștiului."
-        }
+        "en": "First private viewings begin tomorrow at 10:00. A two-room residence on the fourteenth floor, fully fitted to specification — bronze handles, travertine threshold, the lot. Tea is on us.",
+        "ro": "Primele vizite private încep mâine la 10:00. O reședință cu două camere la etajul paisprezece, complet finisată — mânere de bronz, prag de travertin, totul. Ceaiul este din partea casei."
       },
       "body": {
-        "en": "<p>Inventory contracted in the heritage core through Q1.</p>",
-        "ro": "<p>Stocul s-a contractat în nucleul istoric pe parcursul T1.</p>"
+        "en": "<p>The first private viewings begin tomorrow at 10:00. A two-room residence on the fourteenth floor, fully fitted to specification — bronze handles, travertine threshold, the lot. Tea is on us.</p><p>By appointment.</p>",
+        "ro": "<p>Primele vizite private încep mâine la 10:00. O reședință cu două camere la etajul paisprezece, complet finisată — mânere de bronz, prag de travertin, totul. Ceaiul este din partea casei.</p><p>Cu programare.</p>"
       },
-      "category": { "slug": "market", "name": { "en": "Market", "ro": "Piață" } },
+      "category": { "slug": "journal", "name": { "en": "Journal", "ro": "Jurnal" } },
       "author": { "slug": "andrei-constantinescu", "name": "Andrei Constantinescu" },
-      "publishedAt": "2026-03-15T14:00:00Z",
-      "status": "published",
-      "tag": "market"
+      "publishedAt": "2026-03-15T10:00:00Z",
+      "status": "published"
     },
     {
-      "id": "post-007",
-      "slug": "draft-coming-soon",
+      "id": "post-10",
+      "slug": "dezeen-half-floor-penthouses",
+      "tag": "press",
       "title": {
-        "en": "Draft — coming soon",
-        "ro": "Schiță — în curând"
+        "en": "Dezeen on Landmark 4's half-floor penthouses.",
+        "ro": "Dezeen despre penthouse-urile de jumătate de etaj de la Landmark 4."
       },
       "excerpt": {
-        "en": "A draft post not yet published. Filtered out at build time.",
-        "ro": "O schiță nepublicată. Exclusă la build."
-      },
-      "heroImage": {
-        "url": "/uploads/placeholder.jpg"
+        "en": "\"A quiet rebuttal to the glass-tower orthodoxy of the last decade — closer to a Mayfair mansion block than a Bucharest skyscraper.\"",
+        "ro": "„O respingere discretă a ortodoxiei turnurilor de sticlă din ultimul deceniu — mai aproape de un imobil din Mayfair decât de un zgârie-nori din București.”"
       },
       "body": {
-        "en": "<p>WIP.</p>",
-        "ro": "<p>În lucru.</p>"
+        "en": "<blockquote>Landmark 4's half-floor penthouses arrive like a quiet rebuttal to the glass-tower orthodoxy of the last decade — closer to a Mayfair mansion block than a Bucharest skyscraper.</blockquote><p>— Dezeen, online feature. Reach: 2.4M. Coverage: +18 outlets.</p>",
+        "ro": "<blockquote>Penthouse-urile de jumătate de etaj de la Landmark 4 sosesc ca o respingere discretă a ortodoxiei turnurilor de sticlă din ultimul deceniu — mai aproape de un imobil din Mayfair decât de un zgârie-nori din București.</blockquote><p>— Dezeen, articol online. Audiență: 2,4M. Acoperire: +18 publicații.</p>"
+      },
+      "category": { "slug": "press", "name": { "en": "Press", "ro": "Presă" } },
+      "author": { "slug": "andrei-constantinescu", "name": "Andrei Constantinescu" },
+      "publishedAt": "2026-03-08T09:00:00Z",
+      "status": "published"
+    },
+    {
+      "id": "post-11",
+      "slug": "we-grew-by-three",
+      "tag": "people",
+      "title": {
+        "en": "We grew by three this month.",
+        "ro": "Am crescut cu trei luna asta."
+      },
+      "excerpt": {
+        "en": "Ana Petrescu (senior detailer, from SCAR Bucharest), Tudor Iancu (site engineer, eight years at Vinci), Eliza Marin (sustainability lead, fresh from ETH Zürich).",
+        "ro": "Ana Petrescu (detalist senior, de la SCAR București), Tudor Iancu (inginer de șantier, opt ani la Vinci), Eliza Marin (responsabil sustenabilitate, proaspăt absolventă ETH Zürich)."
+      },
+      "body": {
+        "en": "<p><strong>Ana Petrescu</strong> — Senior detailer. From SCAR Bucharest. Joins the Landmark 4 envelope team.</p><p><strong>Tudor Iancu</strong> — Site engineer. Eight years at Vinci. Heads the Landmark 4 substructure team.</p><p><strong>Eliza Marin</strong> — Sustainability lead. Fresh from ETH Zürich. Building lifecycle &amp; embodied carbon.</p>",
+        "ro": "<p><strong>Ana Petrescu</strong> — Detalist senior. De la SCAR București. Se alătură echipei de anvelopă a Landmark 4.</p><p><strong>Tudor Iancu</strong> — Inginer de șantier. Opt ani la Vinci. Conduce echipa de infrastructură a Landmark 4.</p><p><strong>Eliza Marin</strong> — Responsabil sustenabilitate. Proaspăt absolventă ETH Zürich. Ciclul de viață al clădirilor și carbon încorporat.</p>"
       },
       "category": { "slug": "journal", "name": { "en": "Journal", "ro": "Jurnal" } },
-      "author": { "slug": "site-team", "name": "Site Team" },
-      "publishedAt": "2026-04-25T00:00:00Z",
-      "status": "draft"
+      "author": { "slug": "andrei-constantinescu", "name": "Andrei Constantinescu" },
+      "publishedAt": "2026-03-01T09:00:00Z",
+      "status": "published"
+    },
+    {
+      "id": "post-12",
+      "slug": "window-reveal-rev-04",
+      "tag": "craft",
+      "title": {
+        "en": "The window reveal, redrawn for the fourth time.",
+        "ro": "Detaliul de fereastră, redesenat pentru a patra oară."
+      },
+      "excerpt": {
+        "en": "We moved the inside face of the travertine reveal in by 18 mm so the morning light reaches further across the oak floor. A small change. It cost us six weeks. It will be invisible — and that is the point.",
+        "ro": "Am mutat fața interioară a marginii de travertin cu 18 mm spre interior, ca lumina dimineții să ajungă mai departe peste pardoseala din stejar. O schimbare mică. Ne-a costat șase săptămâni. Va fi invizibilă — și exact asta este ideea."
+      },
+      "body": {
+        "en": "<p>We moved the inside face of the travertine reveal in by 18 mm so the morning light reaches further across the oak floor. A small change. It cost us six weeks. It will be invisible — and that is the point.</p><p>Drawing: L4-DT-W-204 · rev 04. Issued: 22.02.2026 · 16:40. Author: Tomás Reyes. Status: For construction.</p>",
+        "ro": "<p>Am mutat fața interioară a marginii de travertin cu 18 mm spre interior, ca lumina dimineții să ajungă mai departe peste pardoseala din stejar. O schimbare mică. Ne-a costat șase săptămâni. Va fi invizibilă — și exact asta este ideea.</p><p>Desen: L4-DT-W-204 · rev 04. Emis: 22.02.2026 · 16:40. Autor: Tomás Reyes. Status: Pentru execuție.</p>"
+      },
+      "category": { "slug": "journal", "name": { "en": "Journal", "ro": "Jurnal" } },
+      "author": { "slug": "andrei-constantinescu", "name": "Andrei Constantinescu" },
+      "publishedAt": "2026-02-22T16:40:00Z",
+      "status": "published"
     }
   ]
 }
