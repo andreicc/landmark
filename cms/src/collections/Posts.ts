@@ -1,5 +1,23 @@
-import type { CollectionConfig } from 'payload'
+import type { CollectionAfterChangeHook, CollectionConfig } from 'payload'
 import { authenticated, authenticatedOrPublishedPost } from '../access/authenticated'
+
+// Triggers a Vercel deploy hook URL when a Post is created/updated and is in
+// the published state. Skips silently when VERCEL_DEPLOY_HOOK_URL is not set
+// (local dev, or the operator hasn't wired the hook yet). Errors are logged
+// but never block the editor's save.
+const triggerVercelRebuild: CollectionAfterChangeHook = async ({ doc, req }) => {
+  const url = process.env.VERCEL_DEPLOY_HOOK_URL
+  if (!url) return doc
+  if (doc?._status !== 'published') return doc
+  try {
+    await fetch(url, { method: 'POST' })
+    req.payload.logger.info(`[posts.afterChange] Vercel rebuild triggered for ${doc.slug}`)
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : 'unknown'
+    req.payload.logger.warn(`[posts.afterChange] deploy hook failed: ${msg}`)
+  }
+  return doc
+}
 
 export const Posts: CollectionConfig = {
   slug: 'posts',
@@ -12,6 +30,9 @@ export const Posts: CollectionConfig = {
           locale?.code === 'ro' ? '/ro' : ''
         }/media/${data?.slug || ''}`,
     },
+  },
+  hooks: {
+    afterChange: [triggerVercelRebuild],
   },
   access: {
     create: authenticated,

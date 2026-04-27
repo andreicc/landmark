@@ -5,6 +5,36 @@ import { defineConfig } from 'vite'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
+// Replace the design's hardcoded posts with CMS-driven cards. The build
+// pipeline (build-media.mjs) writes data/media-feed-{en,ro}.html with the
+// rendered cards; this plugin injects them between the markers in
+// media.html and ro/media.html during transformIndexHtml. If the feed
+// files don't exist (no CMS reachable, fixtures-only build), the design's
+// hardcoded posts stay as fallback.
+function injectFeedCards() {
+  return {
+    name: 'landmark-inject-feed',
+    enforce: 'pre',
+    transformIndexHtml: {
+      order: 'pre',
+      handler(html, ctx) {
+        const isRo = ctx.path.startsWith('/ro/media') || ctx.filename?.includes('/ro/media.html')
+        const isMediaIndex = ctx.path === '/media.html' || ctx.path === '/ro/media.html' ||
+          ctx.filename?.endsWith('media.html')
+        if (!isMediaIndex) return html
+        if (!html.includes('<!-- POSTS_INJECT_START -->')) return html
+        const feedFile = resolve(__dirname, isRo ? 'data/media-feed-ro.html' : 'data/media-feed-en.html')
+        if (!existsSync(feedFile)) return html
+        const feedHtml = readFileSync(feedFile, 'utf-8')
+        return html.replace(
+          /<!-- POSTS_INJECT_START -->[\s\S]*?<!-- POSTS_INJECT_END -->/,
+          `<!-- POSTS_INJECT_START -->\n${feedHtml}\n      <!-- POSTS_INJECT_END -->`,
+        )
+      },
+    },
+  }
+}
+
 // Read scripts/build-media.mjs's manifest to register per-slug HTML files
 // as Vite build inputs. Build pipeline runs build-media before vite build,
 // so this file should exist by the time Vite starts.
@@ -81,7 +111,7 @@ function hreflangAlternates() {
 
 export default defineConfig({
   appType: 'mpa',
-  plugins: [cleanUrls(), hreflangAlternates()],
+  plugins: [cleanUrls(), hreflangAlternates(), injectFeedCards()],
   build: {
     rollupOptions: {
       input: {

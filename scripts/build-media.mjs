@@ -210,13 +210,32 @@ body { background: var(--bg); color: var(--ink); font-family: 'Roboto', sans-ser
 .nav-link { position: relative; }
 .nav-link::after { content:''; position:absolute; left:0; bottom:-4px; height:1px; width:0; background: currentColor; transition: width .35s cubic-bezier(.16,1,.3,1); }
 .nav-link:hover::after { width: 100%; }
-.article-body { max-width: 720px; }
-.article-body p { font-size: 18px; line-height: 1.85; margin-bottom: 1.5em; color: rgba(0,0,0,0.78); }
-.article-body h2 { font-family:'Lato',sans-serif; font-weight: 300; font-size: 32px; line-height: 1.25; margin-top: 2em; margin-bottom: .8em; color: #111; letter-spacing: -0.01em; }
-.article-body h3 { font-family:'Lato',sans-serif; font-weight: 400; font-size: 22px; margin-top: 1.6em; margin-bottom: .6em; color: #111; }
-.article-body blockquote { border-left: 2px solid var(--accent); padding-left: 24px; margin: 2em 0; font-style: italic; color: rgba(0,0,0,0.7); font-size: 20px; line-height: 1.6; }
-.article-body a { color: var(--primary); text-decoration: underline; text-underline-offset: 4px; }
-.article-body img { width:100%; height:auto; margin: 2em 0; }
+.micro { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; font-weight: 600; }
+.article-hero { background: radial-gradient(120% 80% at 80% 20%, rgba(181,148,88,.18), transparent 60%), radial-gradient(120% 80% at 10% 80%, rgba(0,66,37,.32), transparent 55%), linear-gradient(180deg, #0c1410 0%, #0a1310 60%, #050a08 100%); color: #fff; }
+.post-tag { display:inline-flex; align-items:center; gap: 8px; font-size: 10px; letter-spacing:.24em; text-transform: uppercase; font-weight: 600; padding: 5px 12px; border-radius: 999px; }
+.tag-progress { color: #fff; background: rgba(0,66,37,.6); }
+.tag-craft { color: #fff; background: rgba(181,148,88,.7); }
+.tag-press { color: #fff; background: rgba(116,91,40,.6); }
+.tag-people { color: #fff; background: rgba(42,74,58,.7); }
+.tag-milestone { color: #111; background: #b59458; }
+.tag-timelapse { color: #fff; background: rgba(255,255,255,.18); }
+.tag-market { color: #fff; background: rgba(181,148,88,.5); }
+.article-body { max-width: 680px; margin: 0 auto; }
+.article-body > * + * { margin-top: 1.6em; }
+.article-body p { font-size: 18px; line-height: 1.9; color: rgba(0,0,0,0.75); font-weight: 300; }
+.article-body p:first-of-type { font-size: 22px; line-height: 1.7; color: rgba(0,0,0,0.85); }
+.article-body h2 { font-family:'Lato',sans-serif; font-weight: 300; font-size: clamp(28px, 3vw, 36px); line-height: 1.2; margin-top: 2.4em; margin-bottom: .7em; color: #111; letter-spacing: -0.015em; }
+.article-body h3 { font-family:'Lato',sans-serif; font-weight: 400; font-size: 22px; line-height: 1.3; margin-top: 2em; margin-bottom: .6em; color: #111; }
+.article-body blockquote { border-left: 2px solid var(--accent); padding-left: 28px; margin: 2.4em 0; font-family: 'Lato', sans-serif; font-style: italic; font-weight: 300; color: rgba(0,0,0,0.85); font-size: clamp(22px, 2.4vw, 28px); line-height: 1.5; }
+.article-body strong { font-weight: 700; color: #111; }
+.article-body em { font-style: italic; }
+.article-body a { color: var(--primary); text-decoration: underline; text-underline-offset: 4px; transition: color .2s; }
+.article-body a:hover { color: var(--accent); }
+.article-body ul, .article-body ol { padding-left: 1.6em; }
+.article-body li { font-size: 17px; line-height: 1.85; color: rgba(0,0,0,0.75); margin-bottom: .4em; }
+.article-body img, .article-body figure { width: 100%; height: auto; margin: 2.4em 0; }
+.article-body figcaption { font-size: 13px; color: rgba(0,0,0,0.55); margin-top: .6em; text-align: center; font-style: italic; }
+.article-body hr { border: 0; border-top: 1px solid rgba(0,0,0,0.08); margin: 3em auto; max-width: 120px; }
 .skip-link { position: absolute; top: 0; left: 0; padding: .75rem 1.5rem; background: var(--primary); color:#fff; font-weight:600; z-index: 9999; transform: translateY(-100%); transition: transform .2s; }
 .skip-link:focus { transform: translateY(0); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
@@ -252,33 +271,51 @@ body { background: var(--bg); color: var(--ink); font-family: 'Roboto', sans-ser
 </nav>
 </header>
 
-<main id="main-content" class="pt-[72px]">
+<main id="main-content">
 
-<article class="bg-white">
-  <div class="max-w-[1380px] mx-auto px-6 lg:px-10 pt-16 pb-10">
-    <a href="${mediaHref}" class="inline-flex items-center gap-2 label text-landmark-green hover:text-landmark-gold transition">
-      <span class="material-symbols-outlined text-[18px]">arrow_back</span>
+<!-- Dark cinematic hero matching the design's hero pattern -->
+<section class="article-hero relative">
+  <div class="max-w-[1380px] mx-auto px-6 lg:px-10 pt-32 pb-24">
+    <a href="${mediaHref}" class="inline-flex items-center gap-2 micro text-white/70 hover:text-landmark-gold transition mb-12">
+      <span class="material-symbols-outlined text-[16px]">arrow_back</span>
       ${navLabels.back}
     </a>
-  </div>
-  <header class="max-w-[920px] mx-auto px-6 lg:px-10 pb-12">
-    <div class="flex items-center gap-4 mb-6">
-      <span class="eyebrow text-landmark-gold">${escapeHtml(categoryName)}</span>
-      <span class="w-8 h-px bg-black/30"></span>
-      <time class="label text-black/55" datetime="${escapeHtml(post.publishedAt)}">${fmtDate(post.publishedAt, locale)}</time>
+    <div class="max-w-[920px]">
+      <div class="flex items-center gap-4 mb-8 flex-wrap">
+        ${post.tag ? `<span class="post-tag tag-${escapeHtml(post.tag)}"><span class="material-symbols-outlined text-[14px]">${tagIcon(post.tag)}</span>${escapeHtml(TAG_LABELS[isRo ? 'ro' : 'en'][post.tag] || '')}</span>` : ''}
+        <span class="micro text-white/55">${escapeHtml(categoryName)}</span>
+        <span class="w-8 h-px bg-white/30"></span>
+        <time class="micro text-white/55" datetime="${escapeHtml(post.publishedAt)}">${fmtDate(post.publishedAt, locale)}</time>
+      </div>
+      <h1 class="font-headline text-white" style="font-size: clamp(40px, 6.4vw, 88px); line-height: 1.04; letter-spacing: -0.02em; font-weight: 300;">
+        ${escapeHtml(title)}
+      </h1>
+      ${excerpt ? `<p class="mt-10 text-[20px] md:text-[22px] leading-[1.6] text-white/70 font-light max-w-[720px]">${escapeHtml(excerpt)}</p>` : ''}
+      <div class="mt-12 flex items-center gap-3 micro text-white/55">
+        <span>${isRo ? 'De' : 'By'}</span>
+        <span class="text-white">${escapeHtml(post.author.name)}</span>
+      </div>
     </div>
-    <h1 class="font-headline text-black" style="font-size: clamp(36px, 5.6vw, 72px); line-height: 1.05; letter-spacing: -0.015em; font-weight: 300;">
-      ${escapeHtml(title)}
-    </h1>
-    ${excerpt ? `<p class="mt-8 text-[20px] leading-[1.6] text-black/65 font-light max-w-[720px]">${escapeHtml(excerpt)}</p>` : ''}
-    <div class="mt-10 label text-black/55">${escapeHtml(post.author.name)}</div>
-  </header>
-  ${heroUrl ? `<div class="max-w-[1380px] mx-auto px-6 lg:px-10 mb-16">
+  </div>
+</section>
+
+${heroUrl ? `<figure class="bg-black">
+  <div class="max-w-[1380px] mx-auto">
     <img src="${escapeHtml(heroUrl)}" alt="${escapeHtml(heroAlt)}" class="w-full h-auto" loading="eager">
-  </div>` : ''}
-  <div class="max-w-[920px] mx-auto px-6 lg:px-10 pb-24">
+  </div>
+</figure>` : ''}
+
+<article class="bg-white pt-20 pb-32">
+  <div class="max-w-[920px] mx-auto px-6 lg:px-10">
     <div class="article-body">
       ${body}
+    </div>
+    <hr class="article-divider" style="border:0; border-top:1px solid rgba(0,0,0,0.08); margin: 4rem auto; max-width: 120px;">
+    <div class="text-center">
+      <a href="${mediaHref}" class="inline-flex items-center gap-2 micro text-landmark-green hover:text-landmark-gold transition">
+        <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+        ${navLabels.back}
+      </a>
     </div>
   </div>
 </article>
@@ -295,6 +332,101 @@ body { background: var(--bg); color: var(--ink); font-family: 'Roboto', sans-ser
 </body>
 </html>
 `
+}
+
+// Render a single feed card matching the design's pattern. One canonical
+// shape per post — marker (date), card with tag pill + project chip + title
+// + excerpt + read link. Tag-specific styling comes from CSS classes
+// (`tag-milestone`, `tag-craft`, etc.) already in media.html.
+function tagIcon(tag) {
+  const map = {
+    milestone: 'flag',
+    timelapse: 'photo_camera',
+    craft: 'build_circle',
+    people: 'groups',
+    progress: 'show_chart',
+    press: 'newspaper',
+    market: 'trending_up',
+  }
+  return map[tag] || 'article'
+}
+
+const TAG_LABELS = {
+  en: { milestone: 'Milestone', timelapse: 'Time-lapse', craft: 'Craft', people: 'People', progress: 'Progress', press: 'Press', market: 'Market' },
+  ro: { milestone: 'Reper', timelapse: 'Time-lapse', craft: 'Măiestrie', people: 'Oameni', progress: 'Progres', press: 'Presă', market: 'Piață' },
+}
+
+const MONTH_ABBR = {
+  en: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+  ro: ['Ian', 'Feb', 'Mar', 'Apr', 'Mai', 'Iun', 'Iul', 'Aug', 'Sep', 'Oct', 'Noi', 'Dec'],
+}
+
+function dateParts(iso, locale) {
+  const d = new Date(iso)
+  if (Number.isNaN(d.getTime())) return { day: '—', month: '', year: '' }
+  return {
+    day: String(d.getUTCDate()).padStart(2, '0'),
+    month: MONTH_ABBR[locale === 'ro' ? 'ro' : 'en'][d.getUTCMonth()],
+    year: String(d.getUTCFullYear()),
+  }
+}
+
+export function renderFeedCard({ post, locale }) {
+  const isRo = locale === 'ro'
+  const slug = post.slug
+  const title = pickLocalized(post.title, locale)
+  const excerpt = pickLocalized(post.excerpt, locale)
+  const tagLabels = TAG_LABELS[isRo ? 'ro' : 'en']
+  const tagLabel = tagLabels[post.tag] || tagLabels.craft
+  const tagClass = post.tag ? `tag-${post.tag}` : 'tag-craft'
+  const articleHref = isRo ? `/ro/media/${slug}` : `/media/${slug}`
+  const projectName = isRo ? 'Landmark 4' : 'Landmark 4'
+  const date = dateParts(post.publishedAt, locale)
+  const heroUrl = post.heroImage?.url || ''
+  const heroAlt = post.heroImage ? pickLocalized(post.heroImage.alt ?? {}, locale) : ''
+  const readMore = isRo ? 'Citește articolul' : 'Read article'
+
+  return `      <article class="post reveal" data-post data-tag="${escapeHtml(post.tag || '')}" data-date="${escapeHtml(post.publishedAt || '')}">
+        <div class="marker">
+          <div>
+            <div class="day">${escapeHtml(date.day)}</div>
+            <div class="month">${escapeHtml(date.month)}</div>
+            <div class="year">${escapeHtml(date.year)}</div>
+          </div>
+          <div class="pin"></div>
+        </div>
+        <a href="${articleHref}" class="card lift block no-underline">
+          <div class="flex items-center gap-3 flex-wrap px-7 pt-6 pb-5 border-b border-black/5">
+            <span class="post-tag ${tagClass}"><span class="material-symbols-outlined text-[14px]">${tagIcon(post.tag)}</span>${escapeHtml(tagLabel)}</span>
+            <span class="project-chip">${escapeHtml(projectName)}</span>
+          </div>
+          ${heroUrl ? `<div class="photo-frame aspect-[16/9]"><img src="${escapeHtml(heroUrl)}" alt="${escapeHtml(heroAlt)}" class="w-full h-full object-cover" loading="lazy"></div>` : ''}
+          <div class="px-7 py-9">
+            <h3 class="font-headline text-[24px] md:text-[30px] leading-[1.15] text-black mb-4">${escapeHtml(title)}</h3>
+            <p class="text-[15px] leading-[1.85] text-black/70 max-w-2xl">${escapeHtml(excerpt)}</p>
+            <div class="mt-6 inline-flex items-center gap-2 micro text-landmark-green">
+              ${readMore}
+              <span class="material-symbols-outlined text-[16px]">arrow_outward</span>
+            </div>
+          </div>
+        </a>
+      </article>`
+}
+
+// Generate the full feed inner HTML — cards in chronological order — for one
+// locale. Written to data/media-feed-{locale}.html so the Vite plugin can
+// inject it via transformIndexHtml on media.html.
+export function renderFeed(posts, locale) {
+  const isRo = locale === 'ro'
+  const localized = isRo ? posts.filter((p) => p.title?.ro) : posts
+  if (localized.length === 0) {
+    return `      <div class="text-center py-24"><p class="text-[18px] text-black/55 font-light">${isRo ? 'Nu există încă articole.' : 'No posts yet.'}</p></div>`
+  }
+  return localized
+    .slice()
+    .sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || ''))
+    .map((post) => renderFeedCard({ post, locale }))
+    .join('\n\n')
 }
 
 // Render the /media index page (EN or RO) listing all published posts as
@@ -578,11 +710,20 @@ export async function buildMedia({
     }
   }
 
-  // NOTE: media.html and ro/media.html are static (the Stitch design with
-  // hand-crafted post variants) and are NOT overwritten here. Per-slug
-  // article pages are generated below; the index design stays intact.
-  // Future phase: surgically replace just the cards inside the design's
-  // <div class="feed"> wrapper while preserving everything else.
+  // Render the feed cards for /media and /ro/media. These get injected into
+  // the design's static media.html template at build time by a Vite plugin
+  // (see vite.config.js) — replacing everything between
+  // <!-- POSTS_INJECT_START --> and <!-- POSTS_INJECT_END --> markers.
+  await writeFile(
+    join(outDir, 'data', 'media-feed-en.html'),
+    renderFeed(validated, 'en'),
+    'utf-8',
+  )
+  await writeFile(
+    join(outDir, 'data', 'media-feed-ro.html'),
+    renderFeed(validated, 'ro'),
+    'utf-8',
+  )
 
   // Manifest for Vite to pick up the slug pages as build inputs.
   const manifest = {
