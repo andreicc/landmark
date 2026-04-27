@@ -83,40 +83,48 @@ async function patchDoc(collection, id, payload, locale = 'en') {
 
 async function ensureCategory(cat) {
   const existing = await findBySlug('categories', cat.slug)
-  if (existing) {
-    console.log(`  · category ${cat.slug} exists (id=${existing.id})`)
-    return existing
-  }
-  const created = await createDoc('categories', {
+  const enPayload = {
     slug: cat.slug,
     name: typeof cat.name === 'object' ? cat.name.en : cat.name,
     description: typeof cat.description === 'object' ? cat.description.en : cat.description,
-  })
-  const doc = created.doc || created
+  }
+  let doc
+  if (existing) {
+    const patched = await patchDoc('categories', existing.id, enPayload, 'en')
+    doc = patched.doc || patched
+    console.log(`  ~ category ${cat.slug} updated (id=${existing.id})`)
+  } else {
+    const created = await createDoc('categories', enPayload)
+    doc = created.doc || created
+    console.log(`  + category ${cat.slug} created (id=${doc.id})`)
+  }
   if (typeof cat.name === 'object' && cat.name.ro) {
     await patchDoc('categories', doc.id, { name: cat.name.ro, description: cat.description?.ro }, 'ro')
   }
-  console.log(`  + category ${cat.slug} created`)
   return doc
 }
 
 async function ensureAuthor(author) {
   const existing = await findBySlug('authors', author.slug)
-  if (existing) {
-    console.log(`  · author ${author.slug} exists (id=${existing.id})`)
-    return existing
-  }
-  const created = await createDoc('authors', {
+  const enPayload = {
     slug: author.slug,
     name: author.name,
     role: author.role,
     bio: typeof author.bio === 'object' ? author.bio.en : author.bio,
-  })
-  const doc = created.doc || created
+  }
+  let doc
+  if (existing) {
+    const patched = await patchDoc('authors', existing.id, enPayload, 'en')
+    doc = patched.doc || patched
+    console.log(`  ~ author ${author.slug} updated (id=${existing.id})`)
+  } else {
+    const created = await createDoc('authors', enPayload)
+    doc = created.doc || created
+    console.log(`  + author ${author.slug} created (id=${doc.id})`)
+  }
   if (typeof author.bio === 'object' && author.bio.ro) {
     await patchDoc('authors', doc.id, { bio: author.bio.ro }, 'ro')
   }
-  console.log(`  + author ${author.slug} created`)
   return doc
 }
 
@@ -148,13 +156,10 @@ function htmlToLexical(html) {
 
 async function ensurePost({ post, categoryId, authorId }) {
   const existing = await findBySlug('posts', post.slug)
-  if (existing) {
-    console.log(`  · post ${post.slug} exists (id=${existing.id})`)
-    return existing
-  }
-  // Create in EN. Skip heroImage — the fixtures reference paths that don't
-  // map to real Media records in the CMS. Editors can add a hero by hand.
-  const created = await createDoc('posts', {
+  // EN payload. heroImage intentionally omitted — fixtures reference paths
+  // that don't map to real Media records, and we don't want to clobber a
+  // hero an editor manually attached. Updating doesn't touch heroImage.
+  const enPayload = {
     slug: post.slug,
     title: post.title.en,
     excerpt: post.excerpt.en,
@@ -164,8 +169,17 @@ async function ensurePost({ post, categoryId, authorId }) {
     publishedAt: post.publishedAt,
     tag: post.tag,
     _status: 'published',
-  })
-  const doc = created.doc || created
+  }
+  let doc
+  if (existing) {
+    const patched = await patchDoc('posts', existing.id, enPayload, 'en')
+    doc = patched.doc || patched
+    console.log(`  ~ post ${post.slug} updated (id=${existing.id})`)
+  } else {
+    const created = await createDoc('posts', enPayload)
+    doc = created.doc || created
+    console.log(`  + post ${post.slug} created (id=${doc.id})`)
+  }
   // Patch RO locale fields.
   if (post.title.ro) {
     await patchDoc(
@@ -179,7 +193,6 @@ async function ensurePost({ post, categoryId, authorId }) {
       'ro',
     )
   }
-  console.log(`  + post ${post.slug} created (published)`)
   return doc
 }
 
