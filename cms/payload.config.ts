@@ -1,5 +1,4 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
-import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { buildConfig } from 'payload'
 import path from 'path'
@@ -71,17 +70,9 @@ export default buildConfig({
     defaultLocale: 'en',
     fallback: true,
   },
-  // Only register the Blob plugin when the token is actually present.
-  // Registering with enabled:false still puts the plugin's components into
-  // the import map lookup path, which fails the admin UI render if the
-  // generated importMap.js doesn't include them.
-  plugins: process.env.BLOB_READ_WRITE_TOKEN
-    ? [
-        vercelBlobStorage({
-          enabled: true,
-          collections: { media: true },
-          token: process.env.BLOB_READ_WRITE_TOKEN,
-        }),
-      ]
-    : [],
+  // Storage plugins removed for now — Payload's default local-disk uploads
+  // don't persist on Vercel serverless, but the admin will boot. Re-add
+  // Vercel Blob (or S3 / Supabase Storage) once the admin auth + content
+  // flow is verified end-to-end.
+  plugins: [],
 })
