@@ -1,0 +1,241 @@
+{
+  "categories": [
+    {
+      "slug": "press",
+      "name": { "en": "Press", "ro": "Presă" },
+      "description": {
+        "en": "Press releases and announcements.",
+        "ro": "Comunicate de presă și anunțuri."
+      }
+    },
+    {
+      "slug": "journal",
+      "name": { "en": "Journal", "ro": "Jurnal" },
+      "description": {
+        "en": "Notes from the building site and the studio.",
+        "ro": "Note de pe șantier și din studio."
+      }
+    },
+    {
+      "slug": "market",
+      "name": { "en": "Market", "ro": "Piață" },
+      "description": {
+        "en": "Market commentary and quiet research.",
+        "ro": "Comentarii de piață și cercetare discretă."
+      }
+    }
+  ],
+  "authors": [
+    {
+      "slug": "andrei-constantinescu",
+      "name": "Andrei Constantinescu",
+      "role": "Founder & Chairman",
+      "bio": {
+        "en": "Founded Landmark in 2008. Forty years in residential construction.",
+        "ro": "A fondat Landmark în 2008. Patruzeci de ani în construcția rezidențială."
+      }
+    },
+    {
+      "slug": "site-team",
+      "name": "Site Team",
+      "role": "Build crew",
+      "bio": {
+        "en": "Daily dispatches from the active building sites.",
+        "ro": "Trimiteri zilnice de pe șantierele active."
+      }
+    }
+  ],
+  "posts": [
+    {
+      "id": "post-001",
+      "slug": "landmark-4-floor-25-formwork",
+      "title": {
+        "en": "Floor 25 formwork begins",
+        "ro": "Cofrajul etajului 25 începe"
+      },
+      "excerpt": {
+        "en": "The penthouse level slab pour starts Monday at 06:00. Three crews, one shift, full continuous concrete from a single batch plant.",
+        "ro": "Turnarea plăcii nivelului penthouse începe luni la 06:00. Trei echipe, o singură tură, beton continuu dintr-o singură stație."
+      },
+      "heroImage": {
+        "url": "/uploads/landmark4-floor25.jpg",
+        "alt": {
+          "en": "Workers preparing formwork on floor 25 at sunset.",
+          "ro": "Muncitori pregătind cofrajul la etajul 25 la apus."
+        }
+      },
+      "body": {
+        "en": "<p>The penthouse level slab pour starts Monday. Three crews, one shift, full continuous concrete from a single batch plant.</p>",
+        "ro": "<p>Turnarea plăcii nivelului penthouse începe luni. Trei echipe, o singură tură, beton continuu dintr-o singură stație.</p>"
+      },
+      "category": { "slug": "journal", "name": { "en": "Journal", "ro": "Jurnal" } },
+      "author": { "slug": "site-team", "name": "Site Team" },
+      "publishedAt": "2026-04-22T06:00:00Z",
+      "status": "published",
+      "tag": "milestone"
+    },
+    {
+      "id": "post-002",
+      "slug": "comarnic-quarry-stone-arrives",
+      "title": {
+        "en": "The stone we chose, and the quarry we bought",
+        "ro": "Piatra pe care am ales-o și cariera pe care am cumpărat-o"
+      },
+      "excerpt": {
+        "en": "How a single travertine seam north of Comarnic became the defining material of Landmark 4.",
+        "ro": "Cum o singură venă de travertin la nord de Comarnic a devenit materialul definitoriu al Landmark 4."
+      },
+      "heroImage": {
+        "url": "/uploads/comarnic-quarry.jpg",
+        "alt": {
+          "en": "Travertine block being cut at the Comarnic quarry.",
+          "ro": "Bloc de travertin tăiat în cariera de la Comarnic."
+        }
+      },
+      "body": {
+        "en": "<p>The travertine seam runs for nine kilometres. We bought twelve.</p>",
+        "ro": "<p>Vena de travertin se întinde pe nouă kilometri. Noi am cumpărat doisprezece.</p>"
+      },
+      "category": { "slug": "journal", "name": { "en": "Journal", "ro": "Jurnal" } },
+      "author": { "slug": "andrei-constantinescu", "name": "Andrei Constantinescu" },
+      "publishedAt": "2026-04-15T09:00:00Z",
+      "status": "published",
+      "tag": "craft"
+    },
+    {
+      "id": "post-003",
+      "slug": "obsidian-heritage-core-launch",
+      "title": {
+        "en": "Landmark unveils 'The Obsidian' at Heritage Core",
+        "ro": "Landmark dezvăluie 'The Obsidian' la Heritage Core"
+      },
+      "excerpt": {
+        "en": "A milestone release defining the future of residential structural integrity and architectural finesse.",
+        "ro": "O lansare de referință care definește viitorul integrității structurale rezidențiale și al finețurilor arhitecturale."
+      },
+      "heroImage": {
+        "url": "/uploads/obsidian-launch.jpg",
+        "alt": {
+          "en": "The Obsidian tower at dusk.",
+          "ro": "Turnul Obsidian la apus."
+        }
+      },
+      "body": {
+        "en": "<p>The Obsidian opens its private register today.</p>",
+        "ro": "<p>The Obsidian deschide astăzi registrul privat.</p>"
+      },
+      "category": { "slug": "press", "name": { "en": "Press", "ro": "Presă" } },
+      "author": { "slug": "andrei-constantinescu", "name": "Andrei Constantinescu" },
+      "publishedAt": "2026-04-04T12:00:00Z",
+      "status": "published",
+      "tag": "press"
+    },
+    {
+      "id": "post-004",
+      "slug": "willows-typology-conversation",
+      "title": {
+        "en": "On the quiet rules behind the Willows typologies",
+        "ro": "Despre regulile discrete din spatele tipologiilor Willows"
+      },
+      "excerpt": {
+        "en": "Tomás Reyes on doorways that still surprise — and the typology decisions that took ten years to settle.",
+        "ro": "Tomás Reyes despre ușile care încă surprind — și deciziile de tipologie care au durat zece ani."
+      },
+      "heroImage": {
+        "url": "/uploads/willows-doorway.jpg",
+        "alt": {
+          "en": "Hand-finished bronze door handle on a Willows villa.",
+          "ro": "Mâner de ușă din bronz finisat manual la o vilă Willows."
+        }
+      },
+      "body": {
+        "en": "<p>The doorway is the first decision a house makes about its guests.</p>",
+        "ro": "<p>Ușa este prima decizie pe care o ia o casă despre oaspeții săi.</p>"
+      },
+      "category": { "slug": "journal", "name": { "en": "Journal", "ro": "Jurnal" } },
+      "author": { "slug": "andrei-constantinescu", "name": "Andrei Constantinescu" },
+      "publishedAt": "2026-03-30T10:00:00Z",
+      "status": "published",
+      "tag": "craft"
+    },
+    {
+      "id": "post-005",
+      "slug": "wellpoint-array-confirmed",
+      "title": {
+        "en": "Wellpoint array confirmed",
+        "ro": "Sistem de drenaj confirmat"
+      },
+      "excerpt": {
+        "en": "Block N-04, batch 22. Six rotary wells, each at twenty-eight metres, all online and reading clean.",
+        "ro": "Bloc N-04, lot 22. Șase puțuri rotative, fiecare la douăzeci și opt de metri, toate online și citesc curat."
+      },
+      "heroImage": {
+        "url": "/uploads/wellpoint-array.jpg",
+        "alt": {
+          "en": "Wellpoint array on the building site.",
+          "ro": "Sistem de drenaj pe șantier."
+        }
+      },
+      "body": {
+        "en": "<p>Wellpoints reading at 0.8 m³/h, well within tolerance.</p>",
+        "ro": "<p>Puțurile indică 0,8 m³/h, în limita admisă.</p>"
+      },
+      "category": { "slug": "journal", "name": { "en": "Journal", "ro": "Jurnal" } },
+      "author": { "slug": "site-team", "name": "Site Team" },
+      "publishedAt": "2026-03-22T17:42:00Z",
+      "status": "published",
+      "tag": "progress"
+    },
+    {
+      "id": "post-006",
+      "slug": "bucharest-luxury-residential-q1-2026",
+      "title": {
+        "en": "Bucharest luxury residential — Q1 2026 read",
+        "ro": "Rezidențial de lux București — analiză T1 2026"
+      },
+      "excerpt": {
+        "en": "Inventory tightened by 11% in the central districts. Average ticket price for new completions is up 7.2% year-over-year.",
+        "ro": "Stocul s-a strâns cu 11% în districtele centrale. Prețul mediu pentru livrările noi este în creștere cu 7,2% față de anul trecut."
+      },
+      "heroImage": {
+        "url": "/uploads/q1-2026-market.jpg",
+        "alt": {
+          "en": "Aerial view of central Bucharest.",
+          "ro": "Vedere aeriană a centrului Bucureștiului."
+        }
+      },
+      "body": {
+        "en": "<p>Inventory contracted in the heritage core through Q1.</p>",
+        "ro": "<p>Stocul s-a contractat în nucleul istoric pe parcursul T1.</p>"
+      },
+      "category": { "slug": "market", "name": { "en": "Market", "ro": "Piață" } },
+      "author": { "slug": "andrei-constantinescu", "name": "Andrei Constantinescu" },
+      "publishedAt": "2026-03-15T14:00:00Z",
+      "status": "published",
+      "tag": "market"
+    },
+    {
+      "id": "post-007",
+      "slug": "draft-coming-soon",
+      "title": {
+        "en": "Draft — coming soon",
+        "ro": "Schiță — în curând"
+      },
+      "excerpt": {
+        "en": "A draft post not yet published. Filtered out at build time.",
+        "ro": "O schiță nepublicată. Exclusă la build."
+      },
+      "heroImage": {
+        "url": "/uploads/placeholder.jpg"
+      },
+      "body": {
+        "en": "<p>WIP.</p>",
+        "ro": "<p>În lucru.</p>"
+      },
+      "category": { "slug": "journal", "name": { "en": "Journal", "ro": "Jurnal" } },
+      "author": { "slug": "site-team", "name": "Site Team" },
+      "publishedAt": "2026-04-25T00:00:00Z",
+      "status": "draft"
+    }
+  ]
+}

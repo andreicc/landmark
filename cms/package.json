@@ -1,0 +1,34 @@
+{
+  "name": "landmark-cms",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Payload v3 CMS for the Landmark /media feed. Deployed as a separate Vercel Next.js project.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "generate:types": "payload generate:types",
+    "generate:importmap": "payload generate:importmap"
+  },
+  "dependencies": {
+    "@payloadcms/db-postgres": "^3.0.0",
+    "@payloadcms/next": "^3.0.0",
+    "@payloadcms/richtext-lexical": "^3.0.0",
+    "@payloadcms/storage-vercel-blob": "^3.0.0",
+    "@payloadcms/ui": "^3.0.0",
+    "next": "^15.0.0",
+    "payload": "^3.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.5.0"
+  },
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}
