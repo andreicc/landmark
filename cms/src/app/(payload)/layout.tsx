@@ -6,6 +6,9 @@ import { handleServerFunctions, RootLayout } from '@payloadcms/next/layouts'
 import config from '@payload-config'
 import { importMap } from './admin/importMap.js'
 
+// Payload's compiled admin stylesheet — without this the admin UI
+// renders unstyled. Must be imported in the layout.
+import '@payloadcms/next/css'
 import './custom.scss'
 
 type Args = {
