@@ -2,3 +2,17 @@ node_modules/
 dist/
 .DS_Store
 *.local
+.gstack/
+
+# Design handoffs (large, kept locally only)
+Landmark/
+update_design/
+Landmark*.zip
+assets/
+
+# CMS
+cms/node_modules/
+cms/.next/
+cms/.env*
+!cms/.env.example
+cms/payload-types.ts
