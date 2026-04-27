@@ -578,19 +578,11 @@ export async function buildMedia({
     }
   }
 
-  // Index pages — overwrite the design's static media.html with a
-  // generated version listing real CMS posts. Both EN and RO variants.
-  await writeFile(
-    join(outDir, 'media.html'),
-    renderMediaIndex({ posts: validated, locale: 'en' }),
-    'utf-8',
-  )
-  const roPosts = validated.filter((p) => p.title?.ro)
-  await writeFile(
-    join(outDir, 'ro', 'media.html'),
-    renderMediaIndex({ posts: roPosts, locale: 'ro' }),
-    'utf-8',
-  )
+  // NOTE: media.html and ro/media.html are static (the Stitch design with
+  // hand-crafted post variants) and are NOT overwritten here. Per-slug
+  // article pages are generated below; the index design stays intact.
+  // Future phase: surgically replace just the cards inside the design's
+  // <div class="feed"> wrapper while preserving everything else.
 
   // Manifest for Vite to pick up the slug pages as build inputs.
   const manifest = {

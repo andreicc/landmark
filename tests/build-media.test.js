@@ -126,29 +126,13 @@ describe('build-media — pipeline', () => {
     expect(html).toContain('/ro/media/a')
   })
 
-  it('writes media.html and ro/media.html index pages', async () => {
-    const fetcher = async (locale) =>
-      payloadResponse({
-        docs: [
-          { ...rawPost({ slug: 'one' }), title: locale === 'ro' ? 'Unu' : 'One' },
-          { ...rawPost({ id: 2, slug: 'two' }), title: locale === 'ro' ? 'Doi' : 'Two' },
-        ],
-      })
+  it('does not overwrite the static media.html index (design preserved)', async () => {
+    const fetcher = async () => payloadResponse({ docs: [rawPost()] })
     await buildMedia({ fetcher, outDir: workDir })
-    expect(existsSync(join(workDir, 'media.html'))).toBe(true)
-    expect(existsSync(join(workDir, 'ro', 'media.html'))).toBe(true)
-  })
-
-  it('media.html lists every published post with link to its article', async () => {
-    const fetcher = async () =>
-      payloadResponse({
-        docs: [rawPost({ slug: 'first' }), rawPost({ id: 2, slug: 'second' }), rawPost({ id: 3, slug: 'third' })],
-      })
-    await buildMedia({ fetcher, outDir: workDir })
-    const html = readFileSync(join(workDir, 'media.html'), 'utf-8')
-    expect(html).toContain('href="/media/first"')
-    expect(html).toContain('href="/media/second"')
-    expect(html).toContain('href="/media/third"')
+    // The build pipeline must not produce a media.html — that file stays
+    // as the curated Stitch design.
+    expect(existsSync(join(workDir, 'media.html'))).toBe(false)
+    expect(existsSync(join(workDir, 'ro', 'media.html'))).toBe(false)
   })
 })
 
