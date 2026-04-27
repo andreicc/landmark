@@ -153,8 +153,8 @@ export function renderArticle({ post, locale, hasOtherLocale, siteUrl = '' }) {
   const enPath = `/media/${slug}`
   const roPath = `/ro/media/${slug}`
   const navLabels = isRo
-    ? { about: 'Despre noi', communities: 'Comunități', properties: 'Proprietăți', media: 'Media', careers: 'Cariere', contact: 'Contact', back: 'Înapoi la jurnal', skip: 'Sari la conținut' }
-    : { about: 'About', communities: 'Communities', properties: 'Properties', media: 'Media', careers: 'Careers', contact: 'Contact', back: 'Back to the journal', skip: 'Skip to main content' }
+    ? { about: 'Despre noi', properties: 'Proiectul Landmark 4', media: 'Media', contact: 'Contact', back: 'Înapoi la jurnal', skip: 'Sari la conținut' }
+    : { about: 'About', properties: 'Landmark 4 Project', media: 'Media', contact: 'Contact', back: 'Back to the journal', skip: 'Skip to main content' }
   const aboutHref = isRo ? '/ro/about' : '/about'
   const projectsHref = isRo ? '/ro/projects' : '/projects'
   const contactHref = isRo ? '/ro/contact' : '/contact'
@@ -249,7 +249,6 @@ body { background: var(--bg); color: var(--ink); font-family: 'Roboto', sans-ser
   <div class="flex justify-between items-center px-6 lg:px-12 h-[72px] w-full max-w-[1920px] mx-auto">
     <div class="hidden lg:flex gap-9 items-center font-medium tracking-[0.14em] text-[12px] uppercase text-black/85">
       <a class="nav-link" href="${aboutHref}">${navLabels.about}</a>
-      <a class="nav-link" href="#">${navLabels.communities}</a>
       <a class="nav-link" href="${projectsHref}">${navLabels.properties}</a>
     </div>
     <a href="${homeHref}" class="absolute left-1/2 -translate-x-1/2 flex items-center no-underline">
@@ -258,7 +257,6 @@ body { background: var(--bg); color: var(--ink); font-family: 'Roboto', sans-ser
     <div class="flex items-center gap-6">
       <div class="hidden lg:flex gap-6 items-center font-medium tracking-[0.14em] text-[12px] uppercase text-black/85">
         <a class="nav-link" href="${mediaHref}">${navLabels.media}</a>
-        <a class="nav-link" href="#">${navLabels.careers}</a>
         <a class="nav-link" href="${contactHref}">${navLabels.contact}</a>
       </div>
       <div class="lang-switcher flex items-center gap-1 text-[11px] font-medium tracking-[0.18em] pl-4 border-l border-black/15" data-lang-switcher>
