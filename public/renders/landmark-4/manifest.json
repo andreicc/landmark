@@ -1,0 +1,173 @@
+{
+  "generatedAt": "2026-04-27T15:51:37.925Z",
+  "images": [
+    {
+      "source": "BT4N_Randare 1.jpg",
+      "slug": "bt4n-randare-1",
+      "sizes": {
+        "800.webp": 83324,
+        "1280.webp": 190848,
+        "1920.webp": 393852,
+        "1280.jpg": 212651
+      },
+      "bytes": {
+        "source": 5169481,
+        "generated": 880675
+      }
+    },
+    {
+      "source": "BT4N_Randare 10.jpg",
+      "slug": "bt4n-randare-10",
+      "sizes": {
+        "800.webp": 27758,
+        "1280.webp": 58864,
+        "1920.webp": 133566,
+        "1280.jpg": 92252
+      },
+      "bytes": {
+        "source": 4433720,
+        "generated": 312440
+      }
+    },
+    {
+      "source": "BT4N_Randare 11.jpg",
+      "slug": "bt4n-randare-11",
+      "sizes": {
+        "800.webp": 60956,
+        "1280.webp": 135936,
+        "1920.webp": 294224,
+        "1280.jpg": 254799
+      },
+      "bytes": {
+        "source": 7267713,
+        "generated": 745915
+      }
+    },
+    {
+      "source": "BT4N_Randare 12.jpg",
+      "slug": "bt4n-randare-12",
+      "sizes": {
+        "800.webp": 38604,
+        "1280.webp": 81638,
+        "1920.webp": 166046,
+        "1280.jpg": 126314
+      },
+      "bytes": {
+        "source": 2977130,
+        "generated": 412602
+      }
+    },
+    {
+      "source": "BT4N_Randare 2.jpg",
+      "slug": "bt4n-randare-2",
+      "sizes": {
+        "800.webp": 60652,
+        "1280.webp": 120378,
+        "1920.webp": 222946,
+        "1280.jpg": 153551
+      },
+      "bytes": {
+        "source": 4968689,
+        "generated": 557527
+      }
+    },
+    {
+      "source": "BT4N_Randare 3.jpg",
+      "slug": "bt4n-randare-3",
+      "sizes": {
+        "800.webp": 51306,
+        "1280.webp": 108524,
+        "1920.webp": 213234,
+        "1280.jpg": 146336
+      },
+      "bytes": {
+        "source": 4120627,
+        "generated": 519400
+      }
+    },
+    {
+      "source": "BT4N_Randare 4.jpg",
+      "slug": "bt4n-randare-4",
+      "sizes": {
+        "800.webp": 47928,
+        "1280.webp": 107346,
+        "1920.webp": 229650,
+        "1280.jpg": 137939
+      },
+      "bytes": {
+        "source": 11077829,
+        "generated": 522863
+      }
+    },
+    {
+      "source": "BT4N_Randare 5.jpg",
+      "slug": "bt4n-randare-5",
+      "sizes": {
+        "800.webp": 70170,
+        "1280.webp": 155960,
+        "1920.webp": 357296,
+        "1280.jpg": 180041
+      },
+      "bytes": {
+        "source": 13562722,
+        "generated": 763467
+      }
+    },
+    {
+      "source": "BT4N_Randare 6.jpg",
+      "slug": "bt4n-randare-6",
+      "sizes": {
+        "800.webp": 57706,
+        "1280.webp": 116718,
+        "1920.webp": 231640,
+        "1280.jpg": 146515
+      },
+      "bytes": {
+        "source": 8914198,
+        "generated": 552579
+      }
+    },
+    {
+      "source": "BT4N_Randare 7.jpg",
+      "slug": "bt4n-randare-7",
+      "sizes": {
+        "800.webp": 71936,
+        "1280.webp": 161544,
+        "1920.webp": 326912,
+        "1280.jpg": 190773
+      },
+      "bytes": {
+        "source": 5756362,
+        "generated": 751165
+      }
+    },
+    {
+      "source": "BT4N_Randare 8.jpg",
+      "slug": "bt4n-randare-8",
+      "sizes": {
+        "800.webp": 62796,
+        "1280.webp": 144022,
+        "1920.webp": 310106,
+        "1280.jpg": 162921
+      },
+      "bytes": {
+        "source": 7981160,
+        "generated": 679845
+      }
+    },
+    {
+      "source": "BT4N_Randare 9.jpg",
+      "slug": "bt4n-randare-9",
+      "sizes": {
+        "800.webp": 19712,
+        "1280.webp": 42318,
+        "1920.webp": 87278,
+        "1280.jpg": 71662
+      },
+      "bytes": {
+        "source": 3541713,
+        "generated": 220970
+      }
+    }
+  ]
+}
