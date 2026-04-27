@@ -710,20 +710,11 @@ export async function buildMedia({
     }
   }
 
-  // Render the feed cards for /media and /ro/media. These get injected into
-  // the design's static media.html template at build time by a Vite plugin
-  // (see vite.config.js) — replacing everything between
-  // <!-- POSTS_INJECT_START --> and <!-- POSTS_INJECT_END --> markers.
-  await writeFile(
-    join(outDir, 'data', 'media-feed-en.html'),
-    renderFeed(validated, 'en'),
-    'utf-8',
-  )
-  await writeFile(
-    join(outDir, 'data', 'media-feed-ro.html'),
-    renderFeed(validated, 'ro'),
-    'utf-8',
-  )
+  // /media and /ro/media keep the Stitch design's 12 hand-crafted post
+  // variants as committed in the repo. Each card has a data-href pointing
+  // to its CMS slug; an inline JS click handler navigates on click. This
+  // means the design renders pixel-perfect AND clicks land on real CMS
+  // articles. No feed regeneration here.
 
   // Manifest for Vite to pick up the slug pages as build inputs.
   const manifest = {
