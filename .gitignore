@@ -4,6 +4,11 @@ dist/
 *.local
 .gstack/
 
+# Build-time generated content (per-slug media articles + manifest)
+/media/*.html
+/ro/media/*.html
+data/media-manifest.json
+
 # Design handoffs (large, kept locally only)
 Landmark/
 update_design/

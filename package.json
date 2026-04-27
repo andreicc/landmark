@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build:media": "node scripts/build-media.mjs",
+    "build": "node scripts/build-media.mjs && vite build",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest"

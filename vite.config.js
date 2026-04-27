@@ -1,9 +1,32 @@
 import { resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
-import { existsSync } from 'fs'
+import { existsSync, readFileSync } from 'fs'
 import { defineConfig } from 'vite'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
+
+// Read scripts/build-media.mjs's manifest to register per-slug HTML files
+// as Vite build inputs. Build pipeline runs build-media before vite build,
+// so this file should exist by the time Vite starts.
+function mediaInputs() {
+  const manifestPath = resolve(__dirname, 'data/media-manifest.json')
+  if (!existsSync(manifestPath)) return {}
+  try {
+    const manifest = JSON.parse(readFileSync(manifestPath, 'utf-8'))
+    const inputs = {}
+    for (const slug of manifest.slugs || []) {
+      const file = resolve(__dirname, `media/${slug}.html`)
+      if (existsSync(file)) inputs[`media-${slug}`] = file
+    }
+    for (const slug of manifest.roSlugs || []) {
+      const file = resolve(__dirname, `ro/media/${slug}.html`)
+      if (existsSync(file)) inputs[`ro-media-${slug}`] = file
+    }
+    return inputs
+  } catch {
+    return {}
+  }
+}
 
 function cleanUrls() {
   return {
@@ -72,6 +95,7 @@ export default defineConfig({
         roContact: resolve(__dirname, 'ro/contact.html'),
         roProjects: resolve(__dirname, 'ro/projects.html'),
         roMedia: resolve(__dirname, 'ro/media.html'),
+        ...mediaInputs(),
       },
     },
   },
