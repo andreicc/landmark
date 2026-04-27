@@ -61,12 +61,27 @@ export default buildConfig({
     // `payload migrate:create` and applied via `payload migrate`. Build
     // pipeline runs migrate before next build (see package.json prebuild).
   }),
+  // CORS + CSRF must include the CMS's own origin so the admin UI can
+  // POST/PUT/DELETE to its own /api/* routes. Vercel exposes both the
+  // per-deploy URL (VERCEL_URL) and the canonical production URL
+  // (VERCEL_PROJECT_PRODUCTION_URL) — list both because the admin loads
+  // on the canonical URL while VERCEL_URL changes every deploy.
   cors: [
     process.env.SITE_URL || 'http://localhost:5173',
     process.env.SITE_URL_RO || 'http://localhost:5173',
+    process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '',
+    process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : '',
+    process.env.NEXT_PUBLIC_SERVER_URL || '',
   ].filter(Boolean),
   csrf: [
     process.env.SITE_URL || 'http://localhost:5173',
+    process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : '',
+    process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : '',
+    process.env.NEXT_PUBLIC_SERVER_URL || '',
   ].filter(Boolean),
   localization: {
     locales: ['en', 'ro'],
