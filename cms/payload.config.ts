@@ -71,13 +71,17 @@ export default buildConfig({
     defaultLocale: 'en',
     fallback: true,
   },
-  plugins: [
-    vercelBlobStorage({
-      enabled: Boolean(process.env.BLOB_READ_WRITE_TOKEN),
-      collections: {
-        media: true,
-      },
-      token: process.env.BLOB_READ_WRITE_TOKEN || '',
-    }),
-  ],
+  // Only register the Blob plugin when the token is actually present.
+  // Registering with enabled:false still puts the plugin's components into
+  // the import map lookup path, which fails the admin UI render if the
+  // generated importMap.js doesn't include them.
+  plugins: process.env.BLOB_READ_WRITE_TOKEN
+    ? [
+        vercelBlobStorage({
+          enabled: true,
+          collections: { media: true },
+          token: process.env.BLOB_READ_WRITE_TOKEN,
+        }),
+      ]
+    : [],
 })
