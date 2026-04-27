@@ -31,9 +31,34 @@ function cleanUrls() {
   }
 }
 
+// Vite v6 resolves every `<link href>` against the filesystem, regardless of
+// `rel`. `<link rel="alternate" href="/">` therefore tries to read the project
+// root as a file → EISDIR. Rewrite alternates to absolute URLs before Vite's
+// asset scanner sees them. Absolute URLs are the SEO-correct shape for
+// hreflang anyway (Google: "fully-specified URLs are recommended").
+function hreflangAlternates() {
+  const SITE_URL = (process.env.SITE_URL || 'https://landmark.example').replace(/\/+$/, '')
+  return {
+    name: 'landmark-hreflang-alternates',
+    transformIndexHtml: {
+      order: 'pre',
+      handler(html) {
+        return html.replace(
+          /<link\s+rel="alternate"\s+hreflang="([^"]+)"\s+href="([^"]+)"\s*\/?>/g,
+          (match, lang, href) => {
+            if (href.startsWith('http')) return match
+            const path = href.startsWith('/') ? href : `/${href}`
+            return `<link rel="alternate" hreflang="${lang}" href="${SITE_URL}${path}">`
+          },
+        )
+      },
+    },
+  }
+}
+
 export default defineConfig({
   appType: 'mpa',
-  plugins: [cleanUrls()],
+  plugins: [cleanUrls(), hreflangAlternates()],
   build: {
     rollupOptions: {
       input: {
