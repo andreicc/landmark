@@ -63,7 +63,9 @@ export const Posts: CollectionConfig = {
       name: 'heroImage',
       type: 'upload',
       relationTo: 'media',
-      required: true,
+      // Optional — articles can render without a hero image (placeholder is
+      // shown instead). Editors should add one for any post that's going
+      // to a featured slot or shared on social.
     },
     {
       name: 'body',

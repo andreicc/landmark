@@ -152,7 +152,8 @@ async function ensurePost({ post, categoryId, authorId }) {
     console.log(`  · post ${post.slug} exists (id=${existing.id})`)
     return existing
   }
-  // Create in EN.
+  // Create in EN. Skip heroImage — the fixtures reference paths that don't
+  // map to real Media records in the CMS. Editors can add a hero by hand.
   const created = await createDoc('posts', {
     slug: post.slug,
     title: post.title.en,
