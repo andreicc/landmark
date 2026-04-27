@@ -90,10 +90,6 @@ export function normalizePayloadPost(en, ro) {
     slug: en.slug,
     title: { en: pickLocalized(en.title, 'en') },
     excerpt: { en: pickLocalized(en.excerpt, 'en') },
-    heroImage: {
-      url: en.heroImage?.url ?? '',
-      alt: { en: pickLocalized(en.heroImage?.alt ?? en.heroImage?.alt?.en, 'en') },
-    },
     body: { en: bodyToHtml(en.body) },
     category: en.category
       ? {
@@ -108,11 +104,20 @@ export function normalizePayloadPost(en, ro) {
     status: 'published',
     tag: en.tag,
   }
+  // heroImage is optional — only include if Payload returned a real upload.
+  if (en.heroImage && typeof en.heroImage === 'object' && en.heroImage.url) {
+    out.heroImage = {
+      url: en.heroImage.url,
+      alt: { en: pickLocalized(en.heroImage.alt ?? '', 'en') },
+    }
+  }
   if (ro) {
     out.title.ro = pickLocalized(ro.title, 'ro')
     out.excerpt.ro = pickLocalized(ro.excerpt, 'ro')
-    if (ro.heroImage?.alt) out.heroImage.alt.ro = pickLocalized(ro.heroImage.alt, 'ro')
     out.body.ro = bodyToHtml(ro.body)
+    if (out.heroImage && ro.heroImage?.alt) {
+      out.heroImage.alt.ro = pickLocalized(ro.heroImage.alt, 'ro')
+    }
     if (ro.category?.name) out.category.name.ro = pickLocalized(ro.category.name, 'ro')
   }
   return out
@@ -137,8 +142,8 @@ export function renderArticle({ post, locale, hasOtherLocale, siteUrl = '' }) {
   const title = pickLocalized(post.title, locale)
   const excerpt = pickLocalized(post.excerpt, locale)
   const body = pickLocalized(post.body, locale) || ''
-  const heroAlt = pickLocalized(post.heroImage.alt ?? {}, locale)
-  const heroUrl = post.heroImage.url
+  const heroAlt = post.heroImage ? pickLocalized(post.heroImage.alt ?? {}, locale) : ''
+  const heroUrl = post.heroImage?.url || ''
   const categoryName = pickLocalized(post.category.name, locale)
   const slug = post.slug
   const otherLocale = isRo ? 'en' : 'ro'
@@ -335,8 +340,8 @@ export function renderMediaIndex({ posts, locale }) {
       const e = pickLocalized(p.excerpt, locale)
       const cat = pickLocalized(p.category.name, locale)
       const date = fmtDate(p.publishedAt, locale)
-      const heroAlt = pickLocalized(p.heroImage?.alt ?? {}, locale)
-      const heroUrl = p.heroImage?.url
+      const heroAlt = p.heroImage ? pickLocalized(p.heroImage.alt ?? {}, locale) : ''
+      const heroUrl = p.heroImage?.url || ''
       return `<article class="post group" data-post data-tag="${escapeHtml(p.tag || '')}" data-date="${escapeHtml(p.publishedAt || '')}">
   <a href="${articleHref}" class="block no-underline">
     ${heroUrl ? `<div class="aspect-[4/3] overflow-hidden bg-stone-bg mb-6">

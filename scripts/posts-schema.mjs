@@ -52,14 +52,19 @@ export function validatePost(post) {
   isLocalizedString({ value: post.title, key: 'title', errors })
   isLocalizedString({ value: post.excerpt, key: 'excerpt', errors, maxLength: 280 })
 
-  if (!isObject(post.heroImage)) {
-    errors.push('heroImage is required')
-  } else {
-    if (typeof post.heroImage.url !== 'string' || post.heroImage.url.length === 0) {
-      errors.push('heroImage.url is required')
-    }
-    if (post.heroImage.alt !== undefined) {
-      isLocalizedString({ value: post.heroImage.alt, key: 'heroImage.alt', errors, required: false })
+  // heroImage is optional. If present and the upload object exists, url
+  // should be a string when set. Posts without a hero render without the
+  // image (renderArticle and the index card both guard on heroUrl).
+  if (post.heroImage != null) {
+    if (!isObject(post.heroImage)) {
+      errors.push('heroImage must be an object when provided')
+    } else {
+      if (post.heroImage.url !== undefined && typeof post.heroImage.url !== 'string') {
+        errors.push('heroImage.url must be a string when provided')
+      }
+      if (post.heroImage.alt !== undefined) {
+        isLocalizedString({ value: post.heroImage.alt, key: 'heroImage.alt', errors, required: false })
+      }
     }
   }
 
