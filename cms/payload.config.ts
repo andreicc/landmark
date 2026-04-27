@@ -57,6 +57,12 @@ export default buildConfig({
   // which is the posture libpq has used for `sslmode=require` for years.
   db: postgresAdapter({
     pool: parseDbUrl(process.env.DATABASE_URL || ''),
+    // push:true makes Drizzle auto-sync the schema to the live DB on connect.
+    // Default in production is false (use migration files), but for a single-
+    // editor CMS this is acceptable and avoids the manual `payload migrate`
+    // step. Disable + switch to migrations if multiple editors / strict
+    // schema review become necessary.
+    push: true,
   }),
   cors: [
     process.env.SITE_URL || 'http://localhost:5173',
