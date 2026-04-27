@@ -13,7 +13,13 @@ export const Users: CollectionConfig = {
     read: authenticated,
     update: authenticated,
   },
-  auth: true,
+  // useAPIKey enables the per-user API Key field in the admin UI. Used by
+  // the static site's build pipeline (BUILD_FETCH_TOKEN) when fetching posts
+  // from the CMS — though with public read access on published Posts, the
+  // token is optional.
+  auth: {
+    useAPIKey: true,
+  },
   fields: [
     {
       name: 'name',
