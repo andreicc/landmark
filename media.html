@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Media — A field journal from the building site · Landmark Realty</title>
+<meta name="description" content="Dispatches from our active building sites — concrete pours, stone arrivals, time-lapse stills and quiet craft notes. Updated weekly by the Landmark site teams.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="en" href="/media">
+<link rel="alternate" hreflang="ro" href="/ro/media">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300;1,400&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: { extend: {
+    colors: {
+      "primary": "#004225",
+      "landmark-green": "#004225",
+      "landmark-gold": "#b59458",
+      "bronze": "#745b28",
+      "stone-bg": "#f9f8f6"
+    },
+    fontFamily: {
+      "headline": ["Lato", "sans-serif"],
+      "body": ["Roboto", "sans-serif"],
+      "mono": ["JetBrains Mono", "monospace"]
+    }
+  }}
+}
+</script>
+<style>
+  :root {
+    --accent: #b59458;
+    --primary: #004225;
+    --bg: #fcfcfc;
+    --stone: #f9f8f6;
+    --ink: #1b1c1c;
+    --muted: #4f5459;
+    --hairline: rgba(0,0,0,0.08);
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--ink); font-family: 'Roboto', sans-serif; font-weight: 300; -webkit-font-smoothing: antialiased; }
+  .font-headline { font-family: 'Lato', sans-serif; font-weight: 300; }
+  .font-mono { font-family: 'JetBrains Mono', monospace; }
+  .serif-italic { font-family: 'Lato', sans-serif; font-style: italic; font-weight: 300; }
+  .display { font-family: 'Lato', sans-serif; font-weight: 300; letter-spacing: -0.01em; }
+  .eyebrow { font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 600; }
+  .label { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; }
+  .micro { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; font-weight: 600; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 250, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+
+  /* ===== NAV (matched to Home) ===== */
+  .nav-link { position: relative; }
+  .nav-link::after { content:''; position:absolute; left:0; bottom:-4px; height:1px; width:0; background: currentColor; transition: width .35s cubic-bezier(.16,1,.3,1); }
+  .nav-link:hover::after, .nav-link.is-active::after { width: 100%; }
+  .nav-solid { background: rgba(255,255,255,0.96) !important; backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,0.06) !important; color: #111 !important; }
+  .nav-solid .nav-link, .nav-solid .nav-cta { color: #111; }
+  .nav-solid .logo-white { display:none; }
+  .nav-solid .logo-green { display:inline-block !important; }
+
+  /* ===== Buttons ===== */
+  .btn-outline { display:inline-flex; align-items:center; justify-content:center; gap:12px; height:46px; border:1px solid #111; color:#111; border-radius:25px; padding: 0 32px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; transition: all .5s cubic-bezier(.16,1,.3,1); text-decoration:none; cursor:pointer; background:transparent; }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-outline.on-dark { color:#fff; border-color: rgba(255,255,255,.6); }
+  .btn-outline.on-dark:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ===== Hero ===== */
+  .hero-canvas { background:
+    radial-gradient(120% 80% at 80% 20%, rgba(181,148,88,.18), transparent 60%),
+    radial-gradient(120% 80% at 10% 80%, rgba(0,66,37,.32), transparent 55%),
+    linear-gradient(180deg, #0c1410 0%, #0a1310 60%, #050a08 100%);
+  }
+  .hero-grid::before {
+    content:''; position:absolute; inset:0;
+    background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 40%, black 30%, transparent 80%);
+    pointer-events: none;
+  }
+  .live-dot { width:8px; height:8px; border-radius:50%; background: #d44; box-shadow: 0 0 0 0 rgba(221,68,68,.7); animation: livePulse 2s infinite; }
+  @keyframes livePulse { 0% { box-shadow: 0 0 0 0 rgba(221,68,68,.55); } 70% { box-shadow: 0 0 0 12px rgba(221,68,68,0); } 100% { box-shadow: 0 0 0 0 rgba(221,68,68,0); } }
+
+  /* ===== Filter chips ===== */
+  .chip { display:inline-flex; align-items:center; gap:8px; padding: 7px 14px; border:1px solid rgba(0,0,0,.12); border-radius:999px; font-size:11px; letter-spacing:.18em; text-transform:uppercase; font-weight:600; color:#444; background:#fff; cursor:pointer; transition: all .25s ease; }
+  .chip:hover { border-color: var(--primary); color: var(--primary); }
+  .chip.is-active { background: var(--primary); color:#fff; border-color: var(--primary); }
+  .chip .dot { width:6px; height:6px; border-radius:50%; background: currentColor; opacity:.7; }
+  .chip-outline-light { color: rgba(255,255,255,.85); border-color: rgba(255,255,255,.25); background: transparent; }
+  .chip-outline-light:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* ===== Filter rail (sticky) ===== */
+  .rail { position: sticky; top: 72px; z-index: 30; backdrop-filter: blur(14px); background: rgba(252,252,252,.85); border-bottom: 1px solid var(--hairline); }
+
+  /* ===== Timeline spine ===== */
+  .feed { position: relative; }
+  /* desktop spine in middle of left gutter */
+  .feed::before {
+    content:''; position:absolute; top: 0; bottom: 0;
+    left: 110px; width: 1px;
+    background: linear-gradient(180deg, transparent 0, var(--hairline) 6%, var(--hairline) 94%, transparent 100%);
+  }
+  @media (max-width: 900px) {
+    .feed::before { left: 18px; }
+  }
+
+  .post { position: relative; padding-left: 170px; padding-top: 28px; padding-bottom: 28px; }
+  @media (max-width: 900px) { .post { padding-left: 56px; padding-top: 20px; padding-bottom: 20px; } }
+
+  /* date marker on the spine */
+  .marker {
+    position: absolute; left: 0; top: 32px; width: 130px; display:flex; align-items:flex-start; gap: 14px;
+  }
+  @media (max-width: 900px) { .marker { width: 56px; top: 24px; } }
+  .marker .day { font-family: 'Lato', sans-serif; font-weight: 300; font-size: 28px; line-height: 1; color: #111; }
+  .marker .month { font-family: 'Roboto'; font-size: 10px; letter-spacing: .26em; text-transform: uppercase; color: #777; margin-top: 4px; font-weight: 600; }
+  .marker .year { font-family: 'Roboto'; font-size: 10px; letter-spacing: .26em; color: #aaa; margin-top: 2px; font-weight: 500;}
+  .marker .pin {
+    position: absolute; left: 105px; top: 12px;
+    width: 11px; height: 11px; border-radius: 50%;
+    background: #fff; border: 1.5px solid var(--primary); transition: all .3s;
+  }
+  .post.is-pin .marker .pin { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 0 6px rgba(181,148,88,.15); }
+  @media (max-width: 900px) { .marker .pin { left: 13px; top: 6px; } .marker .day { font-size: 22px;} .marker > div:first-child { display:none; } }
+  /* on mobile we hide day text, show only pin + small date inline in card */
+
+  /* tag + project chip on each post header */
+  .post-tag { display:inline-flex; align-items:center; gap: 8px; font-size: 10px; letter-spacing:.24em; text-transform: uppercase; font-weight: 600; padding: 4px 10px; border-radius: 999px; }
+  .tag-progress { color: var(--primary); background: rgba(0,66,37,.08); }
+  .tag-craft { color: var(--accent); background: rgba(181,148,88,.12); }
+  .tag-press { color: #745b28; background: rgba(116,91,40,.1); }
+  .tag-people { color: #2a4a3a; background: rgba(42,74,58,.1); }
+  .tag-milestone { color: #fff; background: var(--primary); }
+  .tag-timelapse { color: #fff; background: #111; }
+
+  .project-chip { font-size: 10px; letter-spacing: .22em; text-transform: uppercase; font-weight: 600; color: #555; padding: 4px 10px; border: 1px solid rgba(0,0,0,.12); border-radius: 4px; }
+
+  /* card styles */
+  .card { background:#fff; border: 1px solid rgba(0,0,0,.06); }
+  .card.dark { background:#0e1512; color:#fff; border-color: rgba(255,255,255,.08); }
+
+  .photo-frame { position: relative; overflow: hidden; }
+  .photo-frame .meta-strip {
+    position: absolute; left: 0; right: 0; bottom: 0;
+    display:flex; justify-content: space-between; align-items: center;
+    padding: 10px 14px; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; font-weight: 600;
+    color: #fff; background: linear-gradient(0deg, rgba(0,0,0,.7), transparent);
+  }
+
+  /* reactions row */
+  .reactions { display:flex; align-items:center; gap: 18px; padding-top: 14px; border-top: 1px solid rgba(0,0,0,.06); margin-top: 18px; }
+  .reactions .react-btn { display:inline-flex; align-items:center; gap:6px; font-size: 12px; color: #666; background: transparent; border:none; cursor: pointer; transition: color .2s; padding: 0; }
+  .reactions .react-btn:hover { color: var(--primary); }
+  .reactions .react-btn.is-on { color: var(--accent); }
+  .reactions .count { font-variant-numeric: tabular-nums; }
+
+  /* progress milestone bar */
+  .milestone-bar { height: 6px; background: rgba(0,0,0,.08); border-radius: 999px; position: relative; overflow: hidden; }
+  .milestone-bar > span { position:absolute; left:0; top:0; bottom:0; background: var(--primary); border-radius: 999px; }
+  .milestone-bar .marker-tick { position:absolute; top:-2px; bottom:-2px; width:1px; background: rgba(0,0,0,.2); }
+
+  /* gallery grid for photo cards */
+  .gallery-3 { display:grid; grid-template-columns: 2fr 1fr; gap: 4px; }
+  .gallery-3 > .photo-frame:first-child { grid-row: span 2; }
+
+  /* hover lift */
+  .lift { transition: transform .5s cubic-bezier(.16,1,.3,1); }
+  .lift:hover { transform: translateY(-3px); }
+
+  /* SVG renders */
+  svg .grain { opacity: .15; mix-blend-mode: overlay; }
+
+  /* spec lines block (numbered facts) */
+  .spec { display:flex; gap: 18px; padding: 12px 0; border-bottom: 1px dashed rgba(0,0,0,.1); }
+  .spec:last-child { border-bottom: none; }
+  .spec .num { font-family:'JetBrains Mono'; font-size: 11px; color: #999; min-width: 28px; padding-top: 2px; }
+  .spec .lbl { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: #444; font-weight: 600; min-width: 130px; padding-top: 2px; }
+  .spec .val { font-family: 'Lato'; font-weight: 300; font-size: 17px; color: #111; flex: 1; }
+
+  /* quote card */
+  .quote-card { padding: 36px 36px 30px; }
+
+  /* time-lapse strip */
+  .strip { display:grid; grid-template-columns: repeat(6, 1fr); gap: 4px; }
+  .strip .photo-frame { aspect-ratio: 1/1; }
+  @media (max-width: 700px) { .strip { grid-template-columns: repeat(3, 1fr); } }
+
+  /* reveal */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 1s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* hidden state (filter) */
+  .post[hidden] { display: none; }
+
+  /* End-of-feed marker */
+  .feed-end {
+    position: relative; padding: 60px 0 40px 170px; text-align: left;
+  }
+  @media (max-width: 900px) { .feed-end { padding-left: 56px; } }
+  .feed-end::before { content:''; position:absolute; left: 99px; top: 60px; width: 23px; height: 1px; background: rgba(0,0,0,.2); }
+  @media (max-width: 900px) { .feed-end::before { left: 7px; width: 23px; } }
+
+  /* Sticky scroll progress dot */
+  .scroll-dot { position: fixed; right: 28px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 14px; z-index: 25; }
+  .scroll-dot a { width: 8px; height: 8px; border-radius: 50%; background: rgba(0,0,0,.18); transition: all .3s; display: block; }
+  .scroll-dot a.is-active { background: var(--accent); transform: scale(1.6); }
+  @media (max-width: 1100px) { .scroll-dot { display: none; } }
+
+  /* Subscribe bar */
+  .sub-bar { background: linear-gradient(135deg, #004225 0%, #003521 100%); }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .lift, .live-dot { transition: none !important; animation: none !important; transform: none !important; opacity: 1 !important; }
+  }
+</style>
+</head>
+<body data-screen-label="Media — Field Journal" class="selection:bg-primary/10">
+<a class="skip-link absolute top-0 left-0 px-6 py-3 bg-landmark-green text-white font-bold z-[9999] -translate-y-full focus:translate-y-0" href="#main-content">Skip to main content</a>
+
+<!-- ============ NAV ============ -->
+<header>
+<nav id="mainNav" class="fixed top-0 w-full z-50 text-white nav-solid transition-colors duration-500" aria-label="Main">
+  <div class="flex justify-between items-center px-6 lg:px-12 h-[72px] w-full max-w-[1920px] mx-auto">
+    <div class="hidden lg:flex gap-9 items-center font-medium tracking-[0.14em] text-[12px] uppercase">
+      <a class="nav-link" href="/about">About</a>
+      <a class="nav-link" href="/#properties">Communities</a>
+      <a class="nav-link" href="/#properties">Properties</a>
+    </div>
+    <a href="/" class="absolute left-1/2 -translate-x-1/2 flex items-center no-underline">
+      <img src="/logo/landmarklogo-white.svg" alt="Landmark Realty" class="logo-white" style="width: 74px; height: auto;">
+      <img src="/logo/landmarklogo-green.svg" alt="Landmark Realty" class="logo-green" style="width: 74px; height: auto; display:none;">
+    </a>
+    <div class="flex items-center gap-6">
+      <div class="hidden lg:flex gap-6 items-center font-medium tracking-[0.14em] text-[12px] uppercase">
+        <a class="nav-link is-active" href="/media">Media</a>
+        <a class="nav-link" href="#">Careers</a>
+        <a class="nav-link nav-cta" href="/contact">Contact</a>
+      </div>
+      <div class="flex items-center gap-4 border-l border-current/20 pl-6">
+        <button class="material-symbols-outlined text-[20px]" aria-label="Save">favorite</button>
+        <button class="material-symbols-outlined text-[20px]" aria-label="Search">search</button>
+        <div class="lang-switcher flex items-center gap-1 text-[11px] font-medium tracking-[0.18em] pl-4 border-l border-current/20" data-lang-switcher>
+          <a href="/media" class="no-underline" hreflang="en" aria-current="page">EN</a>
+          <span class="opacity-40">/</span>
+          <a href="/ro/media" class="no-underline opacity-60 hover:opacity-100" hreflang="ro">RO</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main id="main-content">
+
+<!-- ============ HERO ============ -->
+<section class="relative pt-[72px] hero-canvas overflow-hidden">
+  <div class="hero-grid relative">
+    <div class="max-w-[1380px] mx-auto px-6 lg:px-10 pt-20 pb-24 text-white relative">
+      <div class="grid lg:grid-cols-12 gap-10 items-end">
+        <div class="lg:col-span-8">
+          <div class="flex items-center gap-4 mb-7">
+            <span class="inline-flex items-center gap-2.5 px-3 py-1.5 border border-white/20 rounded-full">
+              <span class="live-dot"></span>
+              <span class="micro text-white/80">Live from site</span>
+            </span>
+            <span class="w-8 h-px bg-white/30"></span>
+            <span class="micro text-white/55">Updated weekly · by the build team</span>
+          </div>
+          <h1 class="display text-white" style="font-size: clamp(48px, 7vw, 104px); line-height: 0.98; letter-spacing: -0.02em;">
+            The <span class="serif-italic text-landmark-gold">field</span><br>journal.
+          </h1>
+          <p class="mt-8 max-w-2xl text-white/75 text-[18px] leading-[1.75] font-light">
+            A continuous dispatch from our active building sites — concrete pours and stone arrivals, time-lapse stills and quiet craft notes. We publish what we'd otherwise tell you over coffee.
+          </p>
+          <div class="mt-10 flex flex-wrap gap-3 items-center">
+            <span class="micro text-white/55 mr-2">Filter</span>
+            <button class="chip chip-outline-light is-active" data-filter="all">All</button>
+            <button class="chip chip-outline-light" data-filter="progress"><span class="dot"></span>Progress</button>
+            <button class="chip chip-outline-light" data-filter="craft"><span class="dot"></span>Craft</button>
+            <button class="chip chip-outline-light" data-filter="milestone"><span class="dot"></span>Milestone</button>
+            <button class="chip chip-outline-light" data-filter="press"><span class="dot"></span>Press</button>
+            <button class="chip chip-outline-light" data-filter="people"><span class="dot"></span>People</button>
+            <button class="chip chip-outline-light" data-filter="timelapse"><span class="dot"></span>Time-lapse</button>
+          </div>
+        </div>
+        <!-- Live counters -->
+        <div class="lg:col-span-4">
+          <div class="bg-white/5 backdrop-blur-sm border border-white/15 p-7">
+            <div class="flex items-center justify-between mb-5">
+              <span class="eyebrow text-landmark-gold">Site index</span>
+              <span class="micro text-white/45">W. 17 · 2026</span>
+            </div>
+            <div class="space-y-6">
+              <div>
+                <div class="flex items-baseline justify-between">
+                  <span class="font-headline text-[15px] text-white">Landmark 4 · Băneasa</span>
+                  <span class="font-mono text-[12px] text-landmark-gold">42% built</span>
+                </div>
+                <div class="milestone-bar mt-2.5" style="background: rgba(255,255,255,.12);">
+                  <span style="width: 42%; background: #b59458;"></span>
+                  <span class="marker-tick" style="left:20%; background: rgba(255,255,255,.3);"></span>
+                  <span class="marker-tick" style="left:60%; background: rgba(255,255,255,.3);"></span>
+                </div>
+                <div class="flex justify-between mt-1.5 text-[10px] text-white/45 tracking-[0.18em] uppercase font-medium"><span>Foundation</span><span>Structure</span><span>Finish</span></div>
+              </div>
+              <div class="grid grid-cols-2 gap-4 pt-4 border-t border-white/10">
+                <div><div class="micro text-white/45 mb-1">Groundbreaking</div><div class="font-headline text-[15px] text-white">04 Sep 2024</div></div>
+                <div><div class="micro text-white/45 mb-1">Handover</div><div class="font-headline text-[15px] text-landmark-gold">Q3 2027</div></div>
+              </div>
+            </div>
+            <div class="mt-7 pt-5 border-t border-white/10 grid grid-cols-3 text-center">
+              <div><div class="display text-[28px] text-white leading-none">118</div><div class="micro text-white/45 mt-2">Bulletins</div></div>
+              <div><div class="display text-[28px] text-landmark-gold leading-none">42</div><div class="micro text-white/45 mt-2">Crew on site</div></div>
+              <div><div class="display text-[28px] text-white leading-none">07</div><div class="micro text-white/45 mt-2">This week</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STICKY FILTER RAIL ============ -->
+<div class="rail">
+  <div class="max-w-[1380px] mx-auto px-6 lg:px-10 py-4 flex items-center justify-between gap-4 flex-wrap">
+    <div class="flex items-center gap-3 flex-wrap">
+      <span class="micro text-black/55">Site</span>
+      <span class="chip is-active" style="cursor:default;"><span class="dot"></span>Landmark 4 · Băneasa</span>
+      <span class="micro text-black/55 ml-3 hidden sm:inline">Showing <span id="postCount" class="text-black">12</span> of 12 entries</span>
+    </div>
+    <div class="flex items-center gap-2">
+      <button class="chip" id="latestBtn"><span class="material-symbols-outlined text-[14px]">arrow_downward</span>Latest</button>
+      <button class="chip" id="oldestBtn">Oldest</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FEED ============ -->
+<section class="bg-stone-bg" id="feed">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10 py-16">
+
+    <div class="feed" id="postFeed">
+
+      <!-- ======== POST 01: PINNED — TOPPING-OUT MILESTONE ======== -->
+      <article class="post is-pin reveal" data-post data-tag="milestone" data-date="2026-04-22">
+        <div class="marker">
+          <div>
+            <div class="day">22</div>
+            <div class="month">Apr</div>
+            <div class="year">2026</div>
+          </div>
+          <div class="pin"></div>
+        </div>
+        <div class="card lift">
+          <div class="flex items-center justify-between gap-4 px-7 pt-6 pb-5 border-b border-black/5 flex-wrap">
+            <div class="flex items-center gap-3 flex-wrap">
+              <span class="post-tag tag-milestone"><span class="material-symbols-outlined text-[14px]">flag</span>Milestone</span>
+              <span class="project-chip">Landmark 4 · Băneasa</span>
+              <span class="micro text-black/45">07:42 · Site bulletin №118</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="material-symbols-outlined text-[18px] text-landmark-gold">push_pin</span>
+              <span class="micro text-landmark-gold">Pinned</span>
+            </div>
+          </div>
+          <div class="px-7 pt-7 pb-6">
+            <h2 class="font-headline text-[34px] md:text-[44px] leading-[1.05] text-black tracking-tight mb-5">
+              Topping-out. <span class="serif-italic text-landmark-gold">Floor 24.</span>
+            </h2>
+            <p class="text-[16px] leading-[1.85] text-black/70 max-w-3xl">
+              At 06:18 this morning, the last cubic metre of concrete was placed on the twenty-fourth floor of Landmark 4 — the structural top of the tower. Forty-one weeks of pouring, 11,400 m³ of concrete, twenty-eight hundred tonnes of rebar, and not a single delay note in the log.
+            </p>
+          </div>
+
+          <!-- Hero photo (3-up gallery) -->
+          <div class="grid grid-cols-12 gap-1 px-1">
+            <!-- Big -->
+            <div class="col-span-12 md:col-span-8 photo-frame aspect-[16/10] md:aspect-auto md:row-span-2">
+              <svg viewBox="0 0 800 540" preserveAspectRatio="xMidYMid slice" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="sky1" x2="0" y2="1"><stop offset="0" stop-color="#d9c5a3"/><stop offset=".5" stop-color="#b8966a"/><stop offset="1" stop-color="#5a3e26"/></linearGradient>
+                  <linearGradient id="tower1" x2="0" y2="1"><stop offset="0" stop-color="#d4c19a"/><stop offset="1" stop-color="#3a2a1c"/></linearGradient>
+                </defs>
+                <rect width="800" height="540" fill="url(#sky1)"/>
+                <!-- distant skyline -->
+                <g fill="#3a2a1c" opacity=".55">
+                  <rect x="0" y="380" width="80" height="60"/>
+                  <rect x="80" y="360" width="60" height="80"/>
+                  <rect x="700" y="370" width="100" height="70"/>
+                  <rect x="640" y="390" width="60" height="50"/>
+                </g>
+                <!-- foreground tower under construction -->
+                <rect x="280" y="60" width="240" height="380" fill="url(#tower1)"/>
+                <!-- floor lines -->
+                <g stroke="#b59458" stroke-width=".6" opacity=".55">
+                  <line x1="280" y1="100" x2="520" y2="100"/><line x1="280" y1="125" x2="520" y2="125"/><line x1="280" y1="150" x2="520" y2="150"/>
+                  <line x1="280" y1="175" x2="520" y2="175"/><line x1="280" y1="200" x2="520" y2="200"/><line x1="280" y1="225" x2="520" y2="225"/>
+                  <line x1="280" y1="250" x2="520" y2="250"/><line x1="280" y1="275" x2="520" y2="275"/><line x1="280" y1="300" x2="520" y2="300"/>
+                  <line x1="280" y1="325" x2="520" y2="325"/><line x1="280" y1="350" x2="520" y2="350"/><line x1="280" y1="375" x2="520" y2="375"/>
+                  <line x1="280" y1="400" x2="520" y2="400"/>
+                </g>
+                <!-- crane arm -->
+                <line x1="400" y1="60" x2="400" y2="-40" stroke="#1a1208" stroke-width="3"/>
+                <line x1="200" y1="20" x2="640" y2="20" stroke="#1a1208" stroke-width="3"/>
+                <line x1="200" y1="20" x2="400" y2="60" stroke="#1a1208" stroke-width="1.5"/>
+                <line x1="640" y1="20" x2="400" y2="60" stroke="#1a1208" stroke-width="1.5"/>
+                <line x1="540" y1="20" x2="540" y2="80" stroke="#1a1208" stroke-width="1"/>
+                <rect x="530" y="80" width="20" height="14" fill="#b59458"/>
+                <!-- silhouette workers on top -->
+                <g fill="#1a1208">
+                  <rect x="320" y="48" width="6" height="12"/><circle cx="323" cy="44" r="3"/>
+                  <rect x="350" y="48" width="6" height="12"/><circle cx="353" cy="44" r="3"/>
+                  <rect x="430" y="48" width="6" height="12"/><circle cx="433" cy="44" r="3"/>
+                  <rect x="470" y="48" width="6" height="12"/><circle cx="473" cy="44" r="3"/>
+                </g>
+                <!-- Romanian flag at top -->
+                <line x1="403" y1="60" x2="403" y2="40" stroke="#b59458" stroke-width="1"/>
+                <rect x="403" y="40" width="20" height="12" fill="#fff"/>
+                <rect x="403" y="40" width="6.6" height="12" fill="#1a3a8a"/>
+                <rect x="416.4" y="40" width="6.6" height="12" fill="#c41e3a"/>
+                <!-- ground/scaffold -->
+                <rect x="0" y="440" width="800" height="100" fill="#2a1d10"/>
+                <g stroke="#b59458" stroke-width=".5" opacity=".4">
+                  <line x1="0" y1="450" x2="800" y2="450"/><line x1="0" y1="460" x2="800" y2="460"/>
+                </g>
+                <rect class="grain" width="800" height="540" fill="url(#sky1)"/>
+                <!-- photo meta -->
+              </svg>
+              <div class="meta-strip">
+                <span>06:18 · Sunrise pour</span>
+                <span>Photo · A. Oprea</span>
+              </div>
+            </div>
+            <!-- Two small -->
+            <div class="col-span-6 md:col-span-4 photo-frame aspect-[4/3]">
+              <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="conc1" x2="0" y2="1"><stop offset="0" stop-color="#9a8a72"/><stop offset="1" stop-color="#3a322a"/></linearGradient></defs>
+                <rect width="400" height="300" fill="url(#conc1)"/>
+                <!-- concrete surface texture -->
+                <g opacity=".35" stroke="#fff" stroke-width=".4" fill="none">
+                  <line x1="0" y1="60" x2="400" y2="50"/><line x1="0" y1="120" x2="400" y2="130"/>
+                  <line x1="0" y1="200" x2="400" y2="190"/><line x1="0" y1="260" x2="400" y2="270"/>
+                </g>
+                <!-- trowel -->
+                <g transform="translate(120 100) rotate(15)">
+                  <rect width="180" height="22" rx="2" fill="#2a1d10"/>
+                  <rect x="180" y="6" width="22" height="10" fill="#1a1208"/>
+                  <rect x="200" y="2" width="60" height="18" fill="#b59458"/>
+                </g>
+                <!-- hand glove -->
+                <g fill="#c41e3a" transform="translate(40 180)">
+                  <ellipse cx="40" cy="30" rx="46" ry="22"/>
+                  <rect x="-4" y="22" width="50" height="30" rx="6"/>
+                </g>
+              </svg>
+              <div class="meta-strip"><span>Float &amp; trowel</span><span>05:55</span></div>
+            </div>
+            <div class="col-span-6 md:col-span-4 photo-frame aspect-[4/3]">
+              <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="signlit" x2="0" y2="1"><stop offset="0" stop-color="#1a2620"/><stop offset="1" stop-color="#050a08"/></linearGradient></defs>
+                <rect width="400" height="300" fill="url(#signlit)"/>
+                <!-- chalkboard / sign -->
+                <rect x="60" y="50" width="280" height="200" fill="#1a1208" stroke="#b59458" stroke-width="1.5"/>
+                <text x="200" y="110" text-anchor="middle" font-family="Lato" font-weight="300" font-size="34" fill="#b59458">Floor 24</text>
+                <text x="200" y="150" text-anchor="middle" font-family="Lato" font-style="italic" font-size="18" fill="#efe0c0">Topped out</text>
+                <line x1="100" y1="170" x2="300" y2="170" stroke="#b59458" stroke-width=".5"/>
+                <text x="200" y="200" text-anchor="middle" font-family="JetBrains Mono" font-size="12" fill="#efe0c0" letter-spacing="2">22.04.2026 · 06:18</text>
+              </svg>
+              <div class="meta-strip"><span>Site board</span><span>06:22</span></div>
+            </div>
+          </div>
+
+          <!-- Body / specs -->
+          <div class="grid lg:grid-cols-12 gap-8 px-7 pt-8 pb-2">
+            <div class="lg:col-span-7">
+              <p class="text-[15px] leading-[1.85] text-black/70 mb-5">
+                Topping-out is a quiet ceremony at our sites. The team stops work at 07:00, the foreman walks the perimeter once, and a small flag is raised — Romanian, of course — by the youngest tradesman on the crew. Today that was Cosmin Albu, twenty-three, second-generation steelfixer.
+              </p>
+              <p class="text-[15px] leading-[1.85] text-black/70">
+                From here we move to envelope. Travertine begins arriving from Comarnic on 18 May; the first windows go in the week after. We expect a watertight building by mid-September, and we'll let you watch every stone of it.
+              </p>
+            </div>
+            <div class="lg:col-span-5">
+              <div class="bg-stone-bg/80 border border-black/5 p-5">
+                <div class="micro text-black/50 mb-3">By the numbers</div>
+                <div class="spec"><span class="num">01</span><span class="lbl">Concrete poured</span><span class="val">11,412 m<sup>3</sup></span></div>
+                <div class="spec"><span class="num">02</span><span class="lbl">Reinforcement</span><span class="val">2,810 t</span></div>
+                <div class="spec"><span class="num">03</span><span class="lbl">Days on schedule</span><span class="val">287 / 287</span></div>
+                <div class="spec"><span class="num">04</span><span class="lbl">Floors complete</span><span class="val">24 / 24</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="px-7 pb-6">
+            <div class="reactions">
+              <button class="react-btn"><span class="material-symbols-outlined text-[18px]">favorite_border</span><span class="count">412</span></button>
+              <button class="react-btn"><span class="material-symbols-outlined text-[18px]">mode_comment</span><span class="count">36</span></button>
+              <button class="react-btn"><span class="material-symbols-outlined text-[18px]">bookmark_border</span></button>
+              <button class="react-btn ml-auto"><span class="material-symbols-outlined text-[18px]">share</span>Share</button>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ======== POST 02: TIME-LAPSE STRIP ======== -->
+      <article class="post reveal" data-post data-tag="timelapse" data-date="2026-04-18">
+        <div class="marker">
+          <div>
+            <div class="day">18</div>
+            <div class="month">Apr</div>
+            <div class="year">2026</div>
+          </div>
+          <div class="pin"></div>
+        </div>
+        <div class="card dark lift">
+          <div class="flex items-center justify-between gap-4 px-7 pt-6 pb-5 border-b border-white/10 flex-wrap">
+            <div class="flex items-center gap-3 flex-wrap">
+              <span class="post-tag tag-timelapse"><span class="material-symbols-outlined text-[14px]">photo_camera</span>Time-lapse</span>
+              <span class="project-chip" style="border-color: rgba(255,255,255,.2); color: rgba(255,255,255,.8);">Landmark 4 · Băneasa</span>
+              <span class="micro text-white/45">Week 16 · digest</span>
+            </div>
+            <span class="micro text-white/55">06 frames · one per day</span>
+          </div>
+          <div class="px-7 pt-6 pb-3">
+            <h3 class="font-headline text-white text-[26px] md:text-[32px] leading-tight mb-3">
+              Six mornings on the <span class="serif-italic text-landmark-gold">north elevation</span>.
+            </h3>
+            <p class="text-white/65 text-[15px] leading-[1.85] max-w-2xl">
+              The slow theatre of a building going up — Tuesday through Sunday, photographed at 06:30 from the same tripod position on the access road. Two floors of formwork rise across the week.
+            </p>
+          </div>
+          <div class="px-1 pb-1">
+            <div class="strip">
+              <div class="photo-frame">
+                <svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" class="w-full h-full"><defs><linearGradient id="tl1" x2="0" y2="1"><stop offset="0" stop-color="#3a4a52"/><stop offset="1" stop-color="#0c1816"/></linearGradient></defs><rect width="200" height="200" fill="url(#tl1)"/><rect x="60" y="80" width="80" height="100" fill="#1a1d20"/><line x1="100" y1="80" x2="100" y2="20" stroke="#b59458" stroke-width="1.5"/><line x1="40" y1="40" x2="160" y2="40" stroke="#b59458" stroke-width="1"/></svg>
+                <div class="meta-strip" style="font-size:9px;"><span>TUE</span><span>−2°</span></div>
+              </div>
+              <div class="photo-frame">
+                <svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" class="w-full h-full"><defs><linearGradient id="tl2" x2="0" y2="1"><stop offset="0" stop-color="#5a6052"/><stop offset="1" stop-color="#1a1d10"/></linearGradient></defs><rect width="200" height="200" fill="url(#tl2)"/><rect x="60" y="70" width="80" height="110" fill="#1a1d20"/><line x1="100" y1="70" x2="100" y2="20" stroke="#b59458" stroke-width="1.5"/><line x1="40" y1="40" x2="160" y2="40" stroke="#b59458" stroke-width="1"/></svg>
+                <div class="meta-strip" style="font-size:9px;"><span>WED</span><span>+3°</span></div>
+              </div>
+              <div class="photo-frame">
+                <svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" class="w-full h-full"><defs><linearGradient id="tl3" x2="0" y2="1"><stop offset="0" stop-color="#9a866a"/><stop offset="1" stop-color="#2a1d10"/></linearGradient></defs><rect width="200" height="200" fill="url(#tl3)"/><rect x="60" y="60" width="80" height="120" fill="#1a1d20"/><line x1="100" y1="60" x2="100" y2="20" stroke="#b59458" stroke-width="1.5"/><line x1="40" y1="40" x2="160" y2="40" stroke="#b59458" stroke-width="1"/></svg>
+                <div class="meta-strip" style="font-size:9px;"><span>THU</span><span>+8°</span></div>
+              </div>
+              <div class="photo-frame">
+                <svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" class="w-full h-full"><defs><linearGradient id="tl4" x2="0" y2="1"><stop offset="0" stop-color="#c2a472"/><stop offset="1" stop-color="#3a2a18"/></linearGradient></defs><rect width="200" height="200" fill="url(#tl4)"/><rect x="60" y="50" width="80" height="130" fill="#1a1d20"/><line x1="100" y1="50" x2="100" y2="20" stroke="#b59458" stroke-width="1.5"/><line x1="40" y1="40" x2="160" y2="40" stroke="#b59458" stroke-width="1"/></svg>
+                <div class="meta-strip" style="font-size:9px;"><span>FRI</span><span>+11°</span></div>
+              </div>
+              <div class="photo-frame">
+                <svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" class="w-full h-full"><defs><linearGradient id="tl5" x2="0" y2="1"><stop offset="0" stop-color="#b8966a"/><stop offset="1" stop-color="#3a2a1c"/></linearGradient></defs><rect width="200" height="200" fill="url(#tl5)"/><rect x="60" y="40" width="80" height="140" fill="#1a1d20"/><line x1="100" y1="40" x2="100" y2="20" stroke="#b59458" stroke-width="1.5"/><line x1="40" y1="40" x2="160" y2="40" stroke="#b59458" stroke-width="1"/></svg>
+                <div class="meta-strip" style="font-size:9px;"><span>SAT</span><span>+13°</span></div>
+              </div>
+              <div class="photo-frame">
+                <svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" class="w-full h-full"><defs><linearGradient id="tl6" x2="0" y2="1"><stop offset="0" stop-color="#d9c5a3"/><stop offset="1" stop-color="#5a3e26"/></linearGradient></defs><rect width="200" height="200" fill="url(#tl6)"/><rect x="60" y="30" width="80" height="150" fill="#1a1d20"/><line x1="100" y1="30" x2="100" y2="20" stroke="#b59458" stroke-width="1.5"/><line x1="40" y1="40" x2="160" y2="40" stroke="#b59458" stroke-width="1"/></svg>
+                <div class="meta-strip" style="font-size:9px;"><span>SUN</span><span>+15°</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="px-7 pt-5 pb-6">
+            <div class="flex items-center justify-between flex-wrap gap-4">
+              <div class="flex items-center gap-4">
+                <span class="micro text-white/55">Δ Height: <span class="text-landmark-gold">+6.4 m</span></span>
+                <span class="w-px h-4 bg-white/15"></span>
+                <span class="micro text-white/55">Crew: <span class="text-white">42</span></span>
+                <span class="w-px h-4 bg-white/15"></span>
+                <span class="micro text-white/55">Hours: <span class="text-white">2,840</span></span>
+              </div>
+              <a href="#" class="inline-flex items-center gap-2 micro text-landmark-gold">Watch the full reel<span class="material-symbols-outlined text-[16px]">play_circle</span></a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ======== POST 03: CRAFT — STONE ARRIVAL (PORTRAIT IMG + SPECS SIDE BY SIDE) ======== -->
+      <article class="post reveal" data-post data-tag="craft" data-date="2026-04-15">
+        <div class="marker">
+          <div>
+            <div class="day">15</div>
+            <div class="month">Apr</div>
+            <div class="year">2026</div>
+          </div>
+          <div class="pin"></div>
+        </div>
+        <div class="card lift">
+          <div class="flex items-center gap-3 flex-wrap px-7 pt-6 pb-5 border-b border-black/5">
+            <span class="post-tag tag-craft"><span class="material-symbols-outlined text-[14px]">build_circle</span>Craft</span>
+            <span class="project-chip">Landmark 4 · Travertine</span>
+            <span class="micro text-black/45">Note from the quarry</span>
+          </div>
+          <div class="grid md:grid-cols-12 gap-0">
+            <div class="md:col-span-5 photo-frame aspect-[4/5]">
+              <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <linearGradient id="trav1" x2="0" y2="1">
+                    <stop offset="0" stop-color="#efe0c0"/><stop offset=".5" stop-color="#c4a576"/><stop offset="1" stop-color="#7a5f3a"/>
+                  </linearGradient>
+                </defs>
+                <rect width="400" height="500" fill="url(#trav1)"/>
+                <!-- horizontal sediment lines -->
+                <g stroke="#3a2a18" stroke-width=".4" opacity=".4" fill="none">
+                  <path d="M0,80 Q200,75 400,82"/><path d="M0,130 Q200,120 400,128"/>
+                  <path d="M0,180 Q200,172 400,178"/><path d="M0,235 Q200,228 400,232"/>
+                  <path d="M0,290 Q200,285 400,295"/><path d="M0,345 Q200,340 400,348"/>
+                  <path d="M0,400 Q200,392 400,402"/><path d="M0,450 Q200,448 400,452"/>
+                </g>
+                <!-- pores -->
+                <g fill="#3a2a18" opacity=".25">
+                  <circle cx="80" cy="160" r="3"/><circle cx="120" cy="220" r="2"/>
+                  <circle cx="240" cy="190" r="4"/><circle cx="300" cy="280" r="3"/>
+                  <circle cx="160" cy="320" r="2"/><circle cx="320" cy="380" r="3"/>
+                  <circle cx="60" cy="380" r="2"/><circle cx="200" cy="430" r="2.5"/>
+                </g>
+                <!-- chalked label on stone -->
+                <g transform="translate(60 50)">
+                  <text font-family="JetBrains Mono" font-size="14" fill="#1a1208" opacity=".7" letter-spacing="1.5">L4 / N-04 / 22</text>
+                </g>
+              </svg>
+              <div class="meta-strip"><span>Block N-04 / batch 22</span><span>Comarnic quarry</span></div>
+            </div>
+            <div class="md:col-span-7 p-7 md:p-10">
+              <h3 class="font-headline text-[28px] md:text-[36px] leading-[1.1] text-black mb-4">
+                The first travertine arrives <span class="serif-italic text-landmark-gold">today</span>.
+              </h3>
+              <p class="text-[15px] leading-[1.85] text-black/70 mb-6">
+                Three lorries left Comarnic at 04:30 carrying the lead block from the seam we reserved in 2023. We'll cut it for the lobby threshold and the four entrance reveals — the most-touched stone in the whole building.
+              </p>
+              <div class="border-t border-black/8">
+                <div class="spec"><span class="num">01</span><span class="lbl">Origin</span><span class="val">Comarnic, Prahova</span></div>
+                <div class="spec"><span class="num">02</span><span class="lbl">Seam</span><span class="val">North-04, vein 22</span></div>
+                <div class="spec"><span class="num">03</span><span class="lbl">Reserved since</span><span class="val">June 2023</span></div>
+                <div class="spec"><span class="num">04</span><span class="lbl">First placement</span><span class="val">Lobby threshold, June 2026</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="px-7 pb-6">
+            <div class="reactions">
+              <button class="react-btn"><span class="material-symbols-outlined text-[18px]">favorite_border</span><span class="count">218</span></button>
+              <button class="react-btn"><span class="material-symbols-outlined text-[18px]">mode_comment</span><span class="count">14</span></button>
+              <button class="react-btn"><span class="material-symbols-outlined text-[18px]">bookmark_border</span></button>
+              <a href="#" class="react-btn ml-auto"><span>Read the journal piece</span><span class="material-symbols-outlined text-[16px]">arrow_outward</span></a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ======== POST 04: PEOPLE — short quote card with portrait silhouette ======== -->
+      <article class="post reveal" data-post data-tag="people" data-date="2026-04-12">
+        <div class="marker">
+          <div>
+            <div class="day">12</div>
+            <div class="month">Apr</div>
+            <div class="year">2026</div>
+          </div>
+          <div class="pin"></div>
+        </div>
+        <div class="card lift" style="background: #f5f1e8; border-color: rgba(116,91,40,.15);">
+          <div class="flex items-center gap-3 flex-wrap px-7 pt-6 pb-5 border-b border-black/5">
+            <span class="post-tag tag-people"><span class="material-symbols-outlined text-[14px]">groups</span>People</span>
+            <span class="project-chip">Landmark 4 · Floor 18</span>
+            <span class="micro text-black/45">Foreman's note</span>
+          </div>
+          <div class="grid md:grid-cols-12 gap-6 px-7 py-8 items-center">
+            <div class="md:col-span-3">
+              <div class="aspect-square rounded-full overflow-hidden border border-black/10">
+                <svg viewBox="0 0 200 200" preserveAspectRatio="xMidYMid slice" class="w-full h-full"><defs><linearGradient id="port1" x2="0" y2="1"><stop offset="0" stop-color="#c4a576"/><stop offset="1" stop-color="#5a3e26"/></linearGradient></defs><rect width="200" height="200" fill="url(#port1)"/><circle cx="100" cy="80" r="34" fill="#3a2a18" opacity=".7"/><path d="M40,200 Q100,120 160,200" fill="#3a2a18" opacity=".7"/><rect x="92" y="60" width="16" height="6" fill="#1a1208" opacity=".7"/></svg>
+              </div>
+              <div class="mt-4">
+                <div class="font-headline text-[17px] text-black leading-tight">Mihai Stoica</div>
+                <div class="micro text-black/50 mt-1">Site foreman · 22 yrs</div>
+              </div>
+            </div>
+            <div class="md:col-span-9">
+              <span class="serif-italic text-landmark-gold block" style="font-size: 56px; line-height: .35;">&ldquo;</span>
+              <blockquote class="font-headline text-[20px] md:text-[26px] leading-[1.45] text-black mt-5">
+                You can hear when a building is going well. The hammer falls find a rhythm. We've had that rhythm for three weeks now on the eighteenth floor — and the <span class="serif-italic text-landmark-gold">oak treads went in this morning</span> without a single shim.
+              </blockquote>
+              <div class="mt-6 flex items-center gap-3 flex-wrap">
+                <span class="micro text-black/50">From the daily log · 12 April · 17:42</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ======== POST 05: PROGRESS — small status update, no image, mono-typed log style ======== -->
+      <article class="post reveal" data-post data-tag="progress" data-date="2026-04-09">
+        <div class="marker">
+          <div>
+            <div class="day">09</div>
+            <div class="month">Apr</div>
+            <div class="year">2026</div>
+          </div>
+          <div class="pin"></div>
+        </div>
+        <div class="card lift">
+          <div class="flex items-center gap-3 flex-wrap px-7 pt-6 pb-5 border-b border-black/5">
+            <span class="post-tag tag-progress"><span class="material-symbols-outlined text-[14px]">show_chart</span>Progress</span>
+            <span class="project-chip">Landmark 4 · Basement-2 dewatering</span>
+            <span class="micro text-black/45">Daily log · 09:00</span>
+          </div>
+          <div class="px-7 py-8">
+            <h3 class="font-headline text-[24px] md:text-[30px] leading-[1.15] text-black mb-5">
+              Dewatering pumps off. The slab pour <span class="serif-italic text-landmark-gold">stays dry</span>.
+            </h3>
+            <div class="grid md:grid-cols-12 gap-8">
+              <div class="md:col-span-7 font-mono text-[13px] leading-[2] text-black/70">
+                <div>06:30 &nbsp; Site opens. Frost at −1°C, dry.</div>
+                <div>07:14 &nbsp; <span class="text-landmark-green font-semibold">Wellpoint array confirmed</span> — water table at −7.40 m.</div>
+                <div>09:48 &nbsp; Pumps cycled down on the south perimeter.</div>
+                <div>11:22 &nbsp; Inspection of B-2 raft slab joints, sector C-7.</div>
+                <div>13:05 &nbsp; Lunch. 42 on site, 0 incidents this week.</div>
+                <div>15:40 &nbsp; Surveyor signs off levels. <span class="text-landmark-green font-semibold">Floor 25 formwork begins Mon 14.</span></div>
+              </div>
+              <div class="md:col-span-5">
+                <div class="bg-stone-bg/80 border border-black/5 p-5">
+                  <div class="micro text-black/50 mb-3">Today</div>
+                  <div class="flex items-baseline justify-between mb-2"><span class="micro text-black/55">Water pumped</span><span class="font-mono text-[14px] text-black">8,420 m³</span></div>
+                  <div class="milestone-bar mb-5"><span style="width: 92%;"></span></div>
+                  <div class="flex items-baseline justify-between mb-2"><span class="micro text-black/55">Schedule</span><span class="font-mono text-[14px] text-landmark-green">+1 day ahead</span></div>
+                  <div class="milestone-bar mb-5"><span style="width: 14%;"></span></div>
+                  <div class="flex items-baseline justify-between mb-2"><span class="micro text-black/55">Weather window</span><span class="font-mono text-[14px] text-black">Hold to Sun</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ======== POST 06: PRESS — featured quote ======== -->
+      <article class="post reveal" data-post data-tag="press" data-date="2026-04-04">
+        <div class="marker">
+          <div>
+            <div class="day">04</div>
+            <div class="month">Apr</div>
+            <div class="year">2026</div>
+          </div>
+          <div class="pin"></div>
+        </div>
+        <div class="card lift" style="background: #fff;">
+          <div class="flex items-center gap-3 flex-wrap px-7 pt-6 pb-5 border-b border-black/5">
+            <span class="post-tag tag-press"><span class="material-symbols-outlined text-[14px]">newspaper</span>Press</span>
+            <span class="project-chip">Wallpaper* · Issue 312</span>
+            <span class="micro text-black/45">Mention</span>
+          </div>
+          <div class="grid md:grid-cols-12 gap-6 items-stretch">
+            <div class="md:col-span-7 quote-card">
+              <span class="serif-italic text-landmark-gold block" style="font-size: 64px; line-height: .35;">&ldquo;</span>
+              <blockquote class="font-headline text-[22px] md:text-[28px] leading-[1.4] text-black mt-6">
+                A rare developer who behaves like an atelier — drawing its own plans, casting its own fittings, and <span class="serif-italic text-landmark-gold">refusing to hurry</span>.
+              </blockquote>
+              <div class="mt-8 flex items-center gap-5">
+                <span class="font-headline text-[22px] text-black/70">Wallpaper*</span>
+                <span class="w-px h-8 bg-black/15"></span>
+                <span class="micro text-black/55">Feb 2026 · profile by E. Nakamura</span>
+              </div>
+            </div>
+            <div class="md:col-span-5 photo-frame aspect-[4/5] md:aspect-auto">
+              <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="mag1" x2="0" y2="1"><stop offset="0" stop-color="#1a1d10"/><stop offset="1" stop-color="#0a0805"/></linearGradient></defs>
+                <rect width="400" height="500" fill="url(#mag1)"/>
+                <!-- magazine spread -->
+                <rect x="60" y="60" width="280" height="380" fill="#f5f1e8"/>
+                <line x1="200" y1="60" x2="200" y2="440" stroke="#3a2a18" stroke-width=".5" opacity=".4"/>
+                <!-- column lines -->
+                <g stroke="#3a2a18" stroke-width=".3" opacity=".25">
+                  <line x1="80" y1="120" x2="180" y2="120"/><line x1="80" y1="135" x2="180" y2="135"/>
+                  <line x1="80" y1="150" x2="180" y2="150"/><line x1="80" y1="165" x2="180" y2="165"/>
+                  <line x1="80" y1="180" x2="180" y2="180"/><line x1="80" y1="195" x2="170" y2="195"/>
+                  <line x1="80" y1="280" x2="180" y2="280"/><line x1="80" y1="295" x2="180" y2="295"/>
+                  <line x1="80" y1="310" x2="180" y2="310"/><line x1="80" y1="325" x2="170" y2="325"/>
+                </g>
+                <text x="80" y="100" font-family="Lato" font-weight="300" font-size="22" fill="#3a2a18">The slow build</text>
+                <!-- right column image of building -->
+                <rect x="220" y="80" width="100" height="160" fill="#c4a576"/>
+                <rect x="240" y="100" width="60" height="120" fill="#3a2a18"/>
+                <text x="220" y="270" font-family="Lato" font-style="italic" font-size="11" fill="#3a2a18">Landmark 4, Băneasa.</text>
+                <text x="80" y="240" font-family="Lato" font-weight="700" font-size="11" fill="#b59458" letter-spacing="2">PG. 84 — 92</text>
+              </svg>
+              <div class="meta-strip"><span>Wallpaper* №312</span><span>Pages 84–92</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ======== POST 07: CRAFT — bronze handle, intimate detail ======== -->
+      <article class="post reveal" data-post data-tag="craft" data-date="2026-03-30">
+        <div class="marker">
+          <div>
+            <div class="day">30</div>
+            <div class="month">Mar</div>
+            <div class="year">2026</div>
+          </div>
+          <div class="pin"></div>
+        </div>
+        <div class="card dark lift">
+          <div class="flex items-center gap-3 flex-wrap px-7 pt-6 pb-5 border-b border-white/10">
+            <span class="post-tag tag-craft"><span class="material-symbols-outlined text-[14px]">build_circle</span>Craft</span>
+            <span class="project-chip" style="border-color: rgba(255,255,255,.2); color: rgba(255,255,255,.8);">Atelier · Ilfov workshop</span>
+            <span class="micro text-white/45">Series · 142 of 248</span>
+          </div>
+          <div class="grid md:grid-cols-12 gap-0">
+            <div class="md:col-span-7 p-7 md:p-10">
+              <h3 class="font-headline text-white text-[28px] md:text-[36px] leading-[1.1] mb-4">
+                Eleven minutes per <span class="serif-italic text-landmark-gold">handle</span>.
+              </h3>
+              <p class="text-white/70 text-[15px] leading-[1.85] mb-5">
+                We cast every interior door handle in the Landmark portfolio in a small bronze foundry an hour outside Bucharest. It takes eleven minutes, on average, to file and polish each one to the tolerance our designer Ana insists upon — and 248 of them go into Landmark 4.
+              </p>
+              <p class="text-white/65 text-[15px] leading-[1.85]">
+                Today we finished number 142. The team broke for tea.
+              </p>
+              <div class="mt-7 flex items-center gap-5 flex-wrap">
+                <span class="micro text-white/50">Bronze · CuSn8</span>
+                <span class="w-px h-4 bg-white/15"></span>
+                <span class="micro text-white/50">Patina · oiled, hand-rubbed</span>
+                <span class="w-px h-4 bg-white/15"></span>
+                <span class="micro text-landmark-gold">By Atelier Pop, Ilfov</span>
+              </div>
+            </div>
+            <div class="md:col-span-5 photo-frame aspect-[4/5] md:aspect-auto">
+              <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <radialGradient id="bronze1" cx="40%" cy="40%"><stop offset="0" stop-color="#e6c98a"/><stop offset=".5" stop-color="#a07a3a"/><stop offset="1" stop-color="#3a2a18"/></radialGradient>
+                </defs>
+                <rect width="400" height="500" fill="#1a1208"/>
+                <!-- handle main shaft -->
+                <rect x="120" y="100" width="40" height="280" rx="8" fill="url(#bronze1)"/>
+                <!-- horizontal handle -->
+                <rect x="120" y="220" width="200" height="22" rx="6" fill="url(#bronze1)"/>
+                <!-- back-plate -->
+                <rect x="100" y="80" width="80" height="320" rx="4" fill="none" stroke="#b59458" stroke-width=".8" opacity=".5"/>
+                <!-- highlights -->
+                <rect x="125" y="105" width="3" height="270" rx="1" fill="#efd68a" opacity=".7"/>
+                <rect x="125" y="223" width="190" height="3" rx="1" fill="#efd68a" opacity=".7"/>
+                <!-- file marks -->
+                <g stroke="#3a2a18" stroke-width=".3" opacity=".5">
+                  <line x1="130" y1="160" x2="150" y2="160"/><line x1="130" y1="170" x2="150" y2="170"/>
+                  <line x1="130" y1="180" x2="150" y2="180"/>
+                </g>
+                <!-- shadow on cloth -->
+                <ellipse cx="220" cy="430" rx="160" ry="12" fill="#000" opacity=".6"/>
+                <!-- punched serial -->
+                <text x="200" y="470" text-anchor="middle" font-family="JetBrains Mono" font-size="11" fill="#b59458" letter-spacing="2">N° 142 / 248</text>
+              </svg>
+              <div class="meta-strip"><span>Handle 142</span><span>Studio · 14:08</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ======== POST 08: PROGRESS — site green corridor ======== -->
+      <article class="post reveal" data-post data-tag="progress" data-date="2026-03-22">
+        <div class="marker">
+          <div>
+            <div class="day">22</div>
+            <div class="month">Mar</div>
+            <div class="year">2026</div>
+          </div>
+          <div class="pin"></div>
+        </div>
+        <div class="card lift">
+          <div class="flex items-center gap-3 flex-wrap px-7 pt-6 pb-5 border-b border-black/5">
+            <span class="post-tag tag-progress"><span class="material-symbols-outlined text-[14px]">show_chart</span>Progress</span>
+            <span class="project-chip">Landmark 4 · Forest edge</span>
+            <span class="micro text-black/45">Spring planting</span>
+          </div>
+          <div class="grid md:grid-cols-12 gap-0">
+            <div class="md:col-span-6 photo-frame aspect-[4/3]">
+              <svg viewBox="0 0 600 450" preserveAspectRatio="xMidYMid slice" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs><linearGradient id="meadow1" x2="0" y2="1"><stop offset="0" stop-color="#9ab87e"/><stop offset="1" stop-color="#3a4f2a"/></linearGradient></defs>
+                <rect width="600" height="450" fill="url(#meadow1)"/>
+                <!-- horizon -->
+                <rect width="600" height="180" fill="#a8c5a0"/>
+                <rect y="180" width="600" height="270" fill="url(#meadow1)"/>
+                <!-- distant willows -->
+                <g fill="#3a4f2a" opacity=".7">
+                  <ellipse cx="80" cy="200" rx="40" ry="50"/>
+                  <ellipse cx="180" cy="190" rx="35" ry="45"/>
+                  <ellipse cx="450" cy="195" rx="50" ry="60"/>
+                  <ellipse cx="550" cy="200" rx="42" ry="48"/>
+                </g>
+                <!-- saplings in rows (planted today) -->
+                <g stroke="#1a1208" stroke-width="2" fill="none">
+                  <line x1="80" y1="380" x2="80" y2="350"/><line x1="160" y1="375" x2="160" y2="350"/>
+                  <line x1="240" y1="380" x2="240" y2="350"/><line x1="320" y1="380" x2="320" y2="350"/>
+                  <line x1="400" y1="378" x2="400" y2="350"/><line x1="480" y1="380" x2="480" y2="352"/>
+                </g>
+                <g fill="#5a8a4a">
+                  <circle cx="80" cy="345" r="8"/><circle cx="160" cy="345" r="8"/><circle cx="240" cy="345" r="8"/>
+                  <circle cx="320" cy="345" r="8"/><circle cx="400" cy="345" r="8"/><circle cx="480" cy="345" r="8"/>
+                </g>
+                <!-- small flag posts -->
+                <g>
+                  <line x1="78" y1="355" x2="68" y2="345" stroke="#b59458" stroke-width="1"/>
+                  <rect x="58" y="340" width="12" height="6" fill="#b59458"/>
+                </g>
+              </svg>
+              <div class="meta-strip"><span>Plot 04 — 08</span><span>62 saplings · today</span></div>
+            </div>
+            <div class="md:col-span-6 p-7 md:p-9">
+              <h3 class="font-headline text-[24px] md:text-[30px] leading-[1.15] text-black mb-4">
+                Sixty-two oaks go in along the <span class="serif-italic text-landmark-gold">forest edge</span>.
+              </h3>
+              <p class="text-[15px] leading-[1.85] text-black/70 mb-5">
+                The team beat the front by three hours. The northern boundary of the plot — where Landmark 4 meets the Băneasa forest — gained its hedge today: a row of <em>Quercus robur</em> nursery-grown for two seasons in Argeș, set 1.40 m apart on a north–south axis to soften the tower's footprint.
+              </p>
+              <div class="grid grid-cols-3 gap-4 pt-5 border-t border-black/8">
+                <div><div class="display text-[24px] text-black leading-none">62</div><div class="micro text-black/55 mt-2">Trees</div></div>
+                <div><div class="display text-[24px] text-landmark-green leading-none">5</div><div class="micro text-black/55 mt-2">Plots</div></div>
+                <div><div class="display text-[24px] text-black leading-none">3.5h</div><div class="micro text-black/55 mt-2">Before rain</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ======== POST 09: MILESTONE — show-floor opens ======== -->
+      <article class="post reveal" data-post data-tag="milestone" data-date="2026-03-15">
+        <div class="marker">
+          <div>
+            <div class="day">15</div>
+            <div class="month">Mar</div>
+            <div class="year">2026</div>
+          </div>
+          <div class="pin"></div>
+        </div>
+        <div class="card lift" style="background: #f5f1e8; border-color: rgba(116,91,40,.18);">
+          <div class="flex items-center gap-3 flex-wrap px-7 pt-6 pb-5 border-b border-black/5">
+            <span class="post-tag tag-milestone"><span class="material-symbols-outlined text-[14px]">flag</span>Milestone</span>
+            <span class="project-chip">Landmark 4 · Show-floor</span>
+          </div>
+          <div class="px-7 py-9 grid md:grid-cols-12 gap-6 items-center">
+            <div class="md:col-span-8">
+              <h3 class="font-headline text-[28px] md:text-[36px] leading-[1.1] text-black">
+                The show-floor opens. <span class="serif-italic text-landmark-gold">Apartment 1402 is dressed.</span>
+              </h3>
+              <p class="text-[15px] leading-[1.85] text-black/70 mt-4 max-w-2xl">
+                The first private viewings begin tomorrow at 10:00. A two-room residence on the fourteenth floor, fully fitted to specification — bronze handles, travertine threshold, the lot. Tea is on us.
+              </p>
+            </div>
+            <div class="md:col-span-4 text-center md:text-right">
+              <div class="display text-[64px] md:text-[88px] leading-none text-landmark-green">14<span class="text-landmark-gold">02</span></div>
+              <div class="micro text-black/55 mt-2">By appointment</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ======== POST 10: PRESS — Dezeen short ======== -->
+      <article class="post reveal" data-post data-tag="press" data-date="2026-03-08">
+        <div class="marker">
+          <div>
+            <div class="day">08</div>
+            <div class="month">Mar</div>
+            <div class="year">2026</div>
+          </div>
+          <div class="pin"></div>
+        </div>
+        <div class="card lift">
+          <div class="flex items-center gap-3 flex-wrap px-7 pt-6 pb-5 border-b border-black/5">
+            <span class="post-tag tag-press"><span class="material-symbols-outlined text-[14px]">newspaper</span>Press</span>
+            <span class="project-chip">Dezeen</span>
+            <span class="micro text-black/45">Online feature</span>
+          </div>
+          <div class="px-7 py-7 grid md:grid-cols-12 gap-6 items-center">
+            <div class="md:col-span-9">
+              <div class="font-headline italic text-[26px] text-black/85 mb-3">Dezeen</div>
+              <p class="text-[16px] leading-[1.8] text-black/75">
+                "Landmark 4's half-floor penthouses arrive like a quiet rebuttal to the glass-tower orthodoxy of the last decade — closer to a Mayfair mansion block than a Bucharest skyscraper."
+              </p>
+              <a href="#" class="mt-5 inline-flex items-center gap-2 micro text-landmark-green">Read on Dezeen <span class="material-symbols-outlined text-[16px]">arrow_outward</span></a>
+            </div>
+            <div class="md:col-span-3 text-center md:text-right border-l md:border-l border-black/8 md:pl-6">
+              <div class="micro text-black/45">Reach</div>
+              <div class="display text-[36px] text-black leading-none mt-1">2.4M</div>
+              <div class="micro text-black/45 mt-3">Coverage</div>
+              <div class="font-headline text-[18px] text-landmark-green mt-1">+18 outlets</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ======== POST 11: PEOPLE — short note, log style ======== -->
+      <article class="post reveal" data-post data-tag="people" data-date="2026-03-01">
+        <div class="marker">
+          <div>
+            <div class="day">01</div>
+            <div class="month">Mar</div>
+            <div class="year">2026</div>
+          </div>
+          <div class="pin"></div>
+        </div>
+        <div class="card lift">
+          <div class="flex items-center gap-3 flex-wrap px-7 pt-6 pb-5 border-b border-black/5">
+            <span class="post-tag tag-people"><span class="material-symbols-outlined text-[14px]">groups</span>People</span>
+            <span class="project-chip">Atelier · Headcount</span>
+          </div>
+          <div class="px-7 py-9">
+            <h3 class="font-headline text-[24px] md:text-[28px] leading-[1.2] text-black mb-5">
+              We grew by <span class="serif-italic text-landmark-gold">three</span> this month.
+            </h3>
+            <div class="grid md:grid-cols-3 gap-5">
+              <div class="bg-stone-bg/70 p-5 border border-black/5">
+                <div class="aspect-square w-14 rounded-full overflow-hidden mb-4">
+                  <svg viewBox="0 0 100 100"><defs><linearGradient id="p1" x2="0" y2="1"><stop offset="0" stop-color="#9ab87e"/><stop offset="1" stop-color="#2a3a18"/></linearGradient></defs><rect width="100" height="100" fill="url(#p1)"/><circle cx="50" cy="40" r="16" fill="#1a1208" opacity=".7"/><path d="M20,100 Q50,60 80,100" fill="#1a1208" opacity=".7"/></svg>
+                </div>
+                <div class="font-headline text-[16px] text-black">Ana Petrescu</div>
+                <div class="micro text-black/50 mt-1">Senior detailer</div>
+                <p class="text-[12px] text-black/60 mt-3 leading-[1.7]">From SCAR Bucharest. Joins the Landmark 4 envelope team.</p>
+              </div>
+              <div class="bg-stone-bg/70 p-5 border border-black/5">
+                <div class="aspect-square w-14 rounded-full overflow-hidden mb-4">
+                  <svg viewBox="0 0 100 100"><defs><linearGradient id="p2" x2="0" y2="1"><stop offset="0" stop-color="#c4a576"/><stop offset="1" stop-color="#3a2a18"/></linearGradient></defs><rect width="100" height="100" fill="url(#p2)"/><circle cx="50" cy="40" r="16" fill="#1a1208" opacity=".7"/><path d="M20,100 Q50,60 80,100" fill="#1a1208" opacity=".7"/></svg>
+                </div>
+                <div class="font-headline text-[16px] text-black">Tudor Iancu</div>
+                <div class="micro text-black/50 mt-1">Site engineer</div>
+                <p class="text-[12px] text-black/60 mt-3 leading-[1.7]">Eight years at Vinci. Heads the Landmark 4 substructure team.</p>
+              </div>
+              <div class="bg-stone-bg/70 p-5 border border-black/5">
+                <div class="aspect-square w-14 rounded-full overflow-hidden mb-4">
+                  <svg viewBox="0 0 100 100"><defs><linearGradient id="p3" x2="0" y2="1"><stop offset="0" stop-color="#5a6a8a"/><stop offset="1" stop-color="#1a1d28"/></linearGradient></defs><rect width="100" height="100" fill="url(#p3)"/><circle cx="50" cy="40" r="16" fill="#1a1208" opacity=".7"/><path d="M20,100 Q50,60 80,100" fill="#1a1208" opacity=".7"/></svg>
+                </div>
+                <div class="font-headline text-[16px] text-black">Eliza Marin</div>
+                <div class="micro text-black/50 mt-1">Sustainability lead</div>
+                <p class="text-[12px] text-black/60 mt-3 leading-[1.7]">Fresh from ETH Zürich. Building lifecycle &amp; embodied carbon.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ======== POST 12: CRAFT — diagram-style note (drawing release) ======== -->
+      <article class="post reveal" data-post data-tag="craft" data-date="2026-02-22">
+        <div class="marker">
+          <div>
+            <div class="day">22</div>
+            <div class="month">Feb</div>
+            <div class="year">2026</div>
+          </div>
+          <div class="pin"></div>
+        </div>
+        <div class="card lift">
+          <div class="flex items-center gap-3 flex-wrap px-7 pt-6 pb-5 border-b border-black/5">
+            <span class="post-tag tag-craft"><span class="material-symbols-outlined text-[14px]">build_circle</span>Craft</span>
+            <span class="project-chip">Landmark 4 · Detail rev. 04</span>
+            <span class="micro text-black/45">Drawing release</span>
+          </div>
+          <div class="grid md:grid-cols-12 gap-0">
+            <div class="md:col-span-7 p-7 md:p-10">
+              <h3 class="font-headline text-[24px] md:text-[32px] leading-[1.15] text-black mb-4">
+                The window reveal, <span class="serif-italic text-landmark-gold">redrawn for the fourth time</span>.
+              </h3>
+              <p class="text-[15px] leading-[1.85] text-black/70 mb-4">
+                We moved the inside face of the travertine reveal in by 18 mm so the morning light reaches further across the oak floor. A small change. It cost us six weeks. It will be invisible — and that is the point.
+              </p>
+              <div class="grid grid-cols-2 gap-3 pt-4 border-t border-black/8 text-[13px]">
+                <div><span class="micro text-black/45 block mb-1">Drawing</span><span class="font-mono">L4-DT-W-204 · rev 04</span></div>
+                <div><span class="micro text-black/45 block mb-1">Issued</span><span class="font-mono">22.02.2026 · 16:40</span></div>
+                <div><span class="micro text-black/45 block mb-1">Author</span>Tomás Reyes</div>
+                <div><span class="micro text-black/45 block mb-1">Status</span><span class="text-landmark-green font-medium">For construction</span></div>
+              </div>
+            </div>
+            <div class="md:col-span-5 photo-frame" style="background: #f5f1e8;">
+              <svg viewBox="0 0 400 380" preserveAspectRatio="xMidYMid meet" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="380" fill="#f5f1e8"/>
+                <!-- grid -->
+                <g stroke="#3a2a18" stroke-width=".25" opacity=".15">
+                  <line x1="0" y1="40" x2="400" y2="40"/><line x1="0" y1="80" x2="400" y2="80"/>
+                  <line x1="0" y1="120" x2="400" y2="120"/><line x1="0" y1="160" x2="400" y2="160"/>
+                  <line x1="0" y1="200" x2="400" y2="200"/><line x1="0" y1="240" x2="400" y2="240"/>
+                  <line x1="0" y1="280" x2="400" y2="280"/><line x1="0" y1="320" x2="400" y2="320"/>
+                  <line x1="40" y1="0" x2="40" y2="380"/><line x1="80" y1="0" x2="80" y2="380"/>
+                  <line x1="120" y1="0" x2="120" y2="380"/><line x1="160" y1="0" x2="160" y2="380"/>
+                  <line x1="200" y1="0" x2="200" y2="380"/><line x1="240" y1="0" x2="240" y2="380"/>
+                  <line x1="280" y1="0" x2="280" y2="380"/><line x1="320" y1="0" x2="320" y2="380"/>
+                  <line x1="360" y1="0" x2="360" y2="380"/>
+                </g>
+                <!-- detail: window reveal cross-section -->
+                <g stroke="#1a1208" stroke-width="1.2" fill="none">
+                  <!-- outer wall -->
+                  <rect x="60" y="60" width="120" height="280"/>
+                  <!-- travertine cladding -->
+                  <rect x="60" y="60" width="40" height="280" fill="#c4a576" opacity=".7"/>
+                  <!-- insulation -->
+                  <pattern id="ins" width="6" height="6" patternUnits="userSpaceOnUse"><line x1="0" y1="6" x2="6" y2="0" stroke="#3a2a18" stroke-width=".4"/></pattern>
+                  <rect x="100" y="60" width="40" height="280" fill="url(#ins)"/>
+                  <!-- structural concrete -->
+                  <rect x="140" y="60" width="40" height="280" fill="#9a8a72" opacity=".5"/>
+                  <!-- window aluminium frame -->
+                  <rect x="180" y="120" width="14" height="160" fill="#1a1208"/>
+                  <rect x="194" y="125" width="160" height="150" fill="#a0c0d0" opacity=".4"/>
+                  <!-- inside reveal (the changed line) -->
+                  <line x1="180" y1="120" x2="100" y2="60" stroke="#c41e3a" stroke-width="1.5"/>
+                  <line x1="180" y1="280" x2="100" y2="340" stroke="#c41e3a" stroke-width="1.5"/>
+                </g>
+                <!-- annotations -->
+                <g font-family="JetBrains Mono" font-size="9" fill="#3a2a18">
+                  <text x="60" y="50">A · TRAVERTINE 30mm</text>
+                  <text x="100" y="50">B · INSULATION 100mm</text>
+                  <text x="142" y="50">C · CONCRETE 220mm</text>
+                  <text x="200" y="115">D · ALU FRAME</text>
+                  <!-- dimension -->
+                  <text x="200" y="60" fill="#c41e3a">REVEAL Δ −18 mm</text>
+                </g>
+                <text x="20" y="370" font-family="JetBrains Mono" font-size="9" fill="#3a2a18" letter-spacing="1">L4-DT-W-204 · REV 04 · 1:5</text>
+              </svg>
+              <div class="meta-strip"><span>Detail W-204</span><span>Rev 04 · For construction</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- ======== END OF FEED MARKER ======== -->
+      <div class="feed-end reveal">
+        <div class="micro text-black/45 mb-3">Earlier dispatches</div>
+        <div class="font-headline text-[22px] md:text-[26px] text-black/80 leading-tight max-w-xl">214 entries dating back to <span class="serif-italic text-landmark-gold">21 March 2008</span> &mdash; the morning we broke ground on our first building.</div>
+        <div class="mt-6 flex items-center gap-3 flex-wrap">
+          <button class="btn-outline">Load older posts <span class="material-symbols-outlined text-[18px]">arrow_downward</span></button>
+          <a href="#" class="micro text-black/55 hover:text-landmark-green">Browse the full archive →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUBSCRIBE BAR ============ -->
+<section class="sub-bar relative overflow-hidden">
+  <div class="absolute inset-0 opacity-25" aria-hidden="true">
+    <svg class="w-full h-full" viewBox="0 0 1600 400" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="subbg" x2="0" y2="1"><stop offset="0" stop-color="#004225"/><stop offset="1" stop-color="#001a0e"/></linearGradient></defs><rect width="1600" height="400" fill="url(#subbg)"/><g stroke="#b59458" stroke-width=".4" fill="none" opacity=".5"><circle cx="1300" cy="200" r="200"/><circle cx="1300" cy="200" r="140"/><circle cx="1300" cy="200" r="80"/></g></svg>
+  </div>
+  <div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 py-20 grid lg:grid-cols-12 gap-10 items-center text-white">
+    <div class="lg:col-span-7">
+      <div class="eyebrow text-landmark-gold mb-5">The Saturday Dispatch</div>
+      <h2 class="display text-white" style="font-size: clamp(28px, 4vw, 46px); line-height: 1.1;">
+        One <span class="serif-italic text-landmark-gold">letter</span>, one Saturday morning a month.
+      </h2>
+      <p class="mt-5 max-w-xl text-white/75 text-[16px] leading-[1.8]">
+        We collect the month's most-read posts into a single, calm letter. No sales, no urgency — just the building, told slowly. Around four thousand readers, and we know most of them by name.
+      </p>
+    </div>
+    <div class="lg:col-span-5">
+      <form id="subForm" class="flex flex-col gap-4">
+        <label class="label text-white/55">Email</label>
+        <div class="flex gap-3 border-b border-white/30 pb-3">
+          <input required type="email" placeholder="you@somewhere.ro" class="flex-1 bg-transparent text-white placeholder-white/30 focus:outline-none text-[16px]">
+          <button type="submit" class="micro text-landmark-gold flex items-center gap-2">Subscribe<span class="material-symbols-outlined text-[16px]">arrow_forward</span></button>
+        </div>
+        <p class="micro text-white/40">Unsubscribe with a click. We never share. We never sell.</p>
+        <div id="subOk" class="hidden mt-2 text-[13px] text-landmark-gold">Thank you — see you on the first Saturday of the month.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER (matched to Home) ============ -->
+<footer class="bg-white pt-24 pb-10 px-6 lg:px-10 border-t border-black/5">
+  <div class="max-w-[1380px] mx-auto">
+    <div class="flex flex-col items-center mb-16">
+      <img src="/logo/landmarklogo-green.svg" alt="Landmark Realty" style="width: 72px;">
+      <p class="mt-6 label text-black/40">EST · MMVIII · BUCHAREST</p>
+    </div>
+    <div class="grid md:grid-cols-5 gap-12 pb-14 border-b border-black/5">
+      <div class="md:col-span-2">
+        <h5 class="label text-black mb-5">Landmark Realty</h5>
+        <p class="text-[13px] text-black/60 leading-[1.8] max-w-xs">Architects and developers of heritage-quality residences. Eighteen years of quiet, deliberate work.</p>
+        <a href="/#contact" class="mt-6 inline-flex items-center gap-2 label text-landmark-green hover:text-landmark-gold">Get in Touch <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+      </div>
+      <div>
+        <h5 class="label text-black mb-5">Properties</h5>
+        <ul class="space-y-3 text-[12px] text-black/60">
+          <li><a href="/projects" class="hover:text-landmark-green">Landmark 4</a></li>
+          <li><a href="#" class="hover:text-landmark-green">All Communities</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="label text-black mb-5">The House</h5>
+        <ul class="space-y-3 text-[12px] text-black/60">
+          <li><a href="/about" class="hover:text-landmark-green">About</a></li>
+          <li><a href="#" class="hover:text-landmark-green">Journal</a></li>
+          <li><a href="/media" class="hover:text-landmark-green">Media</a></li>
+          <li><a href="#" class="hover:text-landmark-green">Careers</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="label text-black mb-5">Connect</h5>
+        <ul class="space-y-3 text-[12px] text-black/60">
+          <li>+40 21 999 0400</li>
+          <li>hello@landmarkrealty.ro</li>
+          <li>Str. Arh. Ion Mincu 12<br>Sector 1, București</li>
+        </ul>
+      </div>
+    </div>
+    <div class="flex flex-col md:flex-row justify-between gap-6 pt-8 text-[11px] uppercase tracking-[0.2em] text-black/50">
+      <div>&copy; 2026 Landmark Realty SA. All rights reserved.</div>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-landmark-green">Privacy</a>
+        <a href="#" class="hover:text-landmark-green">Terms</a>
+        <a href="#" class="hover:text-landmark-green">Legal</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Reveal
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Filter (tag only)
+const state = { tag: 'all', sort: 'latest' };
+const posts = Array.from(document.querySelectorAll('[data-post]'));
+const countEl = document.getElementById('postCount');
+
+function applyFilters() {
+  let visible = 0;
+  posts.forEach(p => {
+    const tagOk = state.tag === 'all' || p.dataset.tag === state.tag;
+    if (tagOk) { p.hidden = false; visible++; } else { p.hidden = true; }
+  });
+  if (countEl) countEl.textContent = visible;
+}
+function applySort() {
+  const feed = document.getElementById('postFeed');
+  const list = posts.slice().sort((a, b) => {
+    const ad = a.dataset.date, bd = b.dataset.date;
+    return state.sort === 'latest' ? bd.localeCompare(ad) : ad.localeCompare(bd);
+  });
+  // keep .feed-end at the bottom
+  const endMarker = feed.querySelector('.feed-end');
+  list.forEach(el => feed.insertBefore(el, endMarker));
+}
+
+document.querySelectorAll('[data-filter]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('[data-filter]').forEach(b => b.classList.remove('is-active'));
+    btn.classList.add('is-active');
+    state.tag = btn.dataset.filter;
+    applyFilters();
+  });
+});
+document.getElementById('latestBtn').addEventListener('click', () => {
+  state.sort = 'latest';
+  document.getElementById('latestBtn').classList.add('is-active');
+  document.getElementById('oldestBtn').classList.remove('is-active');
+  applySort();
+});
+document.getElementById('oldestBtn').addEventListener('click', () => {
+  state.sort = 'oldest';
+  document.getElementById('oldestBtn').classList.add('is-active');
+  document.getElementById('latestBtn').classList.remove('is-active');
+  applySort();
+});
+document.getElementById('latestBtn').classList.add('is-active');
+applyFilters();
+
+// Reactions tally
+document.querySelectorAll('.react-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const c = btn.querySelector('.count');
+    if (!c) return;
+    if (btn.classList.toggle('is-on')) {
+      c.textContent = parseInt(c.textContent.replace(/,/g,'')) + 1;
+    } else {
+      c.textContent = parseInt(c.textContent.replace(/,/g,'')) - 1;
+    }
+  });
+});
+
+// Subscribe form
+document.getElementById('subForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  document.getElementById('subOk').classList.remove('hidden');
+  e.target.querySelector('input').disabled = true;
+});
+</script>
+</body>
+</html>

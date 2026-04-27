@@ -1,92 +1,1020 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="light" lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self';
-           script-src 'self';
-           style-src 'self' https://fonts.googleapis.com;
-           font-src 'self' https://fonts.gstatic.com;
-           img-src 'self' data:;
-           connect-src 'self';
-           frame-ancestors 'none';">
-  <meta name="robots" content="noindex, nofollow">
-  <title>About — Landmark</title>
-  <meta name="description" content="Learn about Landmark's story, mission, and the team behind our luxury real estate developments.">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Landmark Realty — Architectural Excellence</title>
+<meta name="description" content="At Landmark Realty, craftsmanship, thoughtful design and signature quality have defined every residence we've built since 2008. A legacy of quiet architecture.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="en" href="/about">
+<link rel="alternate" hreflang="ro" href="/ro/about">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300;1,400&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#004225",
+        "secondary": "#5f5e5e",
+        "on-background": "#1b1c1c",
+        "landmark-green": "#004225",
+        "landmark-gold": "#b59458",
+        "bronze": "#745b28",
+        "stone-bg": "#f9f8f6"
+      },
+      fontFamily: {
+        "headline": ["Lato", "sans-serif"],
+        "body": ["Roboto", "sans-serif"],
+        "label": ["Lato", "sans-serif"]
+      }
+    }
+  }
+}
+</script>
+<style>
+  :root {
+    --accent: #b59458;
+    --primary: #004225;
+    --bg: #fcfcfc;
+    --stone: #f9f8f6;
+    --ink: #1b1c1c;
+    --muted: #4f5459;
+    --hairline: rgba(0,0,0,0.08);
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--ink); font-family: 'Roboto', sans-serif; font-weight: 300; -webkit-font-smoothing: antialiased; }
+  .font-headline { font-family: 'Lato', sans-serif; font-weight: 300; }
+  .serif-italic { font-family: 'Lato', sans-serif; font-style: italic; font-weight: 300; }
+  .display { font-family: 'Lato', sans-serif; font-weight: 300; letter-spacing: -0.01em; }
+  .eyebrow { font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 600; }
+  .label { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 250, 'GRAD' 0, 'opsz' 24; }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  /* Nav */
+  .nav-link { position: relative; }
+  .nav-link::after { content:''; position:absolute; left:0; bottom:-4px; height:1px; width:0; background: currentColor; transition: width .35s cubic-bezier(.16,1,.3,1); }
+  .nav-link:hover::after { width: 100%; }
+  .nav-solid { background: rgba(255,255,255,0.96) !important; backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,0.06) !important; color: #111 !important; }
+  .nav-solid .nav-link, .nav-solid .nav-cta { color: #111; }
+  .nav-solid .nav-link::after { background: #111; }
+  .nav-solid .logo-white { display: none; }
+  .nav-solid .logo-green { display: inline-block !important; }
 
-  <link rel="stylesheet" href="/src/css/variables.css">
-  <link rel="stylesheet" href="/src/css/reset.css">
-  <link rel="stylesheet" href="/src/css/typography.css">
-  <link rel="stylesheet" href="/src/css/layout.css">
-  <link rel="stylesheet" href="/src/css/components/header.css">
-  <link rel="stylesheet" href="/src/css/components/footer.css">
+  /* Hero */
+  .hero-vignette { background: linear-gradient(180deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.10) 35%, rgba(0,0,0,0.05) 60%, rgba(0,0,0,0.55) 100%); }
+  .hero-img { transform: scale(1.04); transition: transform 10s ease-out; }
+  .hero-loaded .hero-img { transform: scale(1); }
+
+  /* Buttons */
+  .btn-outline { display:inline-flex; align-items:center; justify-content:center; gap:12px; height:49px; border:1px solid #111; color:#111; border-radius:25px; padding: 0 36px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; transition: all .5s cubic-bezier(.16,1,.3,1); text-decoration:none; }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-outline.on-dark { color: #fff; border-color: rgba(255,255,255,.6); }
+  .btn-outline.on-dark:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-solid { display:inline-flex; align-items:center; justify-content:center; gap:12px; height:49px; background: var(--primary); color:#fff; border-radius:25px; padding: 0 36px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; transition: all .35s ease; border: none; cursor: pointer; }
+  .btn-solid:hover { background: #000; }
+
+  /* Section heading */
+  .section-title { font-family: 'Lato', sans-serif; font-weight: 300; font-size: clamp(32px, 4.2vw, 52px); line-height: 1.15; color: #111; }
+  .section-title .gilt { font-style: italic; color: var(--accent); }
+  .eyebrow-line { display:inline-flex; align-items:center; gap:14px; color: var(--primary); opacity:.7; }
+  .eyebrow-line::before { content:''; width:28px; height:1px; background: currentColor; }
+
+  /* Pillar cards */
+  .pillar-card { transition: transform 0.7s cubic-bezier(.16,1,.3,1); }
+  .pillar-card:hover { transform: translateY(-12px); }
+  .pillar-card .pillar-img-wrap { overflow: hidden; }
+  .pillar-card svg { transition: transform 1.4s cubic-bezier(.16,1,.3,1); }
+  .pillar-card:hover svg { transform: scale(1.06); }
+
+  /* Timeline */
+  .story-row { border-top: 1px solid rgba(0,0,0,0.1); }
+  .story-row:last-child { border-bottom: 1px solid rgba(0,0,0,0.1); }
+  .year-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); display: inline-block; }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 1s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* Rise */
+  @keyframes riseIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .rise { animation: riseIn 1.2s cubic-bezier(.16,1,.3,1) both; }
+  .rise.d1 { animation-delay: .2s; }
+  .rise.d2 { animation-delay: .4s; }
+  .rise.d3 { animation-delay: .6s; }
+
+  /* Scroll cue */
+  @keyframes scrollCue { 0%,100% { transform: translateY(0); opacity: .6 } 50% { transform: translateY(10px); opacity: 1 } }
+  .scroll-cue { animation: scrollCue 2.4s ease-in-out infinite; }
+
+  /* Leadership card */
+  .lead-card { background: #fff; border: 1px solid var(--hairline); transition: transform .6s cubic-bezier(.16,1,.3,1), box-shadow .6s; }
+  .lead-card:hover { transform: translateY(-6px); box-shadow: 0 24px 60px -30px rgba(0,0,0,0.25); }
+
+  /* Awards marquee */
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  .marquee { display: flex; gap: 80px; animation: marquee 38s linear infinite; white-space: nowrap; }
+  .marquee:hover { animation-play-state: paused; }
+
+  /* Counter */
+  .counter { font-variant-numeric: tabular-nums; }
+
+  /* Tweaks panel */
+  .tweaks-panel { position: fixed; right: 24px; bottom: 28px; z-index: 120; width: 300px; background: #fff; color: #111; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 30px 80px -20px rgba(0,0,0,0.3); padding: 20px; font-family: 'Roboto', sans-serif; border-radius: 8px; transform: translateY(20px); opacity: 0; pointer-events: none; transition: all .4s cubic-bezier(.16,1,.3,1); }
+  .tweaks-panel.show { transform: translateY(0); opacity: 1; pointer-events: auto; }
+  .tweaks-panel h3 { font-family: 'Lato'; font-weight: 400; font-size: 14px; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .tweak-row { margin-bottom: 14px; }
+  .tweak-row label { display:block; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #666; margin-bottom: 6px; font-weight: 600; }
+  .tweak-swatches { display:flex; gap: 8px; }
+  .tweak-swatch { width: 28px; height: 28px; border-radius: 50%; border: 2px solid transparent; cursor:pointer; transition: all .2s ease; }
+  .tweak-swatch.active { border-color: #111; transform: scale(1.1); }
+  .tweak-seg { display:flex; gap: 0; border: 1px solid rgba(0,0,0,0.15); border-radius: 999px; overflow: hidden; }
+  .tweak-seg button { flex: 1; padding: 8px 12px; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 600; background: #fff; border: none; cursor: pointer; color: #666; transition: all .2s; }
+  .tweak-seg button.active { background: #111; color: #fff; }
+
+  /* Accents */
+  [data-accent="green"] { --accent: #b59458; --primary: #004225; }
+  [data-accent="gold"] { --accent: #004225; --primary: #b59458; }
+  [data-accent="bronze"] { --accent: #004225; --primary: #745b28; }
+  [data-accent="charcoal"] { --accent: #b59458; --primary: #1b1c1c; }
+  [data-accent] .text-landmark-green { color: var(--primary) !important; }
+  [data-accent] .bg-landmark-green { background: var(--primary) !important; }
+  [data-accent] .text-landmark-gold { color: var(--accent) !important; }
+  [data-accent] .border-landmark-gold { border-color: var(--accent) !important; }
+
+  [data-density="cozy"] section { padding-top: 48px; padding-bottom: 48px; }
+  [data-density="airy"] section { padding-top: 96px; padding-bottom: 96px; }
+
+  /* Accessibility */
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-img, .rise, .reveal, .pillar-card, .marquee, .lead-card { transition: none !important; animation: none !important; transform: none !important; opacity: 1 !important; }
+  }
+</style>
 </head>
-<body>
+<body data-screen-label="About — Landmark Realty" data-accent="green" data-density="standard" class="selection:bg-primary/10">
+<a class="skip-link absolute top-0 left-0 px-6 py-3 bg-landmark-green text-white font-bold z-[9999] -translate-y-full focus:translate-y-0" href="#main-content">Skip to main content</a>
 
-  <a class="skip-link" href="#main-content">Skip to main content</a>
-
-  <header class="header">
-    <div class="container header__inner">
-      <a href="index.html" class="header__logo">Landmark</a>
-      <nav class="header__nav" aria-label="Main">
-        <a href="index.html">Home</a>
-        <a href="about.html" aria-current="page">About</a>
-        <a href="projects.html">Projects</a>
-        <a href="contact.html">Contact</a>
-      </nav>
-      <button class="header__menu-toggle" data-menu-toggle aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+<!-- ============ NAV ============ -->
+<header>
+<nav id="mainNav" class="fixed top-0 w-full z-50 text-white transition-colors duration-500" aria-label="Main">
+  <div class="flex justify-between items-center px-6 lg:px-12 h-[72px] w-full max-w-[1920px] mx-auto">
+    <div class="hidden lg:flex gap-9 items-center font-medium tracking-[0.14em] text-[12px] uppercase">
+      <a class="nav-link" href="/about" aria-current="page">About</a>
+      <a class="nav-link" href="#">Communities</a>
+      <a class="nav-link" href="/projects">Properties</a>
     </div>
-  </header>
-
-  <main id="main-content">
-    <section class="section section--below-header">
-      <div class="container">
-        <h1>About Landmark</h1>
-        <p>Placeholder — content will be imported from Sketch in Phase 2.</p>
+    <a href="/" class="absolute left-1/2 -translate-x-1/2 flex items-center no-underline">
+      <img src="/logo/landmarklogo-white.svg" alt="Landmark Realty" class="logo-white" style="width: 74px; height: auto;">
+      <img src="/logo/landmarklogo-green.svg" alt="Landmark Realty" class="logo-green" style="width: 74px; height: auto; display:none;">
+    </a>
+    <div class="flex items-center gap-6">
+      <div class="hidden lg:flex gap-6 items-center font-medium tracking-[0.14em] text-[12px] uppercase">
+        <a class="nav-link" href="/media">Media</a>
+        <a class="nav-link" href="#">Careers</a>
+        <a class="nav-link nav-cta" href="#contact">Contact</a>
       </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div>
-        <a href="index.html" class="footer__brand">Landmark</a>
-        <p class="footer__text">Crafting exceptional living spaces since 2010.</p>
-        <div class="footer__socials">
-          <a href="https://instagram.com/landmark" target="_blank" rel="noopener noreferrer" aria-label="Instagram">Instagram</a>
-          <a href="https://facebook.com/landmark" target="_blank" rel="noopener noreferrer" aria-label="Facebook">Facebook</a>
-          <a href="https://linkedin.com/company/landmark" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">LinkedIn</a>
+      <div class="flex items-center gap-4 border-l border-current/20 pl-6">
+        <button class="material-symbols-outlined text-[20px]" aria-label="Save">favorite</button>
+        <button class="material-symbols-outlined text-[20px]" aria-label="Search">search</button>
+        <div class="lang-switcher flex items-center gap-1 text-[11px] font-medium tracking-[0.18em] pl-4 border-l border-current/20" data-lang-switcher>
+          <a href="/about" class="no-underline" hreflang="en" aria-current="page">EN</a>
+          <span class="opacity-40">/</span>
+          <a href="/ro/about" class="no-underline opacity-60 hover:opacity-100" hreflang="ro">RO</a>
         </div>
       </div>
-      <div>
-        <h3 class="footer__heading">Quick Links</h3>
-        <nav class="footer__links" aria-label="Footer">
-          <a href="about.html">About Us</a>
-          <a href="projects.html">Projects</a>
-          <a href="contact.html">Contact</a>
-        </nav>
-      </div>
-      <div>
-        <h3 class="footer__heading">Contact</h3>
-        <address class="footer__text">
-          123 Landmark Tower, Business Bay<br>
-          Dubai, UAE<br>
-          <a href="tel:+97141234567">+971 4 123 4567</a><br>
-          <a href="mailto:info@landmark.ae">info@landmark.ae</a>
-        </address>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main id="main-content">
+
+<!-- ============ HERO (full-bleed editorial) ============ -->
+<section class="relative h-screen min-h-[700px] w-full overflow-hidden bg-[#111614]" id="hero">
+  <!-- Photograph -->
+  <img
+    class="hero-img absolute inset-0 w-full h-full object-cover"
+    src="/hero-tower.jpg"
+    alt="A signature Landmark tower \u2014 planted facade at first light"
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+  />
+
+  <!-- Readability overlays -->
+  <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.20) 30%, rgba(0,0,0,0.15) 55%, rgba(0,0,0,0.75) 100%);"></div>
+  <div class="absolute inset-0" style="background: linear-gradient(90deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 45%, rgba(0,0,0,0) 75%);"></div>
+
+  <!-- Content -->
+  <div class="relative h-full flex flex-col">
+    <!-- spacer for nav -->
+    <div class="h-[72px] shrink-0"></div>
+
+    <!-- Headline block -->
+    <div class="flex-1 flex items-end">
+      <div class="w-full max-w-[1280px] mx-auto px-6 lg:px-12 pb-14 lg:pb-20">
+        <div class="grid lg:grid-cols-12 gap-10 items-end">
+          <!-- Copy -->
+          <div class="lg:col-span-8 text-white">
+            <div class="rise flex items-center gap-4 mb-8">
+              <span class="w-10 h-px bg-landmark-gold"></span>
+              <span class="label text-landmark-gold" style="letter-spacing: 0.34em;">About Landmark · Est. 2024</span>
+            </div>
+            <h1 class="rise d1 display text-white" style="font-size: clamp(48px, 7.2vw, 112px); line-height: 0.98; letter-spacing: -0.025em; font-weight: 200;">
+              Building <span class="serif-italic text-landmark-gold" style="font-weight: 300;">homes</span>
+              <span class="block">that <span class="serif-italic" style="font-weight: 300;">remember</span>.</span>
+            </h1>
+            <p class="rise d2 mt-8 max-w-[560px] text-[16px] lg:text-[17px] leading-[1.85] font-light text-white/85">
+              Landmark is a new house of real estate, founded in 2024 by four partners who have spent their careers building, financing and shaping residential communities. One studio, one standard &mdash; architecture made to outlast us.
+            </p>
+            <div class="rise d3 mt-10 flex flex-wrap gap-5 items-center">
+              <a href="#legacy" class="btn-outline on-dark">Our Legacy <span class="material-symbols-outlined text-[18px]">arrow_downward</span></a>
+              <a href="#leadership" class="inline-flex items-center gap-3 text-white/85 hover:text-white text-[12px] uppercase tracking-[0.22em] font-medium no-underline">
+                <span class="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center"><span class="material-symbols-outlined text-[18px]">arrow_forward</span></span>
+                Meet the Team
+              </a>
+            </div>
+          </div>
+
+          <!-- Right rail: founding meta -->
+          <aside class="lg:col-span-4 rise d2 hidden lg:block">
+            <div class="border-l border-white/25 pl-8 space-y-7 text-white">
+              <div>
+                <div class="display text-[44px] leading-none">04</div>
+                <div class="label text-white/60 mt-3">Co-Founders</div>
+              </div>
+              <div class="pt-6 border-t border-white/15">
+                <div class="display text-[44px] leading-none">2024</div>
+                <div class="label text-white/60 mt-3">Year Founded</div>
+              </div>
+              <div class="pt-6 border-t border-white/15">
+                <div class="display text-[44px] leading-none">01</div>
+                <div class="label text-white/60 mt-3">Standard, Every Home</div>
+              </div>
+            </div>
+          </aside>
+        </div>
       </div>
     </div>
-    <div class="container footer__bottom">&copy; 2026 Landmark. All rights reserved.</div>
-  </footer>
 
-  <script type="module" src="/src/js/main.js"></script>
+    <!-- Scroll cue -->
+    <div class="absolute left-1/2 -translate-x-1/2 bottom-5 flex flex-col items-center gap-2 text-white/60 scroll-cue">
+      <span class="text-[10px] uppercase tracking-[0.4em]">Scroll</span>
+      <span class="w-px h-6 bg-white/30"></span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OPENING STATEMENT ============ -->
+<section class="py-24 bg-white" id="about-intro">
+  <div class="max-w-[1020px] mx-auto px-6 lg:px-10 text-center">
+    <div class="eyebrow-line justify-center inline-flex mb-6 reveal"><span class="eyebrow">Our Philosophy</span></div>
+    <h2 class="section-title reveal">Building excellence, <br><span class="gilt">generation</span> after generation.</h2>
+    <p class="mt-8 text-[17px] leading-[1.9] text-black/70 max-w-[780px] mx-auto font-light reveal">
+      Landmark was formed in 2024 by four partners whose working lives have been spent in real estate &mdash; in development, finance, construction and sales. We brought those disciplines under one roof because we believe a home is only as good as the hands that draw, build and steward it. One team, one standard, from the first line on the plan to the day the keys are handed over.
+    </p>
+  </div>
+</section>
+
+<!-- ============ STATS BAND ============ -->
+<section class="py-20" style="background:#f5f1e8;">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+    <div class="grid md:grid-cols-3 gap-12 md:gap-8 text-center">
+      <div>
+        <div class="flex justify-center mb-6">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="24" width="40" height="22" stroke="#004225" stroke-width="1.5"/>
+            <path d="M6 24 L26 8 L46 24" stroke="#004225" stroke-width="1.5" fill="none"/>
+            <rect x="22" y="34" width="8" height="12" stroke="#004225" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div class="display counter text-[72px] leading-none text-landmark-green" data-target="12" data-suffix=" Mn">~0</div>
+        <div class="mt-4 label text-black/70">Sq. Ft. of Land Developed</div>
+      </div>
+      <div>
+        <div class="flex justify-center mb-6">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="17" cy="18" r="6" stroke="#004225" stroke-width="1.5"/>
+            <circle cx="35" cy="18" r="6" stroke="#004225" stroke-width="1.5"/>
+            <path d="M5 42 C5 34, 11 30, 17 30 C23 30, 29 34, 29 42" stroke="#004225" stroke-width="1.5" fill="none"/>
+            <path d="M23 42 C23 34, 29 30, 35 30 C41 30, 47 34, 47 42" stroke="#004225" stroke-width="1.5" fill="none"/>
+          </svg>
+        </div>
+        <div class="display counter text-[72px] leading-none text-landmark-green" data-target="1800" data-suffix="+">~0</div>
+        <div class="mt-4 label text-black/70">Residents Across Our Communities</div>
+      </div>
+      <div>
+        <div class="flex justify-center mb-6">
+          <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M26 6 L31 20 L46 20 L34 28 L38 42 L26 34 L14 42 L18 28 L6 20 L21 20 Z" stroke="#004225" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="display counter text-[72px] leading-none text-landmark-green" data-target="42" data-suffix="+">~0</div>
+        <div class="mt-4 label text-black/70">International Design &amp; Craft Awards</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VISION / MISSION ============ -->
+<section class="py-24 bg-white">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+    <div class="grid lg:grid-cols-2 gap-16">
+      <div class="reveal">
+        <div class="eyebrow-line mb-6"><span class="eyebrow">Our Vision</span></div>
+        <!-- ornamental glyph -->
+        <svg width="56" height="56" viewBox="0 0 56 56" class="mb-8" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="28" cy="28" r="26" stroke="#b59458" stroke-width="1" fill="none"/>
+          <circle cx="28" cy="28" r="14" stroke="#004225" stroke-width="1.5" fill="none"/>
+          <circle cx="28" cy="28" r="4" fill="#004225"/>
+          <line x1="28" y1="2" x2="28" y2="12" stroke="#b59458" stroke-width="1"/>
+          <line x1="28" y1="44" x2="28" y2="54" stroke="#b59458" stroke-width="1"/>
+          <line x1="2" y1="28" x2="12" y2="28" stroke="#b59458" stroke-width="1"/>
+          <line x1="44" y1="28" x2="54" y2="28" stroke="#b59458" stroke-width="1"/>
+        </svg>
+        <h2 class="section-title mb-8">A <span class="gilt">clearer</span> standard for luxury living.</h2>
+        <p class="text-[16px] leading-[1.9] text-black/70 max-w-lg">
+          Landmark Realty aspires to become the region's most trusted developer of heritage-quality residences &mdash; homes that age into their value, communities that deepen with time, and a standard of craftsmanship worthy of being inherited.
+        </p>
+      </div>
+      <div class="reveal lg:border-l lg:border-black/10 lg:pl-16">
+        <div class="eyebrow-line mb-6"><span class="eyebrow">Our Mission</span></div>
+        <svg width="56" height="56" viewBox="0 0 56 56" class="mb-8" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="28,4 52,28 28,52 4,28" stroke="#b59458" stroke-width="1" fill="none"/>
+          <polygon points="28,14 42,28 28,42 14,28" stroke="#004225" stroke-width="1.5" fill="none"/>
+          <circle cx="28" cy="28" r="4" fill="#004225"/>
+        </svg>
+        <h2 class="section-title mb-8">Through <span class="gilt">slow</span> architecture, and careful land.</h2>
+        <p class="text-[16px] leading-[1.9] text-black/70 max-w-lg">
+          By pioneering restrained, enduring residential projects &mdash; and by insisting on the long form of design, material and landscape &mdash; we work to challenge the assumption that luxury must shout. Our ambition is to enrich the communities we build, and the lives held within them.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BRAND PILLARS (lifted from existing home page, adapted) ============ -->
+<section class="pb-24 pt-16" style="background:#f9f8f6;">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+    <div class="text-center mb-16 reveal">
+      <div class="eyebrow-line justify-center inline-flex mb-6"><span class="eyebrow">The Brand Pillars</span></div>
+      <h2 class="section-title">Built on three <span class="gilt">key</span> pillars.</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-10">
+      <!-- Craftsmanship -->
+      <article class="pillar-card">
+        <div class="pillar-img-wrap aspect-[3/4] bg-stone-200 mb-10">
+          <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="pc1" x2="0" y2="1"><stop offset="0" stop-color="#c9b58a"/><stop offset="1" stop-color="#5a4726"/></linearGradient>
+            </defs>
+            <rect width="300" height="400" fill="url(#pc1)"/>
+            <!-- craftsman at bench -->
+            <rect x="40" y="280" width="220" height="14" fill="#3a2a1a"/>
+            <rect x="60" y="294" width="20" height="70" fill="#3a2a1a"/>
+            <rect x="220" y="294" width="20" height="70" fill="#3a2a1a"/>
+            <rect x="90" y="260" width="120" height="20" fill="#8a6a3a"/>
+            <!-- hands/tool -->
+            <ellipse cx="150" cy="250" rx="28" ry="10" fill="#e0c69a"/>
+            <rect x="145" y="230" width="10" height="30" fill="#3a2a1a"/>
+            <rect x="120" y="226" width="60" height="8" fill="#1a1a1a"/>
+            <!-- wood shavings -->
+            <path d="M100,290 q6,-4 14,-2" stroke="#efd9a0" stroke-width="2" fill="none"/>
+            <path d="M180,292 q6,-3 14,-1" stroke="#efd9a0" stroke-width="2" fill="none"/>
+            <path d="M130,290 q5,-5 12,-3" stroke="#efd9a0" stroke-width="2" fill="none"/>
+          </svg>
+        </div>
+        <div class="flex items-baseline gap-4 mb-4">
+          <span class="label text-landmark-gold">01</span>
+          <span class="w-8 h-px bg-landmark-gold"></span>
+        </div>
+        <h3 class="font-headline text-[32px] leading-tight text-black mb-6">Craftsmanship</h3>
+        <p class="text-[15px] leading-[1.85] text-black/70 mb-8">
+          Attention to detail is not a feature &mdash; it's the foundation. We pay attention to every element, from the quality of the stone and timber to the hinges, floor tiles, fittings and the proportions of a doorway. Craft is what lasts when trend fades.
+        </p>
+      </article>
+      <!-- Thoughtful Design -->
+      <article class="pillar-card md:mt-12">
+        <div class="pillar-img-wrap aspect-[3/4] bg-stone-200 mb-10">
+          <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="pc2" x2="0" y2="1"><stop offset="0" stop-color="#d3c5a6"/><stop offset="1" stop-color="#796a4a"/></linearGradient>
+            </defs>
+            <rect width="300" height="400" fill="url(#pc2)"/>
+            <!-- architect's desk with plans -->
+            <rect x="20" y="260" width="260" height="120" fill="#c8b894"/>
+            <rect x="40" y="270" width="220" height="100" fill="#f4ecd6"/>
+            <!-- plan drawing -->
+            <g stroke="#3a2a18" stroke-width="1.2" fill="none">
+              <rect x="60" y="290" width="180" height="60"/>
+              <line x1="60" y1="320" x2="240" y2="320"/>
+              <line x1="150" y1="290" x2="150" y2="350"/>
+              <line x1="60" y1="290" x2="60" y2="270" stroke-dasharray="2,2"/>
+            </g>
+            <!-- ruler -->
+            <rect x="70" y="100" width="160" height="14" fill="#e6d3a1"/>
+            <g stroke="#3a2a18" stroke-width="1">
+              <line x1="85" y1="100" x2="85" y2="108"/>
+              <line x1="105" y1="100" x2="105" y2="108"/>
+              <line x1="125" y1="100" x2="125" y2="108"/>
+              <line x1="145" y1="100" x2="145" y2="108"/>
+              <line x1="165" y1="100" x2="165" y2="108"/>
+              <line x1="185" y1="100" x2="185" y2="108"/>
+              <line x1="205" y1="100" x2="205" y2="108"/>
+            </g>
+            <!-- triangle -->
+            <polygon points="100,150 200,150 100,220" fill="none" stroke="#3a2a18" stroke-width="1.2"/>
+            <!-- compass -->
+            <circle cx="170" cy="190" r="20" stroke="#3a2a18" stroke-width="1.2" fill="none"/>
+            <line x1="170" y1="175" x2="170" y2="205" stroke="#3a2a18"/>
+          </svg>
+        </div>
+        <div class="flex items-baseline gap-4 mb-4">
+          <span class="label text-landmark-gold">02</span>
+          <span class="w-8 h-px bg-landmark-gold"></span>
+        </div>
+        <h3 class="font-headline text-[32px] leading-tight text-black mb-6">Thoughtful Design</h3>
+        <p class="text-[15px] leading-[1.85] text-black/70 mb-8">
+          A home is not a structure &mdash; it is a carefully composed piece of everyday life. Our residences are generous in proportion, disciplined in layout, and reviewed through exacting design and engineering inspections before a single room is poured.
+        </p>
+      </article>
+      <!-- Signature Quality -->
+      <article class="pillar-card">
+        <div class="pillar-img-wrap aspect-[3/4] bg-stone-200 mb-10">
+          <svg viewBox="0 0 300 400" preserveAspectRatio="xMidYMid slice" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="pc3" x2="0" y2="1"><stop offset="0" stop-color="#b4a788"/><stop offset="1" stop-color="#3d3422"/></linearGradient>
+            </defs>
+            <rect width="300" height="400" fill="url(#pc3)"/>
+            <!-- stone tile stack -->
+            <g>
+              <rect x="50" y="230" width="200" height="40" fill="#d9c9a5" stroke="#6b5a3a"/>
+              <rect x="70" y="190" width="160" height="40" fill="#c9b58a" stroke="#6b5a3a"/>
+              <rect x="90" y="150" width="120" height="40" fill="#b9a575" stroke="#6b5a3a"/>
+            </g>
+            <!-- inspector's loupe -->
+            <circle cx="180" cy="110" r="22" fill="none" stroke="#1a1a1a" stroke-width="3"/>
+            <line x1="195" y1="125" x2="215" y2="145" stroke="#1a1a1a" stroke-width="4"/>
+            <circle cx="180" cy="110" r="18" fill="#f5f0e0" opacity="0.3"/>
+            <!-- quality seal -->
+            <circle cx="80" cy="320" r="26" stroke="#b59458" stroke-width="1.5" fill="none"/>
+            <text x="80" y="324" font-family="Lato" font-size="7" fill="#b59458" text-anchor="middle" letter-spacing="1.5">QUALITY</text>
+            <text x="80" y="332" font-family="Lato" font-size="5" fill="#b59458" text-anchor="middle" letter-spacing="1.5">MARK</text>
+          </svg>
+        </div>
+        <div class="flex items-baseline gap-4 mb-4">
+          <span class="label text-landmark-gold">03</span>
+          <span class="w-8 h-px bg-landmark-gold"></span>
+        </div>
+        <h3 class="font-headline text-[32px] leading-tight text-black mb-6">Signature Quality</h3>
+        <p class="text-[15px] leading-[1.85] text-black/70 mb-8">
+          We are involved at every stage &mdash; from quarrying the stone and milling the timber to commissioning every fitting. Every residence passes a multi-tier quality inspection, and most of what goes into a Landmark home is made by Landmark.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ORIGIN STORY (4 co-founders) ============ -->
+<section class="py-24 bg-white" id="legacy">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+    <div class="mb-16 reveal">
+      <div class="eyebrow-line mb-6"><span class="eyebrow">Our Origin</span></div>
+      <div class="grid lg:grid-cols-12 gap-10 items-end">
+        <h2 class="section-title lg:col-span-7">Four partners. <br>One <span class="gilt">standard</span>, from day one.</h2>
+        <p class="lg:col-span-5 text-[16px] leading-[1.9] text-black/70 font-light">
+          Landmark was founded in 2024, but the work started long before. The four of us spent our careers inside the industry &mdash; developing land, underwriting projects, running sites and placing homes. We built Landmark to bring those disciplines under one roof.
+        </p>
+      </div>
+    </div>
+
+    <!-- Three chapters / pillars of the origin -->
+    <div class="grid md:grid-cols-3 gap-px bg-black/10 reveal">
+      <div class="bg-white p-10">
+        <div class="flex items-baseline gap-4 mb-8">
+          <span class="display text-[56px] leading-none text-landmark-green">01</span>
+          <span class="label text-landmark-gold">Before Landmark</span>
+        </div>
+        <h3 class="font-headline text-[24px] leading-tight text-black mb-5">A shared career in real estate.</h3>
+        <p class="text-[14.5px] leading-[1.85] text-black/65">
+          Between us, decades inside development, investment, construction and sales &mdash; delivering residential projects across the region before we ever sat at the same table.
+        </p>
+      </div>
+      <div class="bg-white p-10">
+        <div class="flex items-baseline gap-4 mb-8">
+          <span class="display text-[56px] leading-none text-landmark-green">02</span>
+          <span class="label text-landmark-gold">2024 · The Founding</span>
+        </div>
+        <h3 class="font-headline text-[24px] leading-tight text-black mb-5">One studio, one standard.</h3>
+        <p class="text-[14.5px] leading-[1.85] text-black/65">
+          We formed Landmark to close the gaps we had seen elsewhere &mdash; between designer and builder, between buyer and developer. Every decision, from land to handover, is made by the same four people.
+        </p>
+      </div>
+      <div class="bg-white p-10">
+        <div class="flex items-baseline gap-4 mb-8">
+          <span class="display text-[56px] leading-none text-landmark-green">03</span>
+          <span class="label text-landmark-gold">The Work Ahead</span>
+        </div>
+        <h3 class="font-headline text-[24px] leading-tight text-black mb-5">Homes built to remember.</h3>
+        <p class="text-[14.5px] leading-[1.85] text-black/65">
+          Our first communities are already underway. The ambition is simple &mdash; to build residences that age into their value, and that our children will recognise decades from now.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOUNDER QUOTE ============ -->
+<section class="relative overflow-hidden" style="background:#004225;">
+  <div class="absolute inset-0 opacity-25" aria-hidden="true">
+    <svg class="w-full h-full" viewBox="0 0 1600 800" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="pt" x2="0" y2="1"><stop offset="0" stop-color="#004225"/><stop offset="1" stop-color="#001a0e"/></linearGradient>
+      </defs>
+      <rect width="1600" height="800" fill="url(#pt)"/>
+      <g stroke="#b59458" stroke-width="0.4" fill="none" opacity="0.5">
+        <circle cx="800" cy="400" r="300"/>
+        <circle cx="800" cy="400" r="220"/>
+        <circle cx="800" cy="400" r="140"/>
+        <circle cx="800" cy="400" r="60"/>
+      </g>
+    </svg>
+  </div>
+  <div class="relative max-w-[1280px] mx-auto px-6 lg:px-10 py-28">
+    <div class="grid lg:grid-cols-12 gap-16 items-center">
+      <div class="lg:col-span-5 order-2 lg:order-1">
+        <div class="relative w-[300px] h-[380px] mx-auto">
+          <!-- portrait card -->
+          <div class="absolute inset-0 bg-white/5 border border-white/15 backdrop-blur-sm"></div>
+          <svg viewBox="0 0 300 380" class="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="port" x2="0" y2="1"><stop offset="0" stop-color="#4a4232"/><stop offset="1" stop-color="#1a1a14"/></linearGradient>
+            </defs>
+            <rect width="300" height="380" fill="url(#port)"/>
+            <!-- silhouette -->
+            <circle cx="150" cy="150" r="62" fill="#d9c9a5" opacity="0.88"/>
+            <path d="M50,380 C50,270 100,230 150,230 C200,230 250,270 250,380 Z" fill="#2a241a"/>
+            <!-- collar -->
+            <path d="M110,250 L150,290 L190,250 L170,320 L130,320 Z" fill="#e9dcba" opacity="0.5"/>
+          </svg>
+          <!-- decorative frame -->
+          <div class="absolute -inset-4 border border-landmark-gold/40 pointer-events-none"></div>
+        </div>
+      </div>
+      <div class="lg:col-span-7 order-1 lg:order-2 text-white">
+        <div class="flex items-center gap-3 mb-8">
+          <span class="serif-italic text-landmark-gold" style="font-size: 76px; line-height: 0.5;">“</span>
+          <span class="eyebrow text-landmark-gold">From the Founder</span>
+        </div>
+        <blockquote class="display text-white leading-[1.35]" style="font-size: clamp(22px, 2.6vw, 36px);">
+          After thirty years of building in this market, we founded Landmark for a single reason &mdash; to put the <span class="serif-italic text-landmark-gold">disciplines</span> of development, construction and delivery into one hand, so that what is promised at the first drawing is exactly what is handed over at the last key.
+        </blockquote>
+        <div class="mt-10 flex items-center gap-6">
+          <!-- signature -->
+          <svg width="180" height="50" viewBox="0 0 180 50" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M8,36 C16,10 28,8 36,26 C38,38 44,20 50,22 C58,24 56,40 68,32 C78,26 74,8 82,12 C92,16 86,34 98,30 C108,27 104,14 116,18 C128,22 120,40 134,30 C144,24 138,12 150,16 C158,19 154,32 172,24" stroke="#b59458" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="mt-4">
+          <div class="font-headline text-[22px] text-white">Ali Ergun Ergen</div>
+          <div class="label text-landmark-gold mt-1">Co-Founder &middot; CEO &middot; Landmark</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CO-FOUNDERS ============ -->
+<section class="py-24 bg-white" id="leadership">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+    <div class="flex flex-wrap items-end justify-between gap-6 mb-16 reveal">
+      <div>
+        <div class="eyebrow-line mb-6"><span class="eyebrow">The Co-Founders</span></div>
+        <h2 class="section-title">Four partners <br>behind the <span class="gilt">work</span>.</h2>
+      </div>
+      <p class="max-w-sm text-[14.5px] leading-[1.85] text-black/60">Four disciplines under one roof &mdash; developers, builders and operators with careers spent inside Romanian and international real estate.</p>
+    </div>
+
+    <div class="space-y-px bg-black/10">
+      <!-- FOUNDER 1: ALI ERGUN ERGEN -->
+      <article class="founder-row bg-white reveal grid lg:grid-cols-12 gap-10 p-8 lg:p-12">
+        <div class="lg:col-span-3">
+          <div class="aspect-[4/5] relative overflow-hidden bg-stone-bg max-w-[260px]">
+            <svg viewBox="0 0 400 500" class="w-full h-full" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <defs><linearGradient id="fp1" x2="0" y2="1"><stop offset="0" stop-color="#5a4f3a"/><stop offset="1" stop-color="#1a1612"/></linearGradient></defs>
+              <rect width="400" height="500" fill="url(#fp1)"/>
+              <circle cx="200" cy="190" r="76" fill="#d9c9a5" opacity="0.92"/>
+              <path d="M70,500 C70,370 130,320 200,320 C270,320 330,370 330,500 Z" fill="#2a241a"/>
+            </svg>
+          </div>
+        </div>
+        <div class="lg:col-span-6">
+          <div class="label text-landmark-gold mb-3">01 &middot; Co-Founder &middot; CEO &middot; Commercial Development</div>
+          <h3 class="font-headline text-[32px] lg:text-[38px] leading-tight text-black mb-5">Ali Ergun Ergen</h3>
+          <p class="text-[14.5px] leading-[1.85] text-black/70 mb-5 max-w-[600px]">
+            Over 20 years of expertise in commercial real estate &mdash; development, leasing, marketing and property management. Starting in construction in 1995, Ergun worked on international projects in Turkey, Turkmenistan and Kazakhstan before moving to Romania in 1999, where he played a pivotal role in delivering Bucharest's first modern retail projects: <em class="not-italic text-black font-medium">Bucure&#537;ti Mall</em>, <em class="not-italic text-black font-medium">Plaza Romania</em> and <em class="not-italic text-black font-medium">B&#259;neasa Shopping City</em>.
+          </p>
+          <p class="text-[14.5px] leading-[1.85] text-black/70 max-w-[600px]">
+            A specialist in retail site selection, property development, leasing and management &mdash; with additional expertise in land acquisition, governmental approvals and large-scale leisure projects. As CEO of Anchor Grup and B&#259;neasa Developments, he oversaw &euro;500 million in developments and managed 180,000 sqm of commercial real estate.
+          </p>
+        </div>
+        <div class="lg:col-span-3">
+          <dl class="grid grid-cols-2 lg:grid-cols-1 gap-px bg-black/10 border border-black/10">
+            <div class="bg-white p-5">
+              <dt class="label text-black/50 mb-2">Experience</dt>
+              <dd class="display text-[32px] leading-none text-landmark-green">20<span class="text-landmark-gold">+</span></dd>
+              <div class="label text-black/50 mt-2">Years</div>
+            </div>
+            <div class="bg-white p-5">
+              <dt class="label text-black/50 mb-2">Developments</dt>
+              <dd class="display text-[32px] leading-none text-landmark-green">&euro;500<span class="text-landmark-gold text-[18px] align-super ml-1">M</span></dd>
+              <div class="label text-black/50 mt-2">Delivered</div>
+            </div>
+            <div class="bg-white p-5">
+              <dt class="label text-black/50 mb-2">Under Management</dt>
+              <dd class="display text-[32px] leading-none text-landmark-green">180<span class="text-landmark-gold text-[18px] align-super ml-1">K</span></dd>
+              <div class="label text-black/50 mt-2">sqm Commercial</div>
+            </div>
+          </dl>
+        </div>
+      </article>
+
+      <!-- FOUNDER 2: ROBERT ION ERBASU -->
+      <article class="founder-row bg-white reveal grid lg:grid-cols-12 gap-10 p-8 lg:p-12">
+        <div class="lg:col-span-3">
+          <div class="aspect-[4/5] relative overflow-hidden bg-stone-bg max-w-[260px]">
+            <svg viewBox="0 0 400 500" class="w-full h-full" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <defs><linearGradient id="fp2" x2="0" y2="1"><stop offset="0" stop-color="#6a5a3a"/><stop offset="1" stop-color="#1a1612"/></linearGradient></defs>
+              <rect width="400" height="500" fill="url(#fp2)"/>
+              <circle cx="200" cy="190" r="76" fill="#efdcb8" opacity="0.9"/>
+              <path d="M70,500 C70,370 130,320 200,320 C270,320 330,370 330,500 Z" fill="#1a1a1a"/>
+              <path d="M140,230 C140,250 260,250 260,230" fill="#4a3628"/>
+            </svg>
+          </div>
+        </div>
+        <div class="lg:col-span-6">
+          <div class="label text-landmark-gold mb-3">02 &middot; Co-Founder &middot; Residential Development &amp; Construction</div>
+          <h3 class="font-headline text-[32px] lg:text-[38px] leading-tight text-black mb-5">Robert Ion Erbasu</h3>
+          <p class="text-[14.5px] leading-[1.85] text-black/70 mb-5 max-w-[600px]">
+            Over 25 years of experience in highly competitive industries &mdash; textiles and forestry &mdash; before transitioning into real estate development in 2019. Leveraging his entrepreneurial expertise, Robert successfully completed two mid-sized residential projects totalling <em class="not-italic text-black font-medium">25,543 sqm</em> and delivering <em class="not-italic text-black font-medium">182 high-quality apartments</em> &mdash; entirely funded with proprietary resources.
+          </p>
+          <p class="text-[14.5px] leading-[1.85] text-black/70 max-w-[600px]">
+            Brings a wealth of expertise in construction project management, cost control and site supervision. His hands-on approach and commitment to excellence position him as a trusted leader in residential real estate development, adept at navigating complex developments with precision and financial independence.
+          </p>
+        </div>
+        <div class="lg:col-span-3">
+          <dl class="grid grid-cols-2 lg:grid-cols-1 gap-px bg-black/10 border border-black/10">
+            <div class="bg-white p-5">
+              <dt class="label text-black/50 mb-2">Experience</dt>
+              <dd class="display text-[32px] leading-none text-landmark-green">25<span class="text-landmark-gold">+</span></dd>
+              <div class="label text-black/50 mt-2">Years</div>
+            </div>
+            <div class="bg-white p-5">
+              <dt class="label text-black/50 mb-2">Residential Built</dt>
+              <dd class="display text-[32px] leading-none text-landmark-green">25,543</dd>
+              <div class="label text-black/50 mt-2">sqm</div>
+            </div>
+            <div class="bg-white p-5">
+              <dt class="label text-black/50 mb-2">Apartments</dt>
+              <dd class="display text-[32px] leading-none text-landmark-green">182</dd>
+              <div class="label text-black/50 mt-2">Delivered</div>
+            </div>
+          </dl>
+        </div>
+      </article>
+
+      <!-- FOUNDER 3: PLACEHOLDER -->
+      <article class="founder-row bg-white reveal grid lg:grid-cols-12 gap-10 p-8 lg:p-12">
+        <div class="lg:col-span-3">
+          <div class="aspect-[4/5] relative overflow-hidden bg-stone-bg max-w-[260px]">
+            <svg viewBox="0 0 400 500" class="w-full h-full" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <defs><linearGradient id="fp3" x2="0" y2="1"><stop offset="0" stop-color="#4a533f"/><stop offset="1" stop-color="#171c12"/></linearGradient></defs>
+              <rect width="400" height="500" fill="url(#fp3)"/>
+              <circle cx="200" cy="190" r="76" fill="#d4c2a0" opacity="0.9"/>
+              <path d="M70,500 C70,370 130,320 200,320 C270,320 330,370 330,500 Z" fill="#2a2418"/>
+            </svg>
+          </div>
+        </div>
+        <div class="lg:col-span-6">
+          <div class="label text-landmark-gold mb-3">03 &middot; Co-Founder</div>
+          <h3 class="font-headline text-[32px] lg:text-[38px] leading-tight text-black/50 mb-5">[ Co-Founder Name &mdash; to come ]</h3>
+          <p class="text-[14.5px] leading-[1.85] text-black/55 mb-5 max-w-[600px]">
+            Bio pending. This placeholder will be replaced with the third partner's background and discipline.
+          </p>
+          <p class="text-[13px] leading-[1.7] text-black/40 max-w-[600px]">
+            <em class="not-italic">Send Claude the bio, role and any key numbers and this card will be filled in to match.</em>
+          </p>
+        </div>
+        <div class="lg:col-span-3">
+          <div class="border border-dashed border-black/20 p-6 label text-black/40 h-full flex items-center justify-center text-center">
+            Metrics to follow
+          </div>
+        </div>
+      </article>
+
+      <!-- FOUNDER 4: LOREM -->
+      <article class="founder-row bg-white reveal grid lg:grid-cols-12 gap-10 p-8 lg:p-12">
+        <div class="lg:col-span-3">
+          <div class="aspect-[4/5] relative overflow-hidden bg-stone-bg max-w-[260px]">
+            <svg viewBox="0 0 400 500" class="w-full h-full" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+              <defs><linearGradient id="fp4" x2="0" y2="1"><stop offset="0" stop-color="#5a4236"/><stop offset="1" stop-color="#1a1612"/></linearGradient></defs>
+              <rect width="400" height="500" fill="url(#fp4)"/>
+              <circle cx="200" cy="190" r="76" fill="#e9d5b0" opacity="0.9"/>
+              <path d="M70,500 C70,370 130,320 200,320 C270,320 330,370 330,500 Z" fill="#1a1410"/>
+            </svg>
+          </div>
+        </div>
+        <div class="lg:col-span-6">
+          <div class="label text-landmark-gold mb-3">04 &middot; Co-Founder &middot; Placeholder</div>
+          <h3 class="font-headline text-[32px] lg:text-[38px] leading-tight text-black/50 mb-5">Lorem Ipsum</h3>
+          <p class="text-[14.5px] leading-[1.85] text-black/55 mb-5 max-w-[600px]">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
+          <p class="text-[14.5px] leading-[1.85] text-black/55 max-w-[600px]">
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </p>
+        </div>
+        <div class="lg:col-span-3">
+          <div class="border border-dashed border-black/20 p-6 label text-black/40 h-full flex items-center justify-center text-center">
+            Metrics to follow
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="py-24 bg-white" id="contact">
+  <div class="max-w-[900px] mx-auto px-6 lg:px-10 text-center">
+    <div class="eyebrow-line justify-center inline-flex mb-6"><span class="eyebrow">Visit Us</span></div>
+    <h2 class="section-title mb-8">Come, see the <span class="gilt">work</span> in person.</h2>
+    <p class="text-[16px] leading-[1.85] text-black/70 max-w-xl mx-auto mb-10">
+      Our exhibition villa at Landmark Sanctuary is open Thursdays through Sundays, between 10am and 4pm. Appointments are recommended.
+    </p>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="#" class="btn-solid">Book a Viewing <span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
+      <a href="#" class="btn-outline">Contact Us</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-white pt-24 pb-10 px-6 lg:px-10 border-t border-black/5">
+  <div class="max-w-[1280px] mx-auto">
+    <div class="flex flex-col items-center mb-16">
+      <img src="/logo/landmarklogo-green.svg" alt="Landmark Realty" style="width: 72px;">
+      <p class="mt-6 label text-black/40">A LANDMARK REALTY DEVELOPMENT</p>
+    </div>
+    <div class="grid md:grid-cols-5 gap-12 pb-14 border-b border-black/5">
+      <div class="md:col-span-2">
+        <h5 class="label text-black mb-5">About Landmark</h5>
+        <p class="text-[13px] text-black/60 leading-[1.8] max-w-xs">A family of heritage-quality residences, drawn from land and made by hand since 2008.</p>
+        <a href="#contact" class="mt-6 inline-flex items-center gap-2 label text-landmark-green hover:text-landmark-gold">Get in Touch <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+      </div>
+      <div>
+        <h5 class="label text-black mb-5">Discover</h5>
+        <ul class="space-y-3 text-[12px] text-black/60">
+          <li><a href="#legacy" class="hover:text-landmark-green">Legacy</a></li>
+          <li><a href="#leadership" class="hover:text-landmark-green">Leadership</a></li>
+          <li><a href="#" class="hover:text-landmark-green">Craftsmanship</a></li>
+          <li><a href="#" class="hover:text-landmark-green">Thoughtful Design</a></li>
+          <li><a href="#" class="hover:text-landmark-green">Signature Quality</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="label text-black mb-5">Communities</h5>
+        <ul class="space-y-3 text-[12px] text-black/60">
+          <li><a href="#" class="hover:text-landmark-green">Landmark Sanctuary</a></li>
+          <li><a href="#" class="hover:text-landmark-green">Landmark Central</a></li>
+          <li><a href="#" class="hover:text-landmark-green">The Willows</a></li>
+          <li><a href="#" class="hover:text-landmark-green">The Grove</a></li>
+          <li><a href="#" class="hover:text-landmark-green">The Brooks</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="label text-black mb-5">Connect</h5>
+        <ul class="space-y-3 text-[12px] text-black/60">
+          <li>+971 4 800 1234</li>
+          <li>hello@landmarkrealty.ae</li>
+          <li>Thu — Sun · 10:00 – 16:00</li>
+          <li>Landmark Sanctuary · Gate 4</li>
+        </ul>
+      </div>
+    </div>
+    <div class="flex flex-col md:flex-row justify-between gap-6 pt-8 text-[11px] uppercase tracking-[0.2em] text-black/50">
+      <div>&copy; 2026 Landmark Realty. All rights reserved.</div>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-landmark-green">Privacy</a>
+        <a href="#" class="hover:text-landmark-green">Terms</a>
+        <a href="#" class="hover:text-landmark-green">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ TWEAKS PANEL ============ -->
+<div class="tweaks-panel" id="tweaksPanel">
+  <h3>Tweaks</h3>
+  <div class="tweak-row">
+    <label>Accent System</label>
+    <div class="tweak-swatches">
+      <div class="tweak-swatch active" data-accent="green" style="background: linear-gradient(135deg, #004225 50%, #b59458 50%)"></div>
+      <div class="tweak-swatch" data-accent="gold" style="background: linear-gradient(135deg, #b59458 50%, #004225 50%)"></div>
+      <div class="tweak-swatch" data-accent="bronze" style="background: linear-gradient(135deg, #745b28 50%, #004225 50%)"></div>
+      <div class="tweak-swatch" data-accent="charcoal" style="background: linear-gradient(135deg, #1b1c1c 50%, #b59458 50%)"></div>
+    </div>
+  </div>
+  <div class="tweak-row">
+    <label>Density</label>
+    <div class="tweak-seg" id="densitySeg">
+      <button data-density="cozy">Cozy</button>
+      <button data-density="standard" class="active">Standard</button>
+      <button data-density="airy">Airy</button>
+    </div>
+  </div>
+  <div class="tweak-row">
+    <label>Milestone Layout</label>
+    <div class="tweak-seg" id="storySeg">
+      <button data-story="rail" class="active">Year Rail</button>
+      <button data-story="vertical">Stacked</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ SCRIPTS ============ -->
+<script>
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "accent": "green",
+  "density": "standard",
+  "story": "rail"
+}/*EDITMODE-END*/;
+
+document.body.classList.add('hero-loaded');
+document.body.dataset.accent = TWEAK_DEFAULTS.accent;
+document.body.dataset.density = TWEAK_DEFAULTS.density;
+
+// ========== Nav scroll ==========
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 80) nav.classList.add('nav-solid'); else nav.classList.remove('nav-solid');
+}, { passive: true });
+
+// ========== Reveal ==========
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// ========== Counters ==========
+const countIo = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = parseInt(el.dataset.target, 10);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1800;
+    const start = performance.now();
+    function tick(now) {
+      const t = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const val = Math.round(target * eased);
+      el.textContent = '~' + val.toLocaleString() + suffix;
+      if (t < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+    countIo.unobserve(el);
+  });
+}, { threshold: 0.4 });
+document.querySelectorAll('.counter').forEach(el => countIo.observe(el));
+
+// ========== Legacy timeline (removed) ==========
+/*
+const milestones = [
+  {
+    year: '2008', kicker: 'The Founding', title: 'Great things start small.',
+    body: 'Landmark Realty was founded as a small design-build studio on the edge of Heritage District, with a single idea — that a house could be drawn, built and stewarded by the same hands. Our first commission was a four-bedroom villa on a wooded corner lot. It still stands.',
+    tag: 'Plate I · 2008',
+    svg: `<defs><linearGradient id="ms1" x2="0" y2="1"><stop offset="0" stop-color="#cfc4a8"/><stop offset="1" stop-color="#4a3f2a"/></linearGradient></defs><rect width="800" height="640" fill="url(#ms1)"/><rect x="200" y="280" width="400" height="260" fill="#ebddbf"/><rect x="200" y="270" width="400" height="14" fill="#3a2a18"/><rect x="230" y="320" width="60" height="160" fill="#b58a50"/><rect x="310" y="320" width="60" height="160" fill="#b58a50"/><rect x="390" y="320" width="120" height="160" fill="#d4a870"/><rect x="530" y="320" width="60" height="160" fill="#b58a50"/><ellipse cx="100" cy="520" rx="90" ry="50" fill="#2a3a28"/><ellipse cx="700" cy="520" rx="90" ry="50" fill="#2a3a28"/>`
+  },
+  {
+    year: '2012', kicker: 'Heritage Approval', title: 'The Craftsman\'s Mark.',
+    body: 'After four years of commissions across Heritage District, Landmark was granted a Royal Heritage commendation for its restoration of the Old Mill — the first private developer in the region to receive one.',
+    tag: 'Plate II · 2012',
+    svg: `<defs><linearGradient id="ms2" x2="0" y2="1"><stop offset="0" stop-color="#8a7a5a"/><stop offset="1" stop-color="#2a2014"/></linearGradient></defs><rect width="800" height="640" fill="url(#ms2)"/><rect x="260" y="150" width="280" height="380" fill="#c4ab72"/><rect x="260" y="140" width="280" height="16" fill="#3a2a18"/><rect x="290" y="200" width="60" height="120" fill="#6a4820"/><rect x="370" y="200" width="60" height="120" fill="#6a4820"/><rect x="450" y="200" width="60" height="120" fill="#6a4820"/><circle cx="400" cy="440" r="50" stroke="#fff" stroke-width="2" fill="none" opacity="0.8"/><text x="400" y="448" text-anchor="middle" font-family="Lato" font-size="12" fill="#fff" letter-spacing="2">ROYAL HERITAGE</text>`
+  },
+  {
+    year: '2015', kicker: 'Establishing Landmark Sanctuary', title: 'Drawing into the land.',
+    body: 'Having worked across restoration and infill, we acquired the 420-acre Sanctuary parcel — our first integrated masterplan. Over the next four years, we would plant 6,000 trees before a single wall was raised.',
+    tag: 'Plate III · 2015',
+    svg: `<defs><linearGradient id="ms3" x2="0" y2="1"><stop offset="0" stop-color="#5a7a4a"/><stop offset="1" stop-color="#1a2a18"/></linearGradient></defs><rect width="800" height="640" fill="url(#ms3)"/><ellipse cx="200" cy="480" rx="160" ry="80" fill="#2a3a24"/><ellipse cx="600" cy="460" rx="180" ry="90" fill="#2a3a24"/><ellipse cx="400" cy="520" rx="200" ry="60" fill="#354528"/><!-- saplings --><g stroke="#4a6038" stroke-width="3"><line x1="130" y1="360" x2="130" y2="400"/><line x1="200" y1="370" x2="200" y2="410"/><line x1="290" y1="360" x2="290" y2="400"/><line x1="380" y1="370" x2="380" y2="410"/><line x1="460" y1="360" x2="460" y2="400"/><line x1="560" y1="370" x2="560" y2="410"/><line x1="640" y1="360" x2="640" y2="400"/></g><g fill="#6a8458"><circle cx="130" cy="355" r="8"/><circle cx="200" cy="365" r="8"/><circle cx="290" cy="355" r="8"/><circle cx="380" cy="365" r="8"/><circle cx="460" cy="355" r="8"/><circle cx="560" cy="365" r="8"/><circle cx="640" cy="355" r="8"/></g>`
+  },
+  {
+    year: '2019', kicker: 'The Willows Begin', title: 'A quiet standard for villas.',
+    body: 'Ground-break on the first six Willows villas. Each was built sequentially, with the first occupied before the second was framed — a pace our team still speaks of as the slow year.',
+    tag: 'Plate IV · 2019',
+    svg: `<defs><linearGradient id="ms4" x2="0" y2="1"><stop offset="0" stop-color="#c8bd9a"/><stop offset="1" stop-color="#4a3c26"/></linearGradient></defs><rect width="800" height="640" fill="url(#ms4)"/><rect y="420" width="800" height="220" fill="#3a4a30"/><rect x="120" y="300" width="200" height="160" fill="#e4d4b4"/><rect x="120" y="290" width="200" height="12" fill="#3a2a18"/><rect x="140" y="330" width="40" height="100" fill="#b58a58"/><rect x="200" y="330" width="40" height="100" fill="#b58a58"/><rect x="260" y="330" width="40" height="100" fill="#b58a58"/><!-- under construction crane --><line x1="480" y1="100" x2="480" y2="460" stroke="#1a1a1a" stroke-width="4"/><line x1="480" y1="130" x2="620" y2="130" stroke="#1a1a1a" stroke-width="4"/><line x1="620" y1="130" x2="620" y2="180" stroke="#b59458" stroke-width="2"/><rect x="600" y="180" width="40" height="30" fill="#b59458"/><rect x="480" y="460" width="150" height="20" fill="#3a342a"/>`
+  },
+  {
+    year: '2022', kicker: 'The Landmark Foundation', title: 'Giving back, where we build.',
+    body: 'The Landmark Foundation was formalised to reinvest 3% of annual revenue into schools, craft apprenticeships and community gardens in the towns where we work.',
+    tag: 'Plate V · 2022',
+    svg: `<defs><linearGradient id="ms5" x2="0" y2="1"><stop offset="0" stop-color="#b5946a"/><stop offset="1" stop-color="#3a2a18"/></linearGradient></defs><rect width="800" height="640" fill="url(#ms5)"/><rect x="60" y="300" width="680" height="240" fill="#e4d4b4"/><rect x="60" y="290" width="680" height="14" fill="#3a2a18"/><!-- school building --><rect x="280" y="240" width="240" height="60" fill="#c9b58a"/><rect x="380" y="215" width="40" height="25" fill="#8a6a3a"/><!-- people --><g fill="#2a2014"><circle cx="150" cy="480" r="10"/><rect x="144" y="490" width="12" height="30"/><circle cx="220" cy="480" r="10"/><rect x="214" y="490" width="12" height="30"/><circle cx="580" cy="480" r="10"/><rect x="574" y="490" width="12" height="30"/><circle cx="650" cy="480" r="10"/><rect x="644" y="490" width="12" height="30"/></g>`
+  },
+  {
+    year: '2026', kicker: 'Landmark at 18', title: 'Eighteen years, 1,800 homes.',
+    body: 'Today, Landmark has delivered 1,800 homes across twelve communities — and launches Phase Three of The Willows, the final chapter of our first great estate.',
+    tag: 'Plate VI · 2026 · Today',
+    svg: `<defs><linearGradient id="ms6" x2="0" y2="1"><stop offset="0" stop-color="#2a3a26"/><stop offset="1" stop-color="#0e1a10"/></linearGradient></defs><rect width="800" height="640" fill="url(#ms6)"/><!-- aerial city of communities --><g opacity="0.9"><rect x="100" y="350" width="80" height="180" fill="#c9b58a"/><rect x="200" y="300" width="100" height="230" fill="#d9c9a5"/><rect x="320" y="330" width="90" height="200" fill="#c9b58a"/><rect x="430" y="290" width="120" height="240" fill="#ebddbf"/><rect x="570" y="340" width="90" height="190" fill="#c9b58a"/><rect x="680" y="310" width="80" height="220" fill="#d9c9a5"/></g><!-- trees --><g><ellipse cx="60" cy="530" rx="50" ry="22" fill="#1a2a18"/><ellipse cx="180" cy="540" rx="38" ry="20" fill="#1a2a18"/><ellipse cx="310" cy="540" rx="38" ry="20" fill="#1a2a18"/><ellipse cx="420" cy="540" rx="40" ry="20" fill="#1a2a18"/><ellipse cx="560" cy="540" rx="42" ry="20" fill="#1a2a18"/><ellipse cx="680" cy="540" rx="40" ry="20" fill="#1a2a18"/></g><!-- scatter of lights --><g fill="#efd68a" opacity="0.85"><circle cx="120" cy="420" r="2"/><circle cx="140" cy="450" r="2"/><circle cx="240" cy="370" r="2"/><circle cx="270" cy="420" r="2"/><circle cx="360" cy="400" r="2"/><circle cx="460" cy="350" r="2"/><circle cx="490" cy="420" r="2"/><circle cx="600" cy="400" r="2"/><circle cx="720" cy="380" r="2"/><circle cx="740" cy="440" r="2"/></g>`
+  }
+];
+
+let storyIdx = 0;
+const storyImg = document.getElementById('storyImg');
+const storyYear = document.getElementById('storyYear');
+const storyKicker = document.getElementById('storyKicker');
+const storyTitle = document.getElementById('storyTitle');
+const storyBody = document.getElementById('storyBody');
+const storyTag = document.getElementById('storyTag');
+const storyPos = document.getElementById('storyPos');
+const yearRail = document.getElementById('yearRail');
+
+// Build year rail
+milestones.forEach((m, i) => {
+  const b = document.createElement('button');
+  b.className = 'flex-1 text-left py-4 border-t-2 border-black/10 transition-all duration-300';
+  b.innerHTML = `
+    <div class="label text-black/50 mb-1">${String(i+1).padStart(2,'0')}</div>
+    <div class="font-headline text-[20px] text-black">${m.year}</div>
+    <div class="label text-black/50 mt-1">${m.kicker}</div>
+  `;
+  b.addEventListener('click', () => showStory(i));
+  yearRail.appendChild(b);
+});
+
+function showStory(i) {
+  storyIdx = (i + milestones.length) % milestones.length;
+  const m = milestones[storyIdx];
+  // Crossfade
+  document.getElementById('storyPanel').style.opacity = '0';
+  setTimeout(() => {
+    storyYear.textContent = m.year;
+    storyKicker.textContent = m.kicker;
+    storyTitle.textContent = m.title;
+    storyBody.textContent = m.body;
+    storyTag.textContent = m.tag;
+    storyImg.innerHTML = m.svg;
+    storyPos.textContent = String(storyIdx + 1).padStart(2, '0');
+    document.querySelectorAll('#yearRail button').forEach((btn, idx) => {
+      btn.classList.toggle('border-landmark-gold', idx === storyIdx);
+      btn.classList.toggle('border-black/10', idx !== storyIdx);
+      btn.style.opacity = idx === storyIdx ? '1' : '0.5';
+    });
+    document.getElementById('storyPanel').style.opacity = '1';
+  }, 200);
+}
+
+document.getElementById('storyPrev').addEventListener('click', () => showStory(storyIdx - 1));
+document.getElementById('storyNext').addEventListener('click', () => showStory(storyIdx + 1));
+document.getElementById('storyPanel').style.transition = 'opacity 0.4s ease';
+showStory(0);
+*/
+
+// ========== Tweaks ==========
+const panel = document.getElementById('tweaksPanel');
+window.addEventListener('message', (e) => {
+  if (!e.data || typeof e.data !== 'object') return;
+  if (e.data.type === '__activate_edit_mode') panel.classList.add('show');
+  if (e.data.type === '__deactivate_edit_mode') panel.classList.remove('show');
+});
+window.parent && window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+
+function persist(edits) {
+  window.parent && window.parent.postMessage({ type: '__edit_mode_set_keys', edits }, '*');
+}
+
+document.querySelectorAll('.tweak-swatch').forEach(s => s.addEventListener('click', () => {
+  document.querySelectorAll('.tweak-swatch').forEach(x => x.classList.remove('active'));
+  s.classList.add('active');
+  document.body.dataset.accent = s.dataset.accent;
+  persist({ accent: s.dataset.accent });
+}));
+document.querySelectorAll('#densitySeg button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('#densitySeg button').forEach(x => x.classList.remove('active'));
+  b.classList.add('active');
+  document.body.dataset.density = b.dataset.density;
+  persist({ density: b.dataset.density });
+}));
+document.querySelectorAll('#storySeg button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('#storySeg button').forEach(x => x.classList.remove('active'));
+  b.classList.add('active');
+  persist({ story: b.dataset.story });
+}));
+</script>
 </body>
 </html>

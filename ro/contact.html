@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html class="light" lang="ro">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — O prezentare discretă · Landmark Realty</title>
+<meta name="description" content="Discutați direct cu un consultant Landmark. Vizite private, cereri de reședință și, ocazional, o cană de ceai — cu programare, în Sectorul 1, București.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="en" href="/contact">
+<link rel="alternate" hreflang="ro" href="/ro/contact">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300;1,400&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: { extend: {
+    colors: {
+      "primary": "#004225",
+      "landmark-green": "#004225",
+      "landmark-gold": "#b59458",
+      "bronze": "#745b28",
+      "stone-bg": "#f9f8f6"
+    },
+    fontFamily: { "headline": ["Lato", "sans-serif"], "body": ["Roboto", "sans-serif"], "mono": ["JetBrains Mono", "monospace"] }
+  }}
+}
+</script>
+<style>
+  :root {
+    --accent: #b59458;
+    --primary: #004225;
+    --bg: #fcfcfc;
+    --stone: #f9f8f6;
+    --ink: #1b1c1c;
+    --muted: #4f5459;
+    --hairline: rgba(0,0,0,0.08);
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--ink); font-family: 'Roboto', sans-serif; font-weight: 300; -webkit-font-smoothing: antialiased; }
+  .font-headline { font-family: 'Lato', sans-serif; font-weight: 300; }
+  .font-mono { font-family: 'JetBrains Mono', monospace; }
+  .serif-italic { font-family: 'Lato', sans-serif; font-style: italic; font-weight: 300; }
+  .display { font-family: 'Lato', sans-serif; font-weight: 300; letter-spacing: -0.01em; }
+  .eyebrow { font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 600; }
+  .label { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; }
+  .micro { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; font-weight: 600; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 250, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+
+  /* Nav (matched) */
+  .nav-link { position: relative; }
+  .nav-link::after { content:''; position:absolute; left:0; bottom:-4px; height:1px; width:0; background: currentColor; transition: width .35s cubic-bezier(.16,1,.3,1); }
+  .nav-link:hover::after, .nav-link.is-active::after { width: 100%; }
+  .nav-solid { background: rgba(255,255,255,0.96) !important; backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,0.06) !important; color: #111 !important; }
+  .nav-solid .nav-link, .nav-solid .nav-cta { color: #111; }
+  .nav-solid .logo-white { display:none; }
+  .nav-solid .logo-green { display:inline-block !important; }
+
+  .btn-outline { display:inline-flex; align-items:center; justify-content:center; gap:12px; height:46px; border:1px solid #111; color:#111; border-radius:25px; padding: 0 32px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; transition: all .5s cubic-bezier(.16,1,.3,1); text-decoration:none; cursor:pointer; background:transparent; }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-solid { display:inline-flex; align-items:center; justify-content:center; gap:12px; height:49px; background: var(--primary); color:#fff; border-radius:25px; padding: 0 36px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; transition: all .35s ease; border:none; cursor:pointer; }
+  .btn-solid:hover { background:#000; }
+
+  /* Hero */
+  .hero-canvas {
+    background:
+      radial-gradient(120% 80% at 80% 20%, rgba(181,148,88,.18), transparent 60%),
+      radial-gradient(120% 80% at 10% 80%, rgba(0,66,37,.32), transparent 55%),
+      linear-gradient(180deg, #0c1410 0%, #0a1310 60%, #050a08 100%);
+  }
+  .hero-grid::before {
+    content:''; position:absolute; inset:0;
+    background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 40%, black 30%, transparent 80%);
+    pointer-events: none;
+  }
+
+  /* Form fields */
+  .field { display:block; }
+  .field label { display:block; font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: rgba(0,0,0,.5); font-weight: 600; margin-bottom: 8px; }
+  .field input, .field textarea, .field select {
+    width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(0,0,0,.18);
+    padding: 10px 0 12px; font-size: 16px; color: #111; transition: border-color .25s ease;
+    font-family: 'Lato', sans-serif; font-weight: 300;
+  }
+  .field input:focus, .field textarea:focus, .field select:focus { outline: none; border-bottom-color: var(--accent); }
+  .field input::placeholder, .field textarea::placeholder { color: rgba(0,0,0,.3); font-weight: 300; }
+
+  /* Choice tile */
+  .tile {
+    display:block; cursor:pointer; padding: 18px 18px 16px; border: 1px solid rgba(0,0,0,.1);
+    background: #fff; transition: all .25s ease; height: 100%;
+  }
+  .tile input { position: absolute; opacity: 0; pointer-events: none; }
+  .tile:hover { border-color: var(--primary); }
+  .tile.is-on { border-color: var(--primary); background: rgba(0,66,37,.04); box-shadow: inset 3px 0 0 var(--accent); }
+  .tile .ico { width: 28px; height: 28px; display:inline-flex; align-items:center; justify-content:center; border:1px solid rgba(0,0,0,.15); border-radius: 50%; margin-bottom: 12px; transition: all .2s; }
+  .tile.is-on .ico { background: var(--primary); color:#fff; border-color: var(--primary); }
+  .tile .t { font-family: 'Lato'; font-weight: 400; font-size: 16px; color: #111; }
+  .tile .s { font-size: 12px; color: rgba(0,0,0,.55); margin-top: 4px; line-height: 1.5; }
+
+  /* Chip */
+  .chip {
+    display:inline-flex; align-items:center; gap:6px;
+    padding: 7px 13px; border:1px solid rgba(0,0,0,.12); border-radius:999px;
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; font-weight:600;
+    color:#444; background:#fff; cursor:pointer; transition: all .2s;
+  }
+  .chip:hover { border-color: var(--primary); color: var(--primary); }
+  .chip.is-on { background: var(--primary); color:#fff; border-color: var(--primary); }
+
+  /* Side card */
+  .side-card { background:#fff; border:1px solid rgba(0,0,0,.06); }
+  .side-card.dark { background:#0e1512; color:#fff; border-color: rgba(255,255,255,.08); }
+
+  /* Advisor card */
+  .advisor { display:grid; grid-template-columns: 64px 1fr; gap: 16px; align-items:flex-start; padding: 18px 0; border-bottom: 1px solid var(--hairline); }
+  .advisor:last-child { border-bottom: none; padding-bottom: 0; }
+  .advisor:first-child { padding-top: 0; }
+  .advisor .pic { width:64px; height:64px; border-radius:50%; overflow:hidden; }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 1s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* Map svg */
+  .map-shell { position: relative; aspect-ratio: 16/10; background:#f5f1e8; overflow: hidden; }
+
+  /* Step ribbon */
+  .ribbon { display:grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline); }
+  .ribbon > div { padding: 22px 24px; border-right: 1px solid var(--hairline); }
+  .ribbon > div:last-child { border-right: none; }
+  .ribbon .num { font-family: 'JetBrains Mono'; font-size: 11px; color: var(--accent); letter-spacing: .2em; }
+  .ribbon .title { font-family: 'Lato'; font-weight: 300; font-size: 18px; color: #111; margin-top: 8px; }
+  .ribbon .desc { font-size: 13px; color: rgba(0,0,0,.6); margin-top: 6px; line-height: 1.65; }
+  @media (max-width: 800px) {
+    .ribbon { grid-template-columns: 1fr 1fr; }
+    .ribbon > div { border-right: none; border-bottom: 1px solid var(--hairline); }
+    .ribbon > div:nth-child(odd) { border-right: 1px solid var(--hairline); }
+    .ribbon > div:nth-last-child(-n+2) { border-bottom: none; }
+  }
+
+  /* Office hours grid */
+  .hours { display:grid; grid-template-columns: 1fr auto; gap: 6px 24px; font-size: 13px; }
+  .hours .d { color: rgba(0,0,0,.6); letter-spacing: .12em; text-transform: uppercase; font-weight: 500; font-size: 11px; padding-top: 3px; }
+  .hours .t { font-family:'Lato'; font-weight: 300; color: #111; }
+  .hours .closed { color: rgba(0,0,0,.4); }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  @media (prefers-reduced-motion: reduce) { .reveal { transition:none !important; opacity:1 !important; transform:none !important; } }
+</style>
+</head>
+<body data-screen-label="Contact — O prezentare discretă" class="selection:bg-primary/10">
+<a class="skip-link absolute top-0 left-0 px-6 py-3 bg-landmark-green text-white font-bold z-[9999] -translate-y-full focus:translate-y-0" href="#main-content">Sari la conținut</a>
+
+<!-- ============ NAV ============ -->
+<header>
+<nav id="mainNav" class="fixed top-0 w-full z-50 text-white nav-solid transition-colors duration-500" aria-label="Main">
+  <div class="flex justify-between items-center px-6 lg:px-12 h-[72px] w-full max-w-[1920px] mx-auto">
+    <div class="hidden lg:flex gap-9 items-center font-medium tracking-[0.14em] text-[12px] uppercase">
+      <a class="nav-link" href="/ro/about">Despre noi</a>
+      <a class="nav-link" href="Home.html#properties">Comunități</a>
+      <a class="nav-link" href="Home.html#properties">Proprietăți</a>
+    </div>
+    <a href="/ro/" class="absolute left-1/2 -translate-x-1/2 flex items-center no-underline">
+      <img src="/logo/landmarklogo-white.svg" alt="Landmark Realty" class="logo-white" style="width: 74px; height: auto;">
+      <img src="/logo/landmarklogo-green.svg" alt="Landmark Realty" class="logo-green" style="width: 74px; height: auto; display:none;">
+    </a>
+    <div class="flex items-center gap-6">
+      <div class="hidden lg:flex gap-6 items-center font-medium tracking-[0.14em] text-[12px] uppercase">
+        <a class="nav-link" href="/ro/media">Media</a>
+        <a class="nav-link" href="#">Cariere</a>
+        <a class="nav-link nav-cta is-active" href="/ro/contact">Contact</a>
+      </div>
+      <div class="flex items-center gap-4 border-l border-current/20 pl-6">
+        <button class="material-symbols-outlined text-[20px]" aria-label="Salvează">favorite</button>
+        <button class="material-symbols-outlined text-[20px]" aria-label="Caută">search</button>
+        <div class="lang-switcher flex items-center gap-1 text-[11px] font-medium tracking-[0.18em] pl-4 border-l border-current/20" data-lang-switcher>
+          <a href="/contact" class="no-underline opacity-60 hover:opacity-100" hreflang="en">EN</a>
+          <span class="opacity-40">/</span>
+          <a href="/ro/contact" class="no-underline" hreflang="ro" aria-current="page">RO</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main id="main-content">
+
+<!-- ============ HERO ============ -->
+<section class="relative pt-[72px] hero-canvas overflow-hidden">
+  <div class="hero-grid relative">
+    <div class="max-w-[1380px] mx-auto px-6 lg:px-10 pt-20 pb-20 text-white">
+      <div class="grid lg:grid-cols-12 gap-10 items-end">
+        <div class="lg:col-span-8">
+          <div class="flex items-center gap-4 mb-7">
+            <span class="micro text-landmark-gold">Registru privat</span>
+            <span class="w-8 h-px bg-white/30"></span>
+            <span class="micro text-white/55">Cu programare · Sector 1, București</span>
+          </div>
+          <h1 class="display text-white" style="font-size: clamp(48px, 7vw, 104px); line-height: 0.98; letter-spacing: -0.02em;">
+            O <span class="serif-italic text-landmark-gold">prezentare</span> discretă.
+          </h1>
+          <p class="mt-8 max-w-2xl text-white/75 text-[18px] leading-[1.75] font-light">
+            Lăsați-ne datele dumneavoastră și un consultant Landmark vă va contacta într-o zi lucrătoare &mdash; discret, doar cu ceea ce ați cerut și nimic în plus. Sau, dacă preferați, ceaiul este pus la fiert.
+          </p>
+        </div>
+        <div class="lg:col-span-4">
+          <div class="bg-white/5 backdrop-blur-sm border border-white/15 p-7">
+            <div class="micro text-landmark-gold mb-5">În cifre</div>
+            <div class="grid grid-cols-3 gap-4 text-center">
+              <div><div class="display text-[34px] text-white leading-none">1</div><div class="micro text-white/55 mt-2">Zi lucrătoare</div></div>
+              <div><div class="display text-[34px] text-landmark-gold leading-none">7</div><div class="micro text-white/55 mt-2">Consultanți</div></div>
+              <div><div class="display text-[34px] text-white leading-none">2</div><div class="micro text-white/55 mt-2">Limbi</div></div>
+            </div>
+            <div class="mt-6 pt-5 border-t border-white/10 flex items-center justify-between">
+              <span class="micro text-white/45">Linie directă</span>
+              <span class="font-headline text-white text-[16px]">+40 21 999 0400</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW WE'D LIKE TO HEAR FROM YOU ============ -->
+<section class="bg-white">
+  <div class="ribbon max-w-[1380px] mx-auto px-6 lg:px-10">
+    <div>
+      <div class="num">01</div>
+      <div class="title">Vizită privată</div>
+      <div class="desc">Vizitați o reședință alături de consultantul care o cunoaște cel mai bine, cu programare.</div>
+    </div>
+    <div>
+      <div class="num">02</div>
+      <div class="title">Cerere de reședință</div>
+      <div class="desc">Prețuri, planuri, disponibilitate — trimise direct, niciodată difuzate public.</div>
+    </div>
+    <div>
+      <div class="num">03</div>
+      <div class="title">Vizită pe șantier</div>
+      <div class="desc">O plimbare prin șantierul activ, cu cască de protecție inclusă.</div>
+    </div>
+    <div>
+      <div class="num">04</div>
+      <div class="title">Presă și media</div>
+      <div class="desc">Pentru articole, interviuri și solicitări de imagini — biroul nostru de PR răspunde.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FORM + SIDEBAR ============ -->
+<section class="bg-stone-bg py-20">
+  <div class="max-w-[1380px] mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-12 lg:gap-16">
+
+    <!-- ===== Form (8 cols) ===== -->
+    <div class="lg:col-span-8 reveal">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="w-12 h-px bg-landmark-gold"></span>
+        <span class="eyebrow text-landmark-green">The Form</span>
+      </div>
+      <h2 class="font-headline text-[36px] md:text-[48px] leading-[1.1] tracking-tight text-black">
+        Tell us a little. <span class="serif-italic text-landmark-gold">We'll do the rest.</span>
+      </h2>
+      <p class="mt-5 text-[15px] leading-[1.85] text-black/65 max-w-2xl">
+        We read every message ourselves. Skip what doesn't apply &mdash; we only need enough to call back well-prepared.
+      </p>
+
+      <form id="contactForm" class="mt-12 bg-white p-8 md:p-10 border border-black/5">
+
+        <!-- Pasul 1: reason -->
+        <div class="mb-10">
+          <div class="flex items-baseline justify-between mb-5">
+            <span class="micro text-black/45">Pasul 01 · Aș dori să</span>
+            <span class="font-mono text-[11px] text-black/35">required</span>
+          </div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3" id="reasonGrid">
+            <label class="tile is-on" data-tile><input type="radio" name="reason" value="viewing" checked>
+              <span class="ico"><span class="material-symbols-outlined text-[16px]">tour</span></span>
+              <div class="t">Book a viewing</div>
+              <div class="s">Walk a residence privately.</div>
+            </label>
+            <label class="tile" data-tile><input type="radio" name="reason" value="enquiry">
+              <span class="ico"><span class="material-symbols-outlined text-[16px]">apartment</span></span>
+              <div class="t">Cerere de reședință</div>
+              <div class="s">Planuri, prețuri, disponibilitate.</div>
+            </label>
+            <label class="tile" data-tile><input type="radio" name="reason" value="site">
+              <span class="ico"><span class="material-symbols-outlined text-[16px]">construction</span></span>
+              <div class="t">Vizită pe șantier</div>
+              <div class="s">Walk the active build.</div>
+            </label>
+            <label class="tile" data-tile><input type="radio" name="reason" value="press">
+              <span class="ico"><span class="material-symbols-outlined text-[16px]">newspaper</span></span>
+              <div class="t">Presă și media</div>
+              <div class="s">Articole, interviuri, imagini.</div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Pasul 2: details -->
+        <div class="mb-10">
+          <div class="flex items-baseline justify-between mb-6">
+            <span class="micro text-black/45">Pasul 02 · Despre dumneavoastră</span>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-x-8 gap-y-7">
+            <div class="field">
+              <label>Prenume</label>
+              <input required type="text" placeholder="Andrei">
+            </div>
+            <div class="field">
+              <label>Nume</label>
+              <input required type="text" placeholder="Constantinescu">
+            </div>
+            <div class="field">
+              <label>Email</label>
+              <input required type="email" placeholder="you@somewhere.ro">
+            </div>
+            <div class="field">
+              <label>Phone <span class="text-black/30 normal-case tracking-normal">— optional</span></label>
+              <input type="tel" placeholder="+40 7XX XXX XXX">
+            </div>
+            <div class="field sm:col-span-2">
+              <label>Reședință de interes</label>
+              <select>
+                <option>Landmark 4 · Tower residence</option>
+                <option>Landmark 4 · Penthouse duplex</option>
+                <option>Comunități viitoare</option>
+                <option>Nu m-am hotărât — vă rog să mă consiliați</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pasul 3: preference chips -->
+        <div class="mb-10">
+          <div class="flex items-baseline justify-between mb-5">
+            <span class="micro text-black/45">Pasul 03 · Preferințe</span>
+          </div>
+          <div class="space-y-5">
+            <div>
+              <span class="micro text-black/55 mr-3 inline-block mb-2">Cum vă contactăm cel mai bine</span>
+              <div class="flex flex-wrap gap-2" data-group="contact">
+                <button type="button" class="chip is-on" data-val="email">Email</button>
+                <button type="button" class="chip" data-val="phone">Telefon</button>
+                <button type="button" class="chip" data-val="whatsapp">WhatsApp</button>
+                <button type="button" class="chip" data-val="any">Any of the above</button>
+              </div>
+            </div>
+            <div>
+              <span class="micro text-black/55 mr-3 inline-block mb-2">Best time</span>
+              <div class="flex flex-wrap gap-2" data-group="time">
+                <button type="button" class="chip" data-val="morning">Morning</button>
+                <button type="button" class="chip is-on" data-val="afternoon">Afternoon</button>
+                <button type="button" class="chip" data-val="evening">Early evening</button>
+              </div>
+            </div>
+            <div>
+              <span class="micro text-black/55 mr-3 inline-block mb-2">Language</span>
+              <div class="flex flex-wrap gap-2" data-group="lang">
+                <button type="button" class="chip is-on" data-val="ro">Română</button>
+                <button type="button" class="chip" data-val="en">English</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pasul 4: message -->
+        <div class="mb-10">
+          <div class="flex items-baseline justify-between mb-5">
+            <span class="micro text-black/45">Pasul 04 · Câteva cuvinte</span>
+            <span class="font-mono text-[11px] text-black/35"><span id="charCount">0</span> / 500</span>
+          </div>
+          <div class="field">
+            <label class="sr-only">Mesaj</label>
+            <textarea id="msg" rows="5" maxlength="500" placeholder="What should we know before we call? &mdash; the floor you're drawn to, the questions on your mind, anything at all."></textarea>
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="pt-6 border-t border-black/8 flex flex-wrap items-center justify-between gap-6">
+          <label class="flex items-start gap-3 text-[12px] text-black/65 max-w-md leading-[1.6]">
+            <input type="checkbox" required class="mt-1 rounded border-black/30 text-landmark-green focus:ring-landmark-gold">
+            <span>I agree to the Landmark Realty <a href="#" class="underline text-black/80">politica de confidențialitate</a>. We will never share or sell your details.</span>
+          </label>
+          <button type="submit" class="btn-solid">Trimite mesajul <span class="material-symbols-outlined text-[18px]">arrow_forward</span></button>
+        </div>
+
+        <div id="formOk" class="hidden mt-8 p-6 border border-landmark-gold/40 bg-landmark-gold/8 text-center">
+          <div class="display text-[24px] text-black">Vă mulțumim — mesajul dumneavoastră a ajuns.</div>
+          <p class="text-[14px] text-black/65 mt-2">A Landmark advisor will be in touch within one business day, on the channel you preferred.</p>
+        </div>
+      </form>
+    </div>
+
+    <!-- ===== Sidebar (4 cols) ===== -->
+    <aside class="lg:col-span-4 space-y-6">
+
+      <!-- Linie directăs -->
+      <div class="side-card dark p-7 reveal">
+        <div class="flex items-center gap-3 mb-6">
+          <span class="w-8 h-px bg-landmark-gold"></span>
+          <span class="micro text-landmark-gold">Linie directăs</span>
+        </div>
+        <div class="space-y-5">
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-landmark-gold text-[22px] mt-0.5">call</span>
+            <div>
+              <div class="micro text-white/45 mb-1">Sales · Landmark 4</div>
+              <a href="tel:+40219990400" class="font-headline text-[18px] text-white hover:text-landmark-gold">+40 21 999 0400</a>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-landmark-gold text-[22px] mt-0.5">alternate_email</span>
+            <div>
+              <div class="micro text-white/45 mb-1">General</div>
+              <a href="mailto:hello@landmarkrealty.ro" class="font-headline text-[18px] text-white hover:text-landmark-gold">hello@landmarkrealty.ro</a>
+            </div>
+          </div>
+          <div class="flex items-start gap-4">
+            <span class="material-symbols-outlined text-landmark-gold text-[22px] mt-0.5">badge</span>
+            <div>
+              <div class="micro text-white/45 mb-1">Press desk</div>
+              <a href="mailto:press@landmarkrealty.ro" class="font-headline text-[18px] text-white hover:text-landmark-gold">press@landmarkrealty.ro</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Advisors -->
+      <div class="side-card p-7 reveal">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="w-8 h-px bg-landmark-green"></span>
+          <span class="micro text-landmark-green">Your advisors</span>
+        </div>
+        <div>
+          <div class="advisor">
+            <div class="pic">
+              <svg viewBox="0 0 100 100" class="w-full h-full"><defs><linearGradient id="ad1" x2="0" y2="1"><stop offset="0" stop-color="#c4a576"/><stop offset="1" stop-color="#5a3e26"/></linearGradient></defs><rect width="100" height="100" fill="url(#ad1)"/><circle cx="50" cy="40" r="16" fill="#1a1208" opacity=".75"/><path d="M20,100 Q50,58 80,100" fill="#1a1208" opacity=".75"/></svg>
+            </div>
+            <div>
+              <div class="font-headline text-[16px] text-black">Ioana Mărgărit</div>
+              <div class="micro text-black/45 mt-0.5">Director vânzări private</div>
+              <div class="text-[12px] text-black/60 mt-2 leading-[1.7]">Tower residences and penthouse duplexes. RO · EN · FR.</div>
+              <a href="mailto:ioana@landmarkrealty.ro" class="mt-3 inline-flex items-center gap-1.5 micro text-landmark-green">Email Ioana <span class="material-symbols-outlined text-[14px]">arrow_outward</span></a>
+            </div>
+          </div>
+          <div class="advisor">
+            <div class="pic">
+              <svg viewBox="0 0 100 100" class="w-full h-full"><defs><linearGradient id="ad2" x2="0" y2="1"><stop offset="0" stop-color="#9ab87e"/><stop offset="1" stop-color="#2a3a18"/></linearGradient></defs><rect width="100" height="100" fill="url(#ad2)"/><circle cx="50" cy="40" r="16" fill="#1a1208" opacity=".75"/><path d="M20,100 Q50,58 80,100" fill="#1a1208" opacity=".75"/></svg>
+            </div>
+            <div>
+              <div class="font-headline text-[16px] text-black">Vlad Popescu</div>
+              <div class="micro text-black/45 mt-0.5">Gazdă șantier și vizite</div>
+              <div class="text-[12px] text-black/60 mt-2 leading-[1.7]">Walks the build with you. Hard hats provided. RO · EN.</div>
+              <a href="mailto:vlad@landmarkrealty.ro" class="mt-3 inline-flex items-center gap-1.5 micro text-landmark-green">Email Vlad <span class="material-symbols-outlined text-[14px]">arrow_outward</span></a>
+            </div>
+          </div>
+          <div class="advisor">
+            <div class="pic">
+              <svg viewBox="0 0 100 100" class="w-full h-full"><defs><linearGradient id="ad3" x2="0" y2="1"><stop offset="0" stop-color="#5a6a8a"/><stop offset="1" stop-color="#1a1d28"/></linearGradient></defs><rect width="100" height="100" fill="url(#ad3)"/><circle cx="50" cy="40" r="16" fill="#1a1208" opacity=".75"/><path d="M20,100 Q50,58 80,100" fill="#1a1208" opacity=".75"/></svg>
+            </div>
+            <div>
+              <div class="font-headline text-[16px] text-black">Eliza Marin</div>
+              <div class="micro text-black/45 mt-0.5">Presă și comunicare</div>
+              <div class="text-[12px] text-black/60 mt-2 leading-[1.7]">Articole, interviuri, cereri de imagini. RO · EN · DE.</div>
+              <a href="mailto:eliza@landmarkrealty.ro" class="mt-3 inline-flex items-center gap-1.5 micro text-landmark-green">Email Eliza <span class="material-symbols-outlined text-[14px]">arrow_outward</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Show-floor / hours -->
+      <div class="side-card p-7 reveal">
+        <div class="flex items-center gap-3 mb-5">
+          <span class="w-8 h-px bg-landmark-green"></span>
+          <span class="micro text-landmark-green">Show-floor · Cu programare</span>
+        </div>
+        <div class="font-headline text-[18px] text-black leading-[1.4] mb-5">Str. Arh. Ion Mincu 12<br>Sector 1, București</div>
+        <div class="hours">
+          <span class="d">Mon</span><span class="t closed">Closed</span>
+          <span class="d">Tue</span><span class="t">10:00 — 19:00</span>
+          <span class="d">Wed</span><span class="t">10:00 — 19:00</span>
+          <span class="d">Thu</span><span class="t">10:00 — 19:00</span>
+          <span class="d">Fri</span><span class="t">10:00 — 19:00</span>
+          <span class="d">Sat</span><span class="t">11:00 — 17:00</span>
+          <span class="d">Sun</span><span class="t closed">By appointment</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ============ MAP / VISIT ============ -->
+<section class="bg-white py-20">
+  <div class="max-w-[1380px] mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-12 items-center">
+    <div class="lg:col-span-5 reveal">
+      <div class="flex items-center gap-3 mb-6">
+        <span class="w-12 h-px bg-landmark-gold"></span>
+        <span class="eyebrow text-landmark-green">Come and see us</span>
+      </div>
+      <h2 class="font-headline text-[36px] md:text-[44px] leading-[1.1] text-black tracking-tight">
+        Un atelier mic pe o <span class="serif-italic text-landmark-gold">stradă liniștită</span>.
+      </h2>
+      <p class="mt-6 text-[15px] leading-[1.85] text-black/70 max-w-md">
+        Two minutes' walk from Piața Romană. We keep a single, well-lit show-floor with materials, plans, and the occasional architect at the table. Drop by &mdash; tea is on us.
+      </p>
+      <div class="mt-8 grid grid-cols-3 gap-4">
+        <div>
+          <div class="micro text-black/45">Cu mașina</div>
+          <div class="font-headline text-[15px] text-black mt-1">Parking on site</div>
+        </div>
+        <div>
+          <div class="micro text-black/45">By metro</div>
+          <div class="font-headline text-[15px] text-black mt-1">M2 Piața Romană</div>
+        </div>
+        <div>
+          <div class="micro text-black/45">Pe jos</div>
+          <div class="font-headline text-[15px] text-black mt-1">2 min from Calea Victoriei</div>
+        </div>
+      </div>
+      <div class="mt-10 flex items-center gap-3 flex-wrap">
+        <a href="#contactForm" class="btn-outline">Book a visit <span class="material-symbols-outlined text-[18px]">arrow_forward</span></a>
+        <a href="tel:+40219990400" class="inline-flex items-center gap-3 text-[12px] uppercase tracking-[0.22em] font-medium text-black/70 hover:text-landmark-green no-underline">
+          <span class="w-10 h-10 rounded-full border border-black/20 flex items-center justify-center"><span class="material-symbols-outlined text-[16px]">call</span></span>
+          Call us instead
+        </a>
+      </div>
+    </div>
+
+    <div class="lg:col-span-7 reveal">
+      <div class="map-shell border border-black/8">
+        <svg viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="paper" width="800" height="500" patternUnits="userSpaceOnUse">
+              <rect width="800" height="500" fill="#f5f1e8"/>
+            </pattern>
+          </defs>
+          <rect width="800" height="500" fill="url(#paper)"/>
+          <!-- park shape -->
+          <path d="M540,120 Q620,100 700,140 Q740,200 700,260 Q620,290 560,260 Q520,190 540,120 Z" fill="#cdd9bc" opacity=".7"/>
+          <text x="612" y="200" font-family="Lato" font-style="italic" font-size="14" fill="#3a4f2a" opacity=".7">Cișmigiu</text>
+
+          <!-- river / boulevard -->
+          <path d="M0,360 Q200,330 400,360 Q600,390 800,360" stroke="#7a8aa8" stroke-width="22" fill="none" opacity=".35"/>
+
+          <!-- main streets -->
+          <g stroke="#3a2a18" stroke-width="2.4" opacity=".55" fill="none">
+            <line x1="0" y1="200" x2="800" y2="220"/>
+            <line x1="200" y1="0" x2="240" y2="500"/>
+            <line x1="500" y1="0" x2="540" y2="500"/>
+            <line x1="0" y1="100" x2="800" y2="80"/>
+          </g>
+          <g stroke="#3a2a18" stroke-width="1" opacity=".3" fill="none">
+            <line x1="0" y1="280" x2="800" y2="290"/>
+            <line x1="0" y1="420" x2="800" y2="430"/>
+            <line x1="120" y1="0" x2="160" y2="500"/>
+            <line x1="350" y1="0" x2="390" y2="500"/>
+            <line x1="650" y1="0" x2="680" y2="500"/>
+          </g>
+
+          <!-- block fills -->
+          <g fill="#e6dcc6" opacity=".7">
+            <rect x="240" y="100" width="100" height="90"/>
+            <rect x="395" y="225" width="100" height="50"/>
+            <rect x="340" y="295" width="50" height="120"/>
+            <rect x="160" y="225" width="80" height="60"/>
+            <rect x="540" y="290" width="100" height="60"/>
+          </g>
+
+          <!-- street labels -->
+          <g font-family="JetBrains Mono" font-size="9" fill="#3a2a18" letter-spacing="1.5" opacity=".7">
+            <text x="20" y="195">CALEA VICTORIEI</text>
+            <text x="248" y="40" transform="rotate(80 248 40)">STR. MINCU</text>
+            <text x="20" y="74">B-DUL DACIA</text>
+          </g>
+
+          <!-- pin -->
+          <g transform="translate(390 270)">
+            <circle r="48" fill="#004225" opacity=".06"/>
+            <circle r="32" fill="#004225" opacity=".12"/>
+            <g>
+              <path d="M0,-26 C-14,-26 -22,-16 -22,-4 C-22,12 0,28 0,28 C0,28 22,12 22,-4 C22,-16 14,-26 0,-26 Z" fill="#004225"/>
+              <circle cx="0" cy="-6" r="6" fill="#b59458"/>
+            </g>
+            <text y="55" text-anchor="middle" font-family="Lato" font-size="13" fill="#1a1208">Landmark · Show-floor</text>
+            <text y="72" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#3a2a18" letter-spacing="1.5" opacity=".7">STR. ARH. ION MINCU 12</text>
+          </g>
+
+          <!-- compass -->
+          <g transform="translate(720 60)" opacity=".6">
+            <circle r="22" fill="none" stroke="#3a2a18" stroke-width=".8"/>
+            <path d="M0,-18 L4,0 L0,18 L-4,0 Z" fill="#3a2a18"/>
+            <text y="-26" text-anchor="middle" font-family="JetBrains Mono" font-size="9" fill="#3a2a18">N</text>
+          </g>
+
+          <!-- scale bar -->
+          <g transform="translate(40 460)" font-family="JetBrains Mono" font-size="9" fill="#3a2a18" opacity=".6">
+            <line x1="0" y1="0" x2="80" y2="0" stroke="#3a2a18" stroke-width="1"/>
+            <line x1="0" y1="-3" x2="0" y2="3" stroke="#3a2a18" stroke-width="1"/>
+            <line x1="80" y1="-3" x2="80" y2="3" stroke="#3a2a18" stroke-width="1"/>
+            <text y="-7" letter-spacing="1">200 M</text>
+          </g>
+        </svg>
+      </div>
+      <div class="mt-3 flex items-center justify-between text-[11px] text-black/45 px-1">
+        <span class="font-mono">44.4445° N · 26.0950° E</span>
+        <a href="#" class="micro hover:text-landmark-green">Open in Maps <span class="material-symbols-outlined text-[14px]">arrow_outward</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Întrebări frecvente STRIP ============ -->
+<section class="bg-stone-bg py-20">
+  <div class="max-w-[1100px] mx-auto px-6 lg:px-10">
+    <div class="flex items-center gap-3 mb-8 reveal">
+      <span class="w-12 h-px bg-landmark-gold"></span>
+      <span class="eyebrow text-landmark-green">Before you write</span>
+    </div>
+    <h2 class="font-headline text-[32px] md:text-[40px] leading-[1.15] text-black tracking-tight max-w-2xl reveal">
+      A few questions <span class="serif-italic text-landmark-gold">we hear often</span>.
+    </h2>
+    <div class="mt-12 divide-y divide-black/8 border-t border-b border-black/8">
+      <details class="group py-6 reveal">
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <span class="font-headline text-[18px] md:text-[20px] text-black">Cât durează răspunsul de obicei?</span>
+          <span class="w-10 h-10 rounded-full border border-black/15 flex items-center justify-center transition group-open:bg-landmark-green group-open:border-landmark-green group-open:text-white"><span class="material-symbols-outlined text-[18px]">add</span></span>
+        </summary>
+        <p class="mt-4 max-w-2xl text-[15px] leading-[1.85] text-black/65">O zi lucrătoare. Suntem o echipă mică și citim fiecare mesaj personal; dacă este urgent, linia directă de mai sus este mai rapidă.</p>
+      </details>
+      <details class="group py-6 reveal">
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <span class="font-headline text-[18px] md:text-[20px] text-black">Pot vizita șantierul?</span>
+          <span class="w-10 h-10 rounded-full border border-black/15 flex items-center justify-center transition group-open:bg-landmark-green group-open:border-landmark-green group-open:text-white"><span class="material-symbols-outlined text-[18px]">add</span></span>
+        </summary>
+        <p class="mt-4 max-w-2xl text-[15px] leading-[1.85] text-black/65">Da &mdash; Vlad organizează tururi pe șantier marțea și joia. Vă rugăm purtați încălțăminte închisă. Furnizăm căști, veste și un termos cu cafea.</p>
+      </details>
+      <details class="group py-6 reveal">
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <span class="font-headline text-[18px] md:text-[20px] text-black">Publicați o listă de prețuri?</span>
+          <span class="w-10 h-10 rounded-full border border-black/15 flex items-center justify-center transition group-open:bg-landmark-green group-open:border-landmark-green group-open:text-white"><span class="material-symbols-outlined text-[18px]">add</span></span>
+        </summary>
+        <p class="mt-4 max-w-2xl text-[15px] leading-[1.85] text-black/65">Nu public. Trimitem prețurile privat, împreună cu planul de etaj, după o scurtă conversație. Este singurul mod în care am vândut vreodată o reședință.</p>
+      </details>
+      <details class="group py-6 reveal">
+        <summary class="flex items-center justify-between cursor-pointer list-none">
+          <span class="font-headline text-[18px] md:text-[20px] text-black">Există parcare la show-floor?</span>
+          <span class="w-10 h-10 rounded-full border border-black/15 flex items-center justify-center transition group-open:bg-landmark-green group-open:border-landmark-green group-open:text-white"><span class="material-symbols-outlined text-[18px]">add</span></span>
+        </summary>
+        <p class="mt-4 max-w-2xl text-[15px] leading-[1.85] text-black/65">Două locuri rezervate în fața clădirii. Spuneți-ne când veniți și vă vom păstra unul.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-white pt-24 pb-10 px-6 lg:px-10 border-t border-black/5">
+  <div class="max-w-[1380px] mx-auto">
+    <div class="flex flex-col items-center mb-16">
+      <img src="/logo/landmarklogo-green.svg" alt="Landmark Realty" style="width: 72px;">
+      <p class="mt-6 label text-black/40">EST · MMVIII · BUCHAREST</p>
+    </div>
+    <div class="grid md:grid-cols-5 gap-12 pb-14 border-b border-black/5">
+      <div class="md:col-span-2">
+        <h5 class="label text-black mb-5">Landmark Realty</h5>
+        <p class="text-[13px] text-black/60 leading-[1.8] max-w-xs">Arhitecți și dezvoltatori de reședințe la standarde de patrimoniu. Optsprezece ani de muncă discretă și deliberată.</p>
+        <a href="/ro/contact" class="mt-6 inline-flex items-center gap-2 label text-landmark-green hover:text-landmark-gold">Contactează-ne <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+      </div>
+      <div>
+        <h5 class="label text-black mb-5">Proprietăți</h5>
+        <ul class="space-y-3 text-[12px] text-black/60">
+          <li><a href="/ro/projects" class="hover:text-landmark-green">Landmark 4</a></li>
+          <li><a href="#" class="hover:text-landmark-green">Toate comunitățile</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="label text-black mb-5">The House</h5>
+        <ul class="space-y-3 text-[12px] text-black/60">
+          <li><a href="/ro/about" class="hover:text-landmark-green">Despre noi</a></li>
+          <li><a href="#" class="hover:text-landmark-green">Journal</a></li>
+          <li><a href="/ro/media" class="hover:text-landmark-green">Media</a></li>
+          <li><a href="#" class="hover:text-landmark-green">Cariere</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="label text-black mb-5">Conectează-te</h5>
+        <ul class="space-y-3 text-[12px] text-black/60">
+          <li>+40 21 999 0400</li>
+          <li>hello@landmarkrealty.ro</li>
+          <li>Str. Arh. Ion Mincu 12<br>Sector 1, București</li>
+        </ul>
+      </div>
+    </div>
+    <div class="flex flex-col md:flex-row justify-between gap-6 pt-8 text-[11px] uppercase tracking-[0.2em] text-black/50">
+      <div>&copy; 2026 Landmark Realty SA. Toate drepturile rezervate.</div>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-landmark-green">Confidențialitate</a>
+        <a href="#" class="hover:text-landmark-green">Termeni</a>
+        <a href="#" class="hover:text-landmark-green">Legal</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Reveal
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Reason tiles
+document.querySelectorAll('[data-tile]').forEach(t => {
+  t.addEventListener('click', () => {
+    document.querySelectorAll('[data-tile]').forEach(x => x.classList.remove('is-on'));
+    t.classList.add('is-on');
+    const r = t.querySelector('input'); if (r) r.checked = true;
+  });
+});
+
+// Chip groups
+document.querySelectorAll('[data-group]').forEach(g => {
+  g.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
+    g.querySelectorAll('.chip').forEach(x => x.classList.remove('is-on'));
+    c.classList.add('is-on');
+  }));
+});
+
+// Char count
+const msg = document.getElementById('msg');
+const cc = document.getElementById('charCount');
+msg.addEventListener('input', () => { cc.textContent = msg.value.length; });
+
+// Submit
+document.getElementById('contactForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  document.getElementById('formOk').classList.remove('hidden');
+  e.target.querySelectorAll('input, textarea, select, button[type=submit]').forEach(el => el.disabled = true);
+  document.getElementById('formOk').scrollIntoView({ block: 'nearest' });
+});
+</script>
+</body>
+</html>

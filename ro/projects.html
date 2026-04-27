@@ -3,705 +3,1621 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy"
-  content="default-src 'self';
-         script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdn.jsdelivr.net;
-         style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net;
-         font-src 'self' https://fonts.gstatic.com;
-         img-src 'self' https://lh3.googleusercontent.com data:;
-         connect-src 'self';
-         frame-src https://www.google.com https://www.openstreetmap.org;
-         frame-ancestors 'none';">
-<title>The Pinnacle | Landmark Realty</title>
-<meta name="description" content="The Pinnacle — cel mai înalt turn din Landmark Central. Apartamente de lux cu 1 și 2 dormitoare cu vederi panoramice.">
+<title>Landmark 4 | București – Târgoviște — Landmark Realty</title>
+<meta name="description" content="Landmark 4 — un turn rezidențial iconic pe Șoseaua București – Târgoviște 4A, 013504 București. Patruzeci și opt de reședințe înalte, patru penthouse-uri de jumătate de etaj și o terasă privată cu facilități cu vedere la pădurea Băneasa.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="alternate" hreflang="en" href="/projects">
+<link rel="canonical" href="/ro/projects">
 <link rel="alternate" hreflang="ro" href="/ro/projects">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<script id="tailwind-config">
-  tailwind.config = {
-    darkMode: "class",
-    theme: {
-      extend: {
-        colors: {
-          "primary": "#004225",
-          "on-primary": "#ffffff",
-          "primary-container": "#005a33",
-          "secondary": "#5f5e5e",
-          "background": "#ffffff",
-          "surface": "#ffffff",
-          "outline": "#7f7668",
-          "outline-variant": "#d1c5b5",
-          "on-background": "#1b1c1c",
-          "on-surface": "#1b1c1c",
-          "landmark-green": "#004225",
-          "landmark-gold": "#b59458",
-          "bronze": "#745b28"
-        },
-        fontFamily: {
-          "headline": ["Roboto", "sans-serif"],
-          "serif": ["Roboto", "sans-serif"],
-          "body": ["Roboto", "sans-serif"],
-          "label": ["Roboto", "sans-serif"]
-        },
-        borderRadius: {
-          "DEFAULT": "0.25rem",
-          "lg": "0.5rem",
-          "xl": "0.75rem",
-          "full": "9999px"
-        },
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300;1,400&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#004225",
+        "landmark-green": "#004225",
+        "landmark-gold": "#b59458",
+        "bronze": "#745b28",
+        "stone-bg": "#f9f8f6"
       },
-    },
+      fontFamily: {
+        "headline": ["Lato", "sans-serif"],
+        "body": ["Roboto", "sans-serif"]
+      }
+    }
   }
+}
 </script>
 <style>
-  .material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+  :root {
+    --accent: #b59458;
+    --primary: #004225;
+    --bg: #fcfcfc;
+    --stone: #f9f8f6;
+    --ink: #1b1c1c;
+    --muted: #4f5459;
+    --hairline: rgba(0,0,0,0.08);
   }
-  .text-serif { font-family: 'Lato', sans-serif; }
-  .font-serif { font-family: 'Lato', sans-serif; }
-  .thin-border { border-width: 0.5px; }
-  .no-scrollbar::-webkit-scrollbar { display: none; }
-  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--ink); font-family: 'Roboto', sans-serif; font-weight: 300; -webkit-font-smoothing: antialiased; }
+  .font-headline { font-family: 'Lato', sans-serif; font-weight: 300; }
+  .serif-italic { font-family: 'Lato', sans-serif; font-style: italic; font-weight: 300; }
+  .display { font-family: 'Lato', sans-serif; font-weight: 300; letter-spacing: -0.01em; }
+  .eyebrow { font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 600; }
+  .label { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 250, 'GRAD' 0, 'opsz' 24; }
+
+  /* Nav */
   .nav-link { position: relative; }
-  .nav-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 1px;
-    bottom: -4px;
-    left: 0;
-    background-color: #ffffff;
-    transition: width 0.3s ease;
-  }
+  .nav-link::after { content:''; position:absolute; left:0; bottom:-4px; height:1px; width:0; background: currentColor; transition: width .35s cubic-bezier(.16,1,.3,1); }
   .nav-link:hover::after { width: 100%; }
-  .skip-link {
-    position: absolute; top: 0; left: 0;
-    padding: 0.75rem 1.5rem;
-    background: #004225; color: white;
-    font-weight: 600; z-index: 9999;
-    transform: translateY(-100%);
-    transition: transform 0.2s ease;
-  }
-  .skip-link:focus { transform: translateY(0); }
-  body, body * {
-    font-synthesis: none;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-  :focus-visible {
-    outline: 2px solid #b59458;
-    outline-offset: 3px;
-    border-radius: 2px;
+  .nav-solid { background: rgba(255,255,255,0.96) !important; backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,0.06) !important; color: #111 !important; }
+  .nav-solid .nav-link, .nav-solid .nav-cta { color: #111; }
+  .nav-solid .logo-white { display:none; }
+  .nav-solid .logo-green { display:inline-block !important; }
+
+  /* Hero */
+  .hero-vignette { background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 28%, rgba(0,0,0,0.1) 55%, rgba(0,0,0,0.7) 100%); }
+  .hero-img { transform: scale(1.06); transition: transform 10s ease-out; }
+  .hero-loaded .hero-img { transform: scale(1); }
+
+  /* Buttons */
+  .btn-outline { display:inline-flex; align-items:center; justify-content:center; gap:12px; height:49px; border:1px solid #111; color:#111; border-radius:25px; padding: 0 36px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; transition: all .5s cubic-bezier(.16,1,.3,1); text-decoration:none; cursor:pointer; background:transparent;}
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-outline.on-dark { color:#fff; border-color: rgba(255,255,255,.6); }
+  .btn-outline.on-dark:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-solid { display:inline-flex; align-items:center; justify-content:center; gap:12px; height:49px; background: var(--primary); color:#fff; border-radius:25px; padding: 0 36px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; transition: all .35s ease; border:none; cursor:pointer; }
+  .btn-solid:hover { background:#000; }
+
+  /* Section */
+  .section-title { font-family: 'Lato', sans-serif; font-weight: 300; font-size: clamp(32px, 4.2vw, 54px); line-height: 1.12; color: #111; letter-spacing: -0.015em; }
+  .section-title .gilt { font-style: italic; color: var(--accent); }
+  .eyebrow-line { display:inline-flex; align-items:center; gap:14px; color: var(--primary); opacity:.75; }
+  .eyebrow-line::before { content:''; width:28px; height:1px; background: currentColor; }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 1s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  @keyframes riseIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .rise { animation: riseIn 1.2s cubic-bezier(.16,1,.3,1) both; }
+  .rise.d1 { animation-delay: .2s; } .rise.d2 { animation-delay: .4s; } .rise.d3 { animation-delay: .6s; } .rise.d4 { animation-delay: .8s; }
+
+  @keyframes scrollCue { 0%,100% { transform: translateY(0); opacity: .6 } 50% { transform: translateY(10px); opacity: 1 } }
+  .scroll-cue { animation: scrollCue 2.4s ease-in-out infinite; }
+
+  /* Availability pulse */
+  @keyframes pulseDot { 0%{ box-shadow: 0 0 0 0 rgba(181,148,88,0.5); } 70%{ box-shadow: 0 0 0 10px rgba(181,148,88,0); } 100%{ box-shadow: 0 0 0 0 rgba(181,148,88,0); } }
+  .pulse-dot { animation: pulseDot 2s infinite; }
+
+  /* Residence type cards */
+  .type-card { transition: transform .7s cubic-bezier(.16,1,.3,1), box-shadow .7s; }
+  .type-card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px -30px rgba(0,0,0,0.18); }
+
+  /* Floor plan tabs */
+  .plan-tab { position: relative; padding: 14px 0; font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; color: rgba(0,0,0,0.45); cursor: pointer; border: none; background: transparent; }
+  .plan-tab.active { color: #111; }
+  .plan-tab.active::after { content:''; position:absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--accent); }
+
+  /* Type/Subtype chips */
+  .type-chip, .sub-chip { display:inline-flex; align-items:center; padding: 10px 18px; border: 1px solid rgba(0,0,0,0.12); background: #fff; color: #333; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 500; cursor: pointer; transition: all .25s ease; border-radius: 999px; }
+  .type-chip:hover, .sub-chip:hover { border-color: var(--accent); color: var(--accent); }
+  .type-chip.active, .sub-chip.active { background: var(--primary); border-color: var(--primary); color: #fff; }
+  .type-chip.active *, .sub-chip.active * { color: #fff; opacity: 0.8; }
+  .sub-chip .sold { margin-left: 10px; font-size: 9px; opacity: 0.6; letter-spacing: 0.12em; }
+  .sub-chip[data-status="sold"] { opacity: 0.45; }
+  .sub-chip[data-status="sold"]:hover { border-color: rgba(0,0,0,0.12); color: #333; }
+  .icon-btn { width: 36px; height: 36px; display:inline-flex; align-items:center; justify-content:center; border: 1px solid rgba(0,0,0,0.12); background: #fff; cursor:pointer; transition: all .2s; border-radius: 4px; color: #333; }
+  .icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* Skyline selector */
+  .floor-band { fill: rgba(181,148,88,0.0); stroke: rgba(181,148,88,0.55); stroke-width: 0.8; cursor: pointer; transition: all .3s ease; }
+  .floor-band:hover { fill: rgba(181,148,88,0.35); stroke: rgba(181,148,88,0.8); }
+  .floor-band.active { fill: rgba(181,148,88,0.5); stroke: rgba(181,148,88,1); stroke-width: 1; }
+  .floor-band.sold { fill: rgba(255,255,255,0.03); stroke: rgba(255,255,255,0.08); cursor: not-allowed; }
+  .floor-band.sold:hover { fill: rgba(255,255,255,0.03); }
+
+  /* Gallery */
+  .gallery-item { overflow: hidden; cursor: pointer; }
+  .gallery-item svg, .gallery-item img { transition: transform 1.2s cubic-bezier(.16,1,.3,1); }
+  .gallery-item:hover svg, .gallery-item:hover img { transform: scale(1.05); }
+
+  .lightbox { position: fixed; inset: 0; background: rgba(10,10,10,0.96); z-index: 200; display: none; align-items: center; justify-content: center; }
+  .lightbox.show { display: flex; }
+  .lightbox svg { max-width: 92vw; max-height: 86vh; }
+
+  /* Sticky mini-cta */
+  .sticky-cta { position: fixed; left: 50%; transform: translate(-50%, 100px); bottom: 24px; z-index: 40; background: #fff; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 24px 60px -20px rgba(0,0,0,0.25); padding: 10px 10px 10px 24px; border-radius: 999px; display: flex; align-items: center; gap: 18px; transition: transform .5s cubic-bezier(.16,1,.3,1); opacity: 0; }
+  .sticky-cta.show { transform: translate(-50%, 0); opacity: 1; }
+
+  /* Cronologie dots */
+  .tl-dot { width: 12px; height: 12px; border-radius: 50%; border: 2px solid var(--accent); background: #fff; }
+  .tl-dot.done { background: var(--accent); }
+  .tl-line { flex: 1; height: 2px; background: rgba(0,0,0,0.08); }
+  .tl-line.done { background: var(--accent); }
+
+  /* Tweaks */
+  .tweaks-panel { position: fixed; right: 24px; bottom: 28px; z-index: 120; width: 300px; background: #fff; color: #111; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 30px 80px -20px rgba(0,0,0,0.3); padding: 20px; font-family: 'Roboto', sans-serif; border-radius: 8px; transform: translateY(20px); opacity: 0; pointer-events: none; transition: all .4s cubic-bezier(.16,1,.3,1); }
+  .tweaks-panel.show { transform: translateY(0); opacity: 1; pointer-events: auto; }
+  .tweaks-panel h3 { font-family: 'Lato'; font-weight: 400; font-size: 14px; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .tweak-row { margin-bottom: 14px; }
+  .tweak-row label { display:block; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #666; margin-bottom: 6px; font-weight: 600; }
+  .tweak-swatches { display:flex; gap: 8px; }
+  .tweak-swatch { width: 28px; height: 28px; border-radius: 50%; border: 2px solid transparent; cursor:pointer; transition: all .2s ease; }
+  .tweak-swatch.active { border-color: #111; transform: scale(1.1); }
+  .tweak-seg { display:flex; gap: 0; border: 1px solid rgba(0,0,0,0.15); border-radius: 999px; overflow: hidden; }
+  .tweak-seg button { flex: 1; padding: 8px 10px; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; font-weight: 600; background: #fff; border: none; cursor: pointer; color: #666; transition: all .2s; }
+  .tweak-seg button.active { background: #111; color: #fff; }
+
+  [data-accent="green"] { --accent: #b59458; --primary: #004225; }
+  [data-accent="gold"] { --accent: #004225; --primary: #b59458; }
+  [data-accent="bronze"] { --accent: #004225; --primary: #745b28; }
+  [data-accent="obsidian"] { --accent: #b59458; --primary: #0c0c0c; }
+
+  /* Density */
+  [data-density="cozy"] section { padding-top: 48px; padding-bottom: 48px; }
+  [data-density="airy"] section { padding-top: 96px; padding-bottom: 96px; }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-img, .rise, .reveal, .type-card, .gallery-item { transition: none !important; animation: none !important; transform: none !important; opacity: 1 !important; }
   }
 </style>
 </head>
-<body class="bg-white text-on-background font-body selection:bg-primary/10 overflow-x-hidden">
+<body data-screen-label="Landmark 4 — București – Târgoviște" data-accent="green" data-density="standard" class="selection:bg-primary/10">
+<a class="skip-link absolute top-0 left-0 px-6 py-3 bg-landmark-green text-white font-bold z-[9999] -translate-y-full focus:translate-y-0" href="#main-content">Sari la conținut</a>
 
-<a class="skip-link" href="#main-content">Sari la conținutul principal</a>
-
-<!-- Header — same as homepage -->
-<header>
-<nav class="absolute top-0 w-full z-50 bg-black/10 backdrop-blur-[2px] text-white border-b border-white/5" aria-label="Principal">
-<div class="flex justify-between items-center px-4 lg:px-12 h-[75px] w-full max-w-[1920px] mx-auto">
-<div class="hidden lg:flex gap-8 items-center font-medium tracking-[0.12em] text-[13px] uppercase">
-<a class="nav-link" href="/ro/about">Despre</a>
-<a class="nav-link" href="/ro/projects">Comunități</a>
-<a class="nav-link" href="/ro/projects">Proprietăți</a>
-</div>
-<a href="/ro/" class="absolute left-1/2 -translate-x-1/2 flex items-center no-underline">
-<img src="/logo/landmarklogo-white.svg" alt="Landmark Realty" style="width: 80px; height: auto;">
-</a>
-<div class="flex items-center gap-6">
-<div class="hidden lg:flex gap-6 items-center font-medium tracking-[0.12em] text-[13px] uppercase">
-<a class="nav-link" href="#">Centru Media</a>
-<a class="nav-link" href="#">Cariere</a>
-<a class="nav-link" href="/ro/contact">Contactați-ne</a>
-</div>
-<div class="flex items-center gap-4 border-l border-white/20 pl-6">
-<button class="material-symbols-outlined text-[18px]" aria-label="Favorite">favorite</button>
-<button class="material-symbols-outlined text-[18px]" aria-label="Căutare">search</button>
-<div class="lang-switcher relative flex items-center gap-1 text-[9px] font-bold tracking-widest bg-white/10 px-2 py-1 rounded cursor-pointer" data-lang-switcher>
-<span class="material-symbols-outlined text-sm" aria-hidden="true">language</span>
-<a href="/projects" class="text-white/60 no-underline hover:text-white">EN</a>
-<span class="opacity-50">|</span>
-<a href="/ro/projects" class="text-white no-underline">RO</a>
-</div>
-</div>
-</div>
-</div>
+<!-- ============ NAV ============ -->
+<nav id="mainNav" class="fixed top-0 w-full z-50 text-white transition-colors duration-500" aria-label="Main">
+  <div class="flex justify-between items-center px-6 lg:px-12 h-[72px] w-full max-w-[1920px] mx-auto">
+    <div class="hidden lg:flex gap-9 items-center font-medium tracking-[0.14em] text-[12px] uppercase">
+      <a class="nav-link" href="/ro/about">Despre noi</a>
+      <a class="nav-link" href="#">Comunități</a>
+      <a class="nav-link" href="/ro/projects" aria-current="page">Proprietăți</a>
+    </div>
+    <a href="/ro/" class="absolute left-1/2 -translate-x-1/2 flex items-center no-underline">
+      <img src="/logo/landmarklogo-white.svg" alt="Landmark Realty" class="logo-white" style="width: 74px;">
+      <img src="/logo/landmarklogo-green.svg" alt="Landmark Realty" class="logo-green" style="width: 74px; display:none;">
+    </a>
+    <div class="flex items-center gap-6">
+      <div class="hidden lg:flex gap-6 items-center font-medium tracking-[0.14em] text-[12px] uppercase">
+        <a class="nav-link" href="/ro/media">Media</a>
+        <a class="nav-link" href="#">Cariere</a>
+        <a class="nav-link nav-cta" href="#inquiry">Contact</a>
+      </div>
+      <div class="flex items-center gap-4 border-l border-current/20 pl-6">
+        <button id="favBtn" class="material-symbols-outlined text-[20px]" aria-label="Salvează">favorite</button>
+        <button class="material-symbols-outlined text-[20px]" aria-label="Caută">search</button>
+        <div class="lang-switcher flex items-center gap-1 text-[11px] font-medium tracking-[0.18em] pl-4 border-l border-current/20" data-lang-switcher>
+          <a href="/projects" class="no-underline opacity-60 hover:opacity-100" hreflang="en">EN</a>
+          <span class="opacity-40">/</span>
+          <a href="/ro/projects" class="no-underline" hreflang="ro" aria-current="page">RO</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </nav>
-<button class="fixed top-4 right-4 z-[60] lg:hidden bg-black/20 backdrop-blur-sm text-white p-2 rounded" data-menu-toggle aria-label="Comutare meniu" aria-expanded="false">
-<span class="material-symbols-outlined text-[24px]">menu</span>
-</button>
-</header>
 
 <main id="main-content">
 
-<!-- 1. HERO BANNER — exact Sobha structure: position-relative, img-100 drives height -->
-<section class="hero relative w-full">
-<!-- Desktop banner: width 100%, height auto — image's natural 1440x618 aspect drives section height -->
-<img alt="Vedere aeriană a turnului The Pinnacle" class="w-full h-auto block" loading="eager" src="/raw/hero-pinnacle.webp">
-<!-- Overlay positioned over image -->
-<div class="absolute inset-0 flex items-end" style="padding-bottom: 50px;">
-<div class="max-w-[1185px] mx-auto w-full px-5 lg:px-0 text-center">
-</div>
-</div>
+<!-- ============ HERO ============ -->
+<section class="relative h-screen min-h-[720px] overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="/renders/hero.jpg" alt="Landmark 4 — Șoseaua București – Târgoviște 4A" class="hero-img absolute inset-0 w-full h-full object-cover" />
+    <div class="absolute inset-0 hero-vignette"></div>
+  </div>
+
+  <div class="relative h-full flex flex-col">
+    <div class="flex-1"></div>
+    <div class="max-w-[1380px] mx-auto w-full px-6 lg:px-10 pb-12 lg:pb-20">
+      <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-end">
+        <div class="lg:col-span-8 text-white">
+          <div class="rise flex items-center gap-4 mb-6">
+            <span class="label text-white/70">Șoseaua București – Târgoviște 4A · Sector 1</span>
+            <span class="w-8 h-px bg-white/40"></span>
+            <span class="label text-white/70">Predare T3 2027</span>
+            <span class="w-8 h-px bg-white/40 hidden md:block"></span>
+            <span class="label text-landmark-gold hidden md:block"> </span>
+          </div>
+          <h1 class="rise d1 display text-white" style="font-size: clamp(48px, 7.6vw, 118px); line-height: 0.98; letter-spacing: -0.02em;">
+            Landmark <span class="serif-italic text-landmark-gold">4</span>
+          </h1>
+          <p class="rise d2 mt-8 max-w-xl text-white/85 text-[17px] leading-[1.75] font-light">
+            An iconic residential tower rising above the Baneasa forest. Studios, one-, two- and three-room residences and four duplex penthouses — a single address you will never need to explain.
+          </p>
+          <div class="rise d3 mt-10 flex flex-wrap gap-4 items-center">
+            <a href="#residences" class="btn-outline on-dark">Explorează reședințele <span class="material-symbols-outlined text-[18px]">arrow_downward</span></a>
+            <a href="#inquiry" class="inline-flex items-center gap-3 text-white/85 hover:text-white text-[12px] uppercase tracking-[0.22em] font-medium no-underline">
+              <span class="w-10 h-10 rounded-full border border-white/40 flex items-center justify-center"><span class="material-symbols-outlined text-[18px]">arrow_forward</span></span>
+              Private Preview
+            </a>
+          </div>
+        </div>
+        <!-- Availability mini-card -->
+        <div class="lg:col-span-4 rise d4">
+          <div class="bg-white/10 backdrop-blur-md border border-white/15 p-7 text-white">
+            <div class="flex items-center justify-between mb-5">
+              <span class="eyebrow text-landmark-gold"></span>
+              <span class="flex items-center gap-2 text-[11px] uppercase tracking-[0.2em]"><span class="w-2 h-2 rounded-full bg-landmark-gold pulse-dot"></span> </span>
+            </div>
+            <div class="grid grid-cols-3 divide-x divide-white/20">
+              <div class="pr-4"><div class="display text-[40px] leading-none">124</div><div class="label text-white/60 mt-2">Reședințe</div></div>
+              <div class="px-4"><div class="display text-[40px] leading-none text-landmark-gold">38</div><div class="label text-white/60 mt-2">Disponibile</div></div>
+              <div class="pl-4"><div class="display text-[40px] leading-none">Q3</div><div class="label text-white/60 mt-2">Predare '27</div></div>
+            </div>
+            <div class="mt-6 pt-5 border-t border-white/15 flex items-center justify-between text-[11px] uppercase tracking-[0.2em]">
+              <span class="text-white/70">De la</span>
+              <span class="font-headline text-[18px] text-white tracking-normal">€185,000</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="absolute left-1/2 -translate-x-1/2 bottom-6 flex flex-col items-center gap-2 text-white/70 scroll-cue">
+      <span class="text-[10px] uppercase tracking-[0.3em]">Derulează</span>
+      <span class="material-symbols-outlined text-[20px]">expand_more</span>
+    </div>
+  </div>
 </section>
 
-<!-- 2. PROJECT IDENTITY — logo, rating, wishlist/share -->
-<section class="bg-white border-b border-stone-100">
-<div class="max-w-[1185px] mx-auto px-5 lg:px-0" style="padding-top: 40px;">
-<div class="grid lg:grid-cols-2 gap-8 items-center pb-8">
-<!-- Left: logo + name + rating -->
-<div class="flex items-center gap-6">
-<img alt="Logo proiect The Pinnacle" class="w-auto" style="height: 141px; max-width: 278px;" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz_0PJlAThdi2UJOw1rKLROcGXlGN9P9wnDM9cwEXpjF3X9DcqmJ0pQaiQMyBrhUa4MbaS67gDwBAdaRj2vF-IDtASTqVZHeLKcQ09KLlZ5j6yti9oGdMhEAOYLw2YVDyFQzZ9-W2YZZJxITQsv76kl420ndJNYUbhiB_oyyFylur9F5DBzaT9xrFB2YsfsrjDHTM2hLwVZpHMKf25rkedpcpu1kpQau45y49PtUsmhHU87uJlzpyFlVJrTyJwNsUAHstv-PRsLlXX">
-<div>
-<h5 class="font-headline text-[25px] leading-[30px] font-light text-black">The Pinnacle</h5>
-<p class="text-[14px] text-[#4f5459] font-light mt-1">Landmark Central</p>
-<div class="flex items-center gap-2 mt-3">
-<span class="text-[16px] font-medium text-[#4f5459]">4.7</span>
-<div class="flex text-[#c7a386] gap-px">
-<span class="material-symbols-outlined !text-[14px]" style="font-variation-settings:'FILL' 1" aria-hidden="true">star</span>
-<span class="material-symbols-outlined !text-[14px]" style="font-variation-settings:'FILL' 1" aria-hidden="true">star</span>
-<span class="material-symbols-outlined !text-[14px]" style="font-variation-settings:'FILL' 1" aria-hidden="true">star</span>
-<span class="material-symbols-outlined !text-[14px]" style="font-variation-settings:'FILL' 1" aria-hidden="true">star</span>
-<span class="material-symbols-outlined !text-[14px]" style="font-variation-settings:'FILL' 1" aria-hidden="true">star</span>
-</div>
-<span class="text-[12px] text-[#4f5459] uppercase tracking-[1.2px]">Recenzii Google</span>
-</div>
-</div>
-</div>
-<!-- Right: wishlist + share -->
-<div class="flex items-center justify-end gap-5">
-<button class="flex items-center gap-2 text-[#4f5459] hover:text-[#c7a386] transition-colors" aria-label="Salvează în lista de dorințe">
-<svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M10 17.77L8.55 16.47C3.4 11.83 0 8.77 0 5.05C0 2 2.42 0 5 0C6.74 0 8.41 0.81 9.5 2.09C10 1.51 10.59 1.02 11.24 0.64C11.89 0.26 12.61 0.03 13.35 0C14.09-0.03 14.83 0.1 15.51 0.38C16.19 0.66 16.8 1.08 17.3 1.61C17.79 2.14 18.16 2.77 18.38 3.46C18.59 4.15 18.64 4.88 18.52 5.59C18.4 6.3 18.12 6.97 17.7 7.55C17.28 8.14 16.74 8.63 16.11 8.98L10 17.77Z" fill="none" stroke="currentColor" stroke-width="1.2"/></svg>
-</button>
-<button class="flex items-center gap-2 text-[#4f5459] hover:text-[#c7a386] transition-colors" aria-label="Distribuie acest proiect">
-<svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="14" cy="3" r="2.5" stroke="currentColor" stroke-width="1.2"/><circle cx="4" cy="10" r="2.5" stroke="currentColor" stroke-width="1.2"/><circle cx="14" cy="17" r="2.5" stroke="currentColor" stroke-width="1.2"/><line x1="6.3" y1="8.8" x2="11.7" y2="4.2" stroke="currentColor" stroke-width="1.2"/><line x1="6.3" y1="11.2" x2="11.7" y2="15.8" stroke="currentColor" stroke-width="1.2"/></svg>
-</button>
-</div>
-</div>
-</div>
+<!-- ============ IDENTITY STRIP ============ -->
+<section class="py-12 bg-white border-b border-black/5">
+  <div class="max-w-[1380px] mx-auto px-6 lg:px-10 grid md:grid-cols-4 gap-10 items-center">
+    <div class="flex items-center gap-5">
+      <!-- Monogram IV -->
+      <svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="32" cy="32" r="30" stroke="#004225" stroke-width="1.2" fill="none"/>
+        <circle cx="32" cy="32" r="24" stroke="#b59458" stroke-width="0.5" fill="none"/>
+        <text x="32" y="40" text-anchor="middle" font-family="Lato" font-size="22" font-style="italic" font-weight="300" fill="#004225">IV</text>
+      </svg>
+      <div>
+        <div class="label text-black/50 mb-1">Landmark Series</div>
+        <div class="font-headline text-[22px] leading-none text-black">The Fourth Tower</div>
+      </div>
+    </div>
+    <div>
+      <div class="label text-black/50 mb-1">Client Rating</div>
+      <div class="flex items-center gap-3 mt-1">
+        <span class="flex items-center gap-[2px] text-landmark-gold" aria-label="5 out of 5 stars">
+          <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+          <span class="material-symbols-outlined text-[18px]" style="font-variation-settings:'FILL' 1;">star</span>
+        </span>
+        <span class="font-headline text-[14px] text-black">5.0 on Google</span>
+      </div>
+    </div>
+    <div>
+      <div class="label text-black/50 mb-1">Architect</div>
+      <div class="font-headline text-[15px] text-black leading-tight">Landmark Atelier<br><span class="text-black/60">with Șerban Tiganas Studio</span></div>
+    </div>
+    <div class="flex gap-3 justify-start md:justify-end">
+      <a href="#" class="btn-outline" style="height:42px; padding:0 22px; font-size:11px;"><span class="material-symbols-outlined text-[16px]">download</span> Brochure</a>
+      <a href="#" class="btn-outline" style="height:42px; padding:0 22px; font-size:11px;"><span class="material-symbols-outlined text-[16px]">article</span> Factsheet</a>
+    </div>
+  </div>
 </section>
 
-<!-- 3. NARRATIVE — 5/12 text + 7/12 image -->
-<section style="padding-top: 50px; padding-bottom: 50px;">
-<div class="max-w-[1185px] mx-auto px-5 lg:px-0">
-<div class="grid lg:grid-cols-12 gap-12 items-center">
-<!-- Left column: 5/12 -->
-<div class="lg:col-span-5">
-<h1 class="font-headline uppercase text-black" style="font-size: 34px; line-height: 41px; font-weight: 400; margin-bottom: 30px;">Unde Înălțimea Definește Traiul</h1>
-<div class="text-black" style="font-size: 16px; line-height: 26px; font-weight: 400;">
-<p style="margin-bottom: 35px;">Ridicându-se ca ultimul și cel mai înalt turn din Landmark Central, The Pinnacle reprezintă culminarea viziunii arhitecturale a masterplanului, o reședință unde înălțimea devine expresie și rafinamentul se simte în fiecare detaliu.</p>
-<p style="margin-bottom: 35px;">Fiecare apartament cu 1 și 2 dormitoare este conceput cu atenție pentru a maximiza priveliștile și lumina naturală, oferind o experiență de viață definită de echilibru și sobrietate. Geamuri generoase, planuri rafinate și interioare atent concepute creează o legătură armonioasă între casă și orizont.</p>
-<p style="margin-bottom: 35px;">Situat în inima Landmark Central, The Pinnacle plasează rezidenții în centrul conectivității, rămânând în același timp deasupra cotidianului.</p>
-</div>
-<div class="mt-10">
-<a href="#" class="inline-block text-center border border-black text-black rounded-full uppercase transition-all duration-500 hover:border-[#c7a386] hover:text-black relative overflow-hidden" style="font-size: 14px; height: 49px; border-radius: 25px; min-width: 265px; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 500; padding-top: 12px;">Descarcă Broșura</a>
-</div>
-</div>
-<!-- Right column: 7/12 -->
-<div class="lg:col-span-7">
-<img alt="Stil de viață de lux la reședințele The Pinnacle" class="w-full h-auto object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-ufi2XU7ojNNqRyoS-ycSZWQ7y1XQqkKDgNbZ4szdMjd6KRDtunwMpxUQuCaDyFIWEboTKxfZtLZWJORUYkxF-wBmo2Lpi4pHF_plWUaG40pQWlcBAvYx8rGecgBJR0xT4Xe_n4IIX5cfnFJJK8pHNOl5ZX8lUscJ4S89Hl3ENNu5CPqBCFRMGL1jI28rrCyVyfWOqzmGEvB4Nd2aQ2zEuTBd41oYHAS8KB6QbFl9Ts0rq7WxlKQPovXb9uOYkBvQycLmiPIgOzbp">
-</div>
-</div>
-</div>
+<!-- ============ NARRATIVE ============ -->
+<section class="py-24 bg-white">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-16 items-start">
+    <div class="lg:col-span-5 reveal">
+      <div class="eyebrow-line mb-6"><span class="eyebrow">The Address</span></div>
+      <h2 class="section-title">An <span class="gilt">iconic</span> silhouette above the forest.</h2>
+    </div>
+    <div class="lg:col-span-7 reveal">
+      <p class="text-[17px] leading-[1.85] text-black/75 font-light">
+        Landmark 4 is the brand's most elevated work to date &mdash; and its fourth tower. Set on a private 1.8-hectare parcel along Drumul București – Târgoviște, the building rises as a single tapered volume, clad in hand-finished travertine and bronze-anodised fins, with a sculpted crown that reads as quietly from Piața Presei as it does from the Băneasa forest line.
+      </p>
+      <p class="mt-6 text-[16px] leading-[1.85] text-black/65 font-light">
+        Inside, one hundred and twenty-four residences are arranged across five typologies &mdash; studios, one-, two- and three-room homes, and four duplex penthouses crowning the building. Private service corridors that never cross residents' paths, oak joinery and nine-metre panoramic terraces are the standard, not the premium.
+      </p>
+      <div class="mt-10 grid sm:grid-cols-3 gap-6 pt-10 border-t border-black/10">
+        <div><div class="display text-[44px] leading-none text-landmark-green">23</div><div class="label text-black/60 mt-2">Storeys</div></div>
+        <div><div class="display text-[44px] leading-none text-landmark-green">124</div><div class="label text-black/60 mt-2">Reședințe</div></div>
+        <div><div class="display text-[44px] leading-none text-landmark-green">1.8<span class="text-[18px] align-super">ha</span></div><div class="label text-black/60 mt-2">Private Grounds</div></div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- 4. GALLERY — exact Sobha visual-symphony structure with Swiper -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-<style>
-.visual-symphony-wrapper { text-align: center; }
-.visual-symphony-wrapper h2 { margin-bottom: 42px; }
-.visual-symphony-wrapper .visual-symphony-slider { margin: 0; padding: 0 30px; }
-@media (max-width: 1000px) { .visual-symphony-wrapper .visual-symphony-slider { padding: 0 20px; } }
-.visual-symphony-wrapper .visual-symphony-slider img { width: 100%; border-radius: 7px; transition: .5s ease; }
-@media (min-width: 1000px) {
-  .visual-symphony-wrapper .visual-symphony-slider .swiper-slide-prev img,
-  .visual-symphony-wrapper .visual-symphony-slider .swiper-slide-next img { transform: scale(.7) !important; transition: all .4s linear !important; }
-}
-.visual-symphony-wrapper .visual-symphony-slider .swiper-slide-active { transform: scale(1) !important; transition: all .4s linear !important; }
-.visual-symphony-wrapper .visual-symphony-slider .swiper.swiper-initialized { padding: 0; }
-.visual-symphony-wrapper .visual-symphony-slider .common-arrow { margin-top: 48px; justify-content: center; position: relative; display: flex; }
-.visual-symphony-wrapper .visual-symphony-slider .common-arrow .swiper-button-next,
-.visual-symphony-wrapper .visual-symphony-slider .common-arrow .swiper-button-prev {
-  position: relative; left: auto; top: auto; right: auto; margin: 0 16px; transition: .5s ease; width: 20px; height: 38px; outline: none; border: none; box-shadow: none;
-}
-.visual-symphony-wrapper .visual-symphony-slider .common-arrow .swiper-button-next::after,
-.visual-symphony-wrapper .visual-symphony-slider .common-arrow .swiper-button-prev::after { display: none; }
-.visual-symphony-wrapper .visual-symphony-slider .common-arrow .swiper-button-next img,
-.visual-symphony-wrapper .visual-symphony-slider .common-arrow .swiper-button-prev img { width: 100%; }
-</style>
+<!-- ============ RESIDENCE TYPES ============ -->
+<section class="py-24" style="background:#f9f8f6;" id="residences">
+  <div class="max-w-[1380px] mx-auto px-6 lg:px-10">
+    <div class="flex flex-wrap items-end justify-between gap-6 mb-14 reveal">
+      <div>
+        <div class="eyebrow-line mb-6"><span class="eyebrow">The Collection</span></div>
+        <h2 class="section-title">Cinci tipologii. <span class="gilt">One</span> address.</h2>
+      </div>
+      <div class="text-black/60 text-sm max-w-xs">De la garsoniere intime la reședințe spațioase cu trei camere — cu patru penthouse-uri duplex care încoronează turnul.</div>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+      <!-- Studio -->
+      <article class="type-card bg-white">
+        <div class="aspect-[4/5] bg-stone-bg overflow-hidden">
+          <svg viewBox="0 0 400 500" class="w-full h-full" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="tcS" x2="0" y2="1"><stop offset="0" stop-color="#e4d7b8"/><stop offset="1" stop-color="#5a4736"/></linearGradient></defs>
+            <rect width="400" height="500" fill="url(#tcS)"/>
+            <rect x="90" y="260" width="220" height="200" fill="#efdcb6"/>
+            <rect x="90" y="252" width="220" height="10" fill="#3a2a18"/>
+            <rect x="120" y="300" width="160" height="120" fill="#6a4a26" opacity="0.8"/>
+            <rect x="140" y="320" width="120" height="20" fill="#b59458"/>
+          </svg>
+        </div>
+        <div class="p-6">
+          <div class="label text-landmark-gold">Type 01 · Studio</div>
+          <h3 class="font-headline text-[22px] leading-tight text-black mt-2 mb-4">Studioul</h3>
+          <div class="flex items-center gap-2 label text-landmark-green mb-4"><span class="w-2 h-2 rounded-full bg-landmark-green"></span>12 Available</div>
+          <dl class="grid grid-cols-2 gap-3 py-4 border-y border-black/10">
+            <div><dt class="label text-black/50">Area</dt><dd class="font-headline text-[15px] text-black mt-1">42 – 55 m²</dd></div>
+            <div><dt class="label text-black/50">De la</dt><dd class="font-headline text-[15px] text-black mt-1">€185k</dd></div>
+          </dl>
+          <p class="mt-4 text-[13px] text-black/65 leading-[1.7]">Garsoniere cu plan deschis, tavane de 3 metri și o logie de 6 m². Etajele 2 – 7.</p>
+        </div>
+      </article>
 
-<section class="visual-symphony-wrapper" style="padding-top: 50px; padding-bottom: 50px;">
-<h2 class="font-headline text-black" style="font-size: 52px; line-height: 62px; font-weight: 400;">Creat pentru o Viață în Mișcare</h2>
-<div class="visual-symphony-slider">
-<div class="swiper" id="gallery-swiper">
-<div class="swiper-wrapper">
-<div class="swiper-slide">
-<img alt="Reședințe de lux la The Pinnacle" src="/raw/gallery-87.webp">
-</div>
-<div class="swiper-slide">
-<img alt="Arhitectură modernă și linia orizontului" src="/raw/gallery-86.webp">
-</div>
-<div class="swiper-slide">
-<img alt="Alei prin grădină și spații verzi" src="/raw/gallery-85.webp">
-</div>
-<div class="swiper-slide">
-<img alt="Piscină comunitară și agrement" src="/raw/gallery-84.webp">
-</div>
-<div class="swiper-slide">
-<img alt="Spații interioare de lifestyle" src="/raw/gallery-91.webp">
-</div>
-<div class="swiper-slide">
-<img alt="Vederi panoramice" src="/raw/gallery-82.webp">
-</div>
-</div>
-<div class="common-arrow">
-<div class="swiper-button-prev" tabindex="0" role="button" aria-label="Slide-ul anterior">
-<img src="/arrow_prev.svg" alt="Anterior">
-</div>
-<div class="swiper-button-next" tabindex="0" role="button" aria-label="Slide-ul următor">
-<img src="/arrow_next.svg" alt="Următor">
-</div>
-</div>
-</div>
-</div>
+      <!-- 1-room -->
+      <article class="type-card bg-white lg:mt-8">
+        <div class="aspect-[4/5] bg-stone-bg overflow-hidden">
+          <svg viewBox="0 0 400 500" class="w-full h-full" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="tc1r" x2="0" y2="1"><stop offset="0" stop-color="#d9c9a5"/><stop offset="1" stop-color="#4a3c28"/></linearGradient></defs>
+            <rect width="400" height="500" fill="url(#tc1r)"/>
+            <rect x="60" y="240" width="280" height="220" fill="#efdcb6"/>
+            <rect x="60" y="232" width="280" height="10" fill="#3a2a18"/>
+            <rect x="90" y="280" width="100" height="140" fill="#6a4a26"/>
+            <rect x="210" y="280" width="100" height="140" fill="#8a6a3a"/>
+          </svg>
+        </div>
+        <div class="p-6">
+          <div class="label text-landmark-gold">Type 02 · 1-Room</div>
+          <h3 class="font-headline text-[22px] leading-tight text-black mt-2 mb-4">The One-Room</h3>
+          <div class="flex items-center gap-2 label text-landmark-green mb-4"><span class="w-2 h-2 rounded-full bg-landmark-green"></span>14 Available</div>
+          <dl class="grid grid-cols-2 gap-3 py-4 border-y border-black/10">
+            <div><dt class="label text-black/50">Area</dt><dd class="font-headline text-[15px] text-black mt-1">62 – 82 m²</dd></div>
+            <div><dt class="label text-black/50">De la</dt><dd class="font-headline text-[15px] text-black mt-1">€290k</dd></div>
+          </dl>
+          <p class="mt-4 text-[13px] text-black/65 leading-[1.7]">Dormitor și living separate, terasă de 8 m. Etajele 3 – 15.</p>
+        </div>
+      </article>
+
+      <!-- 2-room -->
+      <article class="type-card bg-white">
+        <div class="aspect-[4/5] bg-stone-bg overflow-hidden">
+          <svg viewBox="0 0 400 500" class="w-full h-full" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="tc2r" x2="0" y2="1"><stop offset="0" stop-color="#c9b58a"/><stop offset="1" stop-color="#3a2e1a"/></linearGradient></defs>
+            <rect width="400" height="500" fill="url(#tc2r)"/>
+            <rect x="40" y="220" width="320" height="240" fill="#efdcb6"/>
+            <rect x="40" y="212" width="320" height="10" fill="#3a2a18"/>
+            <g fill="#6a4a26"><rect x="60" y="260" width="90" height="160"/><rect x="160" y="260" width="90" height="160"/><rect x="260" y="260" width="90" height="160"/></g>
+          </svg>
+        </div>
+        <div class="p-6">
+          <div class="label text-landmark-gold">Type 03 · 2-Room</div>
+          <h3 class="font-headline text-[22px] leading-tight text-black mt-2 mb-4">The Two-Room</h3>
+          <div class="flex items-center gap-2 label text-landmark-gold mb-4"><span class="w-2 h-2 rounded-full bg-landmark-gold"></span>8 Available</div>
+          <dl class="grid grid-cols-2 gap-3 py-4 border-y border-black/10">
+            <div><dt class="label text-black/50">Area</dt><dd class="font-headline text-[15px] text-black mt-1">95 – 130 m²</dd></div>
+            <div><dt class="label text-black/50">De la</dt><dd class="font-headline text-[15px] text-black mt-1">€520k</dd></div>
+          </dl>
+          <p class="mt-4 text-[13px] text-black/65 leading-[1.7]">Two bedrooms, two baths, open kitchen and a 12 m terrace. Floors 4 – 18.</p>
+        </div>
+      </article>
+
+      <!-- 3-room -->
+      <article class="type-card bg-white lg:mt-8">
+        <div class="aspect-[4/5] bg-stone-bg overflow-hidden">
+          <svg viewBox="0 0 400 500" class="w-full h-full" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="tc3r" x2="0" y2="1"><stop offset="0" stop-color="#5a6a78"/><stop offset="1" stop-color="#1a222e"/></linearGradient></defs>
+            <rect width="400" height="500" fill="url(#tc3r)"/>
+            <ellipse cx="200" cy="400" rx="160" ry="24" fill="#e0d5c4" opacity="0.5"/>
+            <rect x="60" y="120" width="280" height="240" fill="none" stroke="#b59458" stroke-width="2"/>
+            <rect x="68" y="128" width="264" height="224" fill="#efdcb6" opacity="0.75"/>
+            <line x1="200" y1="120" x2="200" y2="360" stroke="#b59458"/>
+            <line x1="60" y1="240" x2="340" y2="240" stroke="#b59458"/>
+          </svg>
+        </div>
+        <div class="p-6">
+          <div class="label text-landmark-gold">Type 04 · 3-Room</div>
+          <h3 class="font-headline text-[22px] leading-tight text-black mt-2 mb-4">The Three-Room</h3>
+          <div class="flex items-center gap-2 label text-landmark-gold mb-4"><span class="w-2 h-2 rounded-full bg-landmark-gold"></span>3 Available</div>
+          <dl class="grid grid-cols-2 gap-3 py-4 border-y border-black/10">
+            <div><dt class="label text-black/50">Area</dt><dd class="font-headline text-[15px] text-black mt-1">165 – 230 m²</dd></div>
+            <div><dt class="label text-black/50">De la</dt><dd class="font-headline text-[15px] text-black mt-1">€1.2M</dd></div>
+          </dl>
+          <p class="mt-4 text-[13px] text-black/65 leading-[1.7]">Trei dormitoare + birou, tavane de 3,4 m, terasă înconjurătoare de 18 m. Etajele 10 – 19.</p>
+        </div>
+      </article>
+
+      <!-- Penthouse Duplex -->
+      <article class="type-card bg-white">
+        <div class="aspect-[4/5] bg-stone-bg overflow-hidden">
+          <svg viewBox="0 0 400 500" class="w-full h-full" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="tcP" x2="0" y2="1"><stop offset="0" stop-color="#5a4428"/><stop offset="1" stop-color="#1a1208"/></linearGradient></defs>
+            <rect width="400" height="500" fill="url(#tcP)"/>
+            <ellipse cx="200" cy="80" rx="200" ry="60" fill="#efd68a" opacity="0.25"/>
+            <rect x="40" y="180" width="320" height="100" fill="#0a0605"/>
+            <rect x="60" y="200" width="280" height="60" fill="#6a7a5a"/>
+            <rect x="40" y="290" width="320" height="14" fill="#b59458"/>
+            <rect x="40" y="310" width="320" height="100" fill="#0a0605"/>
+            <rect x="60" y="330" width="280" height="60" fill="#6a7a5a"/>
+            <path d="M180,170 L220,170 L200,140 Z" fill="#b59458"/>
+          </svg>
+        </div>
+        <div class="p-6">
+          <div class="label text-landmark-gold">Type 05 · Duplex</div>
+          <h3 class="font-headline text-[22px] leading-tight text-black mt-2 mb-4">The Crown Duplex</h3>
+          <div class="flex items-center gap-2 label text-[#a94b2a] mb-4"><span class="w-2 h-2 rounded-full bg-[#a94b2a]"></span>1 of 4 Remaining</div>
+          <dl class="grid grid-cols-2 gap-3 py-4 border-y border-black/10">
+            <div><dt class="label text-black/50">Area</dt><dd class="font-headline text-[15px] text-black mt-1">420 – 620 m²</dd></div>
+            <div><dt class="label text-black/50">De la</dt><dd class="font-headline text-[15px] text-black mt-1">€4.8M</dd></div>
+          </dl>
+          <p class="mt-4 text-[13px] text-black/65 leading-[1.7]">4 duplex penthouses spanning floors 20 – 23, private rooftop garden, internal stair, 4 m ceilings.</p>
+        </div>
+      </article>
+    </div>
+  </div>
 </section>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-new Swiper('#gallery-swiper', {
-  slidesPerView: 1.5,
-  spaceBetween: 15,
-  loop: true,
-  speed: 800,
-  autoplay: { delay: 5000, disableOnInteraction: false },
-  navigation: {
-    nextEl: '.visual-symphony-slider .swiper-button-next',
-    prevEl: '.visual-symphony-slider .swiper-button-prev',
-  },
-  breakpoints: {
-    320: { slidesPerView: 1, spaceBetween: 15 },
-    768: { slidesPerView: 1.8, spaceBetween: 15, centeredSlides: true, roundLengths: true },
-    1024: { slidesPerView: 1.8, spaceBetween: 15, centeredSlides: true, roundLengths: true },
-    1200: { slidesPerView: 1.43, spaceBetween: -134, centeredSlides: true, roundLengths: true }
-  }
-});
-</script>
+<!-- ============ INTERACTIVE TOWER SELECTOR ============ -->
+<section class="py-24" style="background:#0e1512;">
+  <div class="max-w-[1380px] mx-auto px-6 lg:px-10">
+    <div class="flex flex-wrap items-end justify-between gap-6 mb-10 reveal">
+      <div>
+        <div class="eyebrow-line mb-6" style="color:#b59458;"><span class="eyebrow">The Tower</span></div>
+        <h2 class="section-title text-white">Choose your <span class="serif-italic text-landmark-gold">altitude</span>.</h2>
+      </div>
+      <div class="flex items-center gap-6 text-white/70 text-[11px] uppercase tracking-[0.22em]">
+        <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full border border-landmark-gold/80"></span>Disponibile</span>
+        <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-landmark-gold/60"></span>Selected</span>
+        <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full border border-white/20 bg-white/10"></span>Sold</span>
+      </div>
+    </div>
+    <div class="grid lg:grid-cols-12 gap-10 items-center">
+      <!-- Tower SVG -->
+      <div class="lg:col-span-5 reveal">
+        <div class="relative mx-auto" style="max-width: 440px;">
+          <svg id="towerSvg" viewBox="0 0 360 640" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+            <defs>
+              <linearGradient id="skyBack" x2="0" y2="1">
+                <stop offset="0" stop-color="#1a2620"/>
+                <stop offset="1" stop-color="#0a0e0a"/>
+              </linearGradient>
+              <linearGradient id="towerClad" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0" stop-color="#2a3a26"/>
+                <stop offset="0.25" stop-color="#4a6238"/>
+                <stop offset="0.55" stop-color="#5f7a44"/>
+                <stop offset="0.8" stop-color="#3a4e2c"/>
+                <stop offset="1" stop-color="#1e2a18"/>
+              </linearGradient>
+              <linearGradient id="groundGrad" x2="0" y2="1">
+                <stop offset="0" stop-color="#1a1f18"/>
+                <stop offset="1" stop-color="#0a0e0a"/>
+              </linearGradient>
+              <radialGradient id="glow" cx="0.5" cy="1" r="0.7">
+                <stop offset="0" stop-color="#b59458" stop-opacity="0.25"/>
+                <stop offset="1" stop-color="#b59458" stop-opacity="0"/>
+              </radialGradient>
+            </defs>
 
-<!-- 5. FLOOR PLAN — exact Sobha: virtual-floor-plan-wrapper -->
-<style>
-.virtual-floor-plan-wrapper { margin: 0; overflow: hidden; }
-.virtual-floor-plan-wrapper h2 { text-align: center; margin-bottom: 65px; }
-.virtual-floor-plan-wrapper .tab-content { margin: 0; padding: 80px 0 0; }
-.virtual-floor-plan-wrapper .tab-content .row { display: flex; flex-wrap: wrap; align-items: center; }
-.virtual-floor-plan-wrapper .tab-content h4 { color: #c7a386; }
-.virtual-floor-plan-wrapper .tab-content ul { list-style: none; padding: 0; margin: 0; }
-.virtual-floor-plan-wrapper .tab-content ul li { font-size: 14px; color: #000; letter-spacing: 2px; font-weight: 400; padding: 8px 0; border-bottom: 1px solid #eee; }
-.virtual-floor-plan-wrapper .tab-content ul li span { font-size: 16px; letter-spacing: 2.5px; font-weight: 500; text-transform: uppercase; }
-.virtual-floor-plan-wrapper .virtual-tour-wrapper { position: relative; text-align: center; }
-.virtual-floor-plan-wrapper .virtual-tour-wrapper img { display: block; width: 100%; position: relative; z-index: 2; }
-.category-button { text-align: center; font-size: 16px; font-weight: 500; letter-spacing: 2.88px; display: inline-block; cursor: pointer; color: #a7a7a7; border: none; border-bottom: 1px solid transparent; padding: 13px 22px; background: none; text-transform: uppercase; }
-.category-button.active { color: #000; border-bottom: 1px solid #000; }
-@media (max-width: 767px) {
-  .virtual-floor-plan-wrapper .tab-content { padding: 20px 0 0; }
-  .virtual-floor-plan-wrapper .tab-content .row { flex-direction: column-reverse; text-align: center; }
-}
-</style>
-<section class="virtual-floor-plan-wrapper" style="padding-bottom: 50px;">
-<div class="max-w-[1185px] mx-auto px-5 lg:px-0">
-<h2 class="font-headline text-black" style="font-size: 52px; line-height: 62px; font-weight: 400;">Plan de Etaj</h2>
-<!-- Tabs -->
-<div class="flex justify-center" id="floorplan-tabs">
-<button class="category-button active" data-tab="fp-1br">1 Dormitor</button>
-<button class="category-button" data-tab="fp-2br">2 Dormitoare</button>
-</div>
-<!-- Tab content -->
-<div class="tab-content">
-<!-- 1 BR Panel -->
-<div class="floor-main-plan" id="fp-1br">
-<div class="flex flex-col lg:flex-row items-center gap-12">
-<div class="w-full lg:w-1/2">
-<h4 class="font-headline" style="font-size: 34px; line-height: 41px; font-weight: 400; margin-bottom: 30px;">Apartament cu 1 Dormitor (Tip A)</h4>
-<ul>
-<li><span>UNITATE :</span> 1 DORMITOR + 1 BALCON</li>
-<li><span>SUITĂ :</span> 504.83 SQ.FT.</li>
-<li><span>BALCON :</span> 59.95 SQ.FT.</li>
-<li><span>TOTAL :</span> 564.78 SQ.FT.</li>
-</ul>
-<ul style="margin-top: 30px;">
-<li style="border: none;">
-<div style="display: flex; justify-content: flex-start;">
-<a href="#" class="inline-block text-center border border-black text-black rounded-full uppercase transition-all duration-500 hover:border-[#c8a487]" style="font-size: 14px; height: 49px; border-radius: 25px; min-width: 265px; letter-spacing: 2.5px; font-weight: 500; padding-top: 12px; text-decoration: none;">Descarcă Planul de Etaj</a>
-</div>
-</li>
-</ul>
-</div>
-<div class="w-full lg:w-1/2">
-<div class="virtual-tour-wrapper">
-<img alt="Plan apartament cu 1 dormitor" src="/raw/floorplan-1a.webp">
-</div>
-</div>
-</div>
-</div>
-<!-- 2 BR Panel -->
-<div class="floor-main-plan" id="fp-2br" style="display: none;">
-<div class="flex flex-col lg:flex-row items-center gap-12">
-<div class="w-full lg:w-1/2">
-<h4 class="font-headline" style="font-size: 34px; line-height: 41px; font-weight: 400; margin-bottom: 30px;">Apartament cu 2 Dormitoare (Tip A)</h4>
-<ul>
-<li><span>UNITATE :</span> 2 DORMITOARE + 1 BALCON</li>
-<li><span>SUITĂ :</span> 982.50 SQ.FT.</li>
-<li><span>BALCON :</span> 107.64 SQ.FT.</li>
-<li><span>TOTAL :</span> 1,090.14 SQ.FT.</li>
-</ul>
-<ul style="margin-top: 30px;">
-<li style="border: none;">
-<div style="display: flex; justify-content: flex-start;">
-<a href="#" class="inline-block text-center border border-black text-black rounded-full uppercase transition-all duration-500 hover:border-[#c8a487]" style="font-size: 14px; height: 49px; border-radius: 25px; min-width: 265px; letter-spacing: 2.5px; font-weight: 500; padding-top: 12px; text-decoration: none;">Descarcă Planul de Etaj</a>
-</div>
-</li>
-</ul>
-</div>
-<div class="w-full lg:w-1/2">
-<div class="virtual-tour-wrapper">
-<img alt="Plan apartament cu 2 dormitoare" src="/raw/floorplan-2a.webp">
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Floor plan tab switching -->
-<script>
-document.querySelectorAll('#floorplan-tabs .category-button').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    // Update active tab
-    document.querySelectorAll('#floorplan-tabs .category-button').forEach(function(b) { b.classList.remove('active'); });
-    btn.classList.add('active');
-    // Show/hide panels
-    document.querySelectorAll('.floor-main-plan').forEach(function(p) { p.style.display = 'none'; });
-    document.getElementById(btn.dataset.tab).style.display = 'block';
-  });
-});
-</script>
-</div>
+            <!-- atmospheric glow -->
+            <rect width="360" height="640" fill="url(#glow)"/>
+
+            <!-- ground -->
+            <rect y="600" width="360" height="40" fill="url(#groundGrad)"/>
+            <rect y="596" width="360" height="1.5" fill="#304028"/>
+
+            <!-- ground-floor podium (slightly wider) -->
+            <rect x="60" y="560" width="240" height="40" fill="#9a8664" opacity="0.85"/>
+            <rect x="60" y="555" width="240" height="6" fill="#b59458"/>
+            <!-- entry portal -->
+            <rect x="170" y="575" width="20" height="25" fill="#1a2418"/>
+
+            <!-- tower body: rounded rectangle with slight taper -->
+            <path d="M 70 560
+                     L 70 140
+                     Q 70 70 180 70
+                     Q 290 70 290 140
+                     L 290 560 Z"
+                  fill="url(#towerClad)" />
+
+            <!-- Vertical louvres — dense pinstripe echoing render -->
+            <g stroke="rgba(30,40,24,0.55)" stroke-width="0.8" id="louvres"></g>
+
+            <!-- Green cascading plant columns -->
+            <g id="vines" opacity="0.85"></g>
+
+            <!-- Horizontal floor lines -->
+            <g id="floorLines" stroke="rgba(255,255,255,0.12)" stroke-width="0.4"></g>
+
+            <!-- Floor interactive bands -->
+            <g id="floorBands"></g>
+
+            <!-- Altitude ruler -->
+            <g font-family="Lato" font-size="9" fill="#b59458" letter-spacing="1.5" opacity="0.85">
+              <line x1="310" y1="140" x2="310" y2="560" stroke="#b59458" stroke-width="0.3" stroke-dasharray="2,3"/>
+              <text x="316" y="144">40 m</text>
+              <text x="316" y="250">30 m</text>
+              <text x="316" y="355">20 m</text>
+              <text x="316" y="460">10 m</text>
+              <text x="316" y="564">0 m</text>
+            </g>
+          </svg>
+          <div class="text-center mt-4 label text-white/40">Apasă pe un etaj pentru a explora</div>
+        </div>
+      </div>
+      <!-- Floor detail -->
+      <div class="lg:col-span-7 text-white" id="floorDetail">
+        <div class="flex items-baseline gap-6 mb-6">
+          <span class="display text-[76px] leading-none text-landmark-gold" id="floorNumber">06</span>
+          <div>
+            <div class="label text-white/60" id="floorBand">Two-Room Residences</div>
+            <div class="font-headline text-[22px] mt-2" id="floorTitle">Etajul 06 · Tip 03</div>
+          </div>
+        </div>
+        <p class="text-white/75 leading-[1.85] max-w-xl" id="floorDescription">
+          Floor 6 holds four two-room residences of 95–130 m², each with a private terrace facing the inner green court and the forest-line ridge beyond.
+        </p>
+        <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-6 pt-8 border-t border-white/15">
+          <div><div class="label text-white/50">Altitude</div><div class="font-headline text-[20px] mt-2" id="floorAlt">17m</div></div>
+          <div><div class="label text-white/50">Reședințe</div><div class="font-headline text-[20px] mt-2" id="floorUnits">4</div></div>
+          <div><div class="label text-white/50">Area</div><div class="font-headline text-[20px] mt-2" id="floorArea">95 – 130 m²</div></div>
+          <div><div class="label text-white/50">Status</div><div class="font-headline text-[20px] mt-2 text-landmark-gold" id="floorStatus">Disponibile</div></div>
+        </div>
+        <div class="mt-10 flex flex-wrap gap-3">
+          <a href="#plan" class="btn-outline on-dark" style="height:44px;">View Plan</a>
+          <a href="#inquiry" class="btn-solid" style="height:44px; background: #b59458;">Întreabă despre acest etaj</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- 6. AMENITIES — exact Sobha: elite-living-amenities-wrapper -->
-<style>
-.elite-living-amenities-wrapper { margin: 0; }
-.elite-living-amenities-wrapper h2 { text-align: center; margin-bottom: 45px; }
-.elite-living-amenities-wrapper .amenity-row > div { margin-bottom: 30px; display: flex; }
-.elite-living-amenities-wrapper .grey-div { padding: 30px 15px; background: #f5f5f5; border-radius: 7px; text-align: center; height: 100%; width: 100%; }
-.elite-living-amenities-wrapper .grey-div i { margin-bottom: 15px; display: flex; width: 65px; height: 65px; margin: 0 auto; align-items: flex-end; justify-content: center; margin-bottom: 15px; }
-.elite-living-amenities-wrapper .grey-div i img { max-height: 100%; }
-.elite-living-amenities-wrapper .grey-div p { margin: 0; font-size: 14px; line-height: 19px; text-transform: uppercase; min-height: 60px; display: flex; align-items: center; justify-content: center; }
-</style>
-<section class="elite-living-amenities-wrapper" style="padding-bottom: 50px;">
-<div class="max-w-[1185px] mx-auto px-5 lg:px-0">
-<h2 class="font-headline text-black" style="font-size: 52px; line-height: 62px; font-weight: 400;">Creat pentru Fiecare Pasiune</h2>
-<div class="amenity-row grid grid-cols-2 lg:grid-cols-6 gap-4">
-<div><div class="grey-div"><i><img src="/amenities/pool.svg" alt="Piscină de Agrement"></i><p>Piscină de Agrement</p></div></div>
-<div><div class="grey-div"><i><img src="/amenities/bbq.svg" alt="Zonă de Grătar"></i><p>Zonă de Grătar &amp; Întâlniri</p></div></div>
-<div><div class="grey-div"><i><img src="/amenities/gym.svg" alt="Sală de Calistenica"></i><p>Sală de Calistenica</p></div></div>
-<div><div class="grey-div"><i><img src="/amenities/picnic.svg" alt="Zonă de Picnic"></i><p>Zonă de Picnic</p></div></div>
-<div><div class="grey-div"><i><img src="/amenities/dogpark.svg" alt="Parc pentru Câini"></i><p>Parc pentru Câini</p></div></div>
-<div><div class="grey-div"><i><img src="/amenities/jacuzzi.svg" alt="Jacuzzi"></i><p>Jacuzzi</p></div></div>
-</div>
-<div class="amenity-row grid grid-cols-2 lg:grid-cols-6 gap-4">
-<div><div class="grey-div"><i><img src="/amenities/amphitheatre.svg" alt="Amfiteatru Deschis"></i><p>Amfiteatru Deschis</p></div></div>
-<div><div class="grey-div"><i><img src="/amenities/sauna.svg" alt="Saună și Baie de Abur"></i><p>Saună și Baie de Abur</p></div></div>
-<div><div class="grey-div"><i><img src="/amenities/kids.svg" alt="Zonă de Joacă"></i><p>Zonă de Joacă</p></div></div>
-<div><div class="grey-div"><i><img src="/amenities/fitness.svg" alt="Centru de Fitness"></i><p>Centru de Fitness Modern</p></div></div>
-<div><div class="grey-div"><i><img src="/amenities/library.svg" alt="Bibliotecă"></i><p>Bibliotecă</p></div></div>
-<div><div class="grey-div"><i><img src="/amenities/theatre.svg" alt="Teatru Interior"></i><p>Teatru Interior</p></div></div>
-</div>
-<div class="flex justify-center" style="margin-top: 10px;">
-<a href="#" class="inline-block text-center border border-black text-black rounded-full uppercase transition-all duration-500 hover:border-[#c8a487]" style="font-size: 14px; height: 49px; border-radius: 25px; min-width: 265px; letter-spacing: 2.5px; font-weight: 500; padding-top: 12px; text-decoration: none;">Vezi Tot</a>
-</div>
-</div>
+<!-- ============ GALERIE ============ -->
+<section class="py-24 bg-white" id="gallery">
+  <div class="max-w-[1380px] mx-auto px-6 lg:px-10">
+    <div class="flex flex-wrap items-end justify-between gap-6 mb-12 reveal">
+      <div>
+        <div class="eyebrow-line mb-6"><span class="eyebrow">În interiorul clădirii</span></div>
+        <h2 class="section-title">A <span class="gilt">closer</span> look.</h2>
+      </div>
+      <button type="button" id="openGalleryBtn" class="btn-outline">Toate randările (7) <span class="material-symbols-outlined text-[18px]">arrow_forward</span></button>
+    </div>
+    <div class="grid grid-cols-6 grid-rows-6 gap-4 h-[720px]" id="galleryGrid">
+      <!-- 1: Approach -->
+      <div class="gallery-item col-span-3 row-span-3 relative" data-idx="0">
+        <svg viewBox="0 0 600 400" class="w-full h-full object-cover" preserveAspectRatio="xMidYMid slice">
+          <defs><linearGradient id="g1" x2="0" y2="1"><stop offset="0" stop-color="#2a3226"/><stop offset="1" stop-color="#b59458"/></linearGradient></defs>
+          <rect width="600" height="400" fill="url(#g1)"/>
+          <polygon points="230,20 370,20 400,400 200,400" fill="#efdcb6"/>
+          <g stroke="#3a2a18" stroke-width="0.4"><line x1="300" y1="20" x2="300" y2="400"/></g>
+          <rect y="320" width="600" height="80" fill="#0a0e0a" opacity="0.5"/>
+        </svg>
+        <div class="absolute left-5 bottom-5 text-white"><div class="label text-landmark-gold">01</div><div class="font-headline text-[18px]">The Approach</div></div>
+      </div>
+      <div class="gallery-item col-span-3 row-span-2 relative" data-idx="1">
+        <svg viewBox="0 0 600 270" class="w-full h-full" preserveAspectRatio="xMidYMid slice">
+          <defs><linearGradient id="g2" x2="0" y2="1"><stop offset="0" stop-color="#4a3c28"/><stop offset="1" stop-color="#1a140a"/></linearGradient></defs>
+          <rect width="600" height="270" fill="url(#g2)"/>
+          <rect x="100" y="60" width="400" height="180" fill="#efdcb6"/>
+          <rect x="120" y="80" width="360" height="140" fill="#2a1a12"/>
+          <rect x="160" y="110" width="80" height="100" fill="#b59458"/>
+          <rect x="280" y="110" width="80" height="100" fill="#b59458"/>
+          <rect x="400" y="110" width="60" height="100" fill="#d9c9a5"/>
+        </svg>
+        <div class="absolute left-5 bottom-5 text-white"><div class="label text-landmark-gold">02</div><div class="font-headline text-[18px]">The Arrival Hall</div></div>
+      </div>
+      <div class="gallery-item col-span-2 row-span-2 relative" data-idx="2">
+        <svg viewBox="0 0 400 270" class="w-full h-full" preserveAspectRatio="xMidYMid slice">
+          <rect width="400" height="270" fill="#2a3224"/>
+          <rect x="40" y="40" width="320" height="190" fill="#4a3c28"/>
+          <rect x="60" y="60" width="280" height="150" fill="#d4a870"/>
+          <circle cx="200" cy="135" r="40" fill="#efdcb6"/>
+        </svg>
+        <div class="absolute left-5 bottom-5 text-white"><div class="label text-landmark-gold">03</div><div class="font-headline text-[16px]">Living Room</div></div>
+      </div>
+      <div class="gallery-item col-span-1 row-span-2 relative" data-idx="3">
+        <svg viewBox="0 0 200 270" class="w-full h-full" preserveAspectRatio="xMidYMid slice">
+          <rect width="200" height="270" fill="#5a6848"/>
+          <rect y="140" width="200" height="130" fill="#2a3624"/>
+          <rect x="60" y="80" width="80" height="90" fill="#efdcb6" opacity="0.8"/>
+        </svg>
+        <div class="absolute left-5 bottom-5 text-white"><div class="label text-landmark-gold">04</div><div class="font-headline text-[14px]">Terrace</div></div>
+      </div>
+      <div class="gallery-item col-span-3 row-span-1 relative" data-idx="4">
+        <svg viewBox="0 0 600 140" class="w-full h-full" preserveAspectRatio="xMidYMid slice">
+          <defs><linearGradient id="g5" x2="0" y2="1"><stop offset="0" stop-color="#1a140a"/><stop offset="1" stop-color="#5a4228"/></linearGradient></defs>
+          <rect width="600" height="140" fill="url(#g5)"/>
+          <g fill="#efd68a" opacity="0.8"><circle cx="80" cy="50" r="2"/><circle cx="200" cy="30" r="2"/><circle cx="340" cy="60" r="2"/><circle cx="470" cy="40" r="2"/><circle cx="550" cy="70" r="2"/></g>
+          <rect y="100" width="600" height="40" fill="#0a0605"/>
+        </svg>
+        <div class="absolute left-5 bottom-3 text-white"><div class="label text-landmark-gold">05 · Night view</div></div>
+      </div>
+      <div class="gallery-item col-span-2 row-span-1 relative" data-idx="5">
+        <svg viewBox="0 0 400 140" class="w-full h-full" preserveAspectRatio="xMidYMid slice">
+          <rect width="400" height="140" fill="#efdcb6"/>
+          <rect y="80" width="400" height="60" fill="#4a3c28"/>
+          <rect x="120" y="30" width="40" height="80" fill="#b59458"/>
+          <rect x="180" y="30" width="40" height="80" fill="#8a6a3a"/>
+          <rect x="240" y="30" width="40" height="80" fill="#b59458"/>
+        </svg>
+        <div class="absolute left-5 bottom-3 text-white"><div class="label text-landmark-gold">06 · Spa</div></div>
+      </div>
+      <div class="gallery-item col-span-1 row-span-1 relative" data-idx="6">
+        <svg viewBox="0 0 200 140" class="w-full h-full" preserveAspectRatio="xMidYMid slice">
+          <rect width="200" height="140" fill="#b59458"/>
+          <rect y="70" width="200" height="70" fill="#004225"/>
+          <circle cx="100" cy="70" r="30" fill="#efdcb6" opacity="0.8"/>
+        </svg>
+        <div class="absolute left-5 bottom-3 text-white"><div class="label text-white/80">07 · Crown</div></div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- 7. LOCATION — exact Sobha: map-section + vibrant-living-wrapper -->
-<style>
-.vibrant-living-wrapper { text-align: center; }
-.vibrant-living-wrapper .white-box-section { background: #fff; padding: 40px; border-radius: 7px; }
-.vibrant-living-wrapper .white-box-section .row { display: flex; flex-wrap: wrap; justify-content: center; }
-.vibrant-living-wrapper .white-box-div { margin: 0; padding: 30px 0; text-align: center; }
-.vibrant-living-wrapper .white-box-div i { margin-bottom: 25px; display: flex; max-height: 30px; align-items: flex-end; justify-content: center; }
-.vibrant-living-wrapper .white-box-div i img { max-height: 30px; }
-.vibrant-living-wrapper .white-box-div p { margin: 0 0 20px; font-size: 14px; line-height: 19px; min-height: 38px; text-transform: uppercase; }
-.vibrant-living-wrapper .white-box-div span { font-size: 14px; color: #a7a7a7; letter-spacing: 2px; text-transform: uppercase; }
-</style>
-<!-- Map section — tabs in container, map full-width (Mapbox canvas overflows container) -->
-<section class="bg-white" style="padding-top: 50px;">
-<div class="max-w-[1185px] mx-auto px-5 lg:px-0">
-<!-- Category tabs -->
-<div class="flex flex-wrap justify-center gap-0 mb-8" id="map-tabs">
-<button class="category-button active" data-key="Schools">Școli</button>
-<button class="category-button" data-key="Shop">Magazine</button>
-<button class="category-button" data-key="Dine">Restaurante</button>
-<button class="category-button" data-key="Grocery">Alimentare</button>
-<button class="category-button" data-key="Attractions">Atracții</button>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Gallery viewer">
+  <button class="absolute top-6 right-6 text-white/70 hover:text-white" id="lbClose" aria-label="Close"><span class="material-symbols-outlined text-[32px]">close</span></button>
+  <button class="absolute left-6 top-1/2 -translate-y-1/2 text-white/70 hover:text-white" id="lbPrev" aria-label="Previous"><span class="material-symbols-outlined text-[40px]">arrow_back</span></button>
+  <button class="absolute right-6 top-1/2 -translate-y-1/2 text-white/70 hover:text-white" id="lbNext" aria-label="Next"><span class="material-symbols-outlined text-[40px]">arrow_forward</span></button>
+  <div id="lbContent" class="text-center"></div>
+  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/70 label" id="lbCounter">01 / 07</div>
 </div>
-</div>
-<!-- Map: full viewport width, 500px tall -->
-<div class="relative w-screen overflow-hidden" id="map_canvas" style="height: 500px; margin-left: calc(-50vw + 50%); width: 100vw;">
-<iframe
-  src="https://www.openstreetmap.org/export/embed.html?bbox=55.15%2C25.08%2C55.45%2C25.28&layer=mapnik&marker=25.1855%2C55.3003"
-  width="100%" height="100%" style="border:0;" loading="lazy"
-  title="Locația The Pinnacle pe hartă"></iframe>
-</div>
-</section>
-<!-- Map tab switching -->
-<script>
-document.querySelectorAll('#map-tabs .category-button').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    document.querySelectorAll('#map-tabs .category-button').forEach(function(b) { b.classList.remove('active'); });
-    btn.classList.add('active');
-  });
-});
-</script>
-<!-- Best of the City -->
-<section class="vibrant-living-wrapper" style="background: #f8f8f8; padding-top: 50px; padding-bottom: 50px;">
-<div class="max-w-[1185px] mx-auto px-5 lg:px-0">
-<h2 class="font-headline text-black" style="font-size: 52px; line-height: 62px; font-weight: 400; margin-bottom: 34px;">Cele Mai Bune din Oraș, Toate la Câteva Minute</h2>
-<div class="white-box-section" style="background: #fff; padding: 40px; border-radius: 7px;">
-<div class="flex flex-wrap justify-center">
-<div class="w-1/2 md:w-1/3 lg:w-1/5">
-<div class="white-box-div">
-<i><img src="/locations/metro.svg" alt="Stație de Metrou"></i>
-<p>Stația de Metrou Jebel Ali</p>
-<span>2 Minute</span>
-</div>
-</div>
-<div class="w-1/2 md:w-1/3 lg:w-1/5">
-<div class="white-box-div">
-<i><img src="/locations/airport.svg" alt="Aeroport"></i>
-<p>Aeroportul Internațional DXB</p>
-<span>29 Minute</span>
-</div>
-</div>
-<div class="w-1/2 md:w-1/3 lg:w-1/5">
-<div class="white-box-div">
-<i><img src="/locations/marina.svg" alt="Dubai Marina"></i>
-<p>Dubai Marina</p>
-<span>13 Minute</span>
-</div>
-</div>
-</div>
-</div>
-</div>
+
+<!-- ============ FLOOR PLAN ============ -->
+<section class="py-24" style="background:#f9f8f6;" id="plan">
+  <div class="max-w-[1380px] mx-auto px-6 lg:px-10">
+    <div class="flex flex-wrap items-end justify-between gap-6 mb-12 reveal">
+      <div>
+        <div class="eyebrow-line mb-6"><span class="eyebrow">Residence Plans</span></div>
+        <h2 class="section-title">Explore the <span class="gilt">plans</span>.</h2>
+        <p class="mt-4 text-black/60 max-w-lg text-[14px] leading-[1.8]">Alegeți o tipologie, apoi o variantă de plan. Fiecare subtip reprezintă o orientare sau configurație diferită în cadrul turnului.</p>
+      </div>
+      <div class="text-right">
+        <div class="label text-black/50 mb-2">Vezi acum</div>
+        <div class="font-headline text-[20px] text-black" id="planCurrent">—</div>
+      </div>
+    </div>
+
+    <!-- Type selector (row 1) -->
+    <div class="reveal mb-5">
+      <div class="label text-black/50 mb-3">Pasul 1 · Alegeți tipologia</div>
+      <div class="flex flex-wrap gap-2" id="typeSelector">
+        <button class="type-chip active" data-type="studio">Studio<span class="ml-2 text-[10px] opacity-60">2</span></button>
+        <button class="type-chip" data-type="one">1-Room<span class="ml-2 text-[10px] opacity-60">2</span></button>
+        <button class="type-chip" data-type="two">2-Room<span class="ml-2 text-[10px] opacity-60">3</span></button>
+        <button class="type-chip" data-type="three">3-Room<span class="ml-2 text-[10px] opacity-60">2</span></button>
+        <button class="type-chip" data-type="duplex">Duplex Crown<span class="ml-2 text-[10px] opacity-60">2</span></button>
+      </div>
+    </div>
+
+    <!-- Subtype selector (row 2) -->
+    <div class="reveal mb-10">
+      <div class="label text-black/50 mb-3">Pasul 2 · Alegeți planul</div>
+      <div class="flex flex-wrap gap-2" id="subtypeSelector"><!-- built by JS --></div>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-12 items-start">
+      <!-- Plan drawing -->
+      <div class="lg:col-span-7 reveal">
+        <div class="flex items-center justify-between mb-4">
+          <div class="flex border-b border-black/10 gap-8" id="levelSelector">
+            <!-- built by JS -->
+          </div>
+          <div class="flex items-center gap-2">
+            <button class="icon-btn" id="planZoomOut" aria-label="Zoom out"><span class="material-symbols-outlined text-[18px]">remove</span></button>
+            <button class="icon-btn" id="planZoomIn" aria-label="Zoom in"><span class="material-symbols-outlined text-[18px]">add</span></button>
+            <button class="icon-btn" id="planFull" aria-label="Fullscreen"><span class="material-symbols-outlined text-[18px]">open_in_full</span></button>
+          </div>
+        </div>
+        <div class="aspect-[5/4] bg-white border border-black/10 p-8 overflow-hidden relative">
+          <svg id="planSvg" viewBox="0 0 800 640" class="w-full h-full transition-transform duration-500" xmlns="http://www.w3.org/2000/svg"></svg>
+          <div class="absolute bottom-4 left-6 right-6 flex items-center justify-between text-[10px] tracking-[0.2em] uppercase text-black/40">
+            <div id="planMeta">—</div>
+            <div class="flex items-center gap-2"><span class="w-3 h-px bg-landmark-gold"></span>1 m</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Details panel -->
+      <div class="lg:col-span-5 reveal">
+        <div class="label text-landmark-gold mb-3" id="planEyebrow">—</div>
+        <h3 class="font-headline text-[34px] leading-tight text-black mb-2" id="planTitle">—</h3>
+        <div class="flex items-center gap-3 mb-6">
+          <span class="inline-flex items-center gap-2 label" id="planAvail">
+            <span class="w-2 h-2 rounded-full bg-landmark-green"></span><span>Disponibile</span>
+          </span>
+          <span class="w-px h-3 bg-black/15"></span>
+          <span class="label text-black/50" id="planFloors">Floors —</span>
+        </div>
+        <p class="text-[15px] leading-[1.85] text-black/70 mb-8" id="planDesc">—</p>
+        <dl class="divide-y divide-black/10" id="planSpecs">
+          <!-- built by JS -->
+        </dl>
+        <div class="flex flex-wrap gap-3 mt-8">
+          <a href="#inquiry" class="btn-solid" style="height:44px; padding:0 26px;">Întreabă despre acest plan</a>
+          <a href="#" class="btn-outline" style="height:44px;"><span class="material-symbols-outlined text-[16px]">download</span> PDF</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- 8. CONTACT / FORM — 5/12 info + 7/12 form -->
-<section style="padding-top: 50px; padding-bottom: 50px;" class="bg-white">
-<div class="max-w-[1185px] mx-auto px-5 lg:px-0">
-<div class="grid lg:grid-cols-12 gap-12">
-<!-- Left column: 5/12 -->
-<div class="lg:col-span-5 flex flex-col justify-center">
-<p class="uppercase tracking-[2.5px] text-[#a7a7a7] mb-2" style="font-size: 14px; font-weight: 500; letter-spacing: 2.5px;">Ne-ar Plăcea Să</p>
-<h2 class="font-headline text-black" style="font-size: 52px; line-height: 62px; font-weight: 400; margin-bottom: 34px;">Auzim de la Dumneavoastră</h2>
-<div class="mb-8">
-<p class="text-[14px] uppercase tracking-[2px] text-[#4f5459] font-light mb-2">Prețuri de Pornire de la</p>
-<p class="text-primary font-medium text-[28px]">AED 1.78 M* / USD 487 K*</p>
-</div>
-<p class="text-[13px] text-[#4f5459] font-light leading-relaxed max-w-sm">*Sub rezerva disponibilității stocului. Prețurile globale variază în funcție de cursul de schimb.</p>
-<div class="mt-10">
-<h3 class="font-headline text-black" style="font-size: 25px; line-height: 30px; font-weight: 400; margin-bottom: 16px;">Contactați-ne</h3>
-<div class="flex items-center gap-3 mb-3">
-<span class="material-symbols-outlined text-[18px] text-[#c7a386]" aria-hidden="true">phone</span>
-<a href="tel:+97148001234" class="text-[14px] text-black font-light hover:text-primary transition-colors">+971 4 800 1234</a>
-</div>
-<div class="flex items-center gap-3">
-<span class="material-symbols-outlined text-[18px] text-[#c7a386]" aria-hidden="true">mail</span>
-<a href="mailto:info@landmarkrealty.ae" class="text-[14px] text-black font-light hover:text-primary transition-colors">info@landmarkrealty.ae</a>
-</div>
-</div>
-</div>
-<!-- Right column: 7/12 -->
-<div class="lg:col-span-7">
-<div class="bg-white p-10 lg:p-12 border border-stone-100">
-<!-- Form tabs -->
-<div class="flex gap-8 border-b border-stone-100 mb-10">
-<button class="text-black border-b-2 border-black pb-4" style="font-size: 14px; text-transform: uppercase; letter-spacing: 2.5px; font-weight: 500;">Cumpără Proprietate</button>
-<button class="pb-4 hover:text-black transition-colors" style="font-size: 14px; text-transform: uppercase; letter-spacing: 2.5px; font-weight: 500; color: #a7a7a7;">Caută un Job</button>
-<button class="pb-4 hover:text-black transition-colors" style="font-size: 14px; text-transform: uppercase; letter-spacing: 2.5px; font-weight: 500; color: #a7a7a7;">Partener de Canal</button>
-</div>
-<form class="space-y-5" aria-label="Formular de contact">
-<div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-<div>
-<label for="first-name" class="sr-only">Prenume</label>
-<input id="first-name" class="w-full border border-stone-200 bg-stone-50/30 text-[13px] py-4 px-5 focus:ring-primary focus:border-primary placeholder:text-stone-400" placeholder="Prenume *" type="text" required aria-required="true">
-</div>
-<div>
-<label for="last-name" class="sr-only">Nume</label>
-<input id="last-name" class="w-full border border-stone-200 bg-stone-50/30 text-[13px] py-4 px-5 focus:ring-primary focus:border-primary placeholder:text-stone-400" placeholder="Nume *" type="text" required aria-required="true">
-</div>
-</div>
-<div>
-<label for="email" class="sr-only">Adresă de Email</label>
-<input id="email" class="w-full border border-stone-200 bg-stone-50/30 text-[13px] py-4 px-5 focus:ring-primary focus:border-primary placeholder:text-stone-400" placeholder="Adresă de Email *" type="email" required aria-required="true">
-</div>
-<div class="flex gap-3">
-<div>
-<label for="country-code" class="sr-only">Prefix țară</label>
-<select id="country-code" class="w-28 border border-stone-200 bg-stone-50/30 text-[13px] py-4 px-4 focus:ring-primary focus:border-primary">
-<option>+971</option>
-<option>+1</option>
-<option>+44</option>
-<option>+91</option>
-</select>
-</div>
-<div class="flex-1">
-<label for="phone" class="sr-only">Număr de Telefon</label>
-<input id="phone" class="w-full border border-stone-200 bg-stone-50/30 text-[13px] py-4 px-5 focus:ring-primary focus:border-primary placeholder:text-stone-400" placeholder="Număr de Telefon *" type="tel" required aria-required="true">
-</div>
-</div>
-<div>
-<label for="property-select" class="sr-only">Selectează Proprietatea</label>
-<select id="property-select" class="w-full border border-stone-200 bg-stone-50/30 text-[13px] py-4 px-5 focus:ring-primary focus:border-primary text-stone-400">
-<option>Selectează Proprietatea: The Pinnacle</option>
-<option>Tranquil Beach Residences</option>
-<option>Crest Park Avenue</option>
-</select>
-</div>
-<div>
-<label for="message" class="sr-only">Mesaj</label>
-<textarea id="message" class="w-full border border-stone-200 bg-stone-50/30 text-[13px] py-4 px-5 focus:ring-primary focus:border-primary placeholder:text-stone-400" placeholder="Mesajul Dumneavoastră (Opțional)" rows="3"></textarea>
-</div>
-<div class="flex items-start gap-4 pt-2">
-<input class="mt-1 w-4 h-4 rounded-none text-primary border-stone-300 focus:ring-0" id="privacy" type="checkbox" required aria-required="true">
-<label class="text-[12px] text-[#4f5459] leading-relaxed" for="privacy">Am citit și sunt de acord cu <a class="underline text-black hover:text-primary transition-colors" href="#">politica de confidențialitate</a></label>
-</div>
-<button type="submit" class="w-full bg-primary text-white py-4 mt-4 uppercase tracking-[2.5px] font-medium hover:bg-black transition-all" style="font-size: 14px; height: 49px; border-radius: 25px; letter-spacing: 2.5px;">Trimite Cererea</button>
-</form>
-</div>
-</div>
-</div>
-</div>
+<!-- ============ FACILITĂȚI ============ -->
+<section class="py-24 bg-white">
+  <div class="max-w-[1380px] mx-auto px-6 lg:px-10">
+    <div class="text-center mb-14 reveal">
+      <div class="eyebrow-line justify-center inline-flex mb-6"><span class="eyebrow">Two Floors of Service</span></div>
+      <h2 class="section-title">The <span class="gilt">amenity</span> deck.</h2>
+      <p class="mt-6 text-black/60 max-w-xl mx-auto">Two private floors &mdash; one at ground level, one on the 19th &mdash; host seven thousand square metres of curated spa, wellness, hospitality and entertaining, reserved for residents and their named guests.</p>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <!-- Reuse repo SVGs -->
+      <div class="border border-black/10 p-8 hover:border-landmark-gold transition-colors duration-300">
+        <img src="/amenities/pool.svg" alt="" class="w-12 h-12 mb-5" style="filter: invert(18%) sepia(88%) saturate(1140%) hue-rotate(115deg) brightness(40%) contrast(101%);">
+        <h4 class="font-headline text-[18px] text-black mb-2">25m Sky Pool</h4>
+        <p class="text-[13px] text-black/60 leading-[1.7]">Încălzit tot anul, în consolă deasupra terasei cu facilități de la etajul 19.</p>
+      </div>
+      <div class="border border-black/10 p-8 hover:border-landmark-gold transition-colors duration-300">
+        <img src="/amenities/sauna.svg" alt="" class="w-12 h-12 mb-5" style="filter: invert(18%) sepia(88%) saturate(1140%) hue-rotate(115deg) brightness(40%) contrast(101%);">
+        <h4 class="font-headline text-[18px] text-black mb-2">Nordic Spa</h4>
+        <p class="text-[13px] text-black/60 leading-[1.7]">Saună cu abur, saună, bazin cu apă rece și cameră de sare by Aquacenter.</p>
+      </div>
+      <div class="border border-black/10 p-8 hover:border-landmark-gold transition-colors duration-300">
+        <img src="/amenities/gym.svg" alt="" class="w-12 h-12 mb-5" style="filter: invert(18%) sepia(88%) saturate(1140%) hue-rotate(115deg) brightness(40%) contrast(101%);">
+        <h4 class="font-headline text-[18px] text-black mb-2">Technogym Studio</h4>
+        <p class="text-[13px] text-black/60 leading-[1.7]">Echipamente Artis, reformere de pilates și săli private de antrenament.</p>
+      </div>
+      <div class="border border-black/10 p-8 hover:border-landmark-gold transition-colors duration-300">
+        <img src="/amenities/fitness.svg" alt="" class="w-12 h-12 mb-5" style="filter: invert(18%) sepia(88%) saturate(1140%) hue-rotate(115deg) brightness(40%) contrast(101%);">
+        <h4 class="font-headline text-[18px] text-black mb-2">Yoga &amp; Movement</h4>
+        <p class="text-[13px] text-black/60 leading-[1.7]">Top-floor studio with forest-line views and sprung floor.</p>
+      </div>
+      <div class="border border-black/10 p-8 hover:border-landmark-gold transition-colors duration-300">
+        <img src="/amenities/library.svg" alt="" class="w-12 h-12 mb-5" style="filter: invert(18%) sepia(88%) saturate(1140%) hue-rotate(115deg) brightness(40%) contrast(101%);">
+        <h4 class="font-headline text-[18px] text-black mb-2">The Library</h4>
+        <p class="text-[13px] text-black/60 leading-[1.7]">Salon privat pentru rezidenți, organizat trimestrial de Cărturești.</p>
+      </div>
+      <div class="border border-black/10 p-8 hover:border-landmark-gold transition-colors duration-300">
+        <img src="/amenities/theatre.svg" alt="" class="w-12 h-12 mb-5" style="filter: invert(18%) sepia(88%) saturate(1140%) hue-rotate(115deg) brightness(40%) contrast(101%);">
+        <h4 class="font-headline text-[18px] text-black mb-2">Screening Room</h4>
+        <p class="text-[13px] text-black/60 leading-[1.7]">12-seat cinema, Dolby Atmos, with bookable dining annex.</p>
+      </div>
+      <div class="border border-black/10 p-8 hover:border-landmark-gold transition-colors duration-300">
+        <img src="/amenities/kids.svg" alt="" class="w-12 h-12 mb-5" style="filter: invert(18%) sepia(88%) saturate(1140%) hue-rotate(115deg) brightness(40%) contrast(101%);">
+        <h4 class="font-headline text-[18px] text-black mb-2">Atelier pentru copii</h4>
+        <p class="text-[13px] text-black/60 leading-[1.7]">Joc supravegheat, activități de creație și un salon separat pentru adolescenți.</p>
+      </div>
+      <div class="border border-black/10 p-8 hover:border-landmark-gold transition-colors duration-300">
+        <img src="/amenities/jacuzzi.svg" alt="" class="w-12 h-12 mb-5" style="filter: invert(18%) sepia(88%) saturate(1140%) hue-rotate(115deg) brightness(40%) contrast(101%);">
+        <h4 class="font-headline text-[18px] text-black mb-2">Private Dining</h4>
+        <p class="text-[13px] text-black/60 leading-[1.7]">Two chef's tables, wine cellar and 24-hour concierge kitchen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LOCAȚIE ============ -->
+<section class="py-24" style="background:#f9f8f6;" id="location">
+  <div class="max-w-[1380px] mx-auto px-6 lg:px-10">
+    <div class="flex flex-wrap items-end justify-between gap-6 mb-14 reveal">
+      <div>
+        <div class="eyebrow-line mb-6"><span class="eyebrow">Cartierul</span></div>
+        <h2 class="section-title">București – Târgoviște, <span class="gilt">Sector 1</span>.</h2>
+        <p class="mt-6 text-black/65 max-w-xl leading-[1.8]">A mature, leafy pocket on Bucharest's northern edge — ten minutes to Herăstrău, five to Baneasa forest, twenty to Otopeni airport.</p>
+      </div>
+      <div class="flex gap-3">
+        <a href="#" class="btn-outline" style="height:44px;">Open in Maps <span class="material-symbols-outlined text-[16px]">open_in_new</span></a>
+      </div>
+    </div>
+    <div class="grid lg:grid-cols-12 gap-10">
+      <!-- Map -->
+      <div class="lg:col-span-8 bg-white border border-black/10 relative overflow-hidden reveal" style="min-height: 520px;">
+        <svg viewBox="0 0 800 520" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <pattern id="mapPat" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
+              <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#e8e4dc" stroke-width="0.4"/>
+            </pattern>
+          </defs>
+          <rect width="800" height="520" fill="#f5f2e9"/>
+          <rect width="800" height="520" fill="url(#mapPat)"/>
+          <!-- Forest (green) -->
+          <path d="M540,40 Q700,50 780,140 T740,330 Q620,360 540,280 T500,140 Z" fill="#d6e2cb"/>
+          <text x="660" y="180" font-family="Lato" font-size="11" fill="#3a4a30" letter-spacing="3" font-style="italic">Baneasa Forest</text>
+          <!-- Lakes -->
+          <path d="M60,320 Q180,300 260,340 Q240,420 120,420 T60,320 Z" fill="#c4d7e2"/>
+          <text x="140" y="380" font-family="Lato" font-size="11" fill="#305060" letter-spacing="2" font-style="italic">Lacul Herastrau</text>
+          <!-- Roads -->
+          <g stroke="#b89c72" fill="none">
+            <path d="M0,240 Q200,220 400,250 T800,240" stroke-width="10" opacity="0.35"/>
+            <path d="M0,240 Q200,220 400,250 T800,240" stroke-width="5" stroke="#efe2c6"/>
+            <text x="295" y="232" font-family="Lato" font-size="10" fill="#6a5a3a" letter-spacing="2">ȘOS. BUCUREȘTI – TÂRGOVIȘTE</text>
+            <path d="M420,520 L420,40" stroke-width="6" opacity="0.3"/>
+            <path d="M420,520 L420,40" stroke-width="3" stroke="#efe2c6"/>
+            <text x="425" y="420" font-family="Lato" font-size="10" fill="#6a5a3a" letter-spacing="2" transform="rotate(-90,425,420)">DN1 · BUCUREȘTI–PLOIEȘTI</text>
+          </g>
+          <!-- POI: Airport -->
+          <g transform="translate(700,70)">
+            <circle r="14" fill="#fff" stroke="#004225"/>
+            <text y="4" text-anchor="middle" font-family="Material Symbols Outlined" font-size="14" fill="#004225">flight</text>
+            <text x="22" y="5" font-family="Lato" font-size="10" fill="#111">Otopeni · 20 min</text>
+          </g>
+          <!-- POI: Therme -->
+          <g transform="translate(660,260)">
+            <circle r="10" fill="#fff" stroke="#b59458"/>
+            <text y="4" text-anchor="middle" font-family="Material Symbols Outlined" font-size="12" fill="#b59458">spa</text>
+            <text x="16" y="4" font-family="Lato" font-size="10" fill="#111">Therme</text>
+          </g>
+          <!-- POI: Baneasa Shopping -->
+          <g transform="translate(560,460)">
+            <circle r="10" fill="#fff" stroke="#b59458"/>
+            <text y="4" text-anchor="middle" font-family="Material Symbols Outlined" font-size="12" fill="#b59458">storefront</text>
+            <text x="16" y="4" font-family="Lato" font-size="10" fill="#111">Baneasa Mall</text>
+          </g>
+          <!-- POI: AISB -->
+          <g transform="translate(220,140)">
+            <circle r="10" fill="#fff" stroke="#b59458"/>
+            <text y="4" text-anchor="middle" font-family="Material Symbols Outlined" font-size="12" fill="#b59458">school</text>
+            <text x="16" y="4" font-family="Lato" font-size="10" fill="#111">AISB</text>
+          </g>
+          <!-- POI: Old Town -->
+          <g transform="translate(120,470)">
+            <circle r="10" fill="#fff" stroke="#b59458"/>
+            <text y="4" text-anchor="middle" font-family="Material Symbols Outlined" font-size="12" fill="#b59458">account_balance</text>
+            <text x="16" y="4" font-family="Lato" font-size="10" fill="#111">Centru</text>
+          </g>
+          <!-- Site -->
+          <g transform="translate(420,280)">
+            <circle r="22" fill="rgba(181,148,88,0.2)"/>
+            <circle r="12" fill="#004225"/>
+            <polygon points="0,-30 -3,-45 3,-45" fill="#b59458"/>
+            <text x="-44" y="44" font-family="Lato" font-size="11" font-weight="700" fill="#004225" letter-spacing="3">LANDMARK 4</text>
+          </g>
+        </svg>
+        <div class="absolute bottom-4 right-4 bg-white/95 backdrop-blur p-4 border border-black/10">
+          <div class="label text-black/50 mb-1">Address</div>
+          <div class="font-headline text-[14px] text-black leading-tight">Șoseaua București – Târgoviște 4A<br>013504 București, Sector 1</div>
+        </div>
+      </div>
+      <!-- Proximity list -->
+      <div class="lg:col-span-4 reveal">
+        <ul class="divide-y divide-black/10">
+          <li class="py-5 flex items-start gap-5">
+            <img src="/locations/airport.svg" alt="" class="w-8 h-8 mt-1" style="filter: invert(18%) sepia(88%) saturate(1140%) hue-rotate(115deg) brightness(40%) contrast(101%);">
+            <div class="flex-1">
+              <div class="label text-black/50 mb-1">Otopeni Airport</div>
+              <div class="font-headline text-[17px] text-black">20 min · 14 km</div>
+              <div class="text-[12px] text-black/55 mt-1">via DN1 / A3</div>
+            </div>
+          </li>
+          <li class="py-5 flex items-start gap-5">
+            <span class="material-symbols-outlined text-landmark-green text-[28px] mt-1">tram</span>
+            <div class="flex-1">
+              <div class="label text-black/50 mb-1">Metrou Jiului · M4</div>
+              <div class="font-headline text-[17px] text-black">8 min · 3.2 km</div>
+              <div class="text-[12px] text-black/55 mt-1">to Piața Victoriei in 12 min</div>
+            </div>
+          </li>
+          <li class="py-5 flex items-start gap-5">
+            <img src="/locations/marina.svg" alt="" class="w-8 h-8 mt-1" style="filter: invert(18%) sepia(88%) saturate(1140%) hue-rotate(115deg) brightness(40%) contrast(101%);">
+            <div class="flex-1">
+              <div class="label text-black/50 mb-1">Herăstrău Park</div>
+              <div class="font-headline text-[17px] text-black">10 min · 4 km</div>
+              <div class="text-[12px] text-black/55 mt-1">Trasee de plimbare pe malul lacului</div>
+            </div>
+          </li>
+          <li class="py-5 flex items-start gap-5">
+            <span class="material-symbols-outlined text-landmark-green text-[28px] mt-1">forest</span>
+            <div class="flex-1">
+              <div class="label text-black/50 mb-1">Baneasa Forest</div>
+              <div class="font-headline text-[17px] text-black">5 min · on foot</div>
+              <div class="text-[12px] text-black/55 mt-1">Acces pietonal direct</div>
+            </div>
+          </li>
+          <li class="py-5 flex items-start gap-5">
+            <span class="material-symbols-outlined text-landmark-green text-[28px] mt-1">school</span>
+            <div class="flex-1">
+              <div class="label text-black/50 mb-1">AISB / British School</div>
+              <div class="font-headline text-[17px] text-black">12 min · 6 km</div>
+              <div class="text-[12px] text-black/55 mt-1">Trei școli la 15 min</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TIMELINE ============ -->
+<section class="py-24 bg-white">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10">
+    <div class="text-center mb-14 reveal">
+      <div class="eyebrow-line justify-center inline-flex mb-6"><span class="eyebrow">Construction</span></div>
+      <h2 class="section-title">Built slowly, <span class="gilt">carefully</span>.</h2>
+    </div>
+    <div class="flex items-center reveal">
+      <div class="flex-1 flex items-center"><span class="tl-dot done"></span><span class="tl-line done"></span></div>
+      <div class="flex-1 flex items-center"><span class="tl-dot done"></span><span class="tl-line done"></span></div>
+      <div class="flex-1 flex items-center"><span class="tl-dot done"></span><span class="tl-line"></span></div>
+      <div class="flex-1 flex items-center"><span class="tl-dot"></span><span class="tl-line"></span></div>
+      <div class="flex-1 flex items-center"><span class="tl-dot"></span><span class="tl-line"></span></div>
+      <div class="flex items-center"><span class="tl-dot"></span></div>
+    </div>
+    <div class="mt-6 grid grid-cols-3 md:grid-cols-6 gap-4 text-center reveal">
+      <div><div class="label text-landmark-green">Q2 '25</div><div class="font-headline text-[15px] text-black mt-2">Permits</div><div class="text-[11px] text-black/55 mt-1">Complete</div></div>
+      <div><div class="label text-landmark-green">Q4 '25</div><div class="font-headline text-[15px] text-black mt-2">Excavation</div><div class="text-[11px] text-black/55 mt-1">Complete</div></div>
+      <div><div class="label text-landmark-gold">Q2 '26</div><div class="font-headline text-[15px] text-black mt-2">Foundation</div><div class="text-[11px] text-black/55 mt-1">In progress</div></div>
+      <div><div class="label text-black/40">Q2 '27</div><div class="font-headline text-[15px] text-black/70 mt-2">Structure</div><div class="text-[11px] text-black/45 mt-1">Planned</div></div>
+      <div><div class="label text-black/40">T2 '28</div><div class="font-headline text-[15px] text-black/70 mt-2">Envelope</div><div class="text-[11px] text-black/45 mt-1">Planned</div></div>
+      <div><div class="label text-black/40">Q3 '29</div><div class="font-headline text-[15px] text-black/70 mt-2">Predare</div><div class="text-[11px] text-black/45 mt-1">Planned</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRESS QUOTE ============ -->
+<section class="py-24" style="background:#0e1512;">
+  <div class="max-w-[1040px] mx-auto px-6 lg:px-10 text-center text-white">
+    <span class="serif-italic text-landmark-gold" style="font-size: 80px; line-height: 0.5;">“</span>
+    <blockquote class="mt-6 display leading-[1.35] text-white" style="font-size: clamp(24px, 2.8vw, 40px);">
+      The most <span class="serif-italic text-landmark-gold">restrained</span> high-rise built in Bucharest in a decade — a building that works by subtraction.
+    </blockquote>
+    <div class="mt-10 label text-landmark-gold">Igloo Architecture Review · Primăvara 2026</div>
+  </div>
+</section>
+
+<!-- ============ INQUIRY ============ -->
+<section class="py-24 bg-white" id="inquiry">
+  <div class="max-w-[1280px] mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-16">
+    <div class="lg:col-span-5 reveal">
+      <div class="eyebrow-line mb-6"><span class="eyebrow">Întreabă</span></div>
+      <h2 class="section-title">Private <span class="gilt">preview</span>.</h2>
+      <p class="mt-6 text-[16px] leading-[1.85] text-black/70">A Landmark residence advisor will contact you within one business day to arrange a private viewing of the București – Târgoviște show-floor and full digital walkthrough.</p>
+      <div class="mt-10 space-y-5">
+        <div class="flex items-center gap-5">
+          <span class="material-symbols-outlined text-landmark-gold text-[26px]">call</span>
+          <div><div class="label text-black/50">Direct line</div><div class="font-headline text-[17px] text-black mt-1">+40 21 999 0400</div></div>
+        </div>
+        <div class="flex items-center gap-5">
+          <span class="material-symbols-outlined text-landmark-gold text-[26px]">alternate_email</span>
+          <div><div class="label text-black/50">Email</div><div class="font-headline text-[17px] text-black mt-1">four@landmarkrealty.ro</div></div>
+        </div>
+        <div class="flex items-center gap-5">
+          <span class="material-symbols-outlined text-landmark-gold text-[26px]">schedule</span>
+          <div><div class="label text-black/50">Show-floor hours</div><div class="font-headline text-[17px] text-black mt-1">Mar — Sâm · 10:00 – 19:00</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="lg:col-span-7 reveal">
+      <form id="inquiryForm" class="bg-stone-bg p-10 border border-black/10">
+        <div class="grid sm:grid-cols-2 gap-6">
+          <div>
+            <label class="label text-black/50 mb-2 block">First Name</label>
+            <input required type="text" class="w-full bg-transparent border-b border-black/20 py-3 text-[15px] focus:outline-none focus:border-landmark-gold">
+          </div>
+          <div>
+            <label class="label text-black/50 mb-2 block">Last Name</label>
+            <input required type="text" class="w-full bg-transparent border-b border-black/20 py-3 text-[15px] focus:outline-none focus:border-landmark-gold">
+          </div>
+          <div>
+            <label class="label text-black/50 mb-2 block">Email</label>
+            <input required type="email" class="w-full bg-transparent border-b border-black/20 py-3 text-[15px] focus:outline-none focus:border-landmark-gold">
+          </div>
+          <div>
+            <label class="label text-black/50 mb-2 block">Telefon</label>
+            <input type="tel" class="w-full bg-transparent border-b border-black/20 py-3 text-[15px] focus:outline-none focus:border-landmark-gold">
+          </div>
+          <div class="sm:col-span-2">
+            <label class="label text-black/50 mb-2 block">Tip de reședință de interes</label>
+            <select class="w-full bg-transparent border-b border-black/20 py-3 text-[15px] focus:outline-none focus:border-landmark-gold">
+              <option>Reședință Atelier · de la €2.4M</option>
+              <option selected>Reședință Sky · de la €4.1M</option>
+              <option>Penthouse Crown · de la €11.6M</option>
+              <option>Nu m-am hotărât — vă rog să mă consiliați</option>
+            </select>
+          </div>
+          <div class="sm:col-span-2">
+            <label class="label text-black/50 mb-2 block">Mesaj</label>
+            <textarea rows="3" class="w-full bg-transparent border-b border-black/20 py-3 text-[15px] focus:outline-none focus:border-landmark-gold" placeholder="Ce ar fi bine să știm înaintea vizitei?"></textarea>
+          </div>
+        </div>
+        <div class="mt-10 flex flex-wrap items-center justify-between gap-6">
+          <label class="flex items-center gap-3 text-[12px] text-black/60">
+            <input type="checkbox" class="rounded border-black/30"> Sunt de acord cu <a href="#" class="underline">politica de confidențialitate</a>.
+          </label>
+          <button type="submit" class="btn-solid">Solicită vizualizarea <span class="material-symbols-outlined text-[18px]">arrow_forward</span></button>
+        </div>
+        <div id="formSuccess" class="hidden mt-8 p-6 border border-landmark-gold/40 bg-landmark-gold/5 text-center">
+          <div class="font-headline text-[20px] text-landmark-green">Thank you &mdash; your request is received.</div>
+          <p class="text-[14px] text-black/60 mt-2">A Landmark advisor will be in touch within one business day.</p>
+        </div>
+      </form>
+    </div>
+  </div>
 </section>
 
 </main>
 
-<!-- Footer — same as homepage -->
-<footer class="footer__sitemap-wrap bg-white pt-32 pb-12 px-6 lg:px-12 border-t border-gray-100">
-<div class="max-w-[1920px] mx-auto">
-<div class="flex flex-col items-center mb-24">
-<a href="/ro/">
-<img src="/logo/landmarklogo-green.svg" alt="Landmark Realty" style="width: 80px; height: auto;">
-</a>
-</div>
-<nav class="footer__sitemap grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-16 mb-24 border-b border-gray-100 pb-24" aria-label="Subsol">
-<div class="col-span-2">
-<h5 class="text-[11px] uppercase tracking-[0.25em] font-[800] mb-10 text-on-background">Apartamente</h5>
-<div class="grid grid-cols-2 gap-x-6 gap-y-3">
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Tranquil Beach Residences</a>
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Crest Park Avenue</a>
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">The Pinnacle Residences</a>
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Crest Grande</a>
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Skyline Atria</a>
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Creek Vistas Reserve</a>
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Skyline Solitaire</a>
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Creek Vistas Grande</a>
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Aquamarine Beach Residences</a>
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Landmark Hartland Greens</a>
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Coraline Beach Residences</a>
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Waves Grande</a>
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Delphine Beach Residences</a>
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Creek Vistas Heights</a>
-</div>
-</div>
-<div>
-<h5 class="text-[11px] uppercase tracking-[0.25em] font-[800] mb-10 text-on-background">Vile</h5>
-<div class="flex flex-col gap-3 mb-10">
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">The Willows</a>
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">The Greens</a>
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">The Brooks</a>
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">The Grove</a>
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Palm Grove Villas</a>
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Coral Beach Villas</a>
-</div>
-<h5 class="text-[11px] uppercase tracking-[0.25em] font-[800] mb-6 text-on-background">Villamente</h5>
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Golf Ridges at One</a>
-</div>
-<div>
-<h5 class="text-[11px] uppercase tracking-[0.25em] font-[800] mb-10 text-on-background">Comunități</h5>
-<div class="flex flex-col gap-3">
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Landmark Sanctuary</a>
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Landmark Central</a>
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Downtown HQ</a>
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Landmark Bella</a>
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Skyline Orbis</a>
-</div>
-</div>
-<div>
-<h5 class="text-[11px] uppercase tracking-[0.25em] font-[800] mb-10 text-on-background">Media &amp; Despre</h5>
-<div class="flex flex-col gap-3 mb-10">
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Comunicate de Presă</a>
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Echipa de Conducere</a>
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Măiestrie</a>
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Calitate Distinctivă</a>
-</div>
-<h5 class="text-[11px] uppercase tracking-[0.25em] font-[800] mb-6 text-on-background">Cariere</h5>
-<a class="text-[10px] text-secondary hover:text-landmark-green font-medium uppercase tracking-wide" href="#">Alătură-te Echipei</a>
-</div>
-<div>
-<h5 class="text-[11px] uppercase tracking-[0.25em] font-[800] mb-10 text-on-background">Experiență</h5>
-<div class="flex flex-col gap-6 mb-10">
-<div class="flex gap-2">
-<div class="bg-black text-white h-9 px-3 flex items-center gap-2 rounded-[4px] cursor-pointer hover:bg-gray-800 transition-colors">
-<span class="material-symbols-outlined text-[16px]" aria-hidden="true">apple</span>
-<div class="flex flex-col">
-<span class="text-[5px] uppercase opacity-60">Descarcă de pe</span>
-<span class="text-[10px] font-bold leading-none">App Store</span>
-</div>
-</div>
-<div class="bg-black text-white h-9 px-3 flex items-center gap-2 rounded-[4px] cursor-pointer hover:bg-gray-800 transition-colors">
-<span class="material-symbols-outlined text-[16px]" aria-hidden="true">play_arrow</span>
-<div class="flex flex-col">
-<span class="text-[5px] uppercase opacity-60">Disponibil pe</span>
-<span class="text-[10px] font-bold leading-none">Google Play</span>
-</div>
-</div>
-</div>
-<div class="border border-gray-100 p-4 text-center rounded-[2px] bg-[#f9f8f6]">
-<p class="text-[9px] font-bold mb-1 tracking-widest uppercase">Recenzii Google</p>
-<div class="flex justify-center text-landmark-gold text-[10px] gap-0.5">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-<p class="text-[12px] font-bold mt-1 text-[#1a1a1a]">4.7 / 5.0</p>
-</div>
-</div>
-</div>
-</nav>
-<div class="footer__socials flex flex-col md:flex-row justify-between items-center gap-10">
-<div class="text-[9px] uppercase tracking-[0.2em] font-bold text-secondary order-3 md:order-1">&copy; 2026 LANDMARK REALTY. TOATE DREPTURILE REZERVATE.</div>
-<div class="flex gap-8 items-center order-1 md:order-2">
-<a class="text-secondary hover:text-landmark-green transition-colors" href="#" aria-label="Website"><span class="material-symbols-outlined text-[20px]">public</span></a>
-<a class="text-secondary hover:text-landmark-green transition-colors" href="#" aria-label="Email"><span class="material-symbols-outlined text-[20px]">alternate_email</span></a>
-<a class="text-secondary hover:text-landmark-green transition-colors" href="#" aria-label="Rețele sociale"><span class="material-symbols-outlined text-[20px]">share</span></a>
-<a class="text-secondary hover:text-landmark-green transition-colors" href="#" aria-label="Video"><span class="material-symbols-outlined text-[20px]">play_circle</span></a>
-</div>
-<div class="flex gap-8 items-center text-[9px] uppercase tracking-[0.2em] font-bold text-secondary order-2 md:order-3">
-<a class="hover:text-landmark-green transition-colors" href="#">Politica de Confidențialitate</a>
-<span class="opacity-10 w-[1px] h-3 bg-black"></span>
-<a class="hover:text-landmark-green transition-colors" href="#">Hartă Site</a>
-</div>
-</div>
-</div>
+<!-- ============ FOOTER ============ -->
+<footer class="bg-white pt-24 pb-10 px-6 lg:px-10 border-t border-black/5">
+  <div class="max-w-[1380px] mx-auto">
+    <div class="flex flex-col items-center mb-16">
+      <img src="/logo/landmarklogo-green.svg" alt="Landmark Realty" style="width: 72px;">
+      <p class="mt-6 label text-black/40">A LANDMARK REALTY DEVELOPMENT</p>
+    </div>
+    <div class="grid md:grid-cols-5 gap-12 pb-14 border-b border-black/5">
+      <div class="md:col-span-2">
+        <h5 class="label text-black mb-5">Landmark 4</h5>
+        <p class="text-[13px] text-black/60 leading-[1.8] max-w-xs">Un turn rezidențial iconic pe Șoseaua București – Târgoviște 4A, 013504 București — cincizeci și două de reședințe, o singură adresă.</p>
+        <a href="#inquiry" class="mt-6 inline-flex items-center gap-2 label text-landmark-green hover:text-landmark-gold">Contactează-ne <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+      </div>
+      <div>
+        <h5 class="label text-black mb-5">The Project</h5>
+        <ul class="space-y-3 text-[12px] text-black/60">
+          <li><a href="#residences" class="hover:text-landmark-green">Reședințe</a></li>
+          <li><a href="#plan" class="hover:text-landmark-green">Planuri de etaj</a></li>
+          <li><a href="#gallery" class="hover:text-landmark-green">Galerie</a></li>
+          <li><a href="#location" class="hover:text-landmark-green">Locație</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="label text-black mb-5">Landmark</h5>
+        <ul class="space-y-3 text-[12px] text-black/60">
+          <li><a href="/ro/about" class="hover:text-landmark-green">Despre noi</a></li>
+          <li><a href="#" class="hover:text-landmark-green">The Willows</a></li>
+          <li><a href="#" class="hover:text-landmark-green">All Projects</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="label text-black mb-5">Conectează-te</h5>
+        <ul class="space-y-3 text-[12px] text-black/60">
+          <li>+40 21 999 0400</li>
+          <li>four@landmarkrealty.ro</li>
+          <li>Show-floor: Șoseaua București – Târgoviște 4A</li>
+        </ul>
+      </div>
+    </div>
+    <div class="flex flex-col md:flex-row justify-between gap-6 pt-8 text-[11px] uppercase tracking-[0.2em] text-black/50">
+      <div>&copy; 2026 Landmark Realty SA. Toate drepturile rezervate.</div>
+      <div class="flex gap-6">
+        <a href="#" class="hover:text-landmark-green">Confidențialitate</a>
+        <a href="#" class="hover:text-landmark-green">Termeni</a>
+        <a href="#" class="hover:text-landmark-green">Legal</a>
+      </div>
+    </div>
+  </div>
 </footer>
 
-<div class="fixed bottom-8 right-8 z-[100]">
-<button class="bg-landmark-green text-white w-14 h-14 rounded-full shadow-2xl hover:scale-105 active:scale-95 transition-all flex items-center justify-center" aria-label="Chat">
-<span class="material-symbols-outlined text-[24px]">chat_bubble</span>
-</button>
+<!-- Sticky mini-CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <div>
+    <div class="label text-black/50">Landmark 4</div>
+    <div class="font-headline text-[15px] text-black leading-tight">11 residences available · from €2.4M</div>
+  </div>
+  <a href="#inquiry" class="btn-solid" style="height:40px; padding: 0 22px; font-size:11px;">Întreabă</a>
 </div>
 
-<script type="module" src="/src/js/main.js"></script>
+<!-- Tweaks panel -->
+<div class="tweaks-panel" id="tweaksPanel">
+  <h3>Tweaks</h3>
+  <div class="tweak-row">
+    <label>Sistem de accent</label>
+    <div class="tweak-swatches">
+      <div class="tweak-swatch active" data-accent="green" style="background: linear-gradient(135deg, #004225 50%, #b59458 50%)" title="Green & Gold"></div>
+      <div class="tweak-swatch" data-accent="gold" style="background: linear-gradient(135deg, #b59458 50%, #004225 50%)" title="Gold forward"></div>
+      <div class="tweak-swatch" data-accent="bronze" style="background: linear-gradient(135deg, #745b28 50%, #004225 50%)" title="Bronze"></div>
+      <div class="tweak-swatch" data-accent="obsidian" style="background: linear-gradient(135deg, #0c0c0c 50%, #b59458 50%)" title="Obsidian"></div>
+    </div>
+  </div>
+  <div class="tweak-row">
+    <label>Densitate</label>
+    <div class="tweak-seg" id="densitySeg">
+      <button data-density="cozy">Cozy</button>
+      <button data-density="standard" class="active">Std</button>
+      <button data-density="airy">Airy</button>
+    </div>
+  </div>
+  <div class="tweak-row">
+    <label>Hero Tone</label>
+    <div class="tweak-seg" id="heroSeg">
+      <button data-hero="night" class="active">Night</button>
+      <button data-hero="day">Day</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+  "accent": "green",
+  "density": "standard",
+  "hero": "night"
+}/*EDITMODE-END*/;
+
+document.body.classList.add('hero-loaded');
+document.body.dataset.accent = TWEAK_DEFAULTS.accent;
+document.body.dataset.density = TWEAK_DEFAULTS.density;
+
+// Nav scroll
+const nav = document.getElementById('mainNav');
+const sticky = document.getElementById('stickyCta');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 80) nav.classList.add('nav-solid'); else nav.classList.remove('nav-solid');
+  if (window.scrollY > 900) sticky.classList.add('show'); else sticky.classList.remove('show');
+}, { passive: true });
+
+// Reveal
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Favorite
+const favBtn = document.getElementById('favBtn');
+function setFav(v){ favBtn.style.fontVariationSettings = v ? "'FILL' 1" : "'FILL' 0"; favBtn.style.color = v ? '#b59458' : ''; }
+let isFav = localStorage.getItem('lm4-fav') === '1';
+setFav(isFav);
+favBtn.addEventListener('click', () => { isFav = !isFav; localStorage.setItem('lm4-fav', isFav ? '1' : '0'); setFav(isFav); });
+
+// ========== Tower interaction (11 floors, green-cloaked oval) ==========
+const svgNs = 'http://www.w3.org/2000/svg';
+
+// Build vertical louvres (dense pinstripe)
+const louvreG = document.getElementById('louvres');
+for (let x = 74; x <= 286; x += 3) {
+  const l = document.createElementNS(svgNs, 'line');
+  l.setAttribute('x1', x); l.setAttribute('y1', x < 80 || x > 280 ? 150 : (x < 90 || x > 270 ? 90 : 72));
+  l.setAttribute('x2', x); l.setAttribute('y2', 560);
+  louvreG.appendChild(l);
+}
+
+// Build cascading vines (irregular vertical columns)
+const vineG = document.getElementById('vines');
+const vineCols = [78, 96, 118, 142, 170, 198, 228, 252, 278];
+vineCols.forEach((cx, idx) => {
+  const top = 90 + (idx % 3) * 20;
+  const bot = 560;
+  for (let y = top; y < bot; y += 8) {
+    const leaf = document.createElementNS(svgNs, 'ellipse');
+    leaf.setAttribute('cx', cx + (Math.sin(y*0.3+idx)*2));
+    leaf.setAttribute('cy', y);
+    leaf.setAttribute('rx', 2.5);
+    leaf.setAttribute('ry', 4);
+    leaf.setAttribute('fill', idx % 2 ? '#6a8a42' : '#4a6a32');
+    leaf.setAttribute('opacity', 0.7 + Math.sin(y*0.1)*0.2);
+    vineG.appendChild(leaf);
+  }
+});
+
+// Define 11 floors (ground + 10 upper = 11 total). Floor 0 = ground commercial, we show 01-11
+// Floor typology mapping per render + concept:
+//  11 -> Crown Duplex (upper of duplex that occupies 10-11)
+//  10 -> Crown Duplex (lower of duplex)
+//  08-09 -> 3-Room
+//  06-07 -> 2-Room
+//  04-05 -> 1-Room
+//  02-03 -> Studio + 1-Room mix
+//  01 -> Studio / Facilități entry
+const FLOOR_TYPES = {
+  11: { type:'duplex',  label:'Crown Duplex',        title:'Level 11 · Type 05 (upper)', units:2, area:'420 – 620 m²', status:'available', desc:'The upper half of the duplex penthouses — primary suite wing, library and a rooftop garden above.' },
+  10: { type:'duplex',  label:'Crown Duplex',        title:'Level 10 · Type 05 (lower)', units:2, area:'260 – 320 m²', status:'available', desc:'The lower half of the duplex penthouses — great room, chef\'s kitchen, guest suite and a 38 m² north terrace.' },
+  9:  { type:'three',   label:'Three-Room Residences',title:'Level 09 · Type 04',         units:2, area:'165 – 230 m²', status:'available', desc:'Two three-bedroom residences on each of the upper middle floors, with dual-aspect wrap terraces.' },
+  8:  { type:'three',   label:'Three-Room Residences',title:'Level 08 · Type 04',         units:2, area:'165 – 230 m²', status:'sold',      desc:'Two three-bedroom residences. Both sold.' },
+  7:  { type:'two',     label:'Two-Room Residences', title:'Level 07 · Type 03',         units:4, area:'95 – 130 m²',  status:'available', desc:'4 two-room residences arranged around the service core. Views span from the inner court to the forest.' },
+  6:  { type:'two',     label:'Two-Room Residences', title:'Etajul 06 · Tip 03',         units:4, area:'95 – 130 m²',  status:'available', desc:'4 two-room residences of 95–130 m², each with a private terrace facing the green court and forest ridge.' },
+  5:  { type:'one',     label:'One-Room Residences', title:'Level 05 · Type 02',         units:6, area:'62 – 82 m²',   status:'available', desc:'Six one-bedroom residences. A mix of compact 02-A and dual-aspect 02-B layouts.' },
+  4:  { type:'one',     label:'One-Room Residences', title:'Level 04 · Type 02',         units:6, area:'62 – 82 m²',   status:'sold',      desc:'Six one-bedroom residences. Floor sold.' },
+  3:  { type:'mixed',   label:'Studio + 1-Room Mix', title:'Level 03 · Types 01 & 02',   units:8, area:'42 – 82 m²',   status:'available', desc:'A mixed floor — four studios and four one-room residences sharing a single corridor.' },
+  2:  { type:'studio',  label:'Studio Residences',   title:'Level 02 · Type 01',         units:8, area:'42 – 55 m²',   status:'available', desc:'Eight studios — the entry level for the tower. 4 01-A with loggias and four 01-B corner studios.' },
+  1:  { type:'amenity', label:'Lobby & Facilități',   title:'Level 01 · Ground',          units:0, area:'—',            status:'locked',    desc:'Double-height lobby, concierge, residents\' library, co-working lounge and the ground-floor landscape court.' },
+};
+
+// Draw floor bands on oval tower (floor 1 at bottom, 11 at top)
+const bandG = document.getElementById('floorBands');
+const lineG = document.getElementById('floorLines');
+const TOP_Y = 140;     // where floor 11 top is (just below the curve crest)
+const BOT_Y = 560;     // where floor 01 bottom is (just above podium)
+const FLOORS = 11;
+const BAND_H = (BOT_Y - TOP_Y) / FLOORS;
+
+// For each floor i (1..11), floor 1 at bottom.
+for (let f = 1; f <= FLOORS; f++) {
+  const y = BOT_Y - f * BAND_H;            // top of the band
+  // Compute left/right x via the oval outline: tower is vertical 70..290 with rounded cap at top (r≈70)
+  let xLeft = 72, xRight = 288;
+  // Rounded cap begins at y=140 and peaks at y=70 with radius ~70, centered x=180
+  if (y < 140) {
+    const dy = 140 - y;  // 0..70
+    const r = 70;
+    const dx = Math.sqrt(Math.max(0, r*r - (r-dy)*(r-dy)));
+    xLeft = 180 - dx; xRight = 180 + dx;
+  }
+  const w = xRight - xLeft;
+
+  // floor line separator
+  const hl = document.createElementNS(svgNs, 'line');
+  hl.setAttribute('x1', xLeft); hl.setAttribute('y1', y);
+  hl.setAttribute('x2', xRight); hl.setAttribute('y2', y);
+  lineG.appendChild(hl);
+
+  const info = FLOOR_TYPES[f];
+  const rect = document.createElementNS(svgNs, 'rect');
+  rect.setAttribute('x', xLeft);
+  rect.setAttribute('y', y);
+  rect.setAttribute('width', w);
+  rect.setAttribute('height', BAND_H - 0.5);
+  const cls = ['floor-band'];
+  if (info.status === 'sold') cls.push('sold');
+  if (info.status === 'locked') cls.push('sold');
+  if (f === 6) cls.push('active');
+  rect.setAttribute('class', cls.join(' '));
+  rect.dataset.floor = f;
+  rect.dataset.altitude = ((f - 1) * 3.4).toFixed(0);
+  bandG.appendChild(rect);
+
+  // floor number label (left side)
+  const txt = document.createElementNS(svgNs, 'text');
+  txt.setAttribute('x', xLeft - 8);
+  txt.setAttribute('y', y + BAND_H/2 + 3);
+  txt.setAttribute('text-anchor', 'end');
+  txt.setAttribute('font-family', 'Lato');
+  txt.setAttribute('font-size', '8');
+  txt.setAttribute('letter-spacing', '1');
+  txt.setAttribute('fill', info.status==='sold' ? 'rgba(255,255,255,0.25)' : 'rgba(181,148,88,0.85)');
+  txt.textContent = String(f).padStart(2,'0');
+  bandG.appendChild(txt);
+
+  rect.addEventListener('click', () => selectFloor(rect));
+}
+
+function selectFloor(r) {
+  const f = parseInt(r.dataset.floor, 10);
+  const info = FLOOR_TYPES[f];
+  if (info.status === 'sold' || info.status === 'locked') return;
+  document.querySelectorAll('.floor-band').forEach(b => b.classList.remove('active'));
+  r.classList.add('active');
+  document.getElementById('floorNumber').textContent = String(f).padStart(2,'0');
+  document.getElementById('floorBand').textContent = info.label;
+  document.getElementById('floorTitle').textContent = info.title;
+  document.getElementById('floorUnits').textContent = info.units;
+  document.getElementById('floorArea').textContent = info.area;
+  document.getElementById('floorAlt').textContent = r.dataset.altitude + 'm';
+  const status = info.status === 'available' ? 'Available' : info.status === 'sold' ? 'Sold' : 'N/A';
+  document.getElementById('floorStatus').textContent = status;
+  document.getElementById('floorDescription').textContent = info.desc;
+}
+
+// ========== Smart Residence Plans ==========
+const PLAN_ROOM = (x,y,w,h,label,meta,tone='#fafaf7') =>
+  `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="${tone}" stroke="#111" stroke-width="1"/>
+   <text x="${x+w/2}" y="${y+h/2-4}" text-anchor="middle" font-family="Lato" font-size="11" letter-spacing="2" fill="#333">${label}</text>
+   ${meta ? `<text x="${x+w/2}" y="${y+h/2+12}" text-anchor="middle" font-family="Lato" font-size="9" letter-spacing="1" fill="#999">${meta}</text>` : ''}`;
+const PLAN_TERRACE = (x,y,w,h,label) =>
+  `<rect x="${x}" y="${y}" width="${w}" height="${h}" fill="#f5efe0" stroke="#b59458" stroke-width="1" stroke-dasharray="4,3"/>
+   <text x="${x+w/2}" y="${y+h/2+4}" text-anchor="middle" font-family="Lato" font-size="10" letter-spacing="2" fill="#b59458">${label}</text>`;
+const PLAN_SHELL = (header, inner) => `
+  <rect x="40" y="40" width="720" height="560" fill="none" stroke="#111" stroke-width="2"/>
+  <text x="60" y="30" font-family="Lato" font-size="10" letter-spacing="2" fill="#999">${header}</text>
+  <g transform="translate(720,570)">
+    <circle r="14" fill="none" stroke="#b59458"/>
+    <polygon points="0,-8 -3,3 3,3" fill="#b59458"/>
+    <text y="24" text-anchor="middle" font-family="Lato" font-size="8" letter-spacing="2" fill="#b59458">N</text>
+  </g>
+  ${inner}`;
+
+const DRAW = {
+  studio_A_main: PLAN_SHELL('STUDIO · TYPE 01-A · 42 m²',
+    PLAN_ROOM(60,60,400,260,'LIVING / SLEEP','24 m²') +
+    PLAN_ROOM(460,60,300,160,'KITCHEN','8 m²','#f0ede4') +
+    PLAN_ROOM(460,220,300,160,'BATH','5 m²','#f0ede4') +
+    PLAN_ROOM(60,320,400,180,'ENTRY / WARDROBE','') +
+    PLAN_TERRACE(60,500,700,80,'LOGGIA · 6 m²')
+  ),
+  studio_B_main: PLAN_SHELL('STUDIO · TYPE 01-B (CORNER) · 55 m²',
+    PLAN_ROOM(60,60,340,320,'LIVING / SLEEP','34 m²') +
+    PLAN_ROOM(400,60,200,160,'KITCHEN','10 m²','#f0ede4') +
+    PLAN_ROOM(600,60,160,160,'BATH','','#f0ede4') +
+    PLAN_ROOM(400,220,360,160,'STUDY NOOK','') +
+    PLAN_TERRACE(60,380,700,200,'CORNER TERRACE · 11 m²')
+  ),
+  one_A_main: PLAN_SHELL('ONE-ROOM · TYPE 02-A · 62 m²',
+    PLAN_ROOM(60,60,420,260,'LIVING / DINING','28 m²') +
+    PLAN_ROOM(480,60,280,160,'KITCHEN','9 m²','#f0ede4') +
+    PLAN_ROOM(480,220,280,160,'ENSUITE','','#f0ede4') +
+    PLAN_ROOM(60,320,420,200,'BEDROOM','16 m²') +
+    PLAN_TERRACE(60,520,700,60,'TERRACE · 8 m²')
+  ),
+  one_B_main: PLAN_SHELL('ONE-ROOM · TYPE 02-B (DUAL ASPECT) · 82 m²',
+    PLAN_ROOM(60,60,260,260,'LIVING','26 m²') +
+    PLAN_ROOM(320,60,260,260,'DINING','14 m²') +
+    PLAN_ROOM(580,60,180,260,'KITCHEN','','#f0ede4') +
+    PLAN_ROOM(60,320,340,220,'BEDROOM','18 m²') +
+    PLAN_ROOM(400,320,180,220,'BATH','','#f0ede4') +
+    PLAN_ROOM(580,320,180,220,'STUDY','') +
+    PLAN_TERRACE(60,540,700,50,'WRAP TERRACE · 12 m²')
+  ),
+  two_A_main: PLAN_SHELL('TWO-ROOM · TYPE 03-A · 95 m²',
+    PLAN_ROOM(60,60,440,260,'GREAT ROOM','42 m²') +
+    PLAN_ROOM(500,60,260,160,'KITCHEN','14 m²','#f0ede4') +
+    PLAN_ROOM(500,220,260,160,'ENSUITE 1','','#f0ede4') +
+    PLAN_ROOM(60,320,260,220,'BEDROOM 1','18 m²') +
+    PLAN_ROOM(320,320,220,220,'BEDROOM 2','14 m²') +
+    PLAN_ROOM(540,320,220,220,'BATH 2','','#f0ede4') +
+    PLAN_TERRACE(60,540,700,50,'TERRACE · 12 m²')
+  ),
+  two_B_main: PLAN_SHELL('TWO-ROOM · TYPE 03-B (FOREST-FACING) · 112 m²',
+    PLAN_ROOM(60,60,500,280,'LIVING · DINING','54 m²') +
+    PLAN_ROOM(560,60,200,280,'KITCHEN','','#f0ede4') +
+    PLAN_ROOM(60,340,280,200,'PRIMARY','22 m²') +
+    PLAN_ROOM(340,340,220,200,'BEDROOM 2','16 m²') +
+    PLAN_ROOM(560,340,200,200,'DUAL BATH','','#f0ede4') +
+    PLAN_TERRACE(60,540,700,50,'NORTH TERRACE · 18 m²')
+  ),
+  two_C_main: PLAN_SHELL('TWO-ROOM · TYPE 03-C (CORNER) · 130 m²',
+    PLAN_ROOM(60,60,420,260,'GREAT ROOM','58 m²') +
+    PLAN_ROOM(480,60,280,140,'KITCHEN + PANTRY','','#f0ede4') +
+    PLAN_ROOM(480,200,280,120,'POWDER','','#f0ede4') +
+    PLAN_ROOM(60,320,260,220,'PRIMARY','24 m²') +
+    PLAN_ROOM(320,320,220,220,'PRIMARY BATH','','#f0ede4') +
+    PLAN_ROOM(540,320,220,220,'BEDROOM 2','18 m²') +
+    PLAN_TERRACE(60,540,700,50,'CORNER TERRACE · 22 m²')
+  ),
+  three_A_main: PLAN_SHELL('THREE-ROOM · TYPE 04-A · 165 m²',
+    PLAN_ROOM(60,60,500,260,'GREAT ROOM','64 m²') +
+    PLAN_ROOM(560,60,200,130,'KITCHEN','','#f0ede4') +
+    PLAN_ROOM(560,190,200,130,'DINING','') +
+    PLAN_ROOM(60,320,220,220,'PRIMARY SUITE','') +
+    PLAN_ROOM(280,320,160,220,'BEDROOM 2','') +
+    PLAN_ROOM(440,320,160,220,'BEDROOM 3','') +
+    PLAN_ROOM(600,320,160,220,'STUDY','') +
+    PLAN_TERRACE(60,540,700,50,'TERRACE · 24 m²')
+  ),
+  three_B_main: PLAN_SHELL('THREE-ROOM · TYPE 04-B (DUAL-ASPECT) · 230 m²',
+    PLAN_ROOM(60,60,440,280,'GREAT ROOM','72 m²') +
+    PLAN_ROOM(500,60,260,140,'KITCHEN','','#f0ede4') +
+    PLAN_ROOM(500,200,260,140,'DINING','18 m²') +
+    PLAN_ROOM(60,340,260,200,'PRIMARY SUITE','32 m²') +
+    PLAN_ROOM(320,340,200,200,'BEDROOM 2','18 m²') +
+    PLAN_ROOM(520,340,240,200,'BEDROOM 3 + STUDY','') +
+    PLAN_TERRACE(60,540,700,50,'WRAP TERRACE · 34 m²')
+  ),
+  duplex_A_main: PLAN_SHELL('CROWN DUPLEX · TYPE 05-A · LOWER · 260 m²',
+    PLAN_ROOM(60,60,520,280,'GREAT ROOM','88 m²') +
+    PLAN_ROOM(580,60,180,140,'STAIR HALL','','#f0ede4') +
+    PLAN_ROOM(580,200,180,140,'POWDER','','#f0ede4') +
+    PLAN_ROOM(60,340,260,200,'OPEN KITCHEN','24 m²','#f0ede4') +
+    PLAN_ROOM(320,340,240,200,'DINING','22 m²') +
+    PLAN_ROOM(560,340,200,200,'GUEST SUITE','18 m²') +
+    PLAN_TERRACE(60,540,700,50,'NORTH TERRACE · 38 m²')
+  ),
+  duplex_A_upper: PLAN_SHELL('CROWN DUPLEX · TYPE 05-A · UPPER · 160 m²',
+    PLAN_ROOM(60,60,280,280,'PRIMARY SUITE','44 m²') +
+    PLAN_ROOM(340,60,220,280,'DRESSING + BATH','','#f0ede4') +
+    PLAN_ROOM(560,60,200,280,'STAIR / GALERIE','','#f0ede4') +
+    PLAN_ROOM(60,340,240,200,'BEDROOM 2','22 m²') +
+    PLAN_ROOM(300,340,240,200,'BEDROOM 3','20 m²') +
+    PLAN_ROOM(540,340,220,200,'STUDY','18 m²') +
+    PLAN_TERRACE(60,540,700,50,'PRIVATE ROOF GARDEN · 56 m²')
+  ),
+  duplex_B_main: PLAN_SHELL('CROWN DUPLEX · TYPE 05-B (CORNER) · LOWER · 320 m²',
+    PLAN_ROOM(60,60,560,280,'GREAT ROOM','108 m²') +
+    PLAN_ROOM(620,60,140,280,'STAIR','','#f0ede4') +
+    PLAN_ROOM(60,340,280,200,'KITCHEN + SCULLERY','','#f0ede4') +
+    PLAN_ROOM(340,340,240,200,'FORMAL DINING','26 m²') +
+    PLAN_ROOM(580,340,180,200,'GUEST SUITE','22 m²') +
+    PLAN_TERRACE(60,540,700,50,'CORNER TERRACE · 62 m²')
+  ),
+  duplex_B_upper: PLAN_SHELL('CROWN DUPLEX · TYPE 05-B · UPPER · 180 m²',
+    PLAN_ROOM(60,60,320,280,'PRIMARY SUITE','58 m²') +
+    PLAN_ROOM(380,60,260,280,'HIS + HERS DRESSING','','#f0ede4') +
+    PLAN_ROOM(640,60,120,280,'SPA BATH','','#f0ede4') +
+    PLAN_ROOM(60,340,240,200,'BEDROOM 2','24 m²') +
+    PLAN_ROOM(300,340,240,200,'BEDROOM 3','22 m²') +
+    PLAN_ROOM(540,340,220,200,'LIBRARY','') +
+    PLAN_TERRACE(60,540,700,50,'ROOFTOP GARDEN · 84 m²')
+  ),
+};
+
+const TYPES = {
+  studio: { label: 'Studio', subtypes: [
+    { id:'A', label:'01-A Loggia',   status:'available', count:8,  area:42, terrace:6,  bed:'Studio', bath:1, ceiling:3.0, floors:'2–7',  parking:1, desc:'Open-plan studio with a recessed 6 m² loggia and north-facing aspect. Ideal as a pied-à-terre or first home.', levels:['main'] },
+    { id:'B', label:'01-B Corner',   status:'available', count:4,  area:55, terrace:11, bed:'Studio+',bath:1, ceiling:3.0, floors:'3–7',  parking:1, desc:'Dual-aspect corner studio with a separate study nook and an 11 m² wrap loggia.', levels:['main'] },
+  ]},
+  one: { label: '1-Room', subtypes: [
+    { id:'A', label:'02-A Compact',   status:'available', count:10, area:62, terrace:8,  bed:1, bath:1, ceiling:3.0, floors:'3–12', parking:1, desc:'Efficient one-bedroom plan. Separate bedroom, open living and a private 8 m² balcony.', levels:['main'] },
+    { id:'B', label:'02-B Dual-Aspect',status:'available', count:4,  area:82, terrace:12, bed:1, bath:1.5, ceiling:3.0, floors:'4–15', parking:1, desc:'Premium one-bedroom with split living and dining, guest WC, dressing and a wrap terrace.', levels:['main'] },
+  ]},
+  two: { label: '2-Room', subtypes: [
+    { id:'A', label:'03-A Classic',   status:'available', count:5,  area:95,  terrace:12, bed:2, bath:2, ceiling:3.2, floors:'4–14', parking:1, desc:'Two-bedroom with a great room, primary suite and guest bath. Balanced, city-facing.', levels:['main'] },
+    { id:'B', label:'03-B Forest',    status:'available', count:2,  area:112, terrace:18, bed:2, bath:2, ceiling:3.2, floors:'8–16', parking:2, desc:'Dual-aspect north-facing plan. Forest-line panoramic living, two suites, utility scullery.', levels:['main'] },
+    { id:'C', label:'03-C Corner',    status:'sold',      count:1,  area:130, terrace:22, bed:2, bath:2.5, ceiling:3.2, floors:'10–18',parking:2, desc:'Half-floor corner residence. 58 m² great room, primary wing, powder and pantry.', levels:['main'] },
+  ]},
+  three: { label: '3-Room', subtypes: [
+    { id:'A', label:'04-A Standard',  status:'available', count:2,  area:165, terrace:24, bed:3, bath:3, ceiling:3.4, floors:'10–17',parking:2, desc:'Three bedrooms + study, linear plan, 24 m terrace facing Băneasa.', levels:['main'] },
+    { id:'B', label:'04-B Dual-Aspect',status:'available', count:1,  area:230, terrace:34, bed:'3+S', bath:3.5, ceiling:3.4, floors:'15–19',parking:3, desc:'Dual-aspect layout with a 72 m² great room, formal dining, and wrap terrace.', levels:['main'] },
+  ]},
+  duplex: { label: 'Crown Duplex', subtypes: [
+    { id:'A', label:'05-A Lower Crown', status:'available', count:1, area:420, terrace:56, bed:'3+S', bath:4, ceiling:4.0, floors:'20–21',parking:3, desc:"The lower of two duplexes. Great room, chef's kitchen, guest suite, primary + 2 bedrooms above, private rooftop garden.", levels:['main','upper'] },
+    { id:'B', label:'05-B Sky Crown',   status:'sold',      count:3, area:620, terrace:84, bed:'3+S+Lib', bath:5, ceiling:4.0, floors:'22–23',parking:4, desc:'The summit residence. 108 m² great room, spa bath, library, 84 m² rooftop garden with outdoor kitchen.', levels:['main','upper'] },
+  ]},
+};
+
+const LEVEL_LABELS = { main: 'Main Level', upper: 'Upper Level' };
+
+let currentType = 'studio';
+let currentSub = 'A';
+let currentLevel = 'main';
+let planZoom = 1;
+
+const planSvg = document.getElementById('planSvg');
+
+function getSub() {
+  return TYPES[currentType].subtypes.find(s => s.id === currentSub) || TYPES[currentType].subtypes[0];
+}
+
+function renderSubtypes() {
+  const tgt = document.getElementById('subtypeSelector');
+  const subs = TYPES[currentType].subtypes;
+  tgt.innerHTML = subs.map(s => `
+    <button class="sub-chip ${s.id===currentSub?'active':''}" data-sub="${s.id}" data-status="${s.status}">
+      ${s.label}
+      <span class="sold">${s.status === 'sold' ? '· Sold' : '· ' + s.count + ' avail'}</span>
+    </button>`).join('');
+  tgt.querySelectorAll('.sub-chip').forEach(b => b.addEventListener('click', () => {
+    currentSub = b.dataset.sub;
+    currentLevel = 'main';
+    render();
+  }));
+}
+
+function renderLevels() {
+  const tgt = document.getElementById('levelSelector');
+  const sub = getSub();
+  tgt.innerHTML = sub.levels.map(l => `
+    <button class="plan-tab ${l===currentLevel?'active':''}" data-level="${l}">${LEVEL_LABELS[l]}</button>
+  `).join('');
+  tgt.querySelectorAll('.plan-tab').forEach(b => b.addEventListener('click', () => {
+    currentLevel = b.dataset.level;
+    render();
+  }));
+}
+
+function render() {
+  const type = TYPES[currentType];
+  const sub = getSub();
+  const key = `${currentType}_${sub.id}_${currentLevel}`;
+  planSvg.innerHTML = DRAW[key] || DRAW[`${currentType}_${sub.id}_main`] || '';
+  document.querySelectorAll('#typeSelector .type-chip').forEach(c =>
+    c.classList.toggle('active', c.dataset.type === currentType));
+  renderSubtypes();
+  renderLevels();
+  document.getElementById('planCurrent').textContent = `${type.label} · ${sub.label.split(' ').slice(1).join(' ')}`;
+  document.getElementById('planEyebrow').textContent = `Type ${sub.label.split(' ')[0]} · ${type.label}`;
+  document.getElementById('planTitle').textContent =
+    sub.label.split(' ').slice(1).join(' ') + (type.label==='Crown Duplex'?' Penthouse':' Residence');
+  const avail = document.getElementById('planAvail');
+  if (sub.status === 'sold') {
+    avail.innerHTML = '<span class="w-2 h-2 rounded-full" style="background:#a94b2a"></span><span style="color:#a94b2a">Sold out</span>';
+  } else {
+    avail.innerHTML = `<span class="w-2 h-2 rounded-full bg-landmark-green"></span><span class="text-landmark-green">${sub.count} available</span>`;
+  }
+  document.getElementById('planFloors').textContent = 'Floors ' + sub.floors;
+  document.getElementById('planDesc').textContent = sub.desc;
+  const totalArea = sub.area + sub.terrace;
+  document.getElementById('planSpecs').innerHTML = `
+    <div class="flex items-baseline justify-between py-4"><dt class="label text-black/60">Interior</dt><dd class="font-headline text-[16px] text-black">${sub.area} m²</dd></div>
+    <div class="flex items-baseline justify-between py-4"><dt class="label text-black/60">Terrace</dt><dd class="font-headline text-[16px] text-black">${sub.terrace} m²</dd></div>
+    <div class="flex items-baseline justify-between py-4"><dt class="label text-black/60">Total</dt><dd class="font-headline text-[16px] text-black">${totalArea} m²</dd></div>
+    <div class="flex items-baseline justify-between py-4"><dt class="label text-black/60">Bedrooms</dt><dd class="font-headline text-[16px] text-black">${sub.bed}</dd></div>
+    <div class="flex items-baseline justify-between py-4"><dt class="label text-black/60">Bathrooms</dt><dd class="font-headline text-[16px] text-black">${sub.bath}</dd></div>
+    <div class="flex items-baseline justify-between py-4"><dt class="label text-black/60">Ceiling</dt><dd class="font-headline text-[16px] text-black">${sub.ceiling.toFixed(1)} m</dd></div>
+    <div class="flex items-baseline justify-between py-4"><dt class="label text-black/60">Parking</dt><dd class="font-headline text-[16px] text-black">${sub.parking} ${sub.parking>1?'spaces':'space'}</dd></div>
+  `;
+  document.getElementById('planMeta').textContent =
+    `Type ${sub.label.split(' ')[0]} · ${LEVEL_LABELS[currentLevel]} · ${sub.area} m² interior`;
+  planSvg.style.transform = `scale(${planZoom})`;
+}
+
+document.querySelectorAll('#typeSelector .type-chip').forEach(b => b.addEventListener('click', () => {
+  currentType = b.dataset.type;
+  currentSub = TYPES[currentType].subtypes[0].id;
+  currentLevel = 'main';
+  render();
+}));
+
+document.getElementById('planZoomIn').addEventListener('click', () => { planZoom = Math.min(2.2, planZoom + 0.2); render(); });
+document.getElementById('planZoomOut').addEventListener('click', () => { planZoom = Math.max(0.6, planZoom - 0.2); render(); });
+document.getElementById('planFull').addEventListener('click', () => {
+  const svg = planSvg.cloneNode(true);
+  svg.style.transform = 'none';
+  svg.style.width = '92vw';
+  svg.style.maxWidth = '1200px';
+  svg.style.maxHeight = '86vh';
+  document.getElementById('lbContent').innerHTML = '';
+  document.getElementById('lbContent').appendChild(svg);
+  document.getElementById('lbCounter').textContent = 'FLOOR PLAN';
+  document.getElementById('lightbox').classList.add('show');
+});
+
+render();
+
+// ========== Gallery lightbox ==========
+const lb = document.getElementById('lightbox');
+const lbContent = document.getElementById('lbContent');
+const lbCounter = document.getElementById('lbCounter');
+const items = document.querySelectorAll('.gallery-item');
+let lbIdx = 0;
+function openLB(i) {
+  lbIdx = (i + items.length) % items.length;
+  const svg = items[lbIdx].querySelector('svg').cloneNode(true);
+  svg.removeAttribute('class');
+  svg.style.width = '92vw';
+  svg.style.maxWidth = '1100px';
+  svg.style.maxHeight = '86vh';
+  lbContent.innerHTML = '';
+  lbContent.appendChild(svg);
+  lbCounter.textContent = String(lbIdx + 1).padStart(2, '0') + ' / 0' + items.length;
+  lb.classList.add('show');
+}
+items.forEach((it, i) => it.addEventListener('click', () => openLB(i)));
+const openGalleryBtn = document.getElementById('openGalleryBtn');
+if (openGalleryBtn) openGalleryBtn.addEventListener('click', () => openLB(0));
+document.getElementById('lbClose').addEventListener('click', () => lb.classList.remove('show'));
+document.getElementById('lbPrev').addEventListener('click', () => openLB(lbIdx - 1));
+document.getElementById('lbNext').addEventListener('click', () => openLB(lbIdx + 1));
+document.addEventListener('keydown', (e) => {
+  if (!lb.classList.contains('show')) return;
+  if (e.key === 'Escape') lb.classList.remove('show');
+  if (e.key === 'ArrowLeft') openLB(lbIdx - 1);
+  if (e.key === 'ArrowRight') openLB(lbIdx + 1);
+});
+
+// Form
+document.getElementById('inquiryForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  document.getElementById('formSuccess').classList.remove('hidden');
+  e.target.querySelectorAll('input, textarea, select').forEach(el => el.disabled = true);
+  e.target.querySelector('button[type=submit]').disabled = true;
+});
+
+// ========== Tweaks ==========
+const panel = document.getElementById('tweaksPanel');
+window.addEventListener('message', (e) => {
+  if (!e.data || typeof e.data !== 'object') return;
+  if (e.data.type === '__activate_edit_mode') panel.classList.add('show');
+  if (e.data.type === '__deactivate_edit_mode') panel.classList.remove('show');
+});
+window.parent && window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+function persist(edits) { window.parent && window.parent.postMessage({ type: '__edit_mode_set_keys', edits }, '*'); }
+document.querySelectorAll('.tweak-swatch').forEach(s => s.addEventListener('click', () => {
+  document.querySelectorAll('.tweak-swatch').forEach(x => x.classList.remove('active'));
+  s.classList.add('active');
+  document.body.dataset.accent = s.dataset.accent;
+  persist({ accent: s.dataset.accent });
+}));
+document.querySelectorAll('#densitySeg button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('#densitySeg button').forEach(x => x.classList.remove('active'));
+  b.classList.add('active');
+  document.body.dataset.density = b.dataset.density;
+  persist({ density: b.dataset.density });
+}));
+document.querySelectorAll('#heroSeg button').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('#heroSeg button').forEach(x => x.classList.remove('active'));
+  b.classList.add('active');
+  const hero = document.querySelector('#hSky');
+  if (hero) {
+    if (b.dataset.hero === 'day') {
+      hero.innerHTML = `<stop offset="0%" stop-color="#a8b9a3"/><stop offset="60%" stop-color="#d4d2be"/><stop offset="100%" stop-color="#efe2c4"/>`;
+    } else {
+      hero.innerHTML = `<stop offset="0%" stop-color="#0e1512"/><stop offset="45%" stop-color="#2a3428"/><stop offset="100%" stop-color="#5a6048"/>`;
+    }
+  }
+  persist({ hero: b.dataset.hero });
+}));
+
+// Initial
+selectFloor(document.querySelector('.floor-band.active'));
+</script>
 </body>
 </html>

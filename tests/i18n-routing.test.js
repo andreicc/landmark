@@ -20,7 +20,7 @@ function readRaw(filepath) {
 // 1. CLEAN URLs — no .html in internal links
 // ============================================================
 describe('Clean URLs — no .html extensions in links', () => {
-  const pages = ['index.html', 'projects.html']
+  const pages = ['index.html', 'about.html', 'projects.html']
 
   pages.forEach((page) => {
     it(`${page}: internal links do not end with .html`, () => {
@@ -102,6 +102,12 @@ describe('Hreflang tags', () => {
     expect(raw).toMatch(/hreflang="en"/)
     expect(raw).toMatch(/hreflang="ro"/)
   })
+
+  it('EN about has hreflang for en and ro', () => {
+    const raw = readRaw('about.html')
+    expect(raw).toMatch(/hreflang="en"/)
+    expect(raw).toMatch(/hreflang="ro"/)
+  })
 })
 
 // ============================================================
@@ -124,7 +130,14 @@ describe('Language switcher', () => {
     const doc = loadHTML('projects.html')
     const links = doc.querySelectorAll('a[href]')
     const roLink = Array.from(links).find(a => a.getAttribute('href').includes('/ro'))
-    expect(roLink).not.toBeNull()
+    expect(roLink).toBeDefined()
+  })
+
+  it('EN about has language switcher linking to RO', () => {
+    const doc = loadHTML('about.html')
+    const links = doc.querySelectorAll('a[href]')
+    const roLink = Array.from(links).find(a => a.getAttribute('href').includes('/ro'))
+    expect(roLink).toBeDefined()
   })
 })
 

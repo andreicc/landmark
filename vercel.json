@@ -1,4 +1,14 @@
 {
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/ro", "destination": "/ro/index.html" },
+    { "source": "/ro/", "destination": "/ro/index.html" },
+    { "source": "/ro/about", "destination": "/ro/about.html" },
+    { "source": "/ro/contact", "destination": "/ro/contact.html" },
+    { "source": "/ro/projects", "destination": "/ro/projects.html" },
+    { "source": "/ro/media", "destination": "/ro/media.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",
