@@ -2,13 +2,17 @@
   "name": "landmark-cms",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "description": "Payload v3 CMS for the Landmark /media feed. Deployed as a separate Vercel Next.js project.",
   "scripts": {
     "dev": "next dev",
+    "prebuild": "payload migrate --force-accept-warning",
     "build": "next build",
     "start": "next start",
     "generate:types": "payload generate:types",
-    "generate:importmap": "payload generate:importmap"
+    "generate:importmap": "payload generate:importmap",
+    "migrate:create": "payload migrate:create --force-accept-warning",
+    "migrate": "payload migrate --force-accept-warning"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "3.84.1",
