@@ -9,3 +9,4 @@ node_modules
 payload-types.ts
 .payload
 *.tsbuildinfo
+package-lock.json
