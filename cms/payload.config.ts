@@ -14,6 +14,24 @@ import { Users } from './src/collections/Users'
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
 
+// Build a pg pool config from the DATABASE_URL with explicit SSL options.
+// Passing `connectionString` lets pg-connection-string set ssl based on
+// `sslmode=require`, which we don't want — we need to control verification.
+function parseDbUrl(rawUrl: string) {
+  if (!rawUrl) {
+    throw new Error('DATABASE_URL is not set')
+  }
+  const url = new URL(rawUrl)
+  return {
+    host: url.hostname,
+    port: url.port ? Number(url.port) : 5432,
+    database: url.pathname.replace(/^\//, '') || 'postgres',
+    user: decodeURIComponent(url.username),
+    password: decodeURIComponent(url.password),
+    ssl: { rejectUnauthorized: false },
+  }
+}
+
 export default buildConfig({
   admin: {
     user: Users.slug,
@@ -34,14 +52,12 @@ export default buildConfig({
   // pg v9 treats `sslmode=require` as `verify-full` and Supabase's Supavisor
   // pooler ships a chain that isn't in Node's default trust store, so the
   // verify-full check fails with "self-signed certificate in certificate
-  // chain". Disable cert chain verification on the pool — TLS is still on,
-  // just the chain isn't validated. This is the same posture libpq has used
-  // for `sslmode=require` for years.
+  // chain". When `connectionString` is passed, the SSL options it parses
+  // override anything in the pool config — so we have to break the URL apart
+  // and pass discrete fields. TLS is still on; only the chain isn't validated,
+  // which is the posture libpq has used for `sslmode=require` for years.
   db: postgresAdapter({
-    pool: {
-      connectionString: process.env.DATABASE_URL,
-      ssl: { rejectUnauthorized: false },
-    },
+    pool: parseDbUrl(process.env.DATABASE_URL || ''),
   }),
   cors: [
     process.env.SITE_URL || 'http://localhost:5173',
