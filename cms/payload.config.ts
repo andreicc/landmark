@@ -30,9 +30,17 @@ export default buildConfig({
   // Supabase Postgres. Use the connection-pooler URL (port 6543, transaction
   // mode) for serverless workloads on Vercel — direct connections will exhaust
   // the database under cold-start spikes.
+  //
+  // pg v9 treats `sslmode=require` as `verify-full` and Supabase's Supavisor
+  // pooler ships a chain that isn't in Node's default trust store, so the
+  // verify-full check fails with "self-signed certificate in certificate
+  // chain". Disable cert chain verification on the pool — TLS is still on,
+  // just the chain isn't validated. This is the same posture libpq has used
+  // for `sslmode=require` for years.
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URL,
+      ssl: { rejectUnauthorized: false },
     },
   }),
   cors: [
