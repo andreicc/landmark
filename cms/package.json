@@ -6,7 +6,7 @@
   "description": "Payload v3 CMS for the Landmark /media feed. Deployed as a separate Vercel Next.js project.",
   "scripts": {
     "dev": "next dev",
-    "prebuild": "payload migrate --force-accept-warning",
+    "prebuild": "payload migrate --force-accept-warning && payload generate:importmap",
     "build": "next build",
     "start": "next start",
     "generate:types": "payload generate:types",
