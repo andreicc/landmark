@@ -3,7 +3,7 @@ import { mkdtempSync, rmSync, existsSync, readFileSync, writeFileSync, mkdirSync
 import { tmpdir } from 'os'
 import { join, resolve, dirname } from 'path'
 import { fileURLToPath } from 'url'
-import { buildMedia, normalizePayloadPost } from '../scripts/build-media.mjs'
+import { buildMedia, normalizePayloadPost, renderMediaIndex } from '../scripts/build-media.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const repoRoot = resolve(__dirname, '..')
@@ -124,5 +124,79 @@ describe('build-media — pipeline', () => {
     const html = readFileSync(join(workDir, 'media', 'a.html'), 'utf-8')
     expect(html).toContain('hreflang="ro"')
     expect(html).toContain('/ro/media/a')
+  })
+
+  it('writes media.html and ro/media.html index pages', async () => {
+    const fetcher = async (locale) =>
+      payloadResponse({
+        docs: [
+          { ...rawPost({ slug: 'one' }), title: locale === 'ro' ? 'Unu' : 'One' },
+          { ...rawPost({ id: 2, slug: 'two' }), title: locale === 'ro' ? 'Doi' : 'Two' },
+        ],
+      })
+    await buildMedia({ fetcher, outDir: workDir })
+    expect(existsSync(join(workDir, 'media.html'))).toBe(true)
+    expect(existsSync(join(workDir, 'ro', 'media.html'))).toBe(true)
+  })
+
+  it('media.html lists every published post with link to its article', async () => {
+    const fetcher = async () =>
+      payloadResponse({
+        docs: [rawPost({ slug: 'first' }), rawPost({ id: 2, slug: 'second' }), rawPost({ id: 3, slug: 'third' })],
+      })
+    await buildMedia({ fetcher, outDir: workDir })
+    const html = readFileSync(join(workDir, 'media.html'), 'utf-8')
+    expect(html).toContain('href="/media/first"')
+    expect(html).toContain('href="/media/second"')
+    expect(html).toContain('href="/media/third"')
+  })
+})
+
+describe('renderMediaIndex', () => {
+  function fakePost(over = {}) {
+    return {
+      slug: 'a',
+      title: { en: 'Title EN', ro: 'Title RO' },
+      excerpt: { en: 'EN excerpt', ro: 'RO excerpt' },
+      heroImage: { url: '/img.jpg', alt: { en: 'alt EN' } },
+      body: { en: '<p>x</p>' },
+      category: { slug: 'journal', name: { en: 'Journal', ro: 'Jurnal' } },
+      author: { slug: 'site-team', name: 'Site Team' },
+      publishedAt: '2026-04-22T00:00:00Z',
+      status: 'published',
+      tag: 'milestone',
+      ...over,
+    }
+  }
+
+  it('renders EN index with one card per post', () => {
+    const html = renderMediaIndex({ posts: [fakePost(), fakePost({ slug: 'b' })], locale: 'en' })
+    expect(html).toContain('lang="en"')
+    expect(html).toContain('href="/media/a"')
+    expect(html).toContain('href="/media/b"')
+  })
+
+  it('renders RO index linking to /ro/media/<slug>', () => {
+    const html = renderMediaIndex({ posts: [fakePost()], locale: 'ro' })
+    expect(html).toContain('lang="ro"')
+    expect(html).toContain('href="/ro/media/a"')
+  })
+
+  it('shows the EN title in EN index, RO title in RO index', () => {
+    const en = renderMediaIndex({ posts: [fakePost()], locale: 'en' })
+    const ro = renderMediaIndex({ posts: [fakePost()], locale: 'ro' })
+    expect(en).toContain('Title EN')
+    expect(ro).toContain('Title RO')
+  })
+
+  it('includes filter pills', () => {
+    const html = renderMediaIndex({ posts: [fakePost()], locale: 'en' })
+    expect(html).toMatch(/data-filter="all"/)
+  })
+
+  it('renders an empty state when no posts', () => {
+    const html = renderMediaIndex({ posts: [], locale: 'en' })
+    expect(html).toContain('lang="en"')
+    expect(html).toMatch(/no posts|empty|nothing yet/i)
   })
 })

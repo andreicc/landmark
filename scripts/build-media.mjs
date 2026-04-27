@@ -292,6 +292,208 @@ body { background: var(--bg); color: var(--ink); font-family: 'Roboto', sans-ser
 `
 }
 
+// Render the /media index page (EN or RO) listing all published posts as
+// cards, with the filter pill row from the design and an empty state when
+// there are no posts.
+export function renderMediaIndex({ posts, locale }) {
+  const isRo = locale === 'ro'
+  const langAttr = isRo ? 'ro' : 'en'
+  const labels = isRo
+    ? {
+        about: 'Despre noi', communities: 'Comunități', properties: 'Proprietăți',
+        media: 'Media', careers: 'Cariere', contact: 'Contact', skip: 'Sari la conținut',
+        eyebrow: 'DIRECT DE PE ȘANTIER',
+        heroLine1: 'Jurnal', heroAccent: 'de', heroLine2: 'teren.',
+        heroLead: 'O cronică continuă de pe șantierele noastre active — turnări de beton și sosiri de piatră, cadre time-lapse și note discrete de meșteșug.',
+        filter: 'Filtru', all: 'Toate', read: 'Citește articolul',
+        empty: 'Nu există încă articole. Reveniți curând.',
+      }
+    : {
+        about: 'About', communities: 'Communities', properties: 'Properties',
+        media: 'Media', careers: 'Careers', contact: 'Contact', skip: 'Skip to main content',
+        eyebrow: 'LIVE FROM SITE',
+        heroLine1: 'The', heroAccent: 'field', heroLine2: 'journal.',
+        heroLead: 'A continuous dispatch from our active building sites — concrete pours and stone arrivals, time-lapse stills and quiet craft notes.',
+        filter: 'Filter', all: 'All', read: 'Read article',
+        empty: 'No posts yet. Check back soon.',
+      }
+  const aboutHref = isRo ? '/ro/about' : '/about'
+  const projectsHref = isRo ? '/ro/projects' : '/projects'
+  const contactHref = isRo ? '/ro/contact' : '/contact'
+  const mediaHref = isRo ? '/ro/media' : '/media'
+  const homeHref = isRo ? '/ro/' : '/'
+  const enPath = '/media'
+  const roPath = '/ro/media'
+
+  const tags = new Set()
+  for (const p of posts) if (p.tag) tags.add(p.tag)
+
+  const cardHtml = posts
+    .map((p) => {
+      const articleHref = isRo ? `/ro/media/${p.slug}` : `/media/${p.slug}`
+      const t = pickLocalized(p.title, locale)
+      const e = pickLocalized(p.excerpt, locale)
+      const cat = pickLocalized(p.category.name, locale)
+      const date = fmtDate(p.publishedAt, locale)
+      const heroAlt = pickLocalized(p.heroImage?.alt ?? {}, locale)
+      const heroUrl = p.heroImage?.url
+      return `<article class="post group" data-post data-tag="${escapeHtml(p.tag || '')}" data-date="${escapeHtml(p.publishedAt || '')}">
+  <a href="${articleHref}" class="block no-underline">
+    ${heroUrl ? `<div class="aspect-[4/3] overflow-hidden bg-stone-bg mb-6">
+      <img src="${escapeHtml(heroUrl)}" alt="${escapeHtml(heroAlt)}" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy">
+    </div>` : ''}
+    <div class="flex items-center gap-3 mb-4">
+      <span class="eyebrow text-landmark-gold">${escapeHtml(cat)}</span>
+      <span class="w-6 h-px bg-black/30"></span>
+      <time class="label text-black/55" datetime="${escapeHtml(p.publishedAt || '')}">${date}</time>
+    </div>
+    <h3 class="font-headline text-black leading-tight mb-3" style="font-size: 24px; font-weight: 300;">${escapeHtml(t)}</h3>
+    <p class="text-[14px] leading-[1.7] text-black/65 mb-5">${escapeHtml(e)}</p>
+    <span class="inline-flex items-center gap-2 label text-landmark-green group-hover:text-landmark-gold transition">
+      ${labels.read}
+      <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+    </span>
+  </a>
+</article>`
+    })
+    .join('\n')
+
+  const filterPills = [
+    `<button class="chip is-active" data-filter="all">${labels.all}</button>`,
+    ...Array.from(tags).map((t) => `<button class="chip" data-filter="${escapeHtml(t)}">${escapeHtml(String(t).replace(/^./, (c) => c.toUpperCase()))}</button>`),
+  ].join('\n')
+
+  const emptyState = `<div class="text-center py-24"><p class="text-[18px] text-black/55 font-light">${labels.empty}</p></div>`
+
+  return `<!DOCTYPE html>
+<html class="light" lang="${langAttr}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${isRo ? 'Media — Un jurnal de teren · Landmark Realty' : 'Media — A field journal · Landmark Realty'}</title>
+<meta name="description" content="${escapeHtml(labels.heroLead)}">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="en" href="${enPath}">
+<link rel="alternate" hreflang="ro" href="${roPath}">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script>
+tailwind.config = { darkMode: "class", theme: { extend: {
+  colors: { "primary":"#004225","landmark-green":"#004225","landmark-gold":"#b59458","stone-bg":"#f9f8f6" },
+  fontFamily: { headline:["Lato","sans-serif"], body:["Roboto","sans-serif"] },
+}}}
+</script>
+<style>
+:root { --accent:#b59458; --primary:#004225; --bg:#fcfcfc; --ink:#1b1c1c; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--ink); font-family: 'Roboto', sans-serif; font-weight: 300; -webkit-font-smoothing: antialiased; }
+.font-headline { font-family: 'Lato', sans-serif; font-weight: 300; }
+.eyebrow { font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 600; }
+.label { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; }
+.micro { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; font-weight: 600; }
+.serif-italic { font-family: 'Lato', sans-serif; font-style: italic; font-weight: 300; }
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 250, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+.nav-link { position: relative; }
+.nav-link::after { content:''; position:absolute; left:0; bottom:-4px; height:1px; width:0; background: currentColor; transition: width .35s cubic-bezier(.16,1,.3,1); }
+.nav-link:hover::after { width: 100%; }
+.skip-link { position: absolute; top: 0; left: 0; padding: .75rem 1.5rem; background: var(--primary); color:#fff; font-weight:600; z-index: 9999; transform: translateY(-100%); transition: transform .2s; }
+.skip-link:focus { transform: translateY(0); }
+.chip { display:inline-flex; align-items:center; gap:6px; padding: 7px 13px; border:1px solid rgba(255,255,255,0.2); border-radius:999px; font-size:11px; letter-spacing:.18em; text-transform:uppercase; font-weight:600; color:rgba(255,255,255,0.7); background:transparent; cursor:pointer; transition: all .2s; }
+.chip:hover { color: #fff; border-color: rgba(255,255,255,0.6); }
+.chip.is-active { background: var(--accent); color: #111; border-color: var(--accent); }
+.hero-canvas { background: radial-gradient(120% 80% at 80% 20%, rgba(181,148,88,.18), transparent 60%), radial-gradient(120% 80% at 10% 80%, rgba(0,66,37,.32), transparent 55%), linear-gradient(180deg, #0c1410 0%, #0a1310 60%, #050a08 100%); }
+.post { transition: transform .5s cubic-bezier(.16,1,.3,1); }
+.post:hover { transform: translateY(-6px); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+</style>
+</head>
+<body class="selection:bg-primary/10">
+<a class="skip-link" href="#main-content">${labels.skip}</a>
+
+<header>
+<nav class="fixed top-0 w-full z-50 text-white" aria-label="Main">
+  <div class="flex justify-between items-center px-6 lg:px-12 h-[72px] w-full max-w-[1920px] mx-auto">
+    <div class="hidden lg:flex gap-9 items-center font-medium tracking-[0.14em] text-[12px] uppercase">
+      <a class="nav-link" href="${aboutHref}">${labels.about}</a>
+      <a class="nav-link" href="#">${labels.communities}</a>
+      <a class="nav-link" href="${projectsHref}">${labels.properties}</a>
+    </div>
+    <a href="${homeHref}" class="absolute left-1/2 -translate-x-1/2 flex items-center no-underline">
+      <span class="font-headline tracking-[0.3em] text-[20px]">LANDMARK</span>
+    </a>
+    <div class="flex items-center gap-6">
+      <div class="hidden lg:flex gap-6 items-center font-medium tracking-[0.14em] text-[12px] uppercase">
+        <a class="nav-link" href="${mediaHref}" aria-current="page">${labels.media}</a>
+        <a class="nav-link" href="#">${labels.careers}</a>
+        <a class="nav-link" href="${contactHref}">${labels.contact}</a>
+      </div>
+      <div class="lang-switcher flex items-center gap-1 text-[11px] font-medium tracking-[0.18em] pl-4 border-l border-white/20" data-lang-switcher>
+        <a href="${enPath}" class="no-underline ${isRo ? 'opacity-60 hover:opacity-100' : ''}" hreflang="en"${isRo ? '' : ' aria-current="page"'}>EN</a>
+        <span class="opacity-40">/</span>
+        <a href="${roPath}" class="no-underline ${isRo ? '' : 'opacity-60 hover:opacity-100'}" hreflang="ro"${isRo ? ' aria-current="page"' : ''}>RO</a>
+      </div>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main id="main-content">
+
+<section class="hero-canvas relative pt-32 pb-20 text-white">
+  <div class="max-w-[1380px] mx-auto px-6 lg:px-10">
+    <div class="flex items-center gap-4 mb-8">
+      <span class="micro text-white/80">${labels.eyebrow}</span>
+      <span class="w-8 h-px bg-white/30"></span>
+      <span class="micro text-white/55">${posts.length} ${isRo ? 'articole' : 'posts'}</span>
+    </div>
+    <h1 class="font-headline" style="font-size: clamp(48px, 7vw, 104px); line-height: 0.98; letter-spacing: -0.02em;">
+      ${labels.heroLine1} <span class="serif-italic text-landmark-gold">${labels.heroAccent}</span><br>${labels.heroLine2}
+    </h1>
+    <p class="mt-8 max-w-2xl text-white/75 text-[18px] leading-[1.75] font-light">${escapeHtml(labels.heroLead)}</p>
+    <div class="mt-10 flex flex-wrap gap-3 items-center">
+      <span class="micro text-white/55 mr-2">${labels.filter}</span>
+      ${filterPills}
+    </div>
+  </div>
+</section>
+
+<section class="bg-white py-20">
+  <div class="max-w-[1380px] mx-auto px-6 lg:px-10">
+    ${posts.length === 0 ? emptyState : `<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-16">${cardHtml}</div>`}
+  </div>
+</section>
+
+</main>
+
+<footer class="bg-[#0e1512] text-white py-20">
+  <div class="max-w-[1380px] mx-auto px-6 lg:px-10 text-center">
+    <a href="${homeHref}" class="font-headline tracking-[0.3em] text-[16px] no-underline">LANDMARK</a>
+    <p class="mt-4 label text-white/40">EST · MMVIII · BUCHAREST</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const chips = document.querySelectorAll('.chip[data-filter]');
+  const cards = document.querySelectorAll('[data-post]');
+  chips.forEach(c => c.addEventListener('click', () => {
+    chips.forEach(x => x.classList.remove('is-active'));
+    c.classList.add('is-active');
+    const f = c.dataset.filter;
+    cards.forEach(card => {
+      const show = f === 'all' || card.dataset.tag === f;
+      card.style.display = show ? '' : 'none';
+    });
+  }));
+})();
+</script>
+
+</body>
+</html>
+`
+}
+
 // Default fetcher — hits Payload's REST API. Replaceable in tests.
 export function makeFetcher({ apiUrl, token }) {
   return async function fetchLocale(locale) {
@@ -370,6 +572,20 @@ export async function buildMedia({
       await writeFile(join(outDir, 'ro', 'media', `${post.slug}.html`), roHtml, 'utf-8')
     }
   }
+
+  // Index pages — overwrite the design's static media.html with a
+  // generated version listing real CMS posts. Both EN and RO variants.
+  await writeFile(
+    join(outDir, 'media.html'),
+    renderMediaIndex({ posts: validated, locale: 'en' }),
+    'utf-8',
+  )
+  const roPosts = validated.filter((p) => p.title?.ro)
+  await writeFile(
+    join(outDir, 'ro', 'media.html'),
+    renderMediaIndex({ posts: roPosts, locale: 'ro' }),
+    'utf-8',
+  )
 
   // Manifest for Vite to pick up the slug pages as build inputs.
   const manifest = {
