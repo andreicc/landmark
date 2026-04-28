@@ -1188,7 +1188,6 @@ tailwind.config = {
         <h5 class="label text-black mb-5">Properties</h5>
         <ul class="space-y-3 text-[12px] text-black/60">
           <li><a href="/projects" class="hover:text-landmark-green">Landmark 4</a></li>
-          <li><a href="#" class="hover:text-landmark-green">All Communities</a></li>
         </ul>
       </div>
       <div>
@@ -1197,7 +1196,6 @@ tailwind.config = {
           <li><a href="/about" class="hover:text-landmark-green">About</a></li>
           <li><a href="#" class="hover:text-landmark-green">Journal</a></li>
           <li><a href="/media" class="hover:text-landmark-green">Media</a></li>
-          <li><a href="#" class="hover:text-landmark-green">Careers</a></li>
         </ul>
       </div>
       <div>
@@ -1221,11 +1219,15 @@ tailwind.config = {
 </footer>
 
 <script>
-// Reveal
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-}, { threshold: 0.08 });
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+// Reveal — guard so a missing IntersectionObserver never blocks filter wiring below
+if (typeof IntersectionObserver !== 'undefined') {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+} else {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+}
 
 // Filter (tag only)
 const state = { tag: 'all', sort: 'latest' };
