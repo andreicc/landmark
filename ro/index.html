@@ -502,80 +502,15 @@ tailwind.config = {
       </div>
     </div>
 
-    <div class="flex items-center gap-4 mb-10 reveal">
-      <div class="w-12 h-px bg-black/20"></div>
-      <span class="eyebrow text-black/50">Din jurnal</span>
+    <div class="flex flex-wrap items-end justify-between gap-6 mb-10 reveal">
+      <div class="flex items-center gap-4">
+        <div class="w-12 h-px bg-black/20"></div>
+        <span class="eyebrow text-black/50">Cele mai recente din jurnal</span>
+      </div>
+      <a href="/ro/media" class="label text-landmark-green hover:text-landmark-gold inline-flex items-center gap-2">Vezi toate actualizările <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
     </div>
-    <div class="grid md:grid-cols-3 gap-8">
-      <a href="#" class="journal-card block no-underline bg-white border border-black/5">
-        <div class="journal-img aspect-[4/3]">
-          <svg viewBox="0 0 600 450" preserveAspectRatio="xMidYMid slice" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="j1" x2="0" y2="1"><stop offset="0" stop-color="#c9b58a"/><stop offset="1" stop-color="#5a4726"/></linearGradient></defs>
-            <rect width="600" height="450" fill="url(#j1)"/>
-            <rect x="80" y="300" width="440" height="24" fill="#3a2a1a"/>
-            <rect x="110" y="248" width="380" height="55" fill="#8a6a3a"/>
-            <rect x="230" y="200" width="140" height="50" fill="#efdcb6"/>
-            <circle cx="300" cy="165" r="24" fill="#e0c69a"/>
-            <rect x="295" y="170" width="10" height="30" fill="#3a2a1a"/>
-          </svg>
-        </div>
-        <div class="p-7">
-          <div class="flex items-center justify-between mb-4">
-            <span class="label text-landmark-gold">Craft</span>
-            <span class="label text-black/50">Mar · 2026</span>
-          </div>
-          <h3 class="font-headline text-[22px] leading-tight text-black mb-3">Piatra pe care am ales-o și cariera pe care am cumpărat-o.</h3>
-          <p class="text-[13px] leading-[1.75] text-black/60">Cum o singură venă de travertin la nord de Comarnic a devenit materialul definitoriu al Landmark 4.</p>
-        </div>
-      </a>
-      <a href="#" class="journal-card block no-underline bg-white border border-black/5">
-        <div class="journal-img aspect-[4/3]">
-          <svg viewBox="0 0 600 450" preserveAspectRatio="xMidYMid slice" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="j2" x2="0" y2="1"><stop offset="0" stop-color="#d3c5a6"/><stop offset="1" stop-color="#796a4a"/></linearGradient></defs>
-            <rect width="600" height="450" fill="url(#j2)"/>
-            <rect x="40" y="280" width="520" height="140" fill="#c8b894"/>
-            <rect x="80" y="300" width="440" height="110" fill="#f4ecd6"/>
-            <g stroke="#3a2a18" stroke-width="1.2" fill="none">
-              <rect x="120" y="320" width="360" height="80"/>
-              <line x1="120" y1="355" x2="480" y2="355"/>
-              <line x1="300" y1="320" x2="300" y2="400"/>
-            </g>
-            <rect x="140" y="140" width="320" height="14" fill="#e6d3a1"/>
-            <circle cx="340" cy="220" r="22" stroke="#3a2a18" stroke-width="1.2" fill="none"/>
-          </svg>
-        </div>
-        <div class="p-7">
-          <div class="flex items-center justify-between mb-4">
-            <span class="label text-landmark-gold">Design</span>
-            <span class="label text-black/50">Feb · 2026</span>
-          </div>
-          <h3 class="font-headline text-[22px] leading-tight text-black mb-3">Desenul unui plan care durează un secol.</h3>
-          <p class="text-[13px] leading-[1.75] text-black/60">Tomás Reyes despre regulile discrete din spatele tipologiilor Willows &mdash; și ușile care încă surprind.</p>
-        </div>
-      </a>
-      <a href="#" class="journal-card block no-underline bg-white border border-black/5">
-        <div class="journal-img aspect-[4/3]">
-          <svg viewBox="0 0 600 450" preserveAspectRatio="xMidYMid slice" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs><linearGradient id="j3" x2="0" y2="1"><stop offset="0" stop-color="#5a7a4a"/><stop offset="1" stop-color="#1e3020"/></linearGradient></defs>
-            <rect width="600" height="450" fill="url(#j3)"/>
-            <ellipse cx="100" cy="380" rx="120" ry="60" fill="#2a3a26"/>
-            <ellipse cx="500" cy="370" rx="140" ry="70" fill="#2a3a26"/>
-            <rect x="220" y="220" width="160" height="160" fill="#d9c9a5" opacity="0.95"/>
-            <rect x="240" y="240" width="40" height="80" fill="#6a5a3a"/>
-            <rect x="300" y="240" width="60" height="80" fill="#6a5a3a"/>
-            <rect x="225" y="205" width="150" height="18" fill="#3a6078"/>
-            <circle cx="480" cy="80" r="32" fill="#efd68a" opacity="0.6"/>
-          </svg>
-        </div>
-        <div class="p-7">
-          <div class="flex items-center justify-between mb-4">
-            <span class="label text-landmark-gold">Land</span>
-            <span class="label text-black/50">Jan · 2026</span>
-          </div>
-          <h3 class="font-headline text-[22px] leading-tight text-black mb-3">De ce păstrăm patruzeci la sută din fiecare lot sălbatic.</h3>
-          <p class="text-[13px] leading-[1.75] text-black/60">O conversație cu arhitecții noștri peisagiști despre valoarea a ceea ce nu este construit.</p>
-        </div>
-      </a>
+    <div class="grid md:grid-cols-3 gap-8" id="homeJournalGrid">
+<!-- LATEST_JOURNAL -->
     </div>
   </div>
 </section>

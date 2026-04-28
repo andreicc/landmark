@@ -427,6 +427,75 @@ export function renderFeed(posts, locale) {
     .join('\n\n')
 }
 
+// Tag → SVG gradient stops for the homepage "From the Journal" cards. These
+// keep the cards visually consistent with the brand while letting the colour
+// hint at the kind of update without needing per-post imagery.
+const HOME_JOURNAL_GRADIENTS = {
+  milestone: ['#a8884a', '#2a1d10'],
+  craft: ['#c9b58a', '#5a4726'],
+  progress: ['#5a7a4a', '#1e3020'],
+  press: ['#7a6a4a', '#2a2218'],
+  people: ['#6a8a5a', '#2a3a26'],
+  timelapse: ['#3a3a3a', '#0e1512'],
+  market: ['#7a6a4a', '#2a2218'],
+}
+
+// Render one homepage journal card. Visual style matches the original Stitch
+// "From the Journal" section (4:3 SVG header + p-7 content) but the data is
+// driven by the CMS post.
+export function renderHomeJournalCard({ post, locale }) {
+  const isRo = locale === 'ro'
+  const slug = post.slug
+  const title = pickLocalized(post.title, locale)
+  const excerpt = pickLocalized(post.excerpt, locale)
+  const tagLabels = TAG_LABELS[isRo ? 'ro' : 'en']
+  const tagLabel = tagLabels[post.tag] || tagLabels.craft
+  const [c1, c2] = HOME_JOURNAL_GRADIENTS[post.tag] || HOME_JOURNAL_GRADIENTS.craft
+  const date = dateParts(post.publishedAt, locale)
+  const shortDate = `${date.month} · ${date.year}`
+  const articleHref = isRo ? `/ro/media/${slug}` : `/media/${slug}`
+  const gradientId = `j-${slug}`
+  return `      <a href="${articleHref}" class="journal-card block no-underline bg-white border border-black/5">
+        <div class="journal-img aspect-[4/3]">
+          <svg viewBox="0 0 600 450" preserveAspectRatio="xMidYMid slice" class="w-full h-full" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <defs><linearGradient id="${escapeHtml(gradientId)}" x2="0" y2="1"><stop offset="0" stop-color="${c1}"/><stop offset="1" stop-color="${c2}"/></linearGradient></defs>
+            <rect width="600" height="450" fill="url(#${escapeHtml(gradientId)})"/>
+            <g stroke="rgba(255,255,255,0.12)" stroke-width="0.6" fill="none">
+              <line x1="150" y1="0" x2="150" y2="450"/>
+              <line x1="300" y1="0" x2="300" y2="450"/>
+              <line x1="450" y1="0" x2="450" y2="450"/>
+            </g>
+            <g stroke="rgba(255,255,255,0.22)" stroke-width="0.6" fill="none">
+              <rect x="180" y="170" width="240" height="160"/>
+              <rect x="220" y="210" width="160" height="120"/>
+            </g>
+          </svg>
+        </div>
+        <div class="p-7">
+          <div class="flex items-center justify-between mb-4">
+            <span class="label text-landmark-gold">${escapeHtml(tagLabel)}</span>
+            <span class="label text-black/50">${escapeHtml(shortDate)}</span>
+          </div>
+          <h3 class="font-headline text-[22px] leading-tight text-black mb-3">${escapeHtml(title)}</h3>
+          <p class="text-[13px] leading-[1.75] text-black/60">${escapeHtml(excerpt)}</p>
+        </div>
+      </a>`
+}
+
+// Render the homepage "From the Journal" inner grid: top 3 most-recent posts
+// for the locale. Returns an empty string when no posts qualify so the marker
+// is safely substituted.
+export function renderHomeJournalSection({ posts, locale }) {
+  const isRo = locale === 'ro'
+  const eligible = isRo ? posts.filter((p) => p.title?.ro) : posts
+  const top3 = eligible
+    .slice()
+    .sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || ''))
+    .slice(0, 3)
+  if (top3.length === 0) return ''
+  return top3.map((post) => renderHomeJournalCard({ post, locale })).join('\n')
+}
+
 // Render the /media index page (EN or RO) listing all published posts as
 // cards, with the filter pill row from the design and an empty state when
 // there are no posts.
@@ -714,15 +783,29 @@ export async function buildMedia({
   // means the design renders pixel-perfect AND clicks land on real CMS
   // articles. No feed regeneration here.
 
+  // Latest-3 journal cards for the homepage. Written per-locale so the Vite
+  // plugin can substitute them into index.html / ro/index.html via marker.
+  const journalEn = renderHomeJournalSection({ posts: validated, locale: 'en' })
+  const journalRo = renderHomeJournalSection({ posts: validated, locale: 'ro' })
+  await mkdir(join(outDir, 'data'), { recursive: true })
+  await writeFile(join(outDir, 'data', 'journal-en.html'), journalEn, 'utf-8')
+  await writeFile(join(outDir, 'data', 'journal-ro.html'), journalRo, 'utf-8')
+
+  const latestSlugs = validated
+    .slice()
+    .sort((a, b) => (b.publishedAt || '').localeCompare(a.publishedAt || ''))
+    .slice(0, 3)
+    .map((p) => p.slug)
+
   // Manifest for Vite to pick up the slug pages as build inputs.
   const manifest = {
     generatedAt: new Date().toISOString(),
     fallback,
     slugs: validated.map((p) => p.slug),
     roSlugs: validated.filter((p) => p.title?.ro).map((p) => p.slug),
+    latestSlugs,
     count: validated.length,
   }
-  await mkdir(join(outDir, 'data'), { recursive: true })
   await writeFile(
     join(outDir, 'data', 'media-manifest.json'),
     JSON.stringify(manifest, null, 2),

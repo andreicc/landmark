@@ -79,9 +79,33 @@ function hreflangAlternates() {
   }
 }
 
+// Substitute the homepage `<!-- LATEST_JOURNAL -->` marker with the cards
+// rendered by build-media.mjs. Runs at transformIndexHtml time so the static
+// build picks up the latest CMS posts. If the per-locale journal file is
+// missing (e.g. dev mode without build-media), the marker is left intact and
+// the surrounding fallback copy remains visible.
+function latestJournalCards() {
+  return {
+    name: 'landmark-latest-journal',
+    transformIndexHtml: {
+      order: 'pre',
+      handler(html, ctx) {
+        if (!html.includes('<!-- LATEST_JOURNAL -->')) return html
+        const id = ctx.filename || ctx.path || ''
+        const isRo = id.includes('/ro/')
+        const file = resolve(__dirname, `data/journal-${isRo ? 'ro' : 'en'}.html`)
+        if (!existsSync(file)) return html
+        const cards = readFileSync(file, 'utf-8').trim()
+        if (!cards) return html
+        return html.replace('<!-- LATEST_JOURNAL -->', cards)
+      },
+    },
+  }
+}
+
 export default defineConfig({
   appType: 'mpa',
-  plugins: [cleanUrls(), hreflangAlternates()],
+  plugins: [cleanUrls(), hreflangAlternates(), latestJournalCards()],
   build: {
     rollupOptions: {
       input: {
