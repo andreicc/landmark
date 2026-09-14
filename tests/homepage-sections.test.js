@@ -5,200 +5,192 @@ import { resolve, dirname } from 'path'
 import { JSDOM } from 'jsdom'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
+const root = resolve(__dirname, '..')
 
-function loadHTML(filename) {
-  const html = readFileSync(resolve(__dirname, '..', filename), 'utf-8')
-  return new JSDOM(html).window.document
+const HOMEPAGES = ['index.html', 'ro/index.html']
+
+function loadHTML(filepath) {
+  return new JSDOM(readFileSync(resolve(root, filepath), 'utf-8')).window.document
 }
 
-describe('Homepage — Hero Section', () => {
-  let doc
+function readRaw(filepath) {
+  return readFileSync(resolve(root, filepath), 'utf-8')
+}
 
-  beforeEach(() => {
-    doc = loadHTML('index.html')
-  })
+describe('Homepage — section inventory', () => {
+  HOMEPAGES.forEach((page) => {
+    it(`${page} ships the seven top-level sections`, () => {
+      const sections = loadHTML(page).querySelectorAll('main section')
+      expect(sections.length).toBe(7)
+    })
 
-  it('has a full-screen hero section', () => {
-    const hero = doc.querySelector('.hero')
-    expect(hero).not.toBeNull()
-    expect(hero.tagName).toBe('SECTION')
-  })
-
-  it('hero has an h1 with "Landmark Sanctuary"', () => {
-    const h1 = doc.querySelector('.hero h1')
-    expect(h1).not.toBeNull()
-    expect(h1.textContent).toMatch(/Landmark Sanctuary/i)
-  })
-
-  it('hero has a tagline paragraph', () => {
-    const p = doc.querySelector('.hero p')
-    expect(p).not.toBeNull()
-    expect(p.textContent).toMatch(/Spaces Where Life Unfolds/i)
-  })
-
-  it('hero has a background image with alt text', () => {
-    const img = doc.querySelector('.hero img')
-    expect(img).not.toBeNull()
-    expect(img.getAttribute('alt')).toBeTruthy()
-  })
-
-  it('hero has a CTA button/link', () => {
-    const cta = doc.querySelector('.hero .btn, .hero a[href]')
-    expect(cta).not.toBeNull()
-    expect(cta.textContent).toMatch(/discover/i)
-  })
-})
-
-describe('Homepage — Art of Detail Section', () => {
-  let doc
-
-  beforeEach(() => {
-    doc = loadHTML('index.html')
-  })
-
-  it('has an art-of-detail section', () => {
-    const section = doc.querySelector('.art-of-detail')
-    expect(section).not.toBeNull()
-  })
-
-  it('has a heading with "THE ART" and "DETAIL"', () => {
-    const heading = doc.querySelector('.art-of-detail h2')
-    expect(heading).not.toBeNull()
-    expect(heading.textContent).toMatch(/art/i)
-    expect(heading.textContent).toMatch(/detail/i)
-  })
-
-  it('has a descriptive paragraph', () => {
-    const p = doc.querySelector('.art-of-detail p')
-    expect(p).not.toBeNull()
-    expect(p.textContent.length).toBeGreaterThan(50)
-  })
-
-  it('has a circular image with alt text', () => {
-    const img = doc.querySelector('.art-of-detail img')
-    expect(img).not.toBeNull()
-    expect(img.getAttribute('alt')).toBeTruthy()
-  })
-
-  it('has a "Discover More" CTA', () => {
-    const cta = doc.querySelector('.art-of-detail .btn, .art-of-detail a')
-    expect(cta).not.toBeNull()
-    expect(cta.textContent).toMatch(/discover more/i)
-  })
-})
-
-describe('Homepage — Pillars Section', () => {
-  let doc
-
-  beforeEach(() => {
-    doc = loadHTML('index.html')
-  })
-
-  it('has a pillars section', () => {
-    const section = doc.querySelector('.pillars')
-    expect(section).not.toBeNull()
-  })
-
-  it('has a subtitle and heading', () => {
-    const section = doc.querySelector('.pillars')
-    expect(section.textContent).toMatch(/from concept to completion/i)
-    expect(section.textContent).toMatch(/defining our pillars/i)
-  })
-
-  it('has exactly 3 pillar cards', () => {
-    const cards = doc.querySelectorAll('.pillars .pillar-card')
-    expect(cards.length).toBe(3)
-  })
-
-  it('each pillar card has image, heading, and description', () => {
-    const cards = doc.querySelectorAll('.pillars .pillar-card')
-    cards.forEach((card) => {
-      expect(card.querySelector('img')).not.toBeNull()
-      expect(card.querySelector('h4')).not.toBeNull()
-      expect(card.querySelector('p')).not.toBeNull()
+    it(`${page} anchors hero, pillars, journal and contact by id`, () => {
+      const doc = loadHTML(page)
+      ;['hero', 'pillars', 'journal', 'contact'].forEach((id) => {
+        const el = doc.querySelector(`section#${id}`)
+        expect(el, `section#${id} missing`).not.toBeNull()
+      })
     })
   })
+})
 
-  it('pillar images have alt text', () => {
-    const images = doc.querySelectorAll('.pillars .pillar-card img')
-    images.forEach((img) => {
-      expect(img.getAttribute('alt')).toBeTruthy()
+describe('Homepage — hero', () => {
+  HOMEPAGES.forEach((page) => {
+    describe(page, () => {
+      let doc
+
+      beforeEach(() => {
+        doc = loadHTML(page)
+      })
+
+      it('is a full-screen section with the single h1', () => {
+        const hero = doc.querySelector('section#hero')
+        expect(hero.className).toMatch(/h-screen/)
+        expect(doc.querySelectorAll('h1').length).toBe(1)
+        expect(hero.querySelector('h1').textContent.trim()).toMatch(/Landmark 4/)
+      })
+
+      it('serves the hero photo responsively, not as a single original', () => {
+        const source = doc.querySelector('#hero picture source[type="image/webp"]')
+        expect(source).not.toBeNull()
+        const srcset = source.getAttribute('srcset')
+        expect(srcset).toMatch(/800w/)
+        expect(srcset).toMatch(/2560w/)
+        expect(source.getAttribute('sizes')).toBe('100vw')
+      })
+
+      it('prioritises the hero image for LCP and gives it alt text', () => {
+        const img = doc.querySelector('#hero picture img')
+        expect(img).not.toBeNull()
+        expect(img.getAttribute('fetchpriority')).toBe('high')
+        expect(img.getAttribute('loading')).toBe('eager')
+        expect(img.getAttribute('alt')).toBeTruthy()
+      })
+
+      it('offers two calls to action', () => {
+        const links = doc.querySelectorAll('#hero a[href]')
+        expect(links.length).toBeGreaterThanOrEqual(2)
+        const hrefs = Array.from(links).map((a) => a.getAttribute('href'))
+        expect(hrefs.some((h) => /projects/.test(h))).toBe(true)
+      })
     })
-  })
-
-  it('has pillar titles: Craftsmanship, Thoughtful Design, Signature Quality', () => {
-    const headings = doc.querySelectorAll('.pillars .pillar-card h4')
-    const titles = Array.from(headings).map((h) => h.textContent.trim())
-    expect(titles).toContain('Craftsmanship')
-    expect(titles).toContain('Thoughtful Design')
-    expect(titles).toContain('Signature Quality')
   })
 })
 
-describe('Homepage — Property Showcase Section', () => {
-  let doc
+describe('Homepage — pillars carousel', () => {
+  HOMEPAGES.forEach((page) => {
+    describe(page, () => {
+      let doc
 
-  beforeEach(() => {
-    doc = loadHTML('index.html')
-  })
+      beforeEach(() => {
+        doc = loadHTML(page)
+      })
 
-  it('has a properties section', () => {
-    const section = doc.querySelector('.properties')
-    expect(section).not.toBeNull()
-  })
+      it('has exactly three pillars', () => {
+        const dots = doc.querySelectorAll('#pillarDots button')
+        expect(dots.length).toBe(3)
+      })
 
-  it('has a full-width showcase image', () => {
-    const img = doc.querySelector('.properties img')
-    expect(img).not.toBeNull()
-    expect(img.getAttribute('alt')).toBeTruthy()
-  })
+      it('each pillar has a heading and body copy', () => {
+        const headings = doc.querySelectorAll('#pillarSlides h3')
+        expect(headings.length).toBe(3)
+        headings.forEach((h) => expect(h.textContent.trim().length).toBeGreaterThan(0))
 
-  it('has 5 property type icons/items', () => {
-    const items = doc.querySelectorAll('.properties .property-type')
-    expect(items.length).toBe(5)
-  })
+        const paras = doc.querySelectorAll('#pillarSlides p')
+        expect(paras.length).toBeGreaterThanOrEqual(3)
+      })
 
-  it('has an "Explore All" CTA', () => {
-    const cta = doc.querySelector('.properties .btn, .properties a')
-    expect(cta).not.toBeNull()
-    expect(cta.textContent).toMatch(/explore all/i)
+      it('has labelled previous and next controls', () => {
+        const prev = doc.querySelector('#pillarPrev')
+        const next = doc.querySelector('#pillarNext')
+        expect(prev).not.toBeNull()
+        expect(next).not.toBeNull()
+        expect(prev.getAttribute('aria-label')).toBeTruthy()
+        expect(next.getAttribute('aria-label')).toBeTruthy()
+      })
+
+      it('shows a position counter', () => {
+        expect(doc.querySelector('#pillarNum')).not.toBeNull()
+      })
+    })
   })
 })
 
-describe('Homepage — Press Releases Section', () => {
-  let doc
+describe('Homepage — journal feed', () => {
+  HOMEPAGES.forEach((page) => {
+    describe(page, () => {
+      it('has the CMS-backed grid container', () => {
+        expect(loadHTML(page).querySelector('#homeJournalGrid')).not.toBeNull()
+      })
 
-  beforeEach(() => {
-    doc = loadHTML('index.html')
-  })
-
-  it('has a press section', () => {
-    const section = doc.querySelector('.press')
-    expect(section).not.toBeNull()
-  })
-
-  it('has a "Press Releases" heading', () => {
-    const heading = doc.querySelector('.press h2')
-    expect(heading).not.toBeNull()
-    expect(heading.textContent).toMatch(/press releases/i)
-  })
-
-  it('has at least 3 press articles', () => {
-    const articles = doc.querySelectorAll('.press article, .press .press-card')
-    expect(articles.length).toBeGreaterThanOrEqual(3)
-  })
-
-  it('each article has a heading and date', () => {
-    const articles = doc.querySelectorAll('.press article, .press .press-card')
-    articles.forEach((article) => {
-      expect(article.querySelector('h3, h4')).not.toBeNull()
-      expect(article.querySelector('time, .press-date')).not.toBeNull()
+      it('keeps the build-time substitution marker', () => {
+        // vite.config.js latestJournalCards() replaces this marker with the
+        // latest three posts rendered by scripts/build-media.mjs. Losing the
+        // marker silently drops the journal section from the built page.
+        expect(readRaw(page)).toContain('<!-- LATEST_JOURNAL -->')
+      })
     })
   })
+})
 
-  it('has a "View All" CTA', () => {
-    const cta = doc.querySelector('.press .btn, .press .btn--outline, .press a.btn, .press a[href]')
-    expect(cta).not.toBeNull()
-    expect(cta.textContent).toMatch(/view all/i)
+describe('Homepage — contact register', () => {
+  HOMEPAGES.forEach((page) => {
+    describe(page, () => {
+      let doc
+
+      beforeEach(() => {
+        doc = loadHTML(page)
+      })
+
+      it('has the enquiry form with its fields', () => {
+        const form = doc.querySelector('#homeForm')
+        expect(form).not.toBeNull()
+        const fields = form.querySelectorAll('input, select, textarea')
+        expect(fields.length).toBeGreaterThanOrEqual(4)
+      })
+
+      it('gives every field an accessible name', () => {
+        const fields = doc.querySelectorAll('#homeForm input, #homeForm select, #homeForm textarea')
+        expect(fields.length).toBeGreaterThan(0)
+        fields.forEach((field) => {
+          if (field.type === 'hidden') return
+          const id = field.getAttribute('id')
+          const named =
+            field.getAttribute('aria-label') ||
+            field.getAttribute('placeholder') ||
+            // A label may either point at the control or wrap it; the consent
+            // checkbox uses the wrapping form.
+            field.closest('label') ||
+            (id && doc.querySelector(`label[for="${id}"]`))
+          expect(named, `field ${field.name || field.type} has no accessible name`).toBeTruthy()
+        })
+      })
+
+      it('has a success panel to reveal after submit', () => {
+        expect(doc.querySelector('#homeFormSuccess')).not.toBeNull()
+      })
+    })
+  })
+})
+
+describe('Homepage — images', () => {
+  HOMEPAGES.forEach((page) => {
+    it(`${page} gives every image alt text`, () => {
+      const imgs = loadHTML(page).querySelectorAll('img')
+      expect(imgs.length).toBeGreaterThan(0)
+      imgs.forEach((img) => {
+        expect(img.getAttribute('alt'), `${img.getAttribute('src')} has no alt`).not.toBeNull()
+      })
+    })
+
+    it(`${page} lazy-loads everything below the hero`, () => {
+      const doc = loadHTML(page)
+      const belowFold = Array.from(doc.querySelectorAll('img')).filter(
+        (img) => !img.closest('#hero'),
+      )
+      belowFold.forEach((img) => {
+        expect(['lazy', null]).toContain(img.getAttribute('loading'))
+      })
+    })
   })
 })
