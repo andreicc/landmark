@@ -172,6 +172,7 @@ tailwind.config = {
 <a class="skip-link absolute top-0 left-0 px-6 py-3 bg-landmark-green text-white font-bold z-[9999] -translate-y-full focus:translate-y-0" href="#main-content">Sari la conținut</a>
 
 <!-- ============ NAV ============ -->
+<header>
 <nav id="mainNav" class="fixed top-0 w-full z-50 text-white transition-colors duration-500" aria-label="Main">
   <div class="flex justify-between items-center px-6 lg:px-12 h-[72px] w-full max-w-[1920px] mx-auto">
     <div class="hidden lg:flex gap-9 items-center font-medium tracking-[0.14em] text-[12px] uppercase">
@@ -199,13 +200,17 @@ tailwind.config = {
     </div>
   </div>
 </nav>
+</header>
 
 <main id="main-content">
 
 <!-- ============ HERO ============ -->
 <section class="relative h-screen min-h-[720px] overflow-hidden">
   <div class="absolute inset-0">
-    <img src="/renders/hero.jpg" alt="Landmark 4 — Șoseaua București – Târgoviște 4A" class="hero-img absolute inset-0 w-full h-full object-cover" />
+    <picture>
+      <source type="image/webp" srcset="/renders/hero/hero-800.webp 800w, /renders/hero/hero-1280.webp 1280w, /renders/hero/hero-1920.webp 1920w, /renders/hero/hero-2560.webp 2560w" sizes="100vw">
+      <img src="/renders/hero/hero-1920.jpg" alt="Landmark 4 — Șoseaua București – Târgoviște 4A" loading="eager" decoding="async" fetchpriority="high" class="hero-img absolute inset-0 w-full h-full object-cover" />
+    </picture>
     <div class="absolute inset-0 hero-vignette"></div>
   </div>
 
@@ -974,24 +979,24 @@ tailwind.config = {
       <form id="inquiryForm" class="bg-stone-bg p-10 border border-black/10">
         <div class="grid sm:grid-cols-2 gap-6">
           <div>
-            <label class="label text-black/50 mb-2 block">First Name</label>
-            <input required type="text" class="w-full bg-transparent border-b border-black/20 py-3 text-[15px] focus:outline-none focus:border-landmark-gold">
+            <label class="label text-black/50 mb-2 block" for="first-name">First Name</label>
+            <input id="first-name" required type="text" class="w-full bg-transparent border-b border-black/20 py-3 text-[15px] focus:outline-none focus:border-landmark-gold">
           </div>
           <div>
-            <label class="label text-black/50 mb-2 block">Last Name</label>
-            <input required type="text" class="w-full bg-transparent border-b border-black/20 py-3 text-[15px] focus:outline-none focus:border-landmark-gold">
+            <label class="label text-black/50 mb-2 block" for="last-name">Last Name</label>
+            <input id="last-name" required type="text" class="w-full bg-transparent border-b border-black/20 py-3 text-[15px] focus:outline-none focus:border-landmark-gold">
           </div>
           <div>
-            <label class="label text-black/50 mb-2 block">Email</label>
-            <input required type="email" class="w-full bg-transparent border-b border-black/20 py-3 text-[15px] focus:outline-none focus:border-landmark-gold">
+            <label class="label text-black/50 mb-2 block" for="email">Email</label>
+            <input id="email" required type="email" class="w-full bg-transparent border-b border-black/20 py-3 text-[15px] focus:outline-none focus:border-landmark-gold">
           </div>
           <div>
-            <label class="label text-black/50 mb-2 block">Telefon</label>
-            <input type="tel" class="w-full bg-transparent border-b border-black/20 py-3 text-[15px] focus:outline-none focus:border-landmark-gold">
+            <label class="label text-black/50 mb-2 block" for="phone">Telefon</label>
+            <input id="phone" type="tel" class="w-full bg-transparent border-b border-black/20 py-3 text-[15px] focus:outline-none focus:border-landmark-gold">
           </div>
           <div class="sm:col-span-2">
-            <label class="label text-black/50 mb-2 block">Tip de reședință de interes</label>
-            <select class="w-full bg-transparent border-b border-black/20 py-3 text-[15px] focus:outline-none focus:border-landmark-gold">
+            <label class="label text-black/50 mb-2 block" for="residence-type-of-interest">Tip de reședință de interes</label>
+            <select id="residence-type-of-interest" class="w-full bg-transparent border-b border-black/20 py-3 text-[15px] focus:outline-none focus:border-landmark-gold">
               <option>Reședință Atelier · de la €2.4M</option>
               <option selected>Reședință Sky · de la €4.1M</option>
               <option>Penthouse Crown · de la €11.6M</option>
@@ -999,8 +1004,8 @@ tailwind.config = {
             </select>
           </div>
           <div class="sm:col-span-2">
-            <label class="label text-black/50 mb-2 block">Mesaj</label>
-            <textarea rows="3" class="w-full bg-transparent border-b border-black/20 py-3 text-[15px] focus:outline-none focus:border-landmark-gold" placeholder="Ce ar fi bine să știm înaintea vizitei?"></textarea>
+            <label class="label text-black/50 mb-2 block" for="message">Mesaj</label>
+            <textarea id="message" rows="3" class="w-full bg-transparent border-b border-black/20 py-3 text-[15px] focus:outline-none focus:border-landmark-gold" placeholder="Ce ar fi bine să știm înaintea vizitei?"></textarea>
           </div>
         </div>
         <div class="mt-10 flex flex-wrap items-center justify-between gap-6">

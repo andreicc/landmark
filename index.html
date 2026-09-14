@@ -181,7 +181,10 @@ tailwind.config = {
 <!-- ============ HERO (Landmark 4 — single slide) ============ -->
 <section class="relative h-screen min-h-[720px] overflow-hidden" id="hero" data-screen-label="Home Hero">
   <div class="absolute inset-0">
-    <img src="/renders/hero.jpg" alt="Landmark 4 — Șoseaua București – Târgoviște 4B" class="hero-img absolute inset-0 w-full h-full object-cover" />
+    <picture>
+      <source type="image/webp" srcset="/renders/hero/hero-800.webp 800w, /renders/hero/hero-1280.webp 1280w, /renders/hero/hero-1920.webp 1920w, /renders/hero/hero-2560.webp 2560w" sizes="100vw">
+      <img src="/renders/hero/hero-1920.jpg" alt="Landmark 4 — Șoseaua București – Târgoviște 4B" loading="eager" decoding="async" fetchpriority="high" class="hero-img absolute inset-0 w-full h-full object-cover" />
+    </picture>
     <div class="absolute inset-0 hero-vignette"></div>
   </div>
 
@@ -541,24 +544,24 @@ tailwind.config = {
       <form id="homeForm" class="bg-white/5 border border-white/15 p-10 backdrop-blur-sm">
         <div class="grid sm:grid-cols-2 gap-6">
           <div>
-            <label class="label text-white/50 mb-2 block">First Name</label>
-            <input required type="text" class="w-full bg-transparent border-b border-white/25 py-3 text-[15px] text-white focus:outline-none focus:border-landmark-gold">
+            <label class="label text-white/50 mb-2 block" for="first-name">First Name</label>
+            <input id="first-name" required type="text" class="w-full bg-transparent border-b border-white/25 py-3 text-[15px] text-white focus:outline-none focus:border-landmark-gold">
           </div>
           <div>
-            <label class="label text-white/50 mb-2 block">Last Name</label>
-            <input required type="text" class="w-full bg-transparent border-b border-white/25 py-3 text-[15px] text-white focus:outline-none focus:border-landmark-gold">
+            <label class="label text-white/50 mb-2 block" for="last-name">Last Name</label>
+            <input id="last-name" required type="text" class="w-full bg-transparent border-b border-white/25 py-3 text-[15px] text-white focus:outline-none focus:border-landmark-gold">
           </div>
           <div>
-            <label class="label text-white/50 mb-2 block">Email</label>
-            <input required type="email" class="w-full bg-transparent border-b border-white/25 py-3 text-[15px] text-white focus:outline-none focus:border-landmark-gold">
+            <label class="label text-white/50 mb-2 block" for="email">Email</label>
+            <input id="email" required type="email" class="w-full bg-transparent border-b border-white/25 py-3 text-[15px] text-white focus:outline-none focus:border-landmark-gold">
           </div>
           <div>
-            <label class="label text-white/50 mb-2 block">Phone</label>
-            <input type="tel" class="w-full bg-transparent border-b border-white/25 py-3 text-[15px] text-white focus:outline-none focus:border-landmark-gold">
+            <label class="label text-white/50 mb-2 block" for="phone">Phone</label>
+            <input id="phone" type="tel" class="w-full bg-transparent border-b border-white/25 py-3 text-[15px] text-white focus:outline-none focus:border-landmark-gold">
           </div>
           <div class="sm:col-span-2">
-            <label class="label text-white/50 mb-2 block">I'm interested in</label>
-            <select class="w-full bg-transparent border-b border-white/25 py-3 text-[15px] text-white focus:outline-none focus:border-landmark-gold">
+            <label class="label text-white/50 mb-2 block" for="i-m-interested-in">I'm interested in</label>
+            <select id="i-m-interested-in" class="w-full bg-transparent border-b border-white/25 py-3 text-[15px] text-white focus:outline-none focus:border-landmark-gold">
               <option class="text-black">Landmark 4 · Tower Residences</option>
               <option class="text-black">The Willows · Signature Villas</option>
               <option class="text-black">The Grove · Townhouses</option>
@@ -566,8 +569,8 @@ tailwind.config = {
             </select>
           </div>
           <div class="sm:col-span-2">
-            <label class="label text-white/50 mb-2 block">Message</label>
-            <textarea rows="3" class="w-full bg-transparent border-b border-white/25 py-3 text-[15px] text-white focus:outline-none focus:border-landmark-gold" placeholder="What should we know before we call?"></textarea>
+            <label class="label text-white/50 mb-2 block" for="message">Message</label>
+            <textarea id="message" rows="3" class="w-full bg-transparent border-b border-white/25 py-3 text-[15px] text-white focus:outline-none focus:border-landmark-gold" placeholder="What should we know before we call?"></textarea>
           </div>
         </div>
         <div class="mt-10 flex flex-wrap items-center justify-between gap-6">
