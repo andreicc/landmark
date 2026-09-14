@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cookie Policy · Landmark</title>
+<meta name="description" content="This site sets no cookies. What it does store, and what third parties can see.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="en" href="/cookies">
+<link rel="alternate" hreflang="ro" href="/ro/cookies">
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,300;1,400&family=Roboto:wght@300;400;500;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: { extend: {
+    colors: {
+      "primary": "#004225",
+      "landmark-green": "#004225",
+      "landmark-gold": "#b59458",
+      "bronze": "#745b28",
+      "stone-bg": "#f9f8f6"
+    },
+    fontFamily: { "headline": ["Lato", "Roboto", "sans-serif"], "body": ["Roboto", "sans-serif"], "mono": ["JetBrains Mono", "monospace"] }
+  }}
+}
+</script>
+<style>
+  :root {
+    --accent: #b59458;
+    --primary: #004225;
+    --bg: #fcfcfc;
+    --stone: #f9f8f6;
+    --ink: #1b1c1c;
+    --muted: #4f5459;
+    --hairline: rgba(0,0,0,0.08);
+  }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--ink); font-family: 'Roboto', sans-serif; font-weight: 300; -webkit-font-smoothing: antialiased; }
+  .font-headline { font-family: 'Lato', 'Roboto', sans-serif; font-weight: 300; }
+  .font-mono { font-family: 'JetBrains Mono', monospace; }
+  .serif-italic { font-family: 'Lato', 'Roboto', sans-serif; font-style: italic; font-weight: 300; }
+  .display { font-family: 'Lato', 'Roboto', sans-serif; font-weight: 300; letter-spacing: -0.01em; }
+  .eyebrow { font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 600; }
+  .label { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; }
+  .micro { font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; font-weight: 600; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 250, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+
+  /* Nav (matched) */
+  .nav-link { position: relative; }
+  .nav-link::after { content:''; position:absolute; left:0; bottom:-4px; height:1px; width:0; background: currentColor; transition: width .35s cubic-bezier(.16,1,.3,1); }
+  .nav-link:hover::after, .nav-link.is-active::after { width: 100%; }
+  .nav-solid { background: rgba(255,255,255,0.96) !important; backdrop-filter: blur(10px); border-bottom: 1px solid rgba(0,0,0,0.06) !important; color: #111 !important; }
+  .nav-solid .nav-link, .nav-solid .nav-cta { color: #111; }
+  .nav-solid .logo-white { display:none; }
+  .nav-solid .logo-green { display:inline-block !important; }
+
+  .btn-outline { display:inline-flex; align-items:center; justify-content:center; gap:12px; height:46px; border:1px solid #111; color:#111; border-radius:25px; padding: 0 32px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; transition: all .5s cubic-bezier(.16,1,.3,1); text-decoration:none; cursor:pointer; background:transparent; }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-solid { display:inline-flex; align-items:center; justify-content:center; gap:12px; height:49px; background: var(--primary); color:#fff; border-radius:25px; padding: 0 36px; font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; font-weight: 500; transition: all .35s ease; border:none; cursor:pointer; }
+  .btn-solid:hover { background:#000; }
+
+  /* Hero */
+  .hero-canvas {
+    background:
+      radial-gradient(120% 80% at 80% 20%, rgba(181,148,88,.18), transparent 60%),
+      radial-gradient(120% 80% at 10% 80%, rgba(0,66,37,.32), transparent 55%),
+      linear-gradient(180deg, #0c1410 0%, #0a1310 60%, #050a08 100%);
+  }
+  .hero-grid::before {
+    content:''; position:absolute; inset:0;
+    background-image: linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 90% 80% at 50% 40%, black 30%, transparent 80%);
+    pointer-events: none;
+  }
+
+  /* Form fields */
+  .field { display:block; }
+  .field label { display:block; font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: rgba(0,0,0,.5); font-weight: 600; margin-bottom: 8px; }
+  .field input, .field textarea, .field select {
+    width: 100%; background: transparent; border: none; border-bottom: 1px solid rgba(0,0,0,.18);
+    padding: 10px 0 12px; font-size: 16px; color: #111; transition: border-color .25s ease;
+    font-family: 'Lato', 'Roboto', sans-serif; font-weight: 300;
+  }
+  .field input:focus, .field textarea:focus, .field select:focus { outline: none; border-bottom-color: var(--accent); }
+  .field input::placeholder, .field textarea::placeholder { color: rgba(0,0,0,.3); font-weight: 300; }
+
+  /* Choice tile */
+  .tile {
+    display:block; cursor:pointer; padding: 18px 18px 16px; border: 1px solid rgba(0,0,0,.1);
+    background: #fff; transition: all .25s ease; height: 100%;
+  }
+  .tile input { position: absolute; opacity: 0; pointer-events: none; }
+  .tile:hover { border-color: var(--primary); }
+  .tile.is-on { border-color: var(--primary); background: rgba(0,66,37,.04); box-shadow: inset 3px 0 0 var(--accent); }
+  .tile .ico { width: 28px; height: 28px; display:inline-flex; align-items:center; justify-content:center; border:1px solid rgba(0,0,0,.15); border-radius: 50%; margin-bottom: 12px; transition: all .2s; }
+  .tile.is-on .ico { background: var(--primary); color:#fff; border-color: var(--primary); }
+  .tile .t { font-family: 'Lato', 'Roboto', sans-serif; font-weight: 400; font-size: 16px; color: #111; }
+  .tile .s { font-size: 12px; color: rgba(0,0,0,.55); margin-top: 4px; line-height: 1.5; }
+
+  /* Chip */
+  .chip {
+    display:inline-flex; align-items:center; gap:6px;
+    padding: 7px 13px; border:1px solid rgba(0,0,0,.12); border-radius:999px;
+    font-size:11px; letter-spacing:.18em; text-transform:uppercase; font-weight:600;
+    color:#444; background:#fff; cursor:pointer; transition: all .2s;
+  }
+  .chip:hover { border-color: var(--primary); color: var(--primary); }
+  .chip.is-on { background: var(--primary); color:#fff; border-color: var(--primary); }
+
+  /* Side card */
+  .side-card { background:#fff; border:1px solid rgba(0,0,0,.06); }
+  .side-card.dark { background:#0e1512; color:#fff; border-color: rgba(255,255,255,.08); }
+
+  /* Advisor card */
+  .advisor { display:grid; grid-template-columns: 64px 1fr; gap: 16px; align-items:flex-start; padding: 18px 0; border-bottom: 1px solid var(--hairline); }
+  .advisor:last-child { border-bottom: none; padding-bottom: 0; }
+  .advisor:first-child { padding-top: 0; }
+  .advisor .pic { width:64px; height:64px; border-radius:50%; overflow:hidden; }
+
+  /* Reveal */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity 1s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* Map svg */
+  .map-shell { position: relative; aspect-ratio: 16/10; background:#f5f1e8; overflow: hidden; }
+
+  /* Step ribbon */
+  .ribbon { display:grid; grid-template-columns: repeat(4, 1fr); gap: 0; border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline); }
+  .ribbon > div { padding: 22px 24px; border-right: 1px solid var(--hairline); }
+  .ribbon > div:last-child { border-right: none; }
+  .ribbon .num { font-family: 'JetBrains Mono'; font-size: 11px; color: var(--accent); letter-spacing: .2em; }
+  .ribbon .title { font-family: 'Lato', 'Roboto', sans-serif; font-weight: 300; font-size: 18px; color: #111; margin-top: 8px; }
+  .ribbon .desc { font-size: 13px; color: rgba(0,0,0,.6); margin-top: 6px; line-height: 1.65; }
+  @media (max-width: 800px) {
+    .ribbon { grid-template-columns: 1fr 1fr; }
+    .ribbon > div { border-right: none; border-bottom: 1px solid var(--hairline); }
+    .ribbon > div:nth-child(odd) { border-right: 1px solid var(--hairline); }
+    .ribbon > div:nth-last-child(-n+2) { border-bottom: none; }
+  }
+
+  /* Office hours grid */
+  .hours { display:grid; grid-template-columns: 1fr auto; gap: 6px 24px; font-size: 13px; }
+  .hours .d { color: rgba(0,0,0,.6); letter-spacing: .12em; text-transform: uppercase; font-weight: 500; font-size: 11px; padding-top: 3px; }
+  .hours .t { font-family:'Lato','Roboto',sans-serif; font-weight: 300; color: #111; }
+  .hours .closed { color: rgba(0,0,0,.4); }
+
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  @media (prefers-reduced-motion: reduce) { .reveal { transition:none !important; opacity:1 !important; transform:none !important; } }
+</style>
+</head>
+<body data-screen-label="Contact — A quiet introduction" class="selection:bg-primary/10">
+<a class="skip-link absolute top-0 left-0 px-6 py-3 bg-landmark-green text-white font-bold z-[9999] -translate-y-full focus:translate-y-0" href="#main-content">Skip to main content</a>
+
+<!-- ============ NAV ============ -->
+<header>
+<nav id="mainNav" class="fixed top-0 w-full z-50 text-white nav-solid transition-colors duration-500" aria-label="Main">
+  <div class="flex justify-between items-center px-6 lg:px-12 h-[72px] w-full max-w-[1920px] mx-auto">
+    <div class="hidden lg:flex gap-9 items-center font-medium tracking-[0.14em] text-[12px] uppercase">
+      <a class="nav-link" href="/about">About</a>
+      <a class="nav-link" href="/projects">Landmark 4 Project</a>
+    </div>
+    <a href="/" class="absolute left-1/2 -translate-x-1/2 flex items-center no-underline">
+      <img src="/logo/landmarklogo-white.svg" alt="Landmark Realty" class="logo-white" style="width: 74px; height: auto;">
+      <img src="/logo/landmarklogo-green.svg" alt="Landmark Realty" class="logo-green" style="width: 74px; height: auto; display:none;">
+    </a>
+    <div class="flex items-center gap-6">
+      <div class="hidden lg:flex gap-6 items-center font-medium tracking-[0.14em] text-[12px] uppercase">
+        <a class="nav-link" href="/media">Media</a>
+        <a class="nav-link nav-cta is-active" href="/contact">Contact</a>
+      </div>
+      <div class="flex items-center gap-4 border-l border-current/20 pl-6">
+        <button class="material-symbols-outlined text-[20px]" aria-label="Save">favorite</button>
+        <button class="material-symbols-outlined text-[20px]" aria-label="Search">search</button>
+        <div class="lang-switcher flex items-center gap-1 text-[11px] font-medium tracking-[0.18em] pl-4 border-l border-current/20" data-lang-switcher>
+          <a href="/contact" class="no-underline" hreflang="en" aria-current="page">EN</a>
+          <span class="opacity-40">/</span>
+          <a href="/ro/contact" class="no-underline opacity-60 hover:opacity-100" hreflang="ro">RO</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+</header>
+
+<main id="main-content">
+<section class="pt-36 pb-24 bg-white">
+  <div class="max-w-[760px] mx-auto px-6 lg:px-10">
+    <div class="eyebrow-line mb-6"><span class="eyebrow">Legal</span></div>
+    <h1 class="font-headline text-[38px] md:text-[48px] leading-[1.1] text-black tracking-tight">Cookie Policy</h1>
+    <section class="mt-12">
+      <h2 class="font-headline text-[24px] text-black">This site does not use cookies</h2>
+      <p class="mt-4 text-[15px] leading-[1.85] text-black/70">We set no cookies of our own, and we run no analytics, advertising or tracking scripts. There is no consent banner because there is nothing to consent to.</p>
+    </section>    <section class="mt-12">
+      <h2 class="font-headline text-[24px] text-black">What is stored in your browser</h2>
+      <p class="mt-4 text-[15px] leading-[1.85] text-black/70">One item, and it never leaves your device:</p>
+    </section>      <ul class="mt-4 list-disc pl-5 text-[15px] leading-[1.85] text-black/70">
+        <li class="mt-2"><code class="text-[13px] bg-black/5 px-1.5 py-0.5">lm4-fav</code> &mdash; remembers whether you tapped the heart icon on the Landmark 4 page, so the page looks the same when you come back. It holds the value <code class="text-[13px] bg-black/5 px-1.5 py-0.5">0</code> or <code class="text-[13px] bg-black/5 px-1.5 py-0.5">1</code> and nothing else.</li>
+      </ul>    <section class="mt-12">
+      <h2 class="font-headline text-[24px] text-black">Third-party requests</h2>
+      <p class="mt-4 text-[15px] leading-[1.85] text-black/70">Your browser fetches typefaces from Google Fonts and a stylesheet from the Tailwind CDN. Those providers can see your IP address and the page you were on when the request was made. They do not set cookies through this site.</p>
+    </section>    <section class="mt-12">
+      <h2 class="font-headline text-[24px] text-black">Clearing it</h2>
+      <p class="mt-4 text-[15px] leading-[1.85] text-black/70">Clearing site data for this domain in your browser settings removes the stored value. Nothing else is affected.</p>
+    </section>
+    <p class="mt-14 pt-6 border-t border-black/10 label text-black/40">Last updated &middot; 14 September 2026</p>
+  </div>
+</section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-white pt-24 pb-10 px-6 lg:px-10 border-t border-black/5">
+  <div class="max-w-[1380px] mx-auto">
+    <div class="flex flex-col items-center mb-16">
+      <img src="/logo/landmarklogo-green.svg" alt="Landmark Realty" style="width: 72px;">
+      <p class="mt-6 label text-black/40">EST · MMXXIV · BUCHAREST</p>
+    </div>
+    <div class="grid md:grid-cols-5 gap-12 pb-14 border-b border-black/5">
+      <div class="md:col-span-2">
+        <h5 class="label text-black mb-5">Landmark Realty</h5>
+        <p class="text-[13px] text-black/60 leading-[1.8] max-w-xs">Architects and developers of heritage-quality residences. Quiet, deliberate work since 2024.</p>
+        <a href="/contact" class="mt-6 inline-flex items-center gap-2 label text-landmark-green hover:text-landmark-gold">Get in Touch <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
+      </div>
+      <div>
+        <h5 class="label text-black mb-5">Properties</h5>
+        <ul class="space-y-3 text-[12px] text-black/60">
+          <li><a href="/projects" class="hover:text-landmark-green">Landmark 4</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="label text-black mb-5">The House</h5>
+        <ul class="space-y-3 text-[12px] text-black/60">
+          <li><a href="/about" class="hover:text-landmark-green">About</a></li>
+          <li><a href="/media" class="hover:text-landmark-green">Journal</a></li>
+          <li><a href="/media" class="hover:text-landmark-green">Media</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5 class="label text-black mb-5">Connect</h5>
+        <ul class="space-y-3 text-[12px] text-black/60">
+          <li>+40 769 041 716</li>
+          <li>ioana@landmark.com.ro</li>
+          <li>Str. Arh. Ion Mincu 12<br>Sector 1, București</li>
+        </ul>
+      </div>
+    </div>
+    <div class="flex flex-col md:flex-row justify-between gap-6 pt-8 text-[11px] uppercase tracking-[0.2em] text-black/50">
+      <div>&copy; 2026 Landmark Realty SA. All rights reserved.</div>
+      <div class="flex gap-6">
+        <a href="/privacy" class="hover:text-landmark-green">Privacy</a>
+        <a href="/terms" class="hover:text-landmark-green">Terms</a>
+        <a href="/legal" class="hover:text-landmark-green">Legal</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Reveal
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// Reason tiles
+document.querySelectorAll('[data-tile]').forEach(t => {
+  t.addEventListener('click', () => {
+    document.querySelectorAll('[data-tile]').forEach(x => x.classList.remove('is-on'));
+    t.classList.add('is-on');
+    const r = t.querySelector('input'); if (r) r.checked = true;
+  });
+});
+
+// Chip groups
+document.querySelectorAll('[data-group]').forEach(g => {
+  g.querySelectorAll('.chip').forEach(c => c.addEventListener('click', () => {
+    g.querySelectorAll('.chip').forEach(x => x.classList.remove('is-on'));
+    c.classList.add('is-on');
+  }));
+});
+
+// Char count
+const msg = document.getElementById('msg');
+const cc = document.getElementById('charCount');
+msg.addEventListener('input', () => { cc.textContent = msg.value.length; });
+
+// Submit
+document.getElementById('contactForm').addEventListener('submit', (e) => {
+  e.preventDefault();
+  document.getElementById('formOk').classList.remove('hidden');
+  e.target.querySelectorAll('input, textarea, select, button[type=submit]').forEach(el => el.disabled = true);
+  document.getElementById('formOk').scrollIntoView({ block: 'nearest' });
+});
+</script>
+</body>
+</html>
