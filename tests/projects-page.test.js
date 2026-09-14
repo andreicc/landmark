@@ -107,8 +107,12 @@ describe('Projects page — content sections', () => {
         expect(text).toMatch(/typolog/i)
       })
 
-      it('has an amenities section', () => {
-        expect(text).toMatch(/amenit/i)
+      it('describes the ground floor rather than an amenity deck', () => {
+        // The building has no residents' amenity floor — only ground-floor
+        // commercial and planted open ground. The page used to claim a 7,000 m²
+        // spa deck on a 19th floor that does not exist in a 12-floor tower.
+        expect(text).toMatch(/comercial|commercial/i)
+        expect(text).not.toMatch(/Sky Pool|Nordic Spa|Technogym|Screening Room/i)
       })
 
       it('locates the project and quotes travel times', () => {

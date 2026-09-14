@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Landmark 4 | București – Târgoviște, Bucharest — Landmark Realty</title>
-<meta name="description" content="Landmark 4 — an iconic residential tower in Șoseaua București – Târgoviște 4A, 013504 București, Bucharest. Forty-eight sky residences, four half-floor penthouses, and a private amenity deck overlooking the Baneasa forest.">
+<meta name="description" content="Landmark 4 — an iconic residential tower on Șoseaua București – Târgoviște 4A, Sector 1, Bucharest. Seventy-one residences across twelve floors, from studios to five-room duplexes, above ground-floor commercial space.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="alternate" hreflang="en" href="/projects">
 <link rel="alternate" hreflang="ro" href="/ro/projects">
@@ -24,7 +24,7 @@ tailwind.config = {
         "stone-bg": "#f9f8f6"
       },
       fontFamily: {
-        "headline": ["Lato", "sans-serif"],
+        "headline": ["Lato", "Roboto", "sans-serif"],
         "body": ["Roboto", "sans-serif"]
       }
     }
@@ -43,9 +43,9 @@ tailwind.config = {
   }
   html { scroll-behavior: smooth; }
   body { background: var(--bg); color: var(--ink); font-family: 'Roboto', sans-serif; font-weight: 300; -webkit-font-smoothing: antialiased; }
-  .font-headline { font-family: 'Lato', sans-serif; font-weight: 300; }
-  .serif-italic { font-family: 'Lato', sans-serif; font-style: italic; font-weight: 300; }
-  .display { font-family: 'Lato', sans-serif; font-weight: 300; letter-spacing: -0.01em; }
+  .font-headline { font-family: 'Lato', 'Roboto', sans-serif; font-weight: 300; }
+  .serif-italic { font-family: 'Lato', 'Roboto', sans-serif; font-style: italic; font-weight: 300; }
+  .display { font-family: 'Lato', 'Roboto', sans-serif; font-weight: 300; letter-spacing: -0.01em; }
   .eyebrow { font-size: 11px; letter-spacing: 0.28em; text-transform: uppercase; font-weight: 600; }
   .label { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 500; }
   .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 250, 'GRAD' 0, 'opsz' 24; }
@@ -73,7 +73,7 @@ tailwind.config = {
   .btn-solid:hover { background:#000; }
 
   /* Section */
-  .section-title { font-family: 'Lato', sans-serif; font-weight: 300; font-size: clamp(32px, 4.2vw, 54px); line-height: 1.12; color: #111; letter-spacing: -0.015em; }
+  .section-title { font-family: 'Lato', 'Roboto', sans-serif; font-weight: 300; font-size: clamp(32px, 4.2vw, 54px); line-height: 1.12; color: #111; letter-spacing: -0.015em; }
   .section-title .gilt { font-style: italic; color: var(--accent); }
   .eyebrow-line { display:inline-flex; align-items:center; gap:14px; color: var(--primary); opacity:.75; }
   .eyebrow-line::before { content:''; width:28px; height:1px; background: currentColor; }
@@ -142,7 +142,7 @@ tailwind.config = {
   /* Tweaks */
   .tweaks-panel { position: fixed; right: 24px; bottom: 28px; z-index: 120; width: 300px; background: #fff; color: #111; border: 1px solid rgba(0,0,0,0.1); box-shadow: 0 30px 80px -20px rgba(0,0,0,0.3); padding: 20px; font-family: 'Roboto', sans-serif; border-radius: 8px; transform: translateY(20px); opacity: 0; pointer-events: none; transition: all .4s cubic-bezier(.16,1,.3,1); }
   .tweaks-panel.show { transform: translateY(0); opacity: 1; pointer-events: auto; }
-  .tweaks-panel h3 { font-family: 'Lato'; font-weight: 400; font-size: 14px; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .tweaks-panel h3 { font-family: 'Lato', 'Roboto', sans-serif; font-weight: 400; font-size: 14px; letter-spacing: 0.25em; text-transform: uppercase; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid rgba(0,0,0,0.08); }
   .tweak-row { margin-bottom: 14px; }
   .tweak-row label { display:block; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #666; margin-bottom: 6px; font-weight: 600; }
   .tweak-swatches { display:flex; gap: 8px; }
@@ -726,55 +726,34 @@ tailwind.config = {
   </div>
 </section>
 
-<!-- ============ AMENITIES ============ -->
+<!-- ============ GROUND FLOOR ============ -->
 <section class="py-24 bg-white">
   <div class="max-w-[1380px] mx-auto px-6 lg:px-10">
     <div class="text-center mb-14 reveal">
-      <div class="eyebrow-line justify-center inline-flex mb-6"><span class="eyebrow">Two Floors of Service</span></div>
-      <h2 class="section-title">The <span class="gilt">amenity</span> deck.</h2>
-      <p class="mt-6 text-black/60 max-w-xl mx-auto">Two private floors &mdash; one at ground level, one on the 19th &mdash; host seven thousand square metres of curated spa, wellness, hospitality and entertaining, reserved for residents and their named guests.</p>
+      <div class="eyebrow-line justify-center inline-flex mb-6"><span class="eyebrow">At Street Level</span></div>
+      <h2 class="section-title">The <span class="gilt">ground</span> floor.</h2>
+      <p class="mt-6 text-black/60 max-w-2xl mx-auto">Landmark 4 gives its ground plane to the street &mdash; commercial space at the base and planted open ground around it, rather than a private amenity floor upstairs. What a resident needs is already in the neighbourhood, <a href="#location" class="underline decoration-landmark-gold/50 underline-offset-4 hover:text-black">minutes away</a>.</p>
     </div>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <!-- Reuse repo SVGs -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 reveal">
       <div class="border border-black/10 p-8 hover:border-landmark-gold transition-colors duration-300">
-        <img src="/amenities/pool.svg" alt="" class="w-12 h-12 mb-5" style="filter: invert(18%) sepia(88%) saturate(1140%) hue-rotate(115deg) brightness(40%) contrast(101%);">
-        <h4 class="font-headline text-[18px] text-black mb-2">25m Sky Pool</h4>
-        <p class="text-[13px] text-black/60 leading-[1.7]">Heated year-round, cantilevered over the 19th-floor amenity deck.</p>
+        <span class="material-symbols-outlined text-landmark-green text-[34px] mb-5 block">storefront</span>
+        <h4 class="font-headline text-[18px] text-black mb-2">Commercial spaces</h4>
+        <p class="text-[13px] text-black/60 leading-[1.7]">Shops and services at the base of the tower, opening onto the street rather than tucked behind a lobby.</p>
       </div>
       <div class="border border-black/10 p-8 hover:border-landmark-gold transition-colors duration-300">
-        <img src="/amenities/sauna.svg" alt="" class="w-12 h-12 mb-5" style="filter: invert(18%) sepia(88%) saturate(1140%) hue-rotate(115deg) brightness(40%) contrast(101%);">
-        <h4 class="font-headline text-[18px] text-black mb-2">Nordic Spa</h4>
-        <p class="text-[13px] text-black/60 leading-[1.7]">Steam, sauna, cold plunge and salt room by Aquacenter.</p>
+        <span class="material-symbols-outlined text-landmark-green text-[34px] mb-5 block">park</span>
+        <h4 class="font-headline text-[18px] text-black mb-2">Green spaces</h4>
+        <p class="text-[13px] text-black/60 leading-[1.7]">Planted, warmly open ground around the building &mdash; landscaped edges rather than a fenced perimeter.</p>
       </div>
       <div class="border border-black/10 p-8 hover:border-landmark-gold transition-colors duration-300">
-        <img src="/amenities/gym.svg" alt="" class="w-12 h-12 mb-5" style="filter: invert(18%) sepia(88%) saturate(1140%) hue-rotate(115deg) brightness(40%) contrast(101%);">
-        <h4 class="font-headline text-[18px] text-black mb-2">Technogym Studio</h4>
-        <p class="text-[13px] text-black/60 leading-[1.7]">Artis equipment, pilates reformers and private PT rooms.</p>
+        <span class="material-symbols-outlined text-landmark-green text-[34px] mb-5 block">energy_savings_leaf</span>
+        <h4 class="font-headline text-[18px] text-black mb-2">Energy-efficient</h4>
+        <p class="text-[13px] text-black/60 leading-[1.7]">Built to a low-energy standard across all twelve floors.</p>
       </div>
       <div class="border border-black/10 p-8 hover:border-landmark-gold transition-colors duration-300">
-        <img src="/amenities/fitness.svg" alt="" class="w-12 h-12 mb-5" style="filter: invert(18%) sepia(88%) saturate(1140%) hue-rotate(115deg) brightness(40%) contrast(101%);">
-        <h4 class="font-headline text-[18px] text-black mb-2">Yoga &amp; Movement</h4>
-        <p class="text-[13px] text-black/60 leading-[1.7]">Top-floor studio with forest-line views and sprung floor.</p>
-      </div>
-      <div class="border border-black/10 p-8 hover:border-landmark-gold transition-colors duration-300">
-        <img src="/amenities/library.svg" alt="" class="w-12 h-12 mb-5" style="filter: invert(18%) sepia(88%) saturate(1140%) hue-rotate(115deg) brightness(40%) contrast(101%);">
-        <h4 class="font-headline text-[18px] text-black mb-2">The Library</h4>
-        <p class="text-[13px] text-black/60 leading-[1.7]">Private residents' lounge, curated quarterly by Cărturești.</p>
-      </div>
-      <div class="border border-black/10 p-8 hover:border-landmark-gold transition-colors duration-300">
-        <img src="/amenities/theatre.svg" alt="" class="w-12 h-12 mb-5" style="filter: invert(18%) sepia(88%) saturate(1140%) hue-rotate(115deg) brightness(40%) contrast(101%);">
-        <h4 class="font-headline text-[18px] text-black mb-2">Screening Room</h4>
-        <p class="text-[13px] text-black/60 leading-[1.7]">12-seat cinema, Dolby Atmos, with bookable dining annex.</p>
-      </div>
-      <div class="border border-black/10 p-8 hover:border-landmark-gold transition-colors duration-300">
-        <img src="/amenities/kids.svg" alt="" class="w-12 h-12 mb-5" style="filter: invert(18%) sepia(88%) saturate(1140%) hue-rotate(115deg) brightness(40%) contrast(101%);">
-        <h4 class="font-headline text-[18px] text-black mb-2">Children's Atelier</h4>
-        <p class="text-[13px] text-black/60 leading-[1.7]">Supervised play, crafts, and a separate teen lounge.</p>
-      </div>
-      <div class="border border-black/10 p-8 hover:border-landmark-gold transition-colors duration-300">
-        <img src="/amenities/jacuzzi.svg" alt="" class="w-12 h-12 mb-5" style="filter: invert(18%) sepia(88%) saturate(1140%) hue-rotate(115deg) brightness(40%) contrast(101%);">
-        <h4 class="font-headline text-[18px] text-black mb-2">Private Dining</h4>
-        <p class="text-[13px] text-black/60 leading-[1.7]">Two chef's tables, wine cellar and 24-hour concierge kitchen.</p>
+        <span class="material-symbols-outlined text-landmark-green text-[34px] mb-5 block">near_me</span>
+        <h4 class="font-headline text-[18px] text-black mb-2">The rest is the neighbourhood</h4>
+        <p class="text-[13px] text-black/60 leading-[1.7]">B&#259;neasa Shopping City, Stejarii Country Club, Mogo&#537;oaia Park and Avenor College &mdash; all minutes away.</p>
       </div>
     </div>
   </div>
@@ -790,7 +769,7 @@ tailwind.config = {
         <p class="mt-6 text-black/65 max-w-xl leading-[1.8]">A mature, leafy pocket on Bucharest's northern edge — ten minutes to Herăstrău, five to Baneasa forest, twenty to Otopeni airport.</p>
       </div>
       <div class="flex gap-3">
-        <a href="#" class="btn-outline" style="height:44px;">Open in Maps <span class="material-symbols-outlined text-[16px]">open_in_new</span></a>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=Soseaua+Bucuresti+-+Targoviste+4A%2C+Bucuresti" class="btn-outline" style="height:44px;" target="_blank" rel="noopener">Open in Maps <span class="material-symbols-outlined text-[16px]">open_in_new</span></a>
       </div>
     </div>
     <div class="grid lg:grid-cols-12 gap-10">
@@ -1053,7 +1032,7 @@ tailwind.config = {
         <ul class="space-y-3 text-[12px] text-black/60">
           <li><a href="/about" class="hover:text-landmark-green">About</a></li>
           <li><a href="#" class="hover:text-landmark-green">The Willows</a></li>
-          <li><a href="#" class="hover:text-landmark-green">All Projects</a></li>
+          <li><a href="/projects" class="hover:text-landmark-green">All Projects</a></li>
         </ul>
       </div>
       <div>
