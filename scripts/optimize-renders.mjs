@@ -1,12 +1,14 @@
 // One-shot image pipeline for the site's large photography.
 //
-// Three jobs:
-//   gallery — the Landmark 4 renders in source-images/landmark-4/
-//             (3840×2160 JPEGs, 3–13MB each) → public/renders/landmark-4/
-//   plans   — the 23 apartment plates in source-images/plans/
-//             (3032×2312 sales sheets) → public/plans/
-//   heroes  — the full-bleed page heroes in source-images/
-//             (3840×2160 JPEGs) → public/renders/hero/
+// Four jobs:
+//   gallery  — the Landmark 4 renders in source-images/landmark-4/
+//              (3840×2160 JPEGs, 3–13MB each) → public/renders/landmark-4/
+//   plans    — the 23 apartment plates in source-images/plans/
+//              (3032×2312 sales sheets) → public/plans/
+//   founders — co-founder portraits in source-images/founders/
+//              (square sources, cover-cropped to the card's 4:5) → public/founders/
+//   heroes   — the full-bleed page heroes in source-images/
+//              (3840×2160 JPEGs) → public/renders/hero/
 //
 // Each job writes <name>-{width}.webp for its widths plus one <name>-{w}.jpg
 // fallback. Targets ~78 quality WebP — typically 90%+ smaller than the source.
@@ -63,6 +65,19 @@ const JOBS = [
     // white so every plate fills the frame consistently.
     cropWidthFraction: 0.775,
     trim: true,
+  },
+  {
+    name: 'founders',
+    srcDir: 'source-images/founders',
+    outDir: 'public/founders',
+    // Portrait cards render at 260px CSS in a 4:5 frame, so 800 covers 3x.
+    widths: [320, 520, 800],
+    fallbackWidth: 520,
+    manifest: false,
+    // Sources are square; crop to the card's 4:5 frame anchored at the top so
+    // the head never gets cut.
+    aspect: [4, 5],
+    position: 'top',
   },
   {
     name: 'heroes',
@@ -143,6 +158,14 @@ async function runJob(job) {
     return buf
   }
 
+  // Width-only by default; jobs with a fixed `aspect` get a cover-crop so every
+  // portrait lands in the same frame.
+  const sizeFor = (w) =>
+    job.aspect
+      ? { width: w, height: Math.round((w * job.aspect[1]) / job.aspect[0]),
+          fit: 'cover', position: job.position || 'centre', withoutEnlargement: true }
+      : { width: w, withoutEnlargement: true }
+
   const manifest = []
   for (const src of sources) {
     const file = basename(src)
@@ -155,7 +178,7 @@ async function runJob(job) {
       const webp = resolve(outDir, `${stem}-${w}.webp`)
       await sharp(prepared)
         .rotate()
-        .resize({ width: w, withoutEnlargement: true })
+        .resize(sizeFor(w))
         .webp({ quality: WEBP_QUALITY })
         .toFile(webp)
       entry.sizes[`${w}.webp`] = await fileSize(webp)
@@ -164,7 +187,7 @@ async function runJob(job) {
     const fallback = resolve(outDir, `${stem}-${job.fallbackWidth}.jpg`)
     await sharp(prepared)
       .rotate()
-      .resize({ width: job.fallbackWidth, withoutEnlargement: true })
+      .resize(sizeFor(job.fallbackWidth))
       .jpeg({ quality: JPG_QUALITY, mozjpeg: true })
       .toFile(fallback)
     entry.sizes[`${job.fallbackWidth}.jpg`] = await fileSize(fallback)
