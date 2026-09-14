@@ -7,7 +7,11 @@ import { JSDOM } from 'jsdom'
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const root = resolve(__dirname, '..')
 
-const EN_PAGES = ['index.html', 'about.html', 'contact.html', 'projects.html', 'media.html']
+const EN_PAGES = [
+  'index.html', 'about.html', 'contact.html', 'projects.html', 'media.html',
+  // legal pages, generated from the contact shell so they share nav + footer
+  'privacy.html', 'terms.html', 'cookies.html', 'legal.html',
+]
 const ALL_PAGES = EN_PAGES.flatMap((p) => [p, `ro/${p}`])
 
 function loadHTML(filepath) {
