@@ -166,6 +166,33 @@ tailwind.config = {
   @media (prefers-reduced-motion: reduce) {
     .hero-img, .rise, .reveal, .type-card, .gallery-item { transition: none !important; animation: none !important; transform: none !important; opacity: 1 !important; }
   }
+
+  /* Below lg the centred logo collides with the icon cluster; the language
+     switcher lives in the mobile panel and the search control is inert, so
+     both step aside and leave room for the hamburger. */
+  @media (max-width: 1023px) {
+    /* Tailwind's runtime-injected .flex lands after this block, so these need
+       to out-rank it rather than merely follow it. */
+    #mainNav .lang-switcher { display: none !important; }
+    #mainNav .nav-search { display: none !important; }
+    #mainNav .border-l { border-left: 0; padding-left: 0; }
+  }
+  /* Mobile navigation (below lg the desktop links are hidden) */
+  .nav-toggle { display: inline-flex; }
+  @media (min-width: 1024px) { .nav-toggle { display: none; } }
+  .mobile-nav { position: fixed; left: 0; right: 0; top: 72px; bottom: 0; background: #0e1512; color: #fff;
+    display: flex; flex-direction: column; padding: 28px 24px calc(28px + env(safe-area-inset-bottom));
+    overflow-y: auto; z-index: 49; visibility: hidden; opacity: 0; transform: translateY(-6px);
+    transition: opacity .28s ease, transform .28s ease, visibility .28s; }
+  .mobile-nav.open { visibility: visible; opacity: 1; transform: none; }
+  @media (min-width: 1024px) { .mobile-nav { display: none; } }
+  .mobile-nav a { font-family: 'Lato','Roboto',sans-serif; font-weight: 300; font-size: 30px; line-height: 1.25;
+    color: #fff; text-decoration: none; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .mobile-nav a:active { color: #b59458; }
+  .mobile-nav .mn-meta { margin-top: auto; padding-top: 28px; display: flex; gap: 14px; align-items: center;
+    font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.55); }
+  .mobile-nav .mn-meta a { font-size: 12px; padding: 0; border: 0; letter-spacing: .18em; }
+  @media (prefers-reduced-motion: reduce) { .mobile-nav { transition: none; } }
 </style>
 </head>
 <body data-screen-label="Landmark 4 — București – Târgoviște" data-accent="green" data-density="standard" class="selection:bg-primary/10">
@@ -188,15 +215,25 @@ tailwind.config = {
         <a class="nav-link" href="/ro/media">Media</a>
         <a class="nav-link nav-cta" href="/ro/contact">Contact</a>
       </div>
+      <button id="navToggle" class="nav-toggle material-symbols-outlined text-[26px]" aria-label="Deschide meniul" aria-expanded="false" aria-controls="mobileNav" data-open="Deschide meniul" data-close="Închide meniul">menu</button>
       <div class="flex items-center gap-4 border-l border-current/20 pl-6">
         <button id="favBtn" class="material-symbols-outlined text-[20px]" aria-label="Salvează">favorite</button>
-        <button class="material-symbols-outlined text-[20px]" aria-label="Caută">search</button>
+        <button class="nav-search material-symbols-outlined text-[20px]" aria-label="Caută">search</button>
         <div class="lang-switcher flex items-center gap-1 text-[11px] font-medium tracking-[0.18em] pl-4 border-l border-current/20" data-lang-switcher>
           <a href="/projects" class="no-underline opacity-60 hover:opacity-100" hreflang="en">EN</a>
           <span class="opacity-40">/</span>
           <a href="/ro/projects" class="no-underline" hreflang="ro" aria-current="page">RO</a>
         </div>
       </div>
+    </div>
+  </div>
+  <div id="mobileNav" class="mobile-nav" aria-hidden="true">
+    <a href="/ro/about">Despre noi</a>
+    <a href="/ro/projects">Proiectul Landmark 4</a>
+    <a href="/ro/media">Media</a>
+    <a href="/ro/contact">Contact</a>
+    <div class="mn-meta">
+      <a href="/ro/" hreflang="ro">RO</a><span>/</span><a href="/" hreflang="en">EN</a>
     </div>
   </div>
 </nav>
@@ -229,9 +266,7 @@ tailwind.config = {
           <h1 class="rise d1 display text-white" style="font-size: clamp(48px, 7.6vw, 118px); line-height: 0.98; letter-spacing: -0.02em;">
             Landmark <span class="serif-italic text-landmark-gold">4</span>
           </h1>
-          <p class="rise d2 mt-8 max-w-xl text-white/85 text-[17px] leading-[1.75] font-light">
-            An iconic residential tower rising above the Baneasa forest. Studios, one-, two- and three-room residences and four duplex penthouses — a single address you will never need to explain.
-          </p>
+          <p class="rise d2 mt-8 max-w-xl text-white/85 text-[17px] leading-[1.75] font-light">Un turn rezidențial iconic care se ridică deasupra pădurii Băneasa. Studiouri, apartamente cu 2 și 3 camere și patru duplexuri — o singură adresă pe care nu va trebui să o explicați niciodată.</p>
           <div class="rise d3 mt-10 flex flex-wrap gap-4 items-center">
             <a href="#residences" class="btn-outline on-dark">Explorează reședințele <span class="material-symbols-outlined text-[18px]">arrow_downward</span></a>
             <a href="#inquiry" class="inline-flex items-center gap-3 text-white/85 hover:text-white text-[12px] uppercase tracking-[0.22em] font-medium no-underline">
@@ -297,7 +332,7 @@ tailwind.config = {
     </div>
     <div>
       <div class="label text-black/50 mb-1">Architect</div>
-      <div class="font-headline text-[15px] text-black leading-tight">Landmark Atelier<br><span class="text-black/60">with Șerban Tiganas Studio</span></div>
+      <div class="font-headline text-[15px] text-black leading-tight">Landmark Atelier<br><span class="text-black/60">împreună cu Șerban Țigănaș Studio</span></div>
     </div>
     <div class="flex gap-3 justify-start md:justify-end">
       <a href="/brochure/landmark-4-brochure.pdf" download class="btn-outline" style="height:42px; padding:0 22px; font-size:11px;" aria-label="Descarcă broșura Landmark 4 (PDF, 11 MB)"><span class="material-symbols-outlined text-[16px]">download</span> Broșură</a>
@@ -310,17 +345,13 @@ tailwind.config = {
   <div class="max-w-[1280px] mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-16 items-start">
     <div class="lg:col-span-5 reveal">
       <div class="eyebrow-line mb-6"><span class="eyebrow">The Address</span></div>
-      <h2 class="section-title">An <span class="gilt">iconic</span> silhouette above the forest.</h2>
+      <h2 class="section-title">An <span class="gilt">iconic</span>siluetă deasupra pădurii.</h2>
     </div>
     <div class="lg:col-span-7 reveal">
-      <p class="text-[17px] leading-[1.85] text-black/75 font-light">
-        Landmark 4 is the brand's most elevated work to date &mdash; and its fourth tower. Set on a private 1.8-hectare parcel along Drumul București – Târgoviște, the building rises as a single tapered volume, clad in hand-finished travertine and bronze-anodised fins, with a sculpted crown that reads as quietly from Piața Presei as it does from the Băneasa forest line.
-      </p>
-      <p class="mt-6 text-[16px] leading-[1.85] text-black/65 font-light">
-        Inside, one hundred and twenty-four residences are arranged across five typologies &mdash; studios, one-, two- and three-room homes, and four duplex penthouses crowning the building. Private service corridors that never cross residents' paths, oak joinery and nine-metre panoramic terraces are the standard, not the premium.
-      </p>
+      <p class="text-[17px] leading-[1.85] text-black/75 font-light">Landmark 4 este cea mai înaltă realizare a brandului până acum — și al patrulea său turn. Așezată pe o parcelă privată de 1,8 hectare pe Drumul București – Târgoviște, clădirea se ridică într-un singur volum conic, îmbrăcat în travertin finisat manual și lamele din bronz anodizat, cu o coroană sculptată care se citește la fel de discret dinspre Piața Presei ca și dinspre linia pădurii Băneasa.</p>
+      <p class="mt-6 text-[16px] leading-[1.85] text-black/65 font-light">În interior, șaptezeci și una de reședințe sunt organizate în cinci tipologii — studiouri, apartamente cu 2 și 3 camere și patru duplexuri care încununează clădirea. Coridoarele tehnice care nu intersectează niciodată traseul rezidenților, tâmplăria din stejar și terasele panoramice de nouă metri sunt standardul, nu suplimentul.</p>
       <div class="mt-10 grid sm:grid-cols-3 gap-6 pt-10 border-t border-black/10">
-        <div><div class="display text-[44px] leading-none text-landmark-green">23</div><div class="label text-black/60 mt-2">Storeys</div></div>
+        <div><div class="display text-[44px] leading-none text-landmark-green">12</div><div class="label text-black/60 mt-2">Storeys</div></div>
         <div><div class="display text-[44px] leading-none text-landmark-green">71</div><div class="label text-black/60 mt-2">Reședințe</div></div>
         <div><div class="display text-[44px] leading-none text-landmark-green">1.8<span class="text-[18px] align-super">ha</span></div><div class="label text-black/60 mt-2">Private Grounds</div></div>
       </div>
@@ -767,7 +798,7 @@ tailwind.config = {
       <div>
         <div class="eyebrow-line mb-6"><span class="eyebrow">Cartierul</span></div>
         <h2 class="section-title">București – Târgoviște, <span class="gilt">Sector 1</span>.</h2>
-        <p class="mt-6 text-black/65 max-w-xl leading-[1.8]">A mature, leafy pocket on Bucharest's northern edge — ten minutes to Herăstrău, five to Baneasa forest, twenty to Otopeni airport.</p>
+        <p class="mt-6 text-black/65 max-w-xl leading-[1.8]">Un cartier matur și verde la marginea de nord a Bucureștiului — zece minute până la Herăstrău, cinci până la pădurea Băneasa, douăzeci până la aeroportul Otopeni.</p>
       </div>
       <div class="flex gap-3">
         <a href="https://www.google.com/maps/search/?api=1&amp;query=Soseaua+Bucuresti+-+Targoviste+4A%2C+Bucuresti" class="btn-outline" style="height:44px;" target="_blank" rel="noopener">Deschide în Hărți <span class="material-symbols-outlined text-[16px]">open_in_new</span></a>
@@ -858,7 +889,7 @@ tailwind.config = {
             <div class="flex-1">
               <div class="label text-black/50 mb-1">Metrou Jiului · M4</div>
               <div class="font-headline text-[17px] text-black">8 min · 3.2 km</div>
-              <div class="text-[12px] text-black/55 mt-1">to Piața Victoriei in 12 min</div>
+              <div class="text-[12px] text-black/55 mt-1">până la Piața Victoriei în 12 min</div>
             </div>
           </li>
           <li class="py-5 flex items-start gap-5">
@@ -922,8 +953,7 @@ tailwind.config = {
   <div class="max-w-[1040px] mx-auto px-6 lg:px-10 text-center text-white">
     <span class="serif-italic text-landmark-gold" style="font-size: 80px; line-height: 0.5;">“</span>
     <blockquote class="mt-6 display leading-[1.35] text-white" style="font-size: clamp(24px, 2.8vw, 40px);">
-      The most <span class="serif-italic text-landmark-gold">restrained</span> high-rise built in Bucharest in a decade — a building that works by subtraction.
-    </blockquote>
+      The most <span class="serif-italic text-landmark-gold">restrained</span>clădire înaltă construită în București într-un deceniu — o clădire care funcționează prin scădere.</blockquote>
     <div class="mt-10 label text-landmark-gold">Igloo Architecture Review · Primăvara 2026</div>
   </div>
 </section>
@@ -934,7 +964,7 @@ tailwind.config = {
     <div class="lg:col-span-5 reveal">
       <div class="eyebrow-line mb-6"><span class="eyebrow">Întreabă</span></div>
       <h2 class="section-title">Private <span class="gilt">preview</span>.</h2>
-      <p class="mt-6 text-[16px] leading-[1.85] text-black/70">A Landmark residence advisor will contact you within one business day to arrange a private viewing of the București – Târgoviște show-floor and full digital walkthrough.</p>
+      <p class="mt-6 text-[16px] leading-[1.85] text-black/70">Un consilier Landmark vă va contacta în cel mult o zi lucrătoare pentru a programa o vizionare privată a showroomului de pe București – Târgoviște și un tur digital complet.</p>
       <div class="mt-10 space-y-5">
         <div class="flex items-center gap-5">
           <span class="material-symbols-outlined text-landmark-gold text-[26px]">call</span>
@@ -996,8 +1026,8 @@ tailwind.config = {
           <button type="submit" class="btn-solid">Solicită vizualizarea <span class="material-symbols-outlined text-[18px]">arrow_forward</span></button>
         </div>
         <div id="formSuccess" class="hidden mt-8 p-6 border border-landmark-gold/40 bg-landmark-gold/5 text-center">
-          <div class="font-headline text-[20px] text-landmark-green">Thank you &mdash; your request is received.</div>
-          <p class="text-[14px] text-black/60 mt-2">A Landmark advisor will be in touch within one business day.</p>
+          <div class="font-headline text-[20px] text-landmark-green">Vă mulțumim — solicitarea dumneavoastră a fost primită.</div>
+          <p class="text-[14px] text-black/60 mt-2">Un consilier Landmark vă va contacta în cel mult o zi lucrătoare.</p>
         </div>
       </form>
     </div>
@@ -1011,7 +1041,7 @@ tailwind.config = {
   <div class="max-w-[1380px] mx-auto">
     <div class="flex flex-col items-center mb-16">
       <img src="/logo/landmarklogo-green.svg" alt="Landmark Realty" style="width: 72px;">
-      <p class="mt-6 label text-black/40">A LANDMARK REALTY DEVELOPMENT</p>
+      <p class="mt-6 label text-black/40">UN PROIECT LANDMARK REALTY</p>
     </div>
     <div class="grid md:grid-cols-5 gap-12 pb-14 border-b border-black/5">
       <div class="md:col-span-2">
@@ -1499,6 +1529,28 @@ document.querySelectorAll('#heroSeg button').forEach(b => b.addEventListener('cl
 
 // Initial
 selectFloor(document.querySelector('.floor-band.active'));
+
+// ========== Mobile navigation ==========
+(() => {
+  const toggle = document.getElementById('navToggle');
+  const panel = document.getElementById('mobileNav');
+  if (!toggle || !panel) return;
+  const setOpen = (open) => {
+    panel.classList.toggle('open', open);
+    panel.setAttribute('aria-hidden', String(!open));
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? toggle.dataset.close : toggle.dataset.open);
+    toggle.textContent = open ? 'close' : 'menu';
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  };
+  toggle.addEventListener('click', () => setOpen(!panel.classList.contains('open')));
+  panel.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && panel.classList.contains('open')) { setOpen(false); toggle.focus(); }
+  });
+  // Crossing the breakpoint while open would strand the page with scroll locked.
+  window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => { if (e.matches) setOpen(false); });
+})();
 </script>
 </body>
 </html>

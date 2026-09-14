@@ -153,6 +153,33 @@ tailwind.config = {
   @media (prefers-reduced-motion: reduce) {
     .hero-img, .rise, .reveal, .pillar-card, .marquee, .lead-card { transition: none !important; animation: none !important; transform: none !important; opacity: 1 !important; }
   }
+
+  /* Below lg the centred logo collides with the icon cluster; the language
+     switcher lives in the mobile panel and the search control is inert, so
+     both step aside and leave room for the hamburger. */
+  @media (max-width: 1023px) {
+    /* Tailwind's runtime-injected .flex lands after this block, so these need
+       to out-rank it rather than merely follow it. */
+    #mainNav .lang-switcher { display: none !important; }
+    #mainNav .nav-search { display: none !important; }
+    #mainNav .border-l { border-left: 0; padding-left: 0; }
+  }
+  /* Mobile navigation (below lg the desktop links are hidden) */
+  .nav-toggle { display: inline-flex; }
+  @media (min-width: 1024px) { .nav-toggle { display: none; } }
+  .mobile-nav { position: fixed; left: 0; right: 0; top: 72px; bottom: 0; background: #0e1512; color: #fff;
+    display: flex; flex-direction: column; padding: 28px 24px calc(28px + env(safe-area-inset-bottom));
+    overflow-y: auto; z-index: 49; visibility: hidden; opacity: 0; transform: translateY(-6px);
+    transition: opacity .28s ease, transform .28s ease, visibility .28s; }
+  .mobile-nav.open { visibility: visible; opacity: 1; transform: none; }
+  @media (min-width: 1024px) { .mobile-nav { display: none; } }
+  .mobile-nav a { font-family: 'Lato','Roboto',sans-serif; font-weight: 300; font-size: 30px; line-height: 1.25;
+    color: #fff; text-decoration: none; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .mobile-nav a:active { color: #b59458; }
+  .mobile-nav .mn-meta { margin-top: auto; padding-top: 28px; display: flex; gap: 14px; align-items: center;
+    font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.55); }
+  .mobile-nav .mn-meta a { font-size: 12px; padding: 0; border: 0; letter-spacing: .18em; }
+  @media (prefers-reduced-motion: reduce) { .mobile-nav { transition: none; } }
 </style>
 </head>
 <body data-screen-label="About — Landmark Realty" data-accent="green" data-density="standard" class="selection:bg-primary/10">
@@ -175,15 +202,25 @@ tailwind.config = {
         <a class="nav-link" href="/ro/media">Media</a>
         <a class="nav-link nav-cta" href="/ro/contact">Contact</a>
       </div>
+      <button id="navToggle" class="nav-toggle material-symbols-outlined text-[26px]" aria-label="Deschide meniul" aria-expanded="false" aria-controls="mobileNav" data-open="Deschide meniul" data-close="Închide meniul">menu</button>
       <div class="flex items-center gap-4 border-l border-current/20 pl-6">
         <button class="material-symbols-outlined text-[20px]" aria-label="Salvează">favorite</button>
-        <button class="material-symbols-outlined text-[20px]" aria-label="Caută">search</button>
+        <button class="nav-search material-symbols-outlined text-[20px]" aria-label="Caută">search</button>
         <div class="lang-switcher flex items-center gap-1 text-[11px] font-medium tracking-[0.18em] pl-4 border-l border-current/20" data-lang-switcher>
           <a href="/about" class="no-underline opacity-60 hover:opacity-100" hreflang="en">EN</a>
           <span class="opacity-40">/</span>
           <a href="/ro/about" class="no-underline" hreflang="ro" aria-current="page">RO</a>
         </div>
       </div>
+    </div>
+  </div>
+  <div id="mobileNav" class="mobile-nav" aria-hidden="true">
+    <a href="/ro/about">Despre noi</a>
+    <a href="/ro/projects">Proiectul Landmark 4</a>
+    <a href="/ro/media">Media</a>
+    <a href="/ro/contact">Contact</a>
+    <div class="mn-meta">
+      <a href="/ro/" hreflang="ro">RO</a><span>/</span><a href="/" hreflang="en">EN</a>
     </div>
   </div>
 </nav>
@@ -275,9 +312,7 @@ tailwind.config = {
   <div class="max-w-[1020px] mx-auto px-6 lg:px-10 text-center">
     <div class="eyebrow-line justify-center inline-flex mb-6 reveal"><span class="eyebrow">Filozofia noastră</span></div>
     <h2 class="section-title reveal">Construim excelența, <br><span class="gilt">generation</span> after generation.</h2>
-    <p class="mt-8 text-[17px] leading-[1.9] text-black/70 max-w-[780px] mx-auto font-light reveal">
-      Landmark was formed in 2024 by four partners whose working lives have been spent in real estate &mdash; in development, finance, construction and sales. We brought those disciplines under one roof because we believe a home is only as good as the hands that draw, build and steward it. One team, one standard, from the first line on the plan to the day the keys are handed over.
-    </p>
+    <p class="mt-8 text-[17px] leading-[1.9] text-black/70 max-w-[780px] mx-auto font-light reveal">Landmark s-a format în 2024, din patru parteneri care și-au petrecut viața profesională în imobiliare — în dezvoltare, finanțe, construcții și vânzări. Am adus aceste discipline sub același acoperiș pentru că o locuință este la fel de bună ca mâinile care o desenează, o construiesc și o îngrijesc. O echipă, un singur standard, de la prima linie de pe plan până în ziua predării cheilor.</p>
   </div>
 </section>
 
@@ -337,10 +372,8 @@ tailwind.config = {
           <line x1="2" y1="28" x2="12" y2="28" stroke="#b59458" stroke-width="1"/>
           <line x1="44" y1="28" x2="54" y2="28" stroke="#b59458" stroke-width="1"/>
         </svg>
-        <h2 class="section-title mb-8">A <span class="gilt">clearer</span> standard for luxury living.</h2>
-        <p class="text-[16px] leading-[1.9] text-black/70 max-w-lg">
-          Landmark Realty aspires to become the region's most trusted developer of heritage-quality residences &mdash; homes that age into their value, communities that deepen with time, and a standard of craftsmanship worthy of being inherited.
-        </p>
+        <h2 class="section-title mb-8">A <span class="gilt">clearer</span>standardul locuirii de lux.</h2>
+        <p class="text-[16px] leading-[1.9] text-black/70 max-w-lg">Landmark Realty își propune să devină cel mai de încredere dezvoltator din regiune pentru reședințe la standarde de patrimoniu — locuințe care își câștigă valoarea în timp, comunități care se așază an de an și o măiestrie demnă de a fi moștenită.</p>
       </div>
       <div class="reveal lg:border-l lg:border-black/10 lg:pl-16">
         <div class="eyebrow-line mb-6"><span class="eyebrow">Misiunea noastră</span></div>
@@ -349,10 +382,8 @@ tailwind.config = {
           <polygon points="28,14 42,28 28,42 14,28" stroke="#004225" stroke-width="1.5" fill="none"/>
           <circle cx="28" cy="28" r="4" fill="#004225"/>
         </svg>
-        <h2 class="section-title mb-8">Through <span class="gilt">slow</span> architecture, and careful land.</h2>
-        <p class="text-[16px] leading-[1.9] text-black/70 max-w-lg">
-          By pioneering restrained, enduring residential projects &mdash; and by insisting on the long form of design, material and landscape &mdash; we work to challenge the assumption that luxury must shout. Our ambition is to enrich the communities we build, and the lives held within them.
-        </p>
+        <h2 class="section-title mb-8">Through <span class="gilt">slow</span>arhitectură și teren ales cu grijă.</h2>
+        <p class="text-[16px] leading-[1.9] text-black/70 max-w-lg">Prin proiecte rezidențiale sobre și durabile — și prin insistența pe forma lungă a designului, a materialului și a peisajului — contrazicem ideea că luxul trebuie să strige. Ambiția noastră este să îmbogățim comunitățile pe care le construim și viețile din interiorul lor.</p>
       </div>
     </div>
   </div>
@@ -439,9 +470,7 @@ tailwind.config = {
           <span class="w-8 h-px bg-landmark-gold"></span>
         </div>
         <h3 class="font-headline text-[32px] leading-tight text-black mb-6">Design atent</h3>
-        <p class="text-[15px] leading-[1.85] text-black/70 mb-8">
-          A home is not a structure &mdash; it is a carefully composed piece of everyday life. Our residences are generous in proportion, disciplined in layout, and reviewed through exacting design and engineering inspections before a single room is poured.
-        </p>
+        <p class="text-[15px] leading-[1.85] text-black/70 mb-8">O locuință nu este o structură — este o bucată atent compusă din viața de zi cu zi. Reședințele noastre sunt generoase ca proporție, disciplinate ca plan și trecute prin verificări riguroase de proiectare și inginerie înainte de turnarea primei camere.</p>
       </article>
       <!-- Signature Quality -->
       <article class="pillar-card">
@@ -487,9 +516,7 @@ tailwind.config = {
       <div class="eyebrow-line mb-6"><span class="eyebrow">Originea noastră</span></div>
       <div class="grid lg:grid-cols-12 gap-10 items-end">
         <h2 class="section-title lg:col-span-7">Patru parteneri. <br>One <span class="gilt">standard</span>, from day one.</h2>
-        <p class="lg:col-span-5 text-[16px] leading-[1.9] text-black/70 font-light">
-          Landmark was founded in 2024, but the work started long before. The four of us spent our careers inside the industry &mdash; developing land, underwriting projects, running sites and placing homes. We built Landmark to bring those disciplines under one roof.
-        </p>
+        <p class="lg:col-span-5 text-[16px] leading-[1.9] text-black/70 font-light">Landmark a fost fondat în 2024, dar munca începuse cu mult înainte. Noi patru ne-am petrecut carierele în interiorul industriei — dezvoltând terenuri, analizând proiecte, coordonând șantiere și vânzând locuințe. Am construit Landmark ca să aducem aceste discipline sub același acoperiș.</p>
       </div>
     </div>
 
@@ -500,20 +527,16 @@ tailwind.config = {
           <span class="display text-[56px] leading-none text-landmark-green">01</span>
           <span class="label text-landmark-gold">Before Landmark</span>
         </div>
-        <h3 class="font-headline text-[24px] leading-tight text-black mb-5">A shared career in real estate.</h3>
-        <p class="text-[14.5px] leading-[1.85] text-black/65">
-          Between us, decades inside development, investment, construction and sales &mdash; delivering residential projects across the region before we ever sat at the same table.
-        </p>
+        <h3 class="font-headline text-[24px] leading-tight text-black mb-5">O carieră comună în imobiliare.</h3>
+        <p class="text-[14.5px] leading-[1.85] text-black/65">Împreună, decenii în dezvoltare, investiții, construcții și vânzări — livrând proiecte rezidențiale în regiune cu mult înainte să stăm la aceeași masă.</p>
       </div>
       <div class="bg-white p-10">
         <div class="flex items-baseline gap-4 mb-8">
           <span class="display text-[56px] leading-none text-landmark-green">02</span>
-          <span class="label text-landmark-gold">2024 · The Founding</span>
+          <span class="label text-landmark-gold">2024 · Începutul</span>
         </div>
         <h3 class="font-headline text-[24px] leading-tight text-black mb-5">Un singur studio, un singur standard.</h3>
-        <p class="text-[14.5px] leading-[1.85] text-black/65">
-          We formed Landmark to close the gaps we had seen elsewhere &mdash; between designer and builder, between buyer and developer. Every decision, from land to handover, is made by the same four people.
-        </p>
+        <p class="text-[14.5px] leading-[1.85] text-black/65">Am format Landmark ca să închidem golurile văzute în altă parte — între proiectant și constructor, între cumpărător și dezvoltator. Fiecare decizie, de la teren până la predare, este luată de aceiași patru oameni.</p>
       </div>
       <div class="bg-white p-10">
         <div class="flex items-baseline gap-4 mb-8">
@@ -521,9 +544,7 @@ tailwind.config = {
           <span class="label text-landmark-gold">Munca viitoare</span>
         </div>
         <h3 class="font-headline text-[24px] leading-tight text-black mb-5">Case construite ca să rămână în memorie.</h3>
-        <p class="text-[14.5px] leading-[1.85] text-black/65">
-          Our first communities are already underway. The ambition is simple &mdash; to build residences that age into their value, and that our children will recognise decades from now.
-        </p>
+        <p class="text-[14.5px] leading-[1.85] text-black/65">Primele noastre comunități sunt deja în lucru. Ambiția este simplă — să construim reședințe care își câștigă valoarea în timp și pe care copiii noștri le vor recunoaște peste decenii.</p>
       </div>
     </div>
   </div>
@@ -593,12 +614,8 @@ tailwind.config = {
         <div class="lg:col-span-6">
           <div class="label text-landmark-gold mb-3">01 &middot; Co-fondator</div>
           <h3 class="font-headline text-[32px] lg:text-[38px] leading-tight text-black mb-5">Robert Ion Erbașu</h3>
-          <p class="text-[14.5px] leading-[1.85] text-black/70 mb-5 max-w-[600px]">
-            Over 25 years of experience in highly competitive industries &mdash; textiles and forestry &mdash; before transitioning into real estate development in 2019. Leveraging his entrepreneurial expertise, Robert successfully completed two mid-sized residential projects totalling <em class="not-italic text-black font-medium">25,543 sqm</em> and delivering <em class="not-italic text-black font-medium">182 high-quality apartments</em> &mdash; entirely funded with proprietary resources.
-          </p>
-          <p class="text-[14.5px] leading-[1.85] text-black/70 max-w-[600px]">
-            Brings a wealth of expertise in construction project management, cost control and site supervision. His hands-on approach and commitment to excellence position him as a trusted leader in residential real estate development, adept at navigating complex developments with precision and financial independence.
-          </p>
+          <p class="text-[14.5px] leading-[1.85] text-black/70 mb-5 max-w-[600px]">Peste 25 de ani de experiență în industrii puternic competitive — textile și silvicultură — înainte de a trece la dezvoltarea imobiliară în 2019. Folosindu-și experiența antreprenorială, Robert a finalizat două proiecte rezidențiale de dimensiuni medii, însumând<em class="not-italic text-black font-medium">25,543 sqm</em> and delivering <em class="not-italic text-black font-medium">182 high-quality apartments</em>— finanțate integral din resurse proprii.</p>
+          <p class="text-[14.5px] leading-[1.85] text-black/70 max-w-[600px]">Aduce o experiență bogată în managementul proiectelor de construcții, controlul costurilor și supravegherea șantierului. Abordarea sa directă și exigența îl recomandă drept un lider de încredere în dezvoltarea rezidențială, capabil să conducă proiecte complexe cu precizie și independență financiară.</p>
         </div>
         <div class="lg:col-span-3">
           <dl class="grid grid-cols-2 lg:grid-cols-1 gap-px bg-black/10 border border-black/10">
@@ -635,12 +652,9 @@ tailwind.config = {
         <div class="lg:col-span-6">
           <div class="label text-landmark-gold mb-3">02 &middot; Co-fondator</div>
           <h3 class="font-headline text-[32px] lg:text-[38px] leading-tight text-black mb-5">Ali Ergun Ergen</h3>
-          <p class="text-[14.5px] leading-[1.85] text-black/70 mb-5 max-w-[600px]">
-            Over 20 years of expertise in commercial real estate &mdash; development, leasing, marketing and property management. Starting in construction in 1995, Ergun worked on international projects in Turkey, Turkmenistan and Kazakhstan before moving to Romania in 1999, where he played a pivotal role in delivering Bucharest's first modern retail projects: <em class="not-italic text-black font-medium">București Mall</em>, <em class="not-italic text-black font-medium">Plaza Romania</em> and <em class="not-italic text-black font-medium">B&#259;neasa Shopping City</em>.
+          <p class="text-[14.5px] leading-[1.85] text-black/70 mb-5 max-w-[600px]">Peste 20 de ani de experiență în imobiliare comerciale — dezvoltare, închiriere, marketing și administrare. Început în construcții în 1995, Ergun a lucrat la proiecte internaționale în Turcia, Turkmenistan și Kazahstan, iar din 1999 s-a stabilit în România, unde a avut un rol esențial în livrarea primelor proiecte moderne de retail din București:<em class="not-italic text-black font-medium">București Mall</em>, <em class="not-italic text-black font-medium">Plaza Romania</em> and <em class="not-italic text-black font-medium">B&#259;neasa Shopping City</em>.
           </p>
-          <p class="text-[14.5px] leading-[1.85] text-black/70 max-w-[600px]">
-            A specialist in retail site selection, property development, leasing and management &mdash; with additional expertise in land acquisition, governmental approvals and large-scale leisure projects. As CEO of Anchor Grup and B&#259;neasa Developments, he oversaw &euro;500 million in developments and managed 180,000 sqm of commercial real estate.
-          </p>
+          <p class="text-[14.5px] leading-[1.85] text-black/70 max-w-[600px]">Specialist în selecția amplasamentelor de retail, dezvoltare, închiriere și administrare — cu experiență suplimentară în achiziții de teren, avize și proiecte de agrement la scară mare. În calitate de CEO al Anchor Grup și Băneasa Developments, a coordonat dezvoltări de 500 de milioane de euro și a administrat 180.000 mp de spații comerciale.</p>
         </div>
         <div class="lg:col-span-3">
           <dl class="grid grid-cols-2 lg:grid-cols-1 gap-px bg-black/10 border border-black/10">
@@ -772,7 +786,7 @@ tailwind.config = {
   <div class="max-w-[1280px] mx-auto">
     <div class="flex flex-col items-center mb-16">
       <img src="/logo/landmarklogo-green.svg" alt="Landmark Realty" style="width: 72px;">
-      <p class="mt-6 label text-black/40">A LANDMARK REALTY DEVELOPMENT</p>
+      <p class="mt-6 label text-black/40">UN PROIECT LANDMARK REALTY</p>
     </div>
     <div class="grid md:grid-cols-5 gap-12 pb-14 border-b border-black/5">
       <div class="md:col-span-2">
@@ -916,6 +930,28 @@ document.querySelectorAll('#storySeg button').forEach(b => b.addEventListener('c
   b.classList.add('active');
   persist({ story: b.dataset.story });
 }));
+
+// ========== Mobile navigation ==========
+(() => {
+  const toggle = document.getElementById('navToggle');
+  const panel = document.getElementById('mobileNav');
+  if (!toggle || !panel) return;
+  const setOpen = (open) => {
+    panel.classList.toggle('open', open);
+    panel.setAttribute('aria-hidden', String(!open));
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? toggle.dataset.close : toggle.dataset.open);
+    toggle.textContent = open ? 'close' : 'menu';
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  };
+  toggle.addEventListener('click', () => setOpen(!panel.classList.contains('open')));
+  panel.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && panel.classList.contains('open')) { setOpen(false); toggle.focus(); }
+  });
+  // Crossing the breakpoint while open would strand the page with scroll locked.
+  window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => { if (e.matches) setOpen(false); });
+})();
 </script>
 </body>
 </html>

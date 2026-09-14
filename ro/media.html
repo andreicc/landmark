@@ -214,6 +214,33 @@ tailwind.config = {
   @media (prefers-reduced-motion: reduce) {
     .reveal, .lift, .live-dot { transition: none !important; animation: none !important; transform: none !important; opacity: 1 !important; }
   }
+
+  /* Below lg the centred logo collides with the icon cluster; the language
+     switcher lives in the mobile panel and the search control is inert, so
+     both step aside and leave room for the hamburger. */
+  @media (max-width: 1023px) {
+    /* Tailwind's runtime-injected .flex lands after this block, so these need
+       to out-rank it rather than merely follow it. */
+    #mainNav .lang-switcher { display: none !important; }
+    #mainNav .nav-search { display: none !important; }
+    #mainNav .border-l { border-left: 0; padding-left: 0; }
+  }
+  /* Mobile navigation (below lg the desktop links are hidden) */
+  .nav-toggle { display: inline-flex; }
+  @media (min-width: 1024px) { .nav-toggle { display: none; } }
+  .mobile-nav { position: fixed; left: 0; right: 0; top: 72px; bottom: 0; background: #0e1512; color: #fff;
+    display: flex; flex-direction: column; padding: 28px 24px calc(28px + env(safe-area-inset-bottom));
+    overflow-y: auto; z-index: 49; visibility: hidden; opacity: 0; transform: translateY(-6px);
+    transition: opacity .28s ease, transform .28s ease, visibility .28s; }
+  .mobile-nav.open { visibility: visible; opacity: 1; transform: none; }
+  @media (min-width: 1024px) { .mobile-nav { display: none; } }
+  .mobile-nav a { font-family: 'Lato','Roboto',sans-serif; font-weight: 300; font-size: 30px; line-height: 1.25;
+    color: #fff; text-decoration: none; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  .mobile-nav a:active { color: #b59458; }
+  .mobile-nav .mn-meta { margin-top: auto; padding-top: 28px; display: flex; gap: 14px; align-items: center;
+    font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.55); }
+  .mobile-nav .mn-meta a { font-size: 12px; padding: 0; border: 0; letter-spacing: .18em; }
+  @media (prefers-reduced-motion: reduce) { .mobile-nav { transition: none; } }
 </style>
 </head>
 <body data-screen-label="Media — Jurnal de teren" class="selection:bg-primary/10">
@@ -236,15 +263,25 @@ tailwind.config = {
         <a class="nav-link is-active" href="/ro/media">Media</a>
         <a class="nav-link nav-cta" href="/ro/contact">Contact</a>
       </div>
+      <button id="navToggle" class="nav-toggle material-symbols-outlined text-[26px]" aria-label="Deschide meniul" aria-expanded="false" aria-controls="mobileNav" data-open="Deschide meniul" data-close="Închide meniul">menu</button>
       <div class="flex items-center gap-4 border-l border-current/20 pl-6">
         <button class="material-symbols-outlined text-[20px]" aria-label="Salvează">favorite</button>
-        <button class="material-symbols-outlined text-[20px]" aria-label="Caută">search</button>
+        <button class="nav-search material-symbols-outlined text-[20px]" aria-label="Caută">search</button>
         <div class="lang-switcher flex items-center gap-1 text-[11px] font-medium tracking-[0.18em] pl-4 border-l border-current/20" data-lang-switcher>
           <a href="/media" class="no-underline opacity-60 hover:opacity-100" hreflang="en">EN</a>
           <span class="opacity-40">/</span>
           <a href="/ro/media" class="no-underline" hreflang="ro" aria-current="page">RO</a>
         </div>
       </div>
+    </div>
+  </div>
+  <div id="mobileNav" class="mobile-nav" aria-hidden="true">
+    <a href="/ro/about">Despre noi</a>
+    <a href="/ro/projects">Proiectul Landmark 4</a>
+    <a href="/ro/media">Media</a>
+    <a href="/ro/contact">Contact</a>
+    <div class="mn-meta">
+      <a href="/ro/" hreflang="ro">RO</a><span>/</span><a href="/" hreflang="en">EN</a>
     </div>
   </div>
 </nav>
@@ -269,9 +306,7 @@ tailwind.config = {
           <h1 class="display text-white" style="font-size: clamp(48px, 7vw, 104px); line-height: 0.98; letter-spacing: -0.02em;">
             The <span class="serif-italic text-landmark-gold">field</span><br>journal.
           </h1>
-          <p class="mt-8 max-w-2xl text-white/75 text-[18px] leading-[1.75] font-light">
-            A continuous dispatch from our active building sites — concrete pours and stone arrivals, time-lapse stills and quiet craft notes. We publish what we'd otherwise tell you over coffee.
-          </p>
+          <p class="mt-8 max-w-2xl text-white/75 text-[18px] leading-[1.75] font-light">Un jurnal continuu de pe șantierele noastre active — turnări de beton și sosiri de piatră, cadre time-lapse și însemnări discrete despre meșteșug. Publicăm ceea ce v-am spune altfel la o cafea.</p>
           <div class="mt-10 flex flex-wrap gap-3 items-center">
             <span class="micro text-white/55 mr-2">Filtru</span>
             <button class="chip chip-outline-light is-active" data-filter="all">Toate</button>
@@ -1112,7 +1147,7 @@ tailwind.config = {
       <!-- ======== END OF FEED MARKER ======== -->
       <div class="feed-end reveal">
         <div class="micro text-black/45 mb-3">Trimiteri anterioare</div>
-        <div class="font-headline text-[22px] md:text-[26px] text-black/80 leading-tight max-w-xl">12 entries dating back to <span class="serif-italic text-landmark-gold">22 February 2026</span> &mdash; the morning we broke ground on our first building.</div>
+        <div class="font-headline text-[22px] md:text-[26px] text-black/80 leading-tight max-w-xl">12 însemnări, începând din<span class="serif-italic text-landmark-gold">22 February 2026</span>— dimineața în care am început prima noastră clădire.</div>
         <div class="mt-6 flex items-center gap-3 flex-wrap">
           <button class="btn-outline">Încarcă mai multe articole <span class="material-symbols-outlined text-[18px]">arrow_downward</span></button>
           <a href="#feed" class="micro text-black/55 hover:text-landmark-green">Răsfoiește arhiva completă →</a>
@@ -1132,11 +1167,8 @@ tailwind.config = {
     <div class="lg:col-span-7">
       <div class="eyebrow text-landmark-gold mb-5">Buletinul de sâmbătă</div>
       <h2 class="display text-white" style="font-size: clamp(28px, 4vw, 46px); line-height: 1.1;">
-        One <span class="serif-italic text-landmark-gold">letter</span>, one Saturday morning a month.
-      </h2>
-      <p class="mt-5 max-w-xl text-white/75 text-[16px] leading-[1.8]">
-        We collect the month's most-read posts into a single, calm letter. No sales, no urgency — just the building, told slowly. Around four thousand readers, and we know most of them by name.
-      </p>
+        One <span class="serif-italic text-landmark-gold">letter</span>, o dimineață de sâmbătă pe lună.</h2>
+      <p class="mt-5 max-w-xl text-white/75 text-[16px] leading-[1.8]">Adunăm cele mai citite însemnări ale lunii într-o singură scrisoare, calmă. Fără vânzări, fără urgență — doar clădirea, povestită pe îndelete. În jur de patru mii de cititori, iar pe cei mai mulți îi știm după nume.</p>
     </div>
     <div class="lg:col-span-5">
       <form id="subForm" class="flex flex-col gap-4">
@@ -1295,6 +1327,28 @@ document.getElementById('subForm').addEventListener('submit', (e) => {
   document.getElementById('subOk').classList.remove('hidden');
   e.target.querySelector('input').disabled = true;
 });
+
+// ========== Mobile navigation ==========
+(() => {
+  const toggle = document.getElementById('navToggle');
+  const panel = document.getElementById('mobileNav');
+  if (!toggle || !panel) return;
+  const setOpen = (open) => {
+    panel.classList.toggle('open', open);
+    panel.setAttribute('aria-hidden', String(!open));
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? toggle.dataset.close : toggle.dataset.open);
+    toggle.textContent = open ? 'close' : 'menu';
+    document.documentElement.style.overflow = open ? 'hidden' : '';
+  };
+  toggle.addEventListener('click', () => setOpen(!panel.classList.contains('open')));
+  panel.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setOpen(false)));
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && panel.classList.contains('open')) { setOpen(false); toggle.focus(); }
+  });
+  // Crossing the breakpoint while open would strand the page with scroll locked.
+  window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => { if (e.matches) setOpen(false); });
+})();
 </script>
 </body>
 </html>
