@@ -72,3 +72,38 @@ describe('EN/RO structural parity', () => {
     })
   })
 })
+
+// Romanian pages repeatedly shipped English copy left over from the template —
+// whole founder bios, hero paragraphs, form confirmations. This locks the
+// cleanup in: no visible RO string may be byte-identical to its EN counterpart.
+//
+// Post cards on /media are excluded: they hold fixture content that the CMS
+// replaces at build time, so their copy is not translated by hand.
+describe('Romanian pages carry Romanian copy', () => {
+  const FUNCTION_WORDS =
+    /\b(the|and|of|with|for|from|your|our|is|are|to|in|on|at|by|we|you|that|this|it|as|be|have|has|will|would|can|not|but|they|their|its|a|an)\b/i
+
+  function visibleText(filepath) {
+    const doc = loadDoc(filepath)
+    doc.querySelectorAll('script,style,svg,noscript').forEach((el) => el.remove())
+    const out = []
+    const walker = doc.createTreeWalker(doc.body, 4 /* TEXT_NODE */)
+    let node
+    while ((node = walker.nextNode())) {
+      if (node.parentElement?.closest('[data-post]')) continue
+      const text = node.textContent.replace(/\s+/g, ' ').trim()
+      if (text.length > 18) out.push(text)
+    }
+    return out
+  }
+
+  ;['index.html', 'about.html', 'projects.html', 'contact.html', 'media.html'].forEach((page) => {
+    it(`ro/${page} has no untranslated English copy`, () => {
+      const en = new Set(visibleText(page))
+      const untranslated = visibleText(`ro/${page}`).filter(
+        (t) => en.has(t) && FUNCTION_WORDS.test(t),
+      )
+      expect(untranslated).toEqual([])
+    })
+  })
+})
