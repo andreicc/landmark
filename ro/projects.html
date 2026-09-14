@@ -205,7 +205,10 @@ tailwind.config = {
 <!-- ============ HERO ============ -->
 <section class="relative h-screen min-h-[720px] overflow-hidden">
   <div class="absolute inset-0">
-    <img src="/renders/hero.jpg" alt="Landmark 4 — Șoseaua București – Târgoviște 4A" class="hero-img absolute inset-0 w-full h-full object-cover" />
+    <picture>
+      <source type="image/webp" srcset="/renders/hero/hero-800.webp 800w, /renders/hero/hero-1280.webp 1280w, /renders/hero/hero-1920.webp 1920w, /renders/hero/hero-2560.webp 2560w" sizes="100vw">
+      <img src="/renders/hero/hero-1920.jpg" alt="Landmark 4 — Șoseaua București – Târgoviște 4A" loading="eager" decoding="async" fetchpriority="high" class="hero-img absolute inset-0 w-full h-full object-cover" />
+    </picture>
     <div class="absolute inset-0 hero-vignette"></div>
   </div>
 

@@ -194,14 +194,17 @@ tailwind.config = {
 <!-- ============ HERO (full-bleed editorial) ============ -->
 <section class="relative h-screen min-h-[700px] w-full overflow-hidden bg-[#111614]" id="hero">
   <!-- Photograph -->
-  <img
-    class="hero-img absolute inset-0 w-full h-full object-cover"
-    src="/hero-tower.jpg"
-    alt="A signature Landmark tower \u2014 planted facade at first light"
-    loading="eager"
-    decoding="async"
-    fetchpriority="high"
-  />
+  <picture>
+    <source type="image/webp" srcset="/renders/hero/hero-tower-800.webp 800w, /renders/hero/hero-tower-1280.webp 1280w, /renders/hero/hero-tower-1920.webp 1920w, /renders/hero/hero-tower-2560.webp 2560w" sizes="100vw">
+    <img
+      class="hero-img absolute inset-0 w-full h-full object-cover"
+      src="/renders/hero/hero-tower-1920.jpg"
+      alt="A signature Landmark tower \u2014 planted facade at first light"
+      loading="eager"
+      decoding="async"
+      fetchpriority="high"
+    />
+  </picture>
 
   <!-- Readability overlays -->
   <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.20) 30%, rgba(0,0,0,0.15) 55%, rgba(0,0,0,0.75) 100%);"></div>
