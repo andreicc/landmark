@@ -1,8 +1,10 @@
 // One-shot image pipeline for the site's large photography.
 //
-// Two jobs:
+// Three jobs:
 //   gallery — the Landmark 4 renders in source-images/landmark-4/
 //             (3840×2160 JPEGs, 3–13MB each) → public/renders/landmark-4/
+//   plans   — the 23 apartment plates in source-images/plans/
+//             (3032×2312 sales sheets) → public/plans/
 //   heroes  — the full-bleed page heroes in source-images/
 //             (3840×2160 JPEGs) → public/renders/hero/
 //
@@ -45,6 +47,22 @@ const JOBS = [
     widths: [800, 1280, 1920],
     fallbackWidth: 1280,
     manifest: true,
+  },
+  {
+    name: 'plans',
+    srcDir: 'source-images/plans',
+    outDir: 'public/plans',
+    // Apartment plates render at most ~800 CSS px inside the 7/12 column, so
+    // 1920 already covers a 2x display.
+    widths: [800, 1280, 1920],
+    fallbackWidth: 1280,
+    manifest: false,
+    // The delivered sheets carry a Romanian spec panel down the right ~22%.
+    // The page renders those figures itself, in the visitor's language, so
+    // keep only the drawing (plus its floor-plate key) and trim the surrounding
+    // white so every plate fills the frame consistently.
+    cropWidthFraction: 0.775,
+    trim: true,
   },
   {
     name: 'heroes',
@@ -100,16 +118,42 @@ async function runJob(job) {
   await mkdir(outDir, { recursive: true })
   console.log(`\n${job.name} → ${job.outDir}`)
 
+  // Pre-process a source once (crop, then trim) and hand back a buffer every
+  // output can resize from.
+  //
+  // Crop and trim have to run as two pipelines: within a single sharp pipeline
+  // the operations are applied in sharp's own fixed order, not call order, so
+  // trim runs first and the extract window can then overflow the trimmed image
+  // ("extract_area: bad extract area").
+  const preprocess = async (src) => {
+    let buf = src
+    if (job.cropWidthFraction) {
+      const meta = await sharp(src).metadata()
+      buf = await sharp(src)
+        .rotate()
+        .extract({
+          left: 0,
+          top: 0,
+          width: Math.round(meta.width * job.cropWidthFraction),
+          height: meta.height,
+        })
+        .toBuffer()
+    }
+    if (job.trim) buf = await sharp(buf).trim({ threshold: 12 }).toBuffer()
+    return buf
+  }
+
   const manifest = []
   for (const src of sources) {
     const file = basename(src)
     const stem = slugify(basename(file, extname(file)))
     const srcSize = await fileSize(src)
     const entry = { source: file, slug: stem, sizes: {} }
+    const prepared = await preprocess(src)
 
     for (const w of job.widths) {
       const webp = resolve(outDir, `${stem}-${w}.webp`)
-      await sharp(src)
+      await sharp(prepared)
         .rotate()
         .resize({ width: w, withoutEnlargement: true })
         .webp({ quality: WEBP_QUALITY })
@@ -118,7 +162,7 @@ async function runJob(job) {
     }
 
     const fallback = resolve(outDir, `${stem}-${job.fallbackWidth}.jpg`)
-    await sharp(src)
+    await sharp(prepared)
       .rotate()
       .resize({ width: job.fallbackWidth, withoutEnlargement: true })
       .jpeg({ quality: JPG_QUALITY, mozjpeg: true })
