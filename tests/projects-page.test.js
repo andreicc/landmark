@@ -24,8 +24,10 @@ describe('Projects page — structure', () => {
         doc = loadHTML(page)
       })
 
-      it('has the twelve content sections', () => {
-        expect(doc.querySelectorAll('main section').length).toBe(12)
+      it('has the eleven content sections', () => {
+        // Was twelve until the fabricated "Igloo Architecture Review" pull
+        // quote was removed; Igloo is a real magazine and never wrote it.
+        expect(doc.querySelectorAll('main section').length).toBe(11)
       })
 
       it('anchors the five deep-linkable sections', () => {
