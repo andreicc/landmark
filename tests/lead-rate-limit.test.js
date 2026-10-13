@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest'
-import { takeToken, resetRateLimit, WINDOW_MS, MAX_PER_WINDOW } from '../lib/rate-limit.js'
+import { takeToken, resetRateLimit, WINDOW_MS, MAX_PER_WINDOW, MAX_TRACKED_IPS } from '../lib/rate-limit.js'
 
 describe('takeToken', () => {
   beforeEach(() => resetRateLimit())
@@ -33,12 +33,15 @@ describe('takeToken', () => {
     expect(takeToken('5.5.5.5', now + WINDOW_MS + 1).allowed).toBe(true)
   })
 
-  it('stays bounded, and terminates, under more keys than it tracks', () => {
-    // Regression: pruning used to delete-then-reinsert while iterating the
-    // Map, which re-queued the key for the same pass and never terminated.
+  it('stays bounded, and stays fast, under more keys than it tracks', () => {
+    // Two regressions guarded here. Pruning once deleted and reinserted while
+    // iterating the Map, which re-queued each key for the same pass and never
+    // terminated. Then sweeping every key on every call made a flood O(n²).
     const now = 9_000_000
-    for (let i = 0; i < 6000; i += 1) takeToken(`10.0.${i >> 8}.${i & 255}`, now)
-    // Half the entries are now stale, half live — the mix that triggered it.
+    const started = Date.now()
+    const keys = MAX_TRACKED_IPS + 1000
+    for (let i = 0; i < keys; i += 1) takeToken(`10.0.${i >> 8}.${i & 255}`, now)
+    expect(Date.now() - started).toBeLessThan(2000)
     expect(takeToken('10.9.9.9', now + WINDOW_MS / 2).allowed).toBe(true)
     expect(takeToken('10.9.9.9', now + WINDOW_MS + 1).allowed).toBe(true)
   })
