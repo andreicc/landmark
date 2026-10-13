@@ -167,6 +167,13 @@ tailwind.config = {
     font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: rgba(255,255,255,.55); }
   .mobile-nav .mn-meta a { font-size: 12px; padding: 0; border: 0; letter-spacing: .18em; }
   @media (prefers-reduced-motion: reduce) { .mobile-nav { transition: none; } }
+/* ---- Enquiry forms ---- */
+/* Honeypot parked off-screen rather than display:none — a fair number of bots
+   skip anything hidden, and skipping it is exactly what we want humans to do.
+   aria-hidden plus tabindex=-1 keep it out of reach of screen readers too. */
+.lead-trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+/* Server-side rejection, shown per field alongside the sentence under the form. */
+[data-invalid] { border-color: #c0392b !important; }
 </style>
 </head>
 <body data-screen-label="Home — Landmark Realty" data-accent="green" data-density="standard" class="selection:bg-primary/10">
@@ -578,44 +585,50 @@ tailwind.config = {
       </div>
     </div>
     <div class="lg:col-span-7 reveal">
-      <form id="homeForm" class="bg-white/5 border border-white/15 p-10 backdrop-blur-sm">
+      <form id="homeForm" class="bg-white/5 border border-white/15 p-10 backdrop-blur-sm"
+            data-lead-form="homepage" data-success="homeFormSuccess" data-error="homeFormError"
+            data-sending="Sending&hellip;" data-offline="We could not reach the server. Please try again, or email ioana@landmark.com.ro.">
         <div class="grid sm:grid-cols-2 gap-6">
           <div>
             <label class="label text-white/50 mb-2 block" for="first-name">First Name</label>
-            <input id="first-name" required type="text" class="w-full bg-transparent border-b border-white/25 py-3 text-[15px] text-white focus:outline-none focus:border-landmark-gold">
+            <input id="first-name" name="firstName" required type="text" class="w-full bg-transparent border-b border-white/25 py-3 text-[15px] text-white focus:outline-none focus:border-landmark-gold">
           </div>
           <div>
             <label class="label text-white/50 mb-2 block" for="last-name">Last Name</label>
-            <input id="last-name" required type="text" class="w-full bg-transparent border-b border-white/25 py-3 text-[15px] text-white focus:outline-none focus:border-landmark-gold">
+            <input id="last-name" name="lastName" required type="text" class="w-full bg-transparent border-b border-white/25 py-3 text-[15px] text-white focus:outline-none focus:border-landmark-gold">
           </div>
           <div>
             <label class="label text-white/50 mb-2 block" for="email">Email</label>
-            <input id="email" required type="email" class="w-full bg-transparent border-b border-white/25 py-3 text-[15px] text-white focus:outline-none focus:border-landmark-gold">
+            <input id="email" name="email" required type="email" class="w-full bg-transparent border-b border-white/25 py-3 text-[15px] text-white focus:outline-none focus:border-landmark-gold">
           </div>
           <div>
             <label class="label text-white/50 mb-2 block" for="phone">Phone</label>
-            <input id="phone" type="tel" class="w-full bg-transparent border-b border-white/25 py-3 text-[15px] text-white focus:outline-none focus:border-landmark-gold">
+            <input id="phone" name="phone" type="tel" class="w-full bg-transparent border-b border-white/25 py-3 text-[15px] text-white focus:outline-none focus:border-landmark-gold">
           </div>
           <div class="sm:col-span-2">
             <label class="label text-white/50 mb-2 block" for="i-m-interested-in">I'm interested in</label>
-            <select id="i-m-interested-in" class="w-full bg-transparent border-b border-white/25 py-3 text-[15px] text-white focus:outline-none focus:border-landmark-gold">
-              <option class="text-black">Landmark 4 · Tower Residences</option>
-              <option class="text-black">The Willows · Signature Villas</option>
-              <option class="text-black">The Grove · Townhouses</option>
-              <option class="text-black">Undecided — please advise</option>
+            <select id="i-m-interested-in" name="interest" class="w-full bg-transparent border-b border-white/25 py-3 text-[15px] text-white focus:outline-none focus:border-landmark-gold">
+              <option class="text-black" value="landmark-4">Landmark 4 &middot; Tower Residences</option>
+              <option class="text-black" value="future-project">A future Landmark project</option>
+              <option class="text-black" value="undecided">Undecided &mdash; please advise</option>
             </select>
           </div>
           <div class="sm:col-span-2">
             <label class="label text-white/50 mb-2 block" for="message">Message</label>
-            <textarea id="message" rows="3" class="w-full bg-transparent border-b border-white/25 py-3 text-[15px] text-white focus:outline-none focus:border-landmark-gold" placeholder="What should we know before we call?"></textarea>
+            <textarea id="message" name="message" rows="3" maxlength="500" class="w-full bg-transparent border-b border-white/25 py-3 text-[15px] text-white focus:outline-none focus:border-landmark-gold" placeholder="What should we know before we call?"></textarea>
           </div>
+        </div>
+        <div class="lead-trap" aria-hidden="true">
+          <label for="home-company">Company</label>
+          <input id="home-company" name="company" type="text" tabindex="-1" autocomplete="off">
         </div>
         <div class="mt-10 flex flex-wrap items-center justify-between gap-6">
           <label class="flex items-center gap-3 text-[12px] text-white/60">
-            <input type="checkbox" class="rounded border-white/30"> I agree to the Landmark Realty <a href="/privacy" class="underline">privacy policy</a>.
+            <input type="checkbox" name="consent" required class="rounded border-white/30"> I agree to the Landmark Realty <a href="/privacy" class="underline">privacy policy</a>.
           </label>
           <button type="submit" class="btn-solid" style="background:#b59458;">Register Interest <span class="material-symbols-outlined text-[18px]">arrow_forward</span></button>
         </div>
+        <div id="homeFormError" role="alert" class="hidden mt-8 p-5 border border-red-400/40 bg-red-400/10 text-[13px] leading-[1.7] text-red-200"></div>
         <div id="homeFormSuccess" class="hidden mt-8 p-6 border border-landmark-gold/40 bg-landmark-gold/10 text-center">
           <div class="font-headline text-[20px] text-white">Thank you &mdash; your request is received.</div>
           <p class="text-[14px] text-white/70 mt-2">A Landmark advisor will be in touch within one business day.</p>
@@ -644,8 +657,8 @@ tailwind.config = {
         <h5 class="label text-black mb-5">Properties</h5>
         <ul class="space-y-3 text-[12px] text-black/60">
           <li><a href="/projects" class="hover:text-landmark-green">Landmark 4</a></li>
-          <li><a href="/projects" class="hover:text-landmark-green">The Willows</a></li>
-          <li><a href="/projects" class="hover:text-landmark-green">The Grove</a></li>
+          <li><a href="/projects#residences" class="hover:text-landmark-green">Residences</a></li>
+          <li><a href="/projects#plan" class="hover:text-landmark-green">Floor plans</a></li>
         </ul>
       </div>
       <div>
@@ -772,13 +785,6 @@ document.querySelectorAll('.counter').forEach(el => ioC.observe(el));
 })();
 
 // Form
-document.getElementById('homeForm').addEventListener('submit', (e) => {
-  e.preventDefault();
-  document.getElementById('homeFormSuccess').classList.remove('hidden');
-  e.target.querySelectorAll('input, textarea, select').forEach(el => el.disabled = true);
-  e.target.querySelector('button[type=submit]').disabled = true;
-});
-
 // ========== Tweaks ==========
 const panel = document.getElementById('tweaksPanel');
 window.addEventListener('message', (e) => {
@@ -828,5 +834,6 @@ document.querySelectorAll('#heroSeg button').forEach(b => b.addEventListener('cl
   window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => { if (e.matches) setOpen(false); });
 })();
 </script>
+<script src="/js/lead-form.js" defer></script>
 </body>
 </html>
