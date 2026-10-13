@@ -259,21 +259,17 @@ tailwind.config = {
             </a>
           </div>
         </div>
-        <!-- Availability mini-card -->
+        <!-- Project mini-card -->
         <div class="lg:col-span-4 rise d4">
           <div class="bg-white/10 backdrop-blur-md border border-white/15 p-7 text-white">
             <div class="flex items-center justify-between mb-5">
-              <span class="eyebrow text-landmark-gold">Availability</span>
+              <span class="eyebrow text-landmark-gold">The building</span>
               <span class="flex items-center gap-2 text-[11px] uppercase tracking-[0.2em]"><span class="w-2 h-2 rounded-full bg-landmark-gold pulse-dot"></span> </span>
             </div>
             <div class="grid grid-cols-3 divide-x divide-white/20">
               <div class="pr-4"><div class="display text-[40px] leading-none">71</div><div class="label text-white/60 mt-2">Residences</div></div>
-              <div class="px-4"><div class="display text-[40px] leading-none text-landmark-gold">33</div><div class="label text-white/60 mt-2">Available</div></div>
+              <div class="px-4"><div class="display text-[40px] leading-none text-landmark-gold">12</div><div class="label text-white/60 mt-2">Floors</div></div>
               <div class="pl-4"><div class="display text-[40px] leading-none">Q3</div><div class="label text-white/60 mt-2">'27 Handover</div></div>
-            </div>
-            <div class="mt-6 pt-5 border-t border-white/15 flex items-center justify-between text-[11px] uppercase tracking-[0.2em]">
-              <span class="text-white/70">From</span>
-              <span class="font-headline text-[18px] text-white tracking-normal">€185,000</span>
             </div>
           </div>
         </div>
@@ -558,6 +554,12 @@ tailwind.config = {
     </div>
     <div class="grid md:grid-cols-3 gap-8" id="homeJournalGrid">
 <!-- LATEST_JOURNAL -->
+    </div>
+    <!-- Shown while the journal has no posts. Delete this block once
+         real entries exist; the grid above fills itself from the CMS. -->
+    <div class="bg-white border border-black/5 p-10 text-center reveal">
+      <p class="text-[15px] leading-[1.85] text-black/60">The field journal opens soon &mdash; dispatches from the Landmark 4 site as the building goes up.</p>
+      <a href="/media" class="mt-5 inline-flex items-center gap-2 label text-landmark-green hover:text-landmark-gold">The journal <span class="material-symbols-outlined text-[16px]">arrow_forward</span></a>
     </div>
   </div>
 </section>

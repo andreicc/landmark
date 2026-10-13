@@ -108,8 +108,6 @@ tailwind.config = {
   .type-chip.active, .sub-chip.active { background: var(--primary); border-color: var(--primary); color: #fff; }
   .type-chip.active *, .sub-chip.active * { color: #fff; opacity: 0.8; }
   .sub-chip .sold { margin-left: 10px; font-size: 9px; opacity: 0.6; letter-spacing: 0.12em; }
-  .sub-chip[data-status="sold"] { opacity: 0.45; }
-  .sub-chip[data-status="sold"]:hover { border-color: rgba(0,0,0,0.12); color: #333; }
   .icon-btn { width: 36px; height: 36px; display:inline-flex; align-items:center; justify-content:center; border: 1px solid rgba(0,0,0,0.12); background: #fff; cursor:pointer; transition: all .2s; border-radius: 4px; color: #333; }
   .icon-btn:hover { border-color: var(--accent); color: var(--accent); }
 
@@ -322,7 +320,7 @@ tailwind.config = {
       </svg>
       <div>
         <div class="label text-black/50 mb-1">Landmark Series</div>
-        <div class="font-headline text-[22px] leading-none text-black">The Fourth Tower</div>
+        <div class="font-headline text-[22px] leading-none text-black">Landmark 4</div>
       </div>
     </div>
     <div>
@@ -340,7 +338,7 @@ tailwind.config = {
     </div>
     <div>
       <div class="label text-black/50 mb-1">Architect</div>
-      <div class="font-headline text-[15px] text-black leading-tight">Landmark Atelier<br><span class="text-black/60">with Șerban Tiganas Studio</span></div>
+      <div class="font-headline text-[15px] text-black leading-tight">Vlad Balosin<br><span class="text-black/60">Maetrik</span></div>
     </div>
     <div class="flex gap-3 justify-start md:justify-end">
       <a href="/brochure/landmark-4-brochure.pdf" download class="btn-outline" style="height:42px; padding:0 22px; font-size:11px;" aria-label="Download the Landmark 4 brochure (PDF, 11 MB)"><span class="material-symbols-outlined text-[16px]">download</span> Brochure</a>
@@ -356,16 +354,12 @@ tailwind.config = {
       <h2 class="section-title">An <span class="gilt">iconic</span> silhouette above the forest.</h2>
     </div>
     <div class="lg:col-span-7 reveal">
-      <p class="text-[17px] leading-[1.85] text-black/75 font-light">
-        Landmark 4 is the brand's most elevated work to date &mdash; and its fourth tower. Set on a private 1.8-hectare parcel along Drumul București – Târgoviște, the building rises as a single tapered volume, clad in hand-finished travertine and bronze-anodised fins, with a sculpted crown that reads as quietly from Piața Presei as it does from the Băneasa forest line.
-      </p>
-      <p class="mt-6 text-[16px] leading-[1.85] text-black/65 font-light">
-        Inside, seventy-one residences are arranged across five typologies &mdash; studios, two- and three-room apartments, and four duplex penthouses crowning the building. Private service corridors that never cross residents' paths, oak joinery and nine-metre panoramic terraces are the standard, not the premium.
-      </p>
+      <p class="text-[17px] leading-[1.85] text-black/75 font-light">Landmark 4 rises twelve floors on &#536;oseaua Bucure&#537;ti &ndash; T&#226;rgovi&#537;te, in the Str&#259;ule&#537;ti corridor north of Bucharest. It is a single curved volume, its fa&ccedil;ade drawn in slender vertical fins threaded with planting, so the building reads as green from the street as it does from the lake path below. Four-lane road access, Str&#259;ule&#537;ti metro and the DN1 and A0 interchanges put both airports and the city centre within easy reach.</p>
+      <p class="mt-6 text-[16px] leading-[1.85] text-black/65 font-light">Inside, seventy-one residences are arranged across five typologies &mdash; two-room studios, two- and three-room apartments, and four- and five-room duplexes, the four duplexes occupying the top two floors. Ground-floor commercial space anchors the building to its street, the apartments are built to an energy-efficient standard, and the open ground around them is planted rather than paved.</p>
       <div class="mt-10 grid sm:grid-cols-3 gap-6 pt-10 border-t border-black/10">
         <div><div class="display text-[44px] leading-none text-landmark-green">12</div><div class="label text-black/60 mt-2">Storeys</div></div>
         <div><div class="display text-[44px] leading-none text-landmark-green">71</div><div class="label text-black/60 mt-2">Residences</div></div>
-        <div><div class="display text-[44px] leading-none text-landmark-green">1.8<span class="text-[18px] align-super">ha</span></div><div class="label text-black/60 mt-2">Private Grounds</div></div>
+        <div><div class="display text-[44px] leading-none text-landmark-green">5</div><div class="label text-black/60 mt-2">Typologies</div></div>
       </div>
     </div>
   </div>
@@ -517,9 +511,7 @@ tailwind.config = {
         <h2 class="section-title text-white">Choose your <span class="serif-italic text-landmark-gold">altitude</span>.</h2>
       </div>
       <div class="flex items-center gap-6 text-white/70 text-[11px] uppercase tracking-[0.22em]">
-        <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full border border-landmark-gold/80"></span>Available</span>
         <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full bg-landmark-gold/60"></span>Selected</span>
-        <span class="flex items-center gap-2"><span class="w-3 h-3 rounded-full border border-white/20 bg-white/10"></span>Sold</span>
       </div>
     </div>
     <div class="grid lg:grid-cols-12 gap-10 items-center">
@@ -607,11 +599,10 @@ tailwind.config = {
         <p class="text-white/75 leading-[1.85] max-w-xl" id="floorDescription">
           Seven residences per floor — three studios, three two-room apartments and one three-room apartment. Usable areas 47.35 – 84.31 m².
         </p>
-        <div class="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-6 pt-8 border-t border-white/15">
+        <div class="mt-8 grid grid-cols-2 sm:grid-cols-3 gap-6 pt-8 border-t border-white/15">
           <div><div class="label text-white/50">Altitude</div><div class="font-headline text-[20px] mt-2" id="floorAlt">17m</div></div>
           <div><div class="label text-white/50">Residences</div><div class="font-headline text-[20px] mt-2" id="floorUnits">7</div></div>
           <div><div class="label text-white/50">Area</div><div class="font-headline text-[20px] mt-2" id="floorArea">47.35 – 84.31 m²</div></div>
-          <div><div class="label text-white/50">Status</div><div class="font-headline text-[20px] mt-2 text-landmark-gold" id="floorStatus">Available</div></div>
         </div>
         <div class="mt-10 flex flex-wrap gap-3">
           <a href="#plan" class="btn-outline on-dark" style="height:44px;">View Plan</a>
@@ -960,17 +951,6 @@ tailwind.config = {
   </div>
 </section>
 
-<!-- ============ PRESS QUOTE ============ -->
-<section class="py-24" style="background:#0e1512;">
-  <div class="max-w-[1040px] mx-auto px-6 lg:px-10 text-center text-white">
-    <span class="serif-italic text-landmark-gold" style="font-size: 80px; line-height: 0.5;">“</span>
-    <blockquote class="mt-6 display leading-[1.35] text-white" style="font-size: clamp(24px, 2.8vw, 40px);">
-      The most <span class="serif-italic text-landmark-gold">restrained</span> high-rise built in Bucharest in a decade — a building that works by subtraction.
-    </blockquote>
-    <div class="mt-10 label text-landmark-gold">Igloo Architecture Review · Spring 2026</div>
-  </div>
-</section>
-
 <!-- ============ INQUIRY ============ -->
 <section class="py-24 bg-white" id="inquiry">
   <div class="max-w-[1280px] mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-16">
@@ -1209,21 +1189,21 @@ vineCols.forEach((cx, idx) => {
 // Floor stack, derived from the developer's sales drawings.
 // Floors 1-7 repeat a 7-unit plate; 8-9 and 10 repeat a 6-unit plate;
 // the four duplexes occupy floors 11 and 12 together.
-// NOTE: availability is not in the drawings - every floor is marked
-// available until real sales data is wired in.
+// Unit availability and pricing are deliberately absent: the site does not
+// hold that data, and enquiries route through the form instead.
 const FLOOR_TYPES = {
-  12: { label:'Duplex Residences', title:'Level 12 · Duplex · upper level', units:4, area:'162.15 – 185.78 m²', status:'available', desc:'Upper level of the same four duplexes — the bedroom floor above the living level.' },
-  11: { label:'Duplex Residences', title:'Level 11 · Duplex · lower level', units:4, area:'162.15 – 185.78 m²', status:'available', desc:'Lower level of the four duplex residences, which occupy floors 11 and 12 together. Usable areas 162.15 – 185.78 m².' },
-  10: { label:'Apartments · 2 & 3 rooms', title:'Level 10 · Units 10.1 – 10.6', units:6, area:'48.71 – 98.58 m²', status:'available', desc:'Six residences — two studios, one two-room apartment and three three-room apartments. Usable areas 48.71 – 98.58 m².' },
-  9: { label:'Apartments · 2 & 3 rooms', title:'Level 09 · Units 9.1 – 9.6', units:6, area:'48.71 – 98.15 m²', status:'available', desc:'Six residences per floor — two studios, one two-room apartment and three three-room apartments. Usable areas 48.71 – 98.15 m².' },
-  8: { label:'Apartments · 2 & 3 rooms', title:'Level 08 · Units 8.1 – 8.6', units:6, area:'48.71 – 98.15 m²', status:'available', desc:'Six residences per floor — two studios, one two-room apartment and three three-room apartments. Usable areas 48.71 – 98.15 m².' },
-  7: { label:'Studios & Apartments', title:'Level 07 · Units 7.1 – 7.7', units:7, area:'47.35 – 84.31 m²', status:'available', desc:'Seven residences per floor — three studios, three two-room apartments and one three-room apartment. Usable areas 47.35 – 84.31 m².' },
-  6: { label:'Studios & Apartments', title:'Level 06 · Units 6.1 – 6.7', units:7, area:'47.35 – 84.31 m²', status:'available', desc:'Seven residences per floor — three studios, three two-room apartments and one three-room apartment. Usable areas 47.35 – 84.31 m².' },
-  5: { label:'Studios & Apartments', title:'Level 05 · Units 5.1 – 5.7', units:7, area:'47.35 – 84.31 m²', status:'available', desc:'Seven residences per floor — three studios, three two-room apartments and one three-room apartment. Usable areas 47.35 – 84.31 m².' },
-  4: { label:'Studios & Apartments', title:'Level 04 · Units 4.1 – 4.7', units:7, area:'47.35 – 84.31 m²', status:'available', desc:'Seven residences per floor — three studios, three two-room apartments and one three-room apartment. Usable areas 47.35 – 84.31 m².' },
-  3: { label:'Studios & Apartments', title:'Level 03 · Units 3.1 – 3.7', units:7, area:'47.35 – 84.31 m²', status:'available', desc:'Seven residences per floor — three studios, three two-room apartments and one three-room apartment. Usable areas 47.35 – 84.31 m².' },
-  2: { label:'Studios & Apartments', title:'Level 02 · Units 2.1 – 2.7', units:7, area:'47.35 – 84.31 m²', status:'available', desc:'Seven residences per floor — three studios, three two-room apartments and one three-room apartment. Usable areas 47.35 – 84.31 m².' },
-  1: { label:'Studios & Apartments', title:'Level 01 · Units 1.1 – 1.7', units:7, area:'47.35 – 84.31 m²', status:'available', desc:'Seven residences per floor — three studios, three two-room apartments and one three-room apartment. Usable areas 47.35 – 84.31 m².' },
+  12: { label:'Duplex Residences', title:'Level 12 · Duplex · upper level', units:4, area:'162.15 – 185.78 m²', desc:'Upper level of the same four duplexes — the bedroom floor above the living level.' },
+  11: { label:'Duplex Residences', title:'Level 11 · Duplex · lower level', units:4, area:'162.15 – 185.78 m²', desc:'Lower level of the four duplex residences, which occupy floors 11 and 12 together. Usable areas 162.15 – 185.78 m².' },
+  10: { label:'Apartments · 2 & 3 rooms', title:'Level 10 · Units 10.1 – 10.6', units:6, area:'48.71 – 98.58 m²', desc:'Six residences — two studios, one two-room apartment and three three-room apartments. Usable areas 48.71 – 98.58 m².' },
+  9: { label:'Apartments · 2 & 3 rooms', title:'Level 09 · Units 9.1 – 9.6', units:6, area:'48.71 – 98.15 m²', desc:'Six residences per floor — two studios, one two-room apartment and three three-room apartments. Usable areas 48.71 – 98.15 m².' },
+  8: { label:'Apartments · 2 & 3 rooms', title:'Level 08 · Units 8.1 – 8.6', units:6, area:'48.71 – 98.15 m²', desc:'Six residences per floor — two studios, one two-room apartment and three three-room apartments. Usable areas 48.71 – 98.15 m².' },
+  7: { label:'Studios & Apartments', title:'Level 07 · Units 7.1 – 7.7', units:7, area:'47.35 – 84.31 m²', desc:'Seven residences per floor — three studios, three two-room apartments and one three-room apartment. Usable areas 47.35 – 84.31 m².' },
+  6: { label:'Studios & Apartments', title:'Level 06 · Units 6.1 – 6.7', units:7, area:'47.35 – 84.31 m²', desc:'Seven residences per floor — three studios, three two-room apartments and one three-room apartment. Usable areas 47.35 – 84.31 m².' },
+  5: { label:'Studios & Apartments', title:'Level 05 · Units 5.1 – 5.7', units:7, area:'47.35 – 84.31 m²', desc:'Seven residences per floor — three studios, three two-room apartments and one three-room apartment. Usable areas 47.35 – 84.31 m².' },
+  4: { label:'Studios & Apartments', title:'Level 04 · Units 4.1 – 4.7', units:7, area:'47.35 – 84.31 m²', desc:'Seven residences per floor — three studios, three two-room apartments and one three-room apartment. Usable areas 47.35 – 84.31 m².' },
+  3: { label:'Studios & Apartments', title:'Level 03 · Units 3.1 – 3.7', units:7, area:'47.35 – 84.31 m²', desc:'Seven residences per floor — three studios, three two-room apartments and one three-room apartment. Usable areas 47.35 – 84.31 m².' },
+  2: { label:'Studios & Apartments', title:'Level 02 · Units 2.1 – 2.7', units:7, area:'47.35 – 84.31 m²', desc:'Seven residences per floor — three studios, three two-room apartments and one three-room apartment. Usable areas 47.35 – 84.31 m².' },
+  1: { label:'Studios & Apartments', title:'Level 01 · Units 1.1 – 1.7', units:7, area:'47.35 – 84.31 m²', desc:'Seven residences per floor — three studios, three two-room apartments and one three-room apartment. Usable areas 47.35 – 84.31 m².' },
 };
 
 // Draw floor bands on oval tower (floor 1 at bottom, 11 at top)
@@ -1261,8 +1241,6 @@ for (let f = 1; f <= FLOORS; f++) {
   rect.setAttribute('width', w);
   rect.setAttribute('height', BAND_H - 0.5);
   const cls = ['floor-band'];
-  if (info.status === 'sold') cls.push('sold');
-  if (info.status === 'locked') cls.push('sold');
   if (f === 6) cls.push('active');
   rect.setAttribute('class', cls.join(' '));
   rect.dataset.floor = f;
@@ -1277,7 +1255,7 @@ for (let f = 1; f <= FLOORS; f++) {
   txt.setAttribute('font-family', 'Lato');
   txt.setAttribute('font-size', '8');
   txt.setAttribute('letter-spacing', '1');
-  txt.setAttribute('fill', info.status==='sold' ? 'rgba(255,255,255,0.25)' : 'rgba(181,148,88,0.85)');
+  txt.setAttribute('fill', 'rgba(181,148,88,0.85)');
   txt.textContent = String(f).padStart(2,'0');
   bandG.appendChild(txt);
 
@@ -1287,7 +1265,6 @@ for (let f = 1; f <= FLOORS; f++) {
 function selectFloor(r) {
   const f = parseInt(r.dataset.floor, 10);
   const info = FLOOR_TYPES[f];
-  if (info.status === 'sold' || info.status === 'locked') return;
   document.querySelectorAll('.floor-band').forEach(b => b.classList.remove('active'));
   r.classList.add('active');
   document.getElementById('floorNumber').textContent = String(f).padStart(2,'0');
@@ -1296,8 +1273,6 @@ function selectFloor(r) {
   document.getElementById('floorUnits').textContent = info.units;
   document.getElementById('floorArea').textContent = info.area;
   document.getElementById('floorAlt').textContent = r.dataset.altitude + 'm';
-  const status = info.status === 'available' ? 'Available' : info.status === 'sold' ? 'Sold' : 'N/A';
-  document.getElementById('floorStatus').textContent = status;
   document.getElementById('floorDescription').textContent = info.desc;
 }
 
