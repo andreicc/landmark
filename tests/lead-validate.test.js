@@ -132,6 +132,42 @@ describe('validateLead — normalisation', () => {
     expect(lead.source).toBe('homepage')
   })
 
+  it('collapses newlines in single-line fields', () => {
+    // Confirmed defect before this: a newline in `phone` forged an extra row
+    // in the plain-text notification, e.g. "123\nEmail  ceo@bank.com" read as
+    // a second email address. Names feed the subject, which is a mail header.
+    const { lead } = validateLead({
+      ...valid,
+      firstName: 'Eve\r\nBcc: attacker@evil.com',
+      phone: '123\nEmail         ceo@bank.com',
+    })
+    expect(lead.firstName).toBe('Eve Bcc: attacker@evil.com')
+    expect(lead.phone).toBe('123 Email ceo@bank.com')
+    expect(`${lead.firstName}${lead.phone}`).not.toMatch(/[\r\n]/)
+  })
+
+  it('strips control characters without flattening the message', () => {
+    // The message is a textarea, so its newlines are meaningful and kept.
+    const { lead } = validateLead({ ...valid, message: 'line1\r\nline2\u0000\u2028' })
+    expect(lead.message).toBe('line1\nline2')
+  })
+
+  it('refuses slugs inherited from Object.prototype', () => {
+    // A bare table[key] lookup accepts __proto__, toString and friends, which
+    // then render as "[object Object]" in the notification.
+    const { lead } = validateLead({
+      ...valid,
+      source: '__proto__',
+      interest: 'toString',
+      reason: 'constructor',
+      channel: 'hasOwnProperty',
+    })
+    expect(lead.source).toBe('contact')
+    expect(lead.interest).toBe('')
+    expect(lead.reason).toBe('')
+    expect(lead.channel).toBe('')
+  })
+
   it('does not mutate the body it was given', () => {
     const body = { ...valid, firstName: '  Ana  ' }
     const snapshot = JSON.stringify(body)

@@ -3,8 +3,10 @@ import handler from '../api/inquiry.js'
 import { resetRateLimit } from '../lib/rate-limit.js'
 
 // A stand-in for Vercel's req/res pair, narrow enough to stay readable.
-function mockReq({ method = 'POST', body = {}, ip = '198.51.100.7' } = {}) {
-  return { method, body, headers: { 'x-forwarded-for': ip }, socket: {} }
+function mockReq({ method = 'POST', body = {}, ip = '198.51.100.7', contentType = 'application/json' } = {}) {
+  const headers = { 'x-forwarded-for': ip }
+  if (contentType !== null) headers['content-type'] = contentType
+  return { method, body, headers, socket: {} }
 }
 
 function mockRes() {
@@ -66,11 +68,27 @@ describe('POST /api/inquiry', () => {
     expect(fetchMock).not.toHaveBeenCalled()
   })
 
-  it('sends the lead and reports the provider id', async () => {
+  it('sends the lead and confirms receipt', async () => {
     const res = await call({ body: valid, ip: freshIp() })
     expect(res.statusCode).toBe(200)
-    expect(res.body).toEqual({ ok: true, data: { received: true, id: 'email_123' }, error: null })
+    // The provider's message id is of no use to a visitor, so it stays internal.
+    expect(res.body).toEqual({ ok: true, data: { received: true }, error: null })
     expect(fetchMock).toHaveBeenCalledOnce()
+  })
+
+  it('accepts only JSON, so a cross-origin simple request cannot reach it', async () => {
+    // text/plain needs no CORS preflight, so without this a third-party page
+    // could make a visitor's browser post leads and burn their quota.
+    for (const contentType of ['text/plain', 'application/x-www-form-urlencoded', null]) {
+      const res = await call({ body: valid, ip: freshIp(), contentType })
+      expect(res.statusCode, `content-type ${contentType}`).toBe(415)
+    }
+    expect(fetchMock).not.toHaveBeenCalled()
+  })
+
+  it('tolerates a null JSON body instead of throwing', async () => {
+    const res = await call({ body: 'null', ip: freshIp() })
+    expect(res.statusCode).toBe(400)
   })
 
   it('addresses the sales inbox and copies the office and the owner', async () => {
@@ -139,6 +157,14 @@ describe('POST /api/inquiry', () => {
     expect(res.statusCode).toBe(400)
   })
 
+  it('rejects slugs inherited from Object.prototype', async () => {
+    // A bare table[key] lookup would let `__proto__` or `toString` through and
+    // land "[object Object]" in the subject line.
+    await call({ body: { ...valid, source: '__proto__', interest: 'toString' }, ip: freshIp() })
+    const sent = JSON.parse(fetchMock.mock.calls[0][1].body)
+    expect(sent.subject).not.toMatch(/object Object|native code/)
+  })
+
   it('throttles a flood from one address', async () => {
     const ip = freshIp()
     for (let i = 0; i < 5; i += 1) {
@@ -148,6 +174,44 @@ describe('POST /api/inquiry', () => {
     expect(blocked.statusCode).toBe(429)
     expect(Number(blocked.headers['Retry-After'])).toBeGreaterThan(0)
     expect(fetchMock).toHaveBeenCalledTimes(5)
+  })
+
+  it('does not spend quota on submissions that never get sent', async () => {
+    // Five typos, or a few people behind one office NAT, should not lock the
+    // form for ten minutes. The scarce resource is the outbound email.
+    const ip = freshIp()
+    for (let i = 0; i < 8; i += 1) {
+      expect((await call({ body: { firstName: 'Ana' }, ip })).statusCode).toBe(400)
+    }
+    expect((await call({ body: valid, ip })).statusCode).toBe(200)
+  })
+
+  it('does not spend quota on honeypot hits', async () => {
+    const ip = freshIp()
+    for (let i = 0; i < 8; i += 1) {
+      await call({ body: { ...valid, company: 'Acme' }, ip })
+    }
+    expect((await call({ body: valid, ip })).statusCode).toBe(200)
+  })
+
+  it('buckets IPv6 callers by /64, which is what gets handed to one subscriber', async () => {
+    // The low 64 bits rotate for free, so a per-/128 bucket throttles nobody.
+    const base = '2001:db8:1234:5678'
+    for (let i = 0; i < 5; i += 1) {
+      expect((await call({ body: valid, ip: `${base}::${i + 1}` })).statusCode).toBe(200)
+    }
+    const sameSubnet = await call({ body: valid, ip: `${base}:ffff:ffff:ffff:ffff` })
+    expect(sameSubnet.statusCode).toBe(429)
+    // A different /64 is a different subscriber.
+    const elsewhere = await call({ body: valid, ip: '2001:db8:1234:9999::1' })
+    expect(elsewhere.statusCode).toBe(200)
+  })
+
+  it('treats an empty LEAD_CC as "copy nobody", not as "use the default"', async () => {
+    process.env.LEAD_CC = ''
+    await call({ body: valid, ip: freshIp() })
+    const sent = JSON.parse(fetchMock.mock.calls[0][1].body)
+    expect(sent.cc).toBeUndefined()
   })
 
   describe('when the provider fails', () => {

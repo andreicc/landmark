@@ -62,7 +62,9 @@
       el.removeAttribute('aria-invalid')
     })
     ;(fields || []).forEach((name) => {
-      const field = form.querySelector(`[name="${name}"]`)
+      if (typeof name !== 'string') return
+      const escaped = window.CSS && window.CSS.escape ? window.CSS.escape(name) : name
+      const field = form.querySelector(`[name=${escaped}]`)
       if (!field) return
       field.setAttribute('data-invalid', '')
       field.setAttribute('aria-invalid', 'true')

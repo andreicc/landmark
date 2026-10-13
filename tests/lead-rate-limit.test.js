@@ -33,6 +33,16 @@ describe('takeToken', () => {
     expect(takeToken('5.5.5.5', now + WINDOW_MS + 1).allowed).toBe(true)
   })
 
+  it('stays bounded, and terminates, under more keys than it tracks', () => {
+    // Regression: pruning used to delete-then-reinsert while iterating the
+    // Map, which re-queued the key for the same pass and never terminated.
+    const now = 9_000_000
+    for (let i = 0; i < 6000; i += 1) takeToken(`10.0.${i >> 8}.${i & 255}`, now)
+    // Half the entries are now stale, half live — the mix that triggered it.
+    expect(takeToken('10.9.9.9', now + WINDOW_MS / 2).allowed).toBe(true)
+    expect(takeToken('10.9.9.9', now + WINDOW_MS + 1).allowed).toBe(true)
+  })
+
   it('lets a slow trickle through indefinitely', () => {
     const spacing = WINDOW_MS / 2
     for (let i = 0; i < 20; i += 1) {

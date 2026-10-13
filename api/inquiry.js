@@ -28,6 +28,7 @@ const MESSAGES = Object.freeze({
     rate: 'That is a few more messages than we can take at once. Please try again shortly.',
     server: 'We could not send your message. Please email ioana@landmark.com.ro directly.',
     method: 'Method not allowed.',
+    unsupported: 'Unsupported content type.',
   },
   ro: {
     invalid: 'Vă rugăm să verificați câmpurile marcate și să încercați din nou.',
@@ -35,32 +36,43 @@ const MESSAGES = Object.freeze({
     rate: 'Am primit prea multe mesaje deodată. Vă rugăm să încercați din nou în scurt timp.',
     server: 'Nu am putut trimite mesajul. Vă rugăm să scrieți direct la ioana@landmark.com.ro.',
     method: 'Metodă nepermisă.',
+    unsupported: 'Tip de conținut nepermis.',
   },
 })
 
 const copy = (locale) => MESSAGES[locale === 'ro' ? 'ro' : 'en']
 
 const splitList = (value) =>
-  String(value || '')
+  String(value ?? '')
     .split(',')
     .map((s) => s.trim())
     .filter(Boolean)
 
 // Vercel sits behind a proxy, so the socket address is the proxy's. The
-// left-most x-forwarded-for entry is the client as the platform saw it.
-function clientIp(req) {
+// left-most x-forwarded-for entry is the client as the platform saw it, and
+// the platform overwrites the header rather than appending to it.
+//
+// IPv6 is bucketed by /64: an address is handed out per-interface and the low
+// 64 bits rotate for free, so throttling a full /128 throttles nobody.
+function rateLimitKey(req) {
   const forwarded = req.headers['x-forwarded-for']
-  if (typeof forwarded === 'string' && forwarded.length) return forwarded.split(',')[0].trim()
-  return req.socket?.remoteAddress || 'unknown'
+  const address =
+    typeof forwarded === 'string' && forwarded.length
+      ? forwarded.split(',')[0].trim()
+      : req.socket?.remoteAddress || 'unknown'
+  if (!address.includes(':')) return address
+  return address.split(':').slice(0, 4).join(':') + '::/64'
 }
 
-// Vercel parses JSON bodies for us, but a raw string arrives when the
-// content-type is anything else — handle both rather than throwing.
+// Vercel parses JSON bodies for us, but a raw string arrives when the platform
+// declines to — handle both. Anything that is not an object becomes {} so the
+// validator reports missing fields instead of the handler throwing on `null`.
 function parseBody(req) {
   if (req.body && typeof req.body === 'object') return req.body
   if (typeof req.body === 'string') {
     try {
-      return JSON.parse(req.body)
+      const parsed = JSON.parse(req.body)
+      return parsed && typeof parsed === 'object' ? parsed : {}
     } catch {
       return {}
     }
@@ -68,21 +80,24 @@ function parseBody(req) {
   return {}
 }
 
+const isJson = (req) => String(req.headers['content-type'] || '').includes('application/json')
+
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     res.setHeader('Allow', 'POST')
     return res.status(405).json({ ok: false, data: null, error: copy('en').method })
   }
 
+  // Requiring JSON forces a CORS preflight on cross-origin callers, which
+  // fails. Without it, a third-party page could make a visitor's browser post
+  // leads with text/plain — no preflight needed — and burn their quota.
+  if (!isJson(req)) {
+    return res.status(415).json({ ok: false, data: null, error: copy('en').unsupported })
+  }
+
   const body = parseBody(req)
   const locale = body.locale === 'ro' ? 'ro' : 'en'
   const t = copy(locale)
-
-  const { allowed, retryAfterSeconds } = takeToken(clientIp(req))
-  if (!allowed) {
-    res.setHeader('Retry-After', String(retryAfterSeconds))
-    return res.status(429).json({ ok: false, data: null, error: t.rate })
-  }
 
   const { ok, discard, errors, lead } = validateLead(body)
 
@@ -99,18 +114,27 @@ export default async function handler(req, res) {
     })
   }
 
+  const { allowed, retryAfterSeconds } = takeToken(rateLimitKey(req))
+  if (!allowed) {
+    res.setHeader('Retry-After', String(retryAfterSeconds))
+    return res.status(429).json({ ok: false, data: null, error: t.rate })
+  }
+
   try {
-    const { id } = await sendEmail({
+    await sendEmail({
       apiKey: process.env.RESEND_API_KEY,
       from: process.env.LEAD_FROM || DEFAULTS.from,
       to: splitList(process.env.LEAD_TO || DEFAULTS.to),
-      cc: splitList(process.env.LEAD_CC || DEFAULTS.cc),
+      // `??` not `||`: an explicitly empty LEAD_CC means "copy nobody", which
+      // is a legitimate thing to want. `to` and `from` keep `||`, because an
+      // empty value there would just stop the lead reaching anyone.
+      cc: splitList(process.env.LEAD_CC ?? DEFAULTS.cc),
       replyTo: lead.email,
       subject: subjectFor(lead),
       text: textFor(lead),
       html: htmlFor(lead),
     })
-    return res.status(200).json({ ok: true, data: { received: true, id }, error: null })
+    return res.status(200).json({ ok: true, data: { received: true }, error: null })
   } catch (err) {
     // Log the detail for us; return something a visitor can act on. The
     // fallback address matters — a silent failure loses the lead entirely.
